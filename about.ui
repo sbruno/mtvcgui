@@ -1,0 +1,78 @@
+<ui version="4.0" >
+ <class>AboutDialog</class>
+ <widget class="QDialog" name="AboutDialog" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle" >
+   <string>About mtvcgui</string>
+  </property>
+  <widget class="QPushButton" name="pushButton" >
+   <property name="geometry" >
+    <rect>
+     <x>270</x>
+     <y>255</y>
+     <width>95</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text" >
+    <string>Close</string>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="textEdit" >
+   <property name="geometry" >
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>381</width>
+     <height>241</height>
+    </rect>
+   </property>
+   <property name="html" >
+    <string>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
+&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
+p, li { white-space: pre-wrap; }
+&lt;/style>&lt;/head>&lt;body style=" font-family:'Sans Serif'; font-size:10pt; font-weight:400; font-style:normal;">
+&lt;p align="center" style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-size:14pt; font-weight:600;">mtvcgui* v0.1&lt;/span>&lt;/p>
+&lt;p align="center" style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:14pt; font-weight:600;">&lt;span style=" font-size:12pt; font-weight:400; font-style:italic;">mencoder TV capture GUI&lt;/span>&lt;/p>
+&lt;p align="center" style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt; font-style:italic;">&lt;/p>
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt; font-style:italic;">&lt;span style=" font-size:10pt; font-style:normal;">A simple frontend for using mencoder as a TV capture program.&lt;/span>&lt;/p>
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Written by Santiago Bruno using python PyQt4 and Qtdesigner.&lt;/p>
+&lt;p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;/p>
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Licensed under GPL v3:&lt;/p>
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;a href="http://www.gnu.org/licenses/gpl-3.0.html">&lt;span style=" text-decoration: underline; color:#0000ff;">http://www.gnu.org/licenses/gpl-3.0.html&lt;/span>&lt;/a>&lt;/p>
+&lt;p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;/p>
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">More info on:&lt;/p>
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;a href="http://www.santiagobruno.com.ar/programas.html">&lt;span style=" text-decoration: underline; color:#0000ff;">http://www.santiagobruno.com.ar/programas.html&lt;/span>&lt;/a>&lt;/p>
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;a href="http://code.google.com/p/mtvcgui/">&lt;span style=" text-decoration: underline; color:#0000ff;">http://code.google.com/p/mtvcgui/&lt;/span>&lt;/a>&lt;/p>
+&lt;p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;/p>
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">* This program doesn't deserve a creative name. Other more interesting projects may then find their name already taken by this one! Besides, mtvcgui had no hits in google, and I want to be unique :D&lt;/p>&lt;/body>&lt;/html></string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>AboutDialog</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>311</x>
+     <y>267</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>171</x>
+     <y>136</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

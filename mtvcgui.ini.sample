@@ -1,0 +1,27 @@
+[mencoder GUI]
+tvwidth = 640
+noskip = True
+duration = 
+audiocodec = 3
+outputfile = ./mencoder_tv_capture.avi
+lavc_videocodec = mpeg4
+extrafilters = pp=hb/vb/dr/al/lb
+audiorate = 48000
+lavc_videobitrate = 3000
+input = 0
+norm = 11
+extratvparms = 
+scalewidth = 640
+videocodec = 2
+driver = 0
+extramencoderparms = -mc 0
+lavc_audiobitrate = 128
+device = /dev/video0
+scaleheight = 480
+ofps = 25
+quiet = True
+tvheight = 480
+channel = 22
+chanlist = 0
+lavc_audiocodec = mp3
+
