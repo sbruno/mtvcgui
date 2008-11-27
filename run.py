@@ -7,6 +7,7 @@
 
 #python imports
 import ConfigParser
+import locale
 import os
 import sys
 from subprocess import Popen
@@ -18,6 +19,28 @@ from PyQt4 import QtCore, QtGui
 from about import Ui_AboutDialog
 from file_exists import Ui_FileExistsDialog
 from mtvcgui import Ui_MainWindow
+
+
+def findTranslation(prefix='', tr_dir='i18n'):
+    """Function to find a translation file in a directory and install it to an app
+    """
+    #try with country specific locale (e.g.: es_AR)
+    lang = locale.getdefaultlocale()[0]
+    if lang:
+        tr_path = os.path.join(tr_dir, prefix + lang + '.qm')
+
+        if not os.path.exists(tr_path):
+            #try with generic locale (e.g.: es)
+            lang = lang.split('_')[0]
+            tr_path = os.path.join(tr_dir, prefix + lang + '.qm')
+            if not os.path.exists(tr_path):
+                #don't translate
+                tr_path = ''
+    else:
+        tr_path = ''
+
+    return tr_path
+
 
 
 
@@ -452,6 +475,13 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
 
 if __name__ == '__main__':
     app = QtGui.QApplication(sys.argv)
+
+    translation = findTranslation()
+    if translation:
+        appTranslator = QtCore.QTranslator()
+        appTranslator.load(translation)
+        app.installTranslator(appTranslator)
+
     win = MainWindow()
     win.show()
     sys.exit(app.exec_())
