@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'mtvcgui.ui'
 #
-# Created: Wed Nov 26 01:09:04 2008
+# Created: Thu Nov 27 03:47:24 2008
 #      by: PyQt4 UI code generator 4.4.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -16,16 +16,16 @@ class Ui_MainWindow(object):
         self.centralwidget = QtGui.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.runButton = QtGui.QPushButton(self.centralwidget)
-        self.runButton.setGeometry(QtCore.QRect(170, 450, 95, 25))
+        self.runButton.setGeometry(QtCore.QRect(190, 450, 95, 25))
         self.runButton.setObjectName("runButton")
         self.outputfile = QtGui.QLineEdit(self.centralwidget)
-        self.outputfile.setGeometry(QtCore.QRect(80, 375, 601, 26))
+        self.outputfile.setGeometry(QtCore.QRect(80, 375, 606, 26))
         self.outputfile.setObjectName("outputfile")
         self.label = QtGui.QLabel(self.centralwidget)
         self.label.setGeometry(QtCore.QRect(10, 380, 71, 16))
         self.label.setObjectName("label")
         self.previewButton = QtGui.QPushButton(self.centralwidget)
-        self.previewButton.setGeometry(QtCore.QRect(570, 410, 121, 25))
+        self.previewButton.setGeometry(QtCore.QRect(565, 410, 121, 25))
         self.previewButton.setObjectName("previewButton")
         self.previewcommand = QtGui.QLineEdit(self.centralwidget)
         self.previewcommand.setGeometry(QtCore.QRect(10, 410, 546, 26))
@@ -33,7 +33,7 @@ class Ui_MainWindow(object):
         self.previewcommand.setObjectName("previewcommand")
         self.stopButton = QtGui.QPushButton(self.centralwidget)
         self.stopButton.setEnabled(False)
-        self.stopButton.setGeometry(QtCore.QRect(360, 450, 95, 25))
+        self.stopButton.setGeometry(QtCore.QRect(380, 450, 95, 25))
         self.stopButton.setCheckable(False)
         self.stopButton.setObjectName("stopButton")
         self.tabWidget = QtGui.QTabWidget(self.centralwidget)
@@ -58,13 +58,13 @@ class Ui_MainWindow(object):
         self.driver.addItem(QtCore.QString())
         self.driver.addItem(QtCore.QString())
         self.device = QtGui.QLineEdit(self.tab)
-        self.device.setGeometry(QtCore.QRect(120, 120, 113, 26))
+        self.device.setGeometry(QtCore.QRect(120, 120, 121, 26))
         self.device.setObjectName("device")
         self.label_8 = QtGui.QLabel(self.tab)
         self.label_8.setGeometry(QtCore.QRect(350, 30, 91, 16))
         self.label_8.setObjectName("label_8")
         self.videocodec = QtGui.QComboBox(self.tab)
-        self.videocodec.setGeometry(QtCore.QRect(440, 60, 201, 26))
+        self.videocodec.setGeometry(QtCore.QRect(440, 65, 201, 26))
         self.videocodec.setEditable(True)
         self.videocodec.setObjectName("videocodec")
         self.videocodec.addItem(QtCore.QString())
@@ -79,7 +79,7 @@ class Ui_MainWindow(object):
         self.label_2.setGeometry(QtCore.QRect(50, 40, 54, 16))
         self.label_2.setObjectName("label_2")
         self.chanlist = QtGui.QComboBox(self.tab)
-        self.chanlist.setGeometry(QtCore.QRect(120, 210, 101, 26))
+        self.chanlist.setGeometry(QtCore.QRect(120, 210, 121, 26))
         self.chanlist.setEditable(True)
         self.chanlist.setObjectName("chanlist")
         self.chanlist.addItem(QtCore.QString())
@@ -102,7 +102,7 @@ class Ui_MainWindow(object):
         self.label_9.setGeometry(QtCore.QRect(350, 70, 91, 16))
         self.label_9.setObjectName("label_9")
         self.audiocodec = QtGui.QComboBox(self.tab)
-        self.audiocodec.setGeometry(QtCore.QRect(440, 20, 201, 26))
+        self.audiocodec.setGeometry(QtCore.QRect(440, 25, 201, 26))
         self.audiocodec.setEditable(True)
         self.audiocodec.setObjectName("audiocodec")
         self.audiocodec.addItem(QtCore.QString())

@@ -5,17 +5,38 @@
 # Web pages: http://www.santiagobruno.com.ar/programas.html
 #            http://code.google.com/p/mtvcgui/
 
-import sys
+#python imports
 import ConfigParser
-from PyQt4 import QtCore, QtGui
+import os
+import sys
 from subprocess import Popen
-from mtvcgui import Ui_MainWindow
+
+#PyQt imports
+from PyQt4 import QtCore, QtGui
+
+#UI imports
 from about import Ui_AboutDialog
+from file_exists import Ui_FileExistsDialog
+from mtvcgui import Ui_MainWindow
+
+
 
 class AboutDialog(QtGui.QDialog, Ui_AboutDialog):
     def __init__(self, parent=None):
         QtGui.QWidget.__init__(self, parent)
         self.setupUi(self)
+
+class FileExistsDialog(QtGui.QDialog, Ui_FileExistsDialog):
+    def __init__(self, parent=None):
+        QtGui.QWidget.__init__(self, parent)
+        self.setupUi(self)
+        
+        #how should I communicate with the main window?
+        self.parent = parent
+
+    def accept(self):
+        self.parent.runMencoder(accepted=True)
+        self.close()
 
 class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
 
@@ -345,10 +366,14 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
             return ['mencoder', 'tv://' + str(self.channel.value())] + mencoderparms
 
 
-    def runMencoder(self):
-        self.stopButton.setEnabled(True)
-        self.runButton.setEnabled(False)
-        self.pid = Popen(self.generateCommand()).pid
+    def runMencoder(self, accepted=False):
+        if not accepted and os.path.exists(str(self.outputfile.text())):
+            dialog = FileExistsDialog(self)
+            dialog.show()
+        else:
+            self.stopButton.setEnabled(True)
+            self.runButton.setEnabled(False)
+            self.pid = Popen(self.generateCommand()).pid
 
     def stopButtonPressed(self):
         Popen(['kill', str(self.pid)])
