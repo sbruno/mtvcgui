@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'mtvcgui.ui'
 #
-# Created: Thu Nov 27 13:11:12 2008
+# Created: Fri Nov 28 23:27:11 2008
 #      by: PyQt4 UI code generator 4.4.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -126,19 +126,19 @@ class Ui_MainWindow(object):
         self.lavc_audiobitrate.setGeometry(QtCore.QRect(160, 60, 113, 26))
         self.lavc_audiobitrate.setObjectName("lavc_audiobitrate")
         self.label_19 = QtGui.QLabel(self.groupBox)
-        self.label_19.setGeometry(QtCore.QRect(20, 40, 81, 16))
+        self.label_19.setGeometry(QtCore.QRect(20, 40, 136, 16))
         self.label_19.setObjectName("label_19")
         self.label_20 = QtGui.QLabel(self.groupBox)
-        self.label_20.setGeometry(QtCore.QRect(20, 70, 81, 16))
+        self.label_20.setGeometry(QtCore.QRect(20, 70, 136, 16))
         self.label_20.setObjectName("label_20")
         self.lavc_videocodec = QtGui.QLineEdit(self.groupBox)
         self.lavc_videocodec.setGeometry(QtCore.QRect(160, 90, 113, 26))
         self.lavc_videocodec.setObjectName("lavc_videocodec")
         self.label_21 = QtGui.QLabel(self.groupBox)
-        self.label_21.setGeometry(QtCore.QRect(20, 95, 81, 16))
+        self.label_21.setGeometry(QtCore.QRect(20, 95, 136, 16))
         self.label_21.setObjectName("label_21")
         self.label_22 = QtGui.QLabel(self.groupBox)
-        self.label_22.setGeometry(QtCore.QRect(20, 125, 81, 16))
+        self.label_22.setGeometry(QtCore.QRect(20, 125, 136, 16))
         self.label_22.setObjectName("label_22")
         self.lavc_videobitrate = QtGui.QLineEdit(self.groupBox)
         self.lavc_videobitrate.setGeometry(QtCore.QRect(160, 120, 113, 26))
@@ -147,7 +147,7 @@ class Ui_MainWindow(object):
         self.tab_2 = QtGui.QWidget()
         self.tab_2.setObjectName("tab_2")
         self.label_10 = QtGui.QLabel(self.tab_2)
-        self.label_10.setGeometry(QtCore.QRect(40, 210, 231, 16))
+        self.label_10.setGeometry(QtCore.QRect(40, 210, 521, 16))
         self.label_10.setObjectName("label_10")
         self.extratvparms = QtGui.QLineEdit(self.tab_2)
         self.extratvparms.setGeometry(QtCore.QRect(32, 230, 541, 26))
@@ -172,6 +172,9 @@ class Ui_MainWindow(object):
         self.label_17.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignTop)
         self.label_17.setWordWrap(True)
         self.label_17.setObjectName("label_17")
+        self.label_24 = QtGui.QLabel(self.tab_2)
+        self.label_24.setGeometry(QtCore.QRect(230, 75, 54, 16))
+        self.label_24.setObjectName("label_24")
         self.tabWidget.addTab(self.tab_2, "")
         self.tab_3 = QtGui.QWidget()
         self.tab_3.setObjectName("tab_3")
@@ -238,7 +241,7 @@ class Ui_MainWindow(object):
         self.menubar.addAction(self.menuHelp.menuAction())
 
         self.retranslateUi(MainWindow)
-        self.tabWidget.setCurrentIndex(2)
+        self.tabWidget.setCurrentIndex(0)
         QtCore.QObject.connect(self.runButton, QtCore.SIGNAL("clicked()"), MainWindow.runMencoder)
         QtCore.QObject.connect(self.previewButton, QtCore.SIGNAL("clicked()"), MainWindow.previewCommand)
         QtCore.QObject.connect(self.actionSalir, QtCore.SIGNAL("activated()"), MainWindow.close)
@@ -315,6 +318,7 @@ class Ui_MainWindow(object):
         self.label_13.setText(QtGui.QApplication.translate("MainWindow", "Height", None, QtGui.QApplication.UnicodeUTF8))
         self.label_14.setText(QtGui.QApplication.translate("MainWindow", "Width", None, QtGui.QApplication.UnicodeUTF8))
         self.label_17.setText(QtGui.QApplication.translate("MainWindow", "Audio Rate", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_24.setText(QtGui.QApplication.translate("MainWindow", "Hz", None, QtGui.QApplication.UnicodeUTF8))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), QtGui.QApplication.translate("MainWindow", "Extra TV Parameters", None, QtGui.QApplication.UnicodeUTF8))
         self.label_11.setText(QtGui.QApplication.translate("MainWindow", "Extra mencoder parameters (delimited by spaces)", None, QtGui.QApplication.UnicodeUTF8))
         self.label_15.setText(QtGui.QApplication.translate("MainWindow", "Width", None, QtGui.QApplication.UnicodeUTF8))
