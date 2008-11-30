@@ -17,10 +17,10 @@ from subprocess import Popen
 from PyQt4 import QtCore, QtGui
 
 #UI imports
-from about import Ui_AboutDialog
-from file_exists import Ui_FileExistsDialog
-from info import Ui_InfoDialog
-from mtvcgui import Ui_MainWindow
+from ui.about import Ui_AboutDialog
+from ui.file_exists import Ui_FileExistsDialog
+from ui.info import Ui_InfoDialog
+from ui.mtvcgui import Ui_MainWindow
 
 
 def findTranslation(prefix='', tr_dir='i18n'):
