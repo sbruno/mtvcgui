@@ -560,6 +560,32 @@
        </property>
       </widget>
      </widget>
+     <widget class="QToolButton" name="showAudioCodecsButton" >
+      <property name="geometry" >
+       <rect>
+        <x>645</x>
+        <y>25</y>
+        <width>27</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text" >
+       <string>...</string>
+      </property>
+     </widget>
+     <widget class="QToolButton" name="showVideoCodecsButton" >
+      <property name="geometry" >
+       <rect>
+        <x>645</x>
+        <y>65</y>
+        <width>27</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text" >
+       <string>...</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="tab_2" >
      <attribute name="title" >
@@ -903,7 +929,7 @@
    <slot>runMencoder()</slot>
    <hints>
     <hint type="sourcelabel" >
-     <x>175</x>
+     <x>190</x>
      <y>498</y>
     </hint>
     <hint type="destinationlabel" >
@@ -992,6 +1018,38 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>showAudioCodecsButton</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>showAvailableAudioCodecs()</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>667</x>
+     <y>98</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>346</x>
+     <y>261</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>showVideoCodecsButton</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>showAvailableVideoCodecs()</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>667</x>
+     <y>138</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>346</x>
+     <y>261</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>runMencoder()</slot>
@@ -999,5 +1057,7 @@
   <slot>stopButtonPressed()</slot>
   <slot>saveConfiguration()</slot>
   <slot>showAboutDialog()</slot>
+  <slot>showAvailableAudioCodecs()</slot>
+  <slot>showAvailableVideoCodecs()</slot>
  </slots>
 </ui>

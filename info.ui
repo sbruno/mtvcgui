@@ -1,0 +1,33 @@
+<ui version="4.0" >
+ <class>InfoDialog</class>
+ <widget class="QDialog" name="InfoDialog" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>562</width>
+    <height>310</height>
+   </rect>
+  </property>
+  <property name="windowTitle" >
+   <string>Info</string>
+  </property>
+  <widget class="QPlainTextEdit" name="plainTextEdit" >
+   <property name="geometry" >
+    <rect>
+     <x>-5</x>
+     <y>0</y>
+     <width>591</width>
+     <height>316</height>
+    </rect>
+   </property>
+   <property name="font" >
+    <font>
+     <family>Monospace</family>
+    </font>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

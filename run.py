@@ -6,6 +6,7 @@
 #            http://code.google.com/p/mtvcgui/
 
 #python imports
+import commands
 import ConfigParser
 import locale
 import os
@@ -18,6 +19,7 @@ from PyQt4 import QtCore, QtGui
 #UI imports
 from about import Ui_AboutDialog
 from file_exists import Ui_FileExistsDialog
+from info import Ui_InfoDialog
 from mtvcgui import Ui_MainWindow
 
 
@@ -42,6 +44,26 @@ def findTranslation(prefix='', tr_dir='i18n'):
     return tr_path
 
 
+def getCodecs(cmd):
+    output = commands.getoutput(cmd)
+    lines = output.split('\n')
+    text = ''
+    skip = True
+    for line in lines:
+        if not skip:
+            text += '\n' + line
+        if 'Available codecs:' in line:
+            text += line
+            skip = False
+    if not text:
+        text = output
+    return text
+
+
+class InfoDialog(QtGui.QDialog, Ui_InfoDialog):
+    def __init__(self, parent=None):
+        QtGui.QWidget.__init__(self, parent)
+        self.setupUi(self)
 
 
 class AboutDialog(QtGui.QDialog, Ui_AboutDialog):
@@ -397,6 +419,18 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
             self.stopButton.setEnabled(True)
             self.runButton.setEnabled(False)
             self.pid = Popen(self.generateCommand()).pid
+
+    def showAvailableAudioCodecs(self):
+        dialog = InfoDialog(self)
+        text = getCodecs('mencoder -oac help')
+        dialog.plainTextEdit.setPlainText(text)
+        dialog.show()
+
+    def showAvailableVideoCodecs(self):
+        dialog = InfoDialog(self)
+        text = getCodecs('mencoder -ovc help')
+        dialog.plainTextEdit.setPlainText(text)
+        dialog.show()
 
     def stopButtonPressed(self):
         Popen(['kill', str(self.pid)])

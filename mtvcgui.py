@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'mtvcgui.ui'
 #
-# Created: Fri Nov 28 23:27:11 2008
+# Created: Sun Nov 30 01:20:08 2008
 #      by: PyQt4 UI code generator 4.4.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -143,6 +143,12 @@ class Ui_MainWindow(object):
         self.lavc_videobitrate = QtGui.QLineEdit(self.groupBox)
         self.lavc_videobitrate.setGeometry(QtCore.QRect(160, 120, 113, 26))
         self.lavc_videobitrate.setObjectName("lavc_videobitrate")
+        self.showAudioCodecsButton = QtGui.QToolButton(self.tab)
+        self.showAudioCodecsButton.setGeometry(QtCore.QRect(645, 25, 27, 25))
+        self.showAudioCodecsButton.setObjectName("showAudioCodecsButton")
+        self.showVideoCodecsButton = QtGui.QToolButton(self.tab)
+        self.showVideoCodecsButton.setGeometry(QtCore.QRect(645, 65, 27, 25))
+        self.showVideoCodecsButton.setObjectName("showVideoCodecsButton")
         self.tabWidget.addTab(self.tab, "")
         self.tab_2 = QtGui.QWidget()
         self.tab_2.setObjectName("tab_2")
@@ -248,6 +254,8 @@ class Ui_MainWindow(object):
         QtCore.QObject.connect(self.stopButton, QtCore.SIGNAL("clicked()"), MainWindow.stopButtonPressed)
         QtCore.QObject.connect(self.actionSave_configuration, QtCore.SIGNAL("activated()"), MainWindow.saveConfiguration)
         QtCore.QObject.connect(self.actionAbout_mtvcgui, QtCore.SIGNAL("activated()"), MainWindow.showAboutDialog)
+        QtCore.QObject.connect(self.showAudioCodecsButton, QtCore.SIGNAL("clicked()"), MainWindow.showAvailableAudioCodecs)
+        QtCore.QObject.connect(self.showVideoCodecsButton, QtCore.SIGNAL("clicked()"), MainWindow.showAvailableVideoCodecs)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -313,6 +321,8 @@ class Ui_MainWindow(object):
         self.label_21.setText(QtGui.QApplication.translate("MainWindow", "Video Codec", None, QtGui.QApplication.UnicodeUTF8))
         self.label_22.setText(QtGui.QApplication.translate("MainWindow", "Video Bitrate", None, QtGui.QApplication.UnicodeUTF8))
         self.lavc_videobitrate.setText(QtGui.QApplication.translate("MainWindow", "3000", None, QtGui.QApplication.UnicodeUTF8))
+        self.showAudioCodecsButton.setText(QtGui.QApplication.translate("MainWindow", "...", None, QtGui.QApplication.UnicodeUTF8))
+        self.showVideoCodecsButton.setText(QtGui.QApplication.translate("MainWindow", "...", None, QtGui.QApplication.UnicodeUTF8))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), QtGui.QApplication.translate("MainWindow", "Main Parameters", None, QtGui.QApplication.UnicodeUTF8))
         self.label_10.setText(QtGui.QApplication.translate("MainWindow", "Extra tv parameters (delimited by :)", None, QtGui.QApplication.UnicodeUTF8))
         self.label_13.setText(QtGui.QApplication.translate("MainWindow", "Height", None, QtGui.QApplication.UnicodeUTF8))
