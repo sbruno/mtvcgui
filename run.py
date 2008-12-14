@@ -98,6 +98,10 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         config = ConfigParser.ConfigParser()
         config.read("mtvcgui.ini")
         if not config.has_section('mencoder GUI'):
+            self.channel.show()
+            self.frequency.hide()
+            self.number_rb.setChecked(True)
+            self.freq_rb.setChecked(False)
             return None
 
         #main tab
