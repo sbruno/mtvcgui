@@ -144,8 +144,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         self.setParametersFromConfig()
 
     def update_status(self):
-        process_running = True
-        if process_running:
+        if self.mplayer_instance.poll() != 0:
             self.time_running += 1
             self.status_label.setText('Recording... %s seconds' % str(self.time_running))
         else:
@@ -594,7 +593,8 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
             if pre_command:
                 call(pre_command)
 
-            self.pid = Popen(self.generateCommand()).pid
+            self.mplayer_instance = Popen(self.generateCommand())
+            self.pid = self.mplayer_instance.pid
 
             if self.pid:
                 self.checker_timer.start(1000)
@@ -616,7 +616,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         dialog.show()
 
     def stopButtonPressed(self):
-        Popen(['kill', str(self.pid)])
+        call(['kill', str(self.pid)])
         self.record_stop_cleanup()
 
     def previewCommand(self):
