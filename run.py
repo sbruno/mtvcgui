@@ -140,7 +140,14 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         self.checker_timer = QtCore.QTimer()
         QtCore.QObject.connect(self.checker_timer, QtCore.SIGNAL("timeout()"), self.update_status)
 
+        self.time_waiting = 0
+        self.schedule_timer = QtCore.QTimer()
+        QtCore.QObject.connect(self.schedule_timer, QtCore.SIGNAL("timeout()"), self.check_schedule)
+
         self.setupUi(self)
+        now = time.localtime()
+        self.recording_date.setDate(QtCore.QDate.currentDate())
+        self.recording_date.setTime(QtCore.QTime(now[3], now[4], 0))
         self.setParametersFromConfig()
 
     def update_status(self):
@@ -149,6 +156,18 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
             self.status_label.setText('Recording... %s seconds' % str(self.time_running))
         else:
             self.record_stop_cleanup()
+
+    def check_schedule(self):
+        current_time = QtCore.QDateTime.currentDateTime()
+        recording_time = self.recording_date.dateTime()
+        seconds_remaining = current_time.secsTo(recording_time)
+        if seconds_remaining <= 0:
+            self.append_suffix.setChecked(True)
+            self.stopButton.setEnabled(True)
+            self.runButton.setEnabled(False)
+            self.runMencoder(accepted=True)
+        else:
+            self.status_label.setText('Waiting %s seconds...' % str(seconds_remaining))
 
 
     def record_stop_cleanup(self):
@@ -161,6 +180,8 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         self.stopButton.setEnabled(False)
         self.runButton.setEnabled(True)
 
+    def scheduleRecording(self):
+        self.schedule_timer.start(1000)
 
     def showAboutDialog(self):
         dialog = AboutDialog(self)
@@ -578,6 +599,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
 
 
     def runMencoder(self, accepted=False):
+        self.schedule_timer.stop()
         channel_text = self.getChannel()
         append_suffix = self.append_suffix.isChecked()
         filename = make_filename(str(self.outputfile.text()), channel_text, append_suffix=append_suffix)
@@ -597,6 +619,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
             self.pid = self.mplayer_instance.pid
 
             if self.pid:
+                self.status_label.setText('Recording... %s seconds' % str(self.time_running))
                 self.checker_timer.start(1000)
             else:
                 self.stopButton.setEnabled(False)

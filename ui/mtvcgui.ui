@@ -1012,6 +1012,29 @@ on the console</string>
        </rect>
       </property>
      </widget>
+     <widget class="QDateTimeEdit" name="recording_date" >
+      <property name="geometry" >
+       <rect>
+        <x>15</x>
+        <y>200</y>
+        <width>194</width>
+        <height>26</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton" >
+      <property name="geometry" >
+       <rect>
+        <x>225</x>
+        <y>200</y>
+        <width>186</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text" >
+       <string>Schedule Recording</string>
+      </property>
+     </widget>
     </widget>
    </widget>
    <widget class="QCheckBox" name="append_suffix" >
@@ -1280,6 +1303,22 @@ on the console</string>
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>scheduleRecording()</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>335</x>
+     <y>266</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>90</x>
+     <y>475</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>runMencoder()</slot>
@@ -1289,5 +1328,6 @@ on the console</string>
   <slot>showAboutDialog()</slot>
   <slot>showAvailableAudioCodecs()</slot>
   <slot>showAvailableVideoCodecs()</slot>
+  <slot>scheduleRecording()</slot>
  </slots>
 </ui>
