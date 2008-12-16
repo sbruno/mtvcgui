@@ -10,8 +10,10 @@ import commands
 import ConfigParser
 import locale
 import os
+import re
 import sys
-from subprocess import Popen
+import time
+from subprocess import Popen, call
 
 #PyQt imports
 from PyQt4 import QtCore, QtGui
@@ -60,6 +62,53 @@ def getCodecs(cmd):
     return text
 
 
+def make_filename(filename, channel_text, append_suffix=True):
+
+    def repl_func(match, now):
+        year   = now[0]
+        month  = now[1]
+        day    = now[2]
+        hour   = now[3]
+        minute = now[4]
+        second = now[5]
+
+        text = match.group()
+
+        text = text.replace('%Y', str(year))
+        text = text.replace('%y', str(year)[2:])
+        text = text.replace('%m', "%.2d" % month)
+        text = text.replace('%d', "%.2d" % day)
+        text = text.replace('%H', "%.2d" % hour)
+        text = text.replace('%M', "%.2d" % minute)
+        text = text.replace('%S', "%.2d" % second)
+
+        return text[1:-1]
+
+    new_filename = filename.replace('{channel}', channel_text)
+    now    = time.localtime()
+    new_filename = re.sub('{[^}]*?}', lambda x: repl_func(x, now), new_filename)
+
+    if append_suffix:
+        suffix = 1
+        appended_filename = new_filename
+        while os.path.exists(appended_filename):
+            dot_splitted = new_filename.split('.')
+
+            if len(dot_splitted) > 1:
+                name = dot_splitted[:-1]
+                extension = [dot_splitted[-1]]
+            else:
+                name = dot_splitted
+                extension = []
+
+            name[-1] = name[-1] + '_' + str(suffix)
+
+            appended_filename = '.'.join(name + extension)
+            suffix += 1
+        new_filename = appended_filename
+
+    return new_filename
+
 class InfoDialog(QtGui.QDialog, Ui_InfoDialog):
     def __init__(self, parent=None):
         QtGui.QWidget.__init__(self, parent)
@@ -87,12 +136,42 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
 
     def __init__(self, parent=None):
         QtGui.QWidget.__init__(self, parent)
+        self.time_running = 0
+        self.checker_timer = QtCore.QTimer()
+        QtCore.QObject.connect(self.checker_timer, QtCore.SIGNAL("timeout()"), self.update_status)
+
         self.setupUi(self)
         self.setParametersFromConfig()
+
+    def update_status(self):
+        process_running = True
+        if process_running:
+            self.time_running += 1
+            self.status_label.setText('Recording... %s seconds' % str(self.time_running))
+        else:
+            self.record_stop_cleanup()
+
+
+    def record_stop_cleanup(self):
+        self.status_label.setText('Stopped')
+        self.checker_timer.stop()
+        self.time_running = 0
+        post_command = str(self.post_command.text())
+        if post_command:
+            call(post_command)
+        self.stopButton.setEnabled(False)
+        self.runButton.setEnabled(True)
+
 
     def showAboutDialog(self):
         dialog = AboutDialog(self)
         dialog.show()
+
+    def getChannel(self):
+        if self.number_rb.isChecked():
+            return str(self.channel.value())
+        elif self.freq_rb.isChecked():
+            return str(self.frequency.value()).replace(",",".")
 
     def setParametersFromConfig(self):
         config = ConfigParser.ConfigParser()
@@ -153,6 +232,9 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         if config.has_option('mencoder GUI', 'videocodec'):
             self.videocodec.setCurrentIndex(int(config.get('mencoder GUI', 'videocodec')))
 
+        if config.has_option('mencoder GUI', 'append_suffix'):
+            self.append_suffix.setChecked(config.get('mencoder GUI', 'append_suffix') == 'True')
+
 
         #lavc options
 
@@ -167,6 +249,12 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
 
         if config.has_option('mencoder GUI', 'lavc_videobitrate'):
             self.lavc_videobitrate.setText(config.get('mencoder GUI', 'lavc_videobitrate'))
+
+
+        if config.has_option('mencoder GUI', 'outputfile'):
+            self.outputfile.setText(config.get('mencoder GUI', 'outputfile'))
+
+
 
         #tv parms tab
 
@@ -213,9 +301,12 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
             self.extramencoderparms.setText(config.get('mencoder GUI', 'extramencoderparms'))
 
 
+        #advanced tab
+        if config.has_option('mencoder GUI', 'pre_command'):
+            self.pre_command.setText(config.get('mencoder GUI', 'pre_command'))
 
-        if config.has_option('mencoder GUI', 'outputfile'):
-            self.outputfile.setText(config.get('mencoder GUI', 'outputfile'))
+        if config.has_option('mencoder GUI', 'post_command'):
+            self.post_command.setText(config.get('mencoder GUI', 'post_command'))
 
 
     def getParametersFromGUI(self, config=False):
@@ -254,10 +345,14 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         else:
             videocodec = str(self.videocodec.currentText())
 
+        append_suffix = self.append_suffix.isChecked()
+
         lavc_audiocodec = str(self.lavc_audiocodec.text())
         lavc_audiobitrate = str(self.lavc_audiobitrate.text())
         lavc_videocodec = str(self.lavc_videocodec.text())
         lavc_videobitrate = str(self.lavc_videobitrate.text())
+
+        outputfile = str(self.outputfile.text())
 
         tvwidth = str(self.tvwidth.text())
         tvheight = str(self.tvheight.text())
@@ -275,7 +370,9 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         extrafilters = str(self.extrafilters.text())
         extramencoderparms = str(self.extramencoderparms.text())
 
-        outputfile = str(self.outputfile.text())
+        pre_command = str(self.pre_command.text())
+        post_command = str(self.post_command.text())
+
 
         parameters = {}
         parameters['channel_type'] = channel_type
@@ -289,16 +386,20 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         parameters['chanlist'] = chanlist
         parameters['audiocodec'] = audiocodec
         parameters['videocodec'] = videocodec
+        parameters['append_suffix'] = append_suffix
         parameters['lavc_audiocodec'] = lavc_audiocodec
         parameters['lavc_audiobitrate'] = lavc_audiobitrate
         parameters['lavc_videocodec'] = lavc_videocodec
         parameters['lavc_videobitrate'] = lavc_videobitrate
+        parameters['outputfile'] = outputfile
+
         parameters['tvwidth'] = tvwidth
         parameters['tvheight'] = tvheight
         parameters['audiorate'] = audiorate
         parameters['alsa_audio'] = alsa_audio
         parameters['adevice'] = adevice
         parameters['extratvparms'] = extratvparms
+
         parameters['scaleheight'] = scaleheight
         parameters['scalewidth'] = scalewidth
         parameters['ofps'] = ofps
@@ -306,7 +407,9 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         parameters['quiet'] = quiet
         parameters['extrafilters'] = extrafilters
         parameters['extramencoderparms'] = extramencoderparms
-        parameters['outputfile'] = outputfile
+
+        parameters['pre_command'] = pre_command
+        parameters['post_command'] = post_command
 
         return parameters
 
@@ -326,6 +429,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         chanlist = parameters.get('chanlist')
         audiocodec = parameters.get('audiocodec')
         videocodec = parameters.get('videocodec')
+        append_suffix = parameters.get('append_suffix')
         lavc_audiocodec = parameters.get('lavc_audiocodec')
         lavc_audiobitrate = parameters.get('lavc_audiobitrate')
         lavc_videocodec = parameters.get('lavc_videocodec')
@@ -344,6 +448,10 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         extrafilters = parameters.get('extrafilters')
         extramencoderparms = parameters.get('extramencoderparms')
         outputfile = parameters.get('outputfile')
+
+        channel_text = self.getChannel()
+
+        outputfile = make_filename(outputfile, channel_text, append_suffix=append_suffix)
 
 
         if channel_type == 'frequency':
@@ -471,13 +579,29 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
 
 
     def runMencoder(self, accepted=False):
-        if not accepted and os.path.exists(str(self.outputfile.text())):
+        channel_text = self.getChannel()
+        append_suffix = self.append_suffix.isChecked()
+        filename = make_filename(str(self.outputfile.text()), channel_text, append_suffix=append_suffix)
+
+        if not accepted and os.path.exists(filename):
             dialog = FileExistsDialog(self)
             dialog.show()
         else:
             self.stopButton.setEnabled(True)
             self.runButton.setEnabled(False)
+
+            pre_command = str(self.pre_command.text())
+            if pre_command:
+                call(pre_command)
+
             self.pid = Popen(self.generateCommand()).pid
+
+            if self.pid:
+                self.checker_timer.start(1000)
+            else:
+                self.stopButton.setEnabled(False)
+                self.runButton.setEnabled(True)
+
 
     def showAvailableAudioCodecs(self):
         dialog = InfoDialog(self)
@@ -493,80 +617,51 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
 
     def stopButtonPressed(self):
         Popen(['kill', str(self.pid)])
-        self.stopButton.setEnabled(False)
-        self.runButton.setEnabled(True)
+        self.record_stop_cleanup()
 
     def previewCommand(self):
         self.previewcommand.setText(self.generateCommand(preview=True))
 
     def saveConfiguration(self):
-
         parameters = self.getParametersFromGUI(config=True)
-
-        channel_type = parameters.get('channel_type', 'number')
-        channel = parameters.get('channel')
-        frequency = parameters.get('frequency')
-        duration = parameters.get('duration')
-        driver = parameters.get('driver')
-        device = parameters.get('device')
-        norm = parameters.get('norm')
-        input = parameters.get('input')
-        chanlist = parameters.get('chanlist')
-        audiocodec = parameters.get('audiocodec')
-        videocodec = parameters.get('videocodec')
-        lavc_audiocodec = parameters.get('lavc_audiocodec')
-        lavc_audiobitrate = parameters.get('lavc_audiobitrate')
-        lavc_videocodec = parameters.get('lavc_videocodec')
-        lavc_videobitrate = parameters.get('lavc_videobitrate')
-        tvwidth = parameters.get('tvwidth')
-        tvheight = parameters.get('tvheight')
-        audiorate = parameters.get('audiorate')
-        alsa_audio = parameters.get('alsa_audio')
-        adevice = parameters.get('adevice')
-        extratvparms = parameters.get('extratvparms')
-        scaleheight = parameters.get('scaleheight')
-        scalewidth = parameters.get('scalewidth')
-        ofps = parameters.get('ofps')
-        noskip = parameters.get('noskip')
-        quiet = parameters.get('quiet')
-        extrafilters = parameters.get('extrafilters')
-        extramencoderparms = parameters.get('extramencoderparms')
-        outputfile = parameters.get('outputfile')
 
         config = ConfigParser.ConfigParser()
         config.read("mtvcgui.ini")
         if not config.has_section('mencoder GUI'):
             config.add_section('mencoder GUI')
-        
-        config.set('mencoder GUI', 'channel_type', channel_type)
-        config.set('mencoder GUI', 'channel', channel)
-        config.set('mencoder GUI', 'frequency', frequency)
-        config.set('mencoder GUI', 'duration', duration)
-        config.set('mencoder GUI', 'driver', driver)
-        config.set('mencoder GUI', 'device', device)
-        config.set('mencoder GUI', 'norm', norm)
-        config.set('mencoder GUI', 'input', input)
-        config.set('mencoder GUI', 'chanlist', chanlist)
-        config.set('mencoder GUI', 'audiocodec', audiocodec)
-        config.set('mencoder GUI', 'videocodec', videocodec)
-        config.set('mencoder GUI', 'lavc_audiocodec', lavc_audiocodec)
-        config.set('mencoder GUI', 'lavc_audiobitrate', lavc_audiobitrate)
-        config.set('mencoder GUI', 'lavc_videocodec', lavc_videocodec)
-        config.set('mencoder GUI', 'lavc_videobitrate', lavc_videobitrate)
-        config.set('mencoder GUI', 'tvwidth', tvwidth)
-        config.set('mencoder GUI', 'tvheight', tvheight)
-        config.set('mencoder GUI', 'audiorate', audiorate)
-        config.set('mencoder GUI', 'alsa_audio', alsa_audio)
-        config.set('mencoder GUI', 'adevice', adevice)
-        config.set('mencoder GUI', 'extratvparms', extratvparms)
-        config.set('mencoder GUI', 'scalewidth', scalewidth)
-        config.set('mencoder GUI', 'scaleheight', scaleheight)
-        config.set('mencoder GUI', 'ofps', ofps)
-        config.set('mencoder GUI', 'noskip', noskip)
-        config.set('mencoder GUI', 'quiet', quiet)
-        config.set('mencoder GUI', 'extrafilters', extrafilters)
-        config.set('mencoder GUI', 'extramencoderparms', extramencoderparms)
-        config.set('mencoder GUI', 'outputfile', outputfile)
+
+        config.set('mencoder GUI', 'channel_type', parameters.get('channel_type', 'number'))
+        config.set('mencoder GUI', 'channel', parameters.get('channel'))
+        config.set('mencoder GUI', 'frequency', parameters.get('frequency'))
+        config.set('mencoder GUI', 'duration', parameters.get('duration'))
+        config.set('mencoder GUI', 'driver', parameters.get('driver'))
+        config.set('mencoder GUI', 'device', parameters.get('device'))
+        config.set('mencoder GUI', 'norm', parameters.get('norm'))
+        config.set('mencoder GUI', 'input', parameters.get('input'))
+        config.set('mencoder GUI', 'chanlist', parameters.get('chanlist'))
+        config.set('mencoder GUI', 'audiocodec', parameters.get('audiocodec'))
+        config.set('mencoder GUI', 'videocodec', parameters.get('videocodec'))
+        config.set('mencoder GUI', 'append_suffix', parameters.get('append_suffix'))
+        config.set('mencoder GUI', 'lavc_audiocodec', parameters.get('lavc_audiocodec'))
+        config.set('mencoder GUI', 'lavc_audiobitrate', parameters.get('lavc_audiobitrate'))
+        config.set('mencoder GUI', 'lavc_videocodec', parameters.get('lavc_videocodec'))
+        config.set('mencoder GUI', 'lavc_videobitrate', parameters.get('lavc_videobitrate'))
+        config.set('mencoder GUI', 'tvwidth', parameters.get('tvwidth'))
+        config.set('mencoder GUI', 'tvheight', parameters.get('tvheight'))
+        config.set('mencoder GUI', 'audiorate', parameters.get('audiorate'))
+        config.set('mencoder GUI', 'alsa_audio', parameters.get('alsa_audio'))
+        config.set('mencoder GUI', 'adevice', parameters.get('adevice'))
+        config.set('mencoder GUI', 'extratvparms', parameters.get('extratvparms'))
+        config.set('mencoder GUI', 'scalewidth', parameters.get('scaleheight'))
+        config.set('mencoder GUI', 'scaleheight', parameters.get('scalewidth'))
+        config.set('mencoder GUI', 'ofps', parameters.get('ofps'))
+        config.set('mencoder GUI', 'noskip', parameters.get('noskip'))
+        config.set('mencoder GUI', 'quiet', parameters.get('quiet'))
+        config.set('mencoder GUI', 'extrafilters', parameters.get('extrafilters'))
+        config.set('mencoder GUI', 'extramencoderparms', parameters.get('extramencoderparms'))
+        config.set('mencoder GUI', 'pre_command', parameters.get('pre_command'))
+        config.set('mencoder GUI', 'post_command', parameters.get('post_command'))
+        config.set('mencoder GUI', 'outputfile', parameters.get('outputfile'))
 
         try:
             config_file = open('mtvcgui.ini', 'w')
