@@ -153,7 +153,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
     def update_status(self):
         if self.mplayer_instance.poll() != 0:
             self.time_running += 1
-            self.status_label.setText('Recording... %s seconds' % str(self.time_running))
+            self.status_label.setText(self.tr('Recording... %1 seconds').arg(str(self.time_running)))
         else:
             self.record_stop_cleanup()
 
@@ -167,11 +167,11 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
             self.runButton.setEnabled(False)
             self.runMencoder(accepted=True)
         else:
-            self.status_label.setText('Waiting %s seconds...' % str(seconds_remaining))
+            self.status_label.setText(self.tr('Waiting %1 seconds...').arg(str(seconds_remaining)))
 
 
     def record_stop_cleanup(self):
-        self.status_label.setText('Stopped')
+        self.status_label.setText(self.tr('Stopped'))
         self.checker_timer.stop()
         self.time_running = 0
         post_command = str(self.post_command.text())
@@ -619,7 +619,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
             self.pid = self.mplayer_instance.pid
 
             if self.pid:
-                self.status_label.setText('Recording... %s seconds' % str(self.time_running))
+                self.status_label.setText(self.tr('Recording... %1 seconds').arg(str(self.time_running)))
                 self.checker_timer.start(1000)
             else:
                 self.stopButton.setEnabled(False)
