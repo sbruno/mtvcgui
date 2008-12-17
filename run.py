@@ -169,7 +169,6 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         else:
             self.status_label.setText(self.tr('Waiting %1 seconds...').arg(str(seconds_remaining)))
 
-
     def record_stop_cleanup(self):
         self.status_label.setText(self.tr('Stopped'))
         self.checker_timer.stop()
@@ -179,9 +178,23 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
             call(post_command)
         self.stopButton.setEnabled(False)
         self.runButton.setEnabled(True)
+        self.cancelScheduleButton.setEnabled(False)
+        self.scheduleButton.setEnabled(True)
 
     def scheduleRecording(self):
+        self.stopButton.setEnabled(False)
+        self.runButton.setEnabled(False)
+        self.cancelScheduleButton.setEnabled(True)
+        self.scheduleButton.setEnabled(False)
         self.schedule_timer.start(1000)
+
+    def cancelSchedule(self):
+        self.status_label.setText(self.tr('Stopped'))
+        self.schedule_timer.stop()
+        self.cancelScheduleButton.setEnabled(False)
+        self.scheduleButton.setEnabled(True)
+        self.stopButton.setEnabled(False)
+        self.runButton.setEnabled(True)
 
     def showAboutDialog(self):
         dialog = AboutDialog(self)
@@ -621,6 +634,8 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
             if self.pid:
                 self.status_label.setText(self.tr('Recording... %1 seconds').arg(str(self.time_running)))
                 self.checker_timer.start(1000)
+                self.scheduleButton.setEnabled(False)
+                self.cancelScheduleButton.setEnabled(False)
             else:
                 self.stopButton.setEnabled(False)
                 self.runButton.setEnabled(True)

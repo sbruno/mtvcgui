@@ -334,27 +334,27 @@ p, li { white-space: pre-wrap; }
         <translation>Filtros extra (delimitados por ,)</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1081"/>
+        <location filename="mtvcgui.ui" line="1100"/>
         <source>Menu</source>
         <translation>Menú</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1088"/>
+        <location filename="mtvcgui.ui" line="1107"/>
         <source>Help</source>
         <translation>Ayuda</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1098"/>
+        <location filename="mtvcgui.ui" line="1117"/>
         <source>Exit</source>
         <translation>Salir</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1103"/>
+        <location filename="mtvcgui.ui" line="1122"/>
         <source>Save configuration</source>
         <translation>Guardar configuración</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1108"/>
+        <location filename="mtvcgui.ui" line="1127"/>
         <source>About mtvcgui</source>
         <translation>Acerca de mtvcgui</translation>
     </message>
@@ -416,17 +416,17 @@ on the console</source>
         <translation>Programar captura</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1050"/>
+        <location filename="mtvcgui.ui" line="1069"/>
         <source>Append a number suffix if file exists</source>
         <translation>Agregar sufijo numérico si el archivo existe</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1066"/>
+        <location filename="mtvcgui.ui" line="1085"/>
         <source>Stopped</source>
         <translation>Detenido</translation>
     </message>
     <message>
-        <location filename="run.py" line="622"/>
+        <location filename="run.py" line="629"/>
         <source>Recording... %1 seconds</source>
         <translation>Capturando... %1 segundos</translation>
     </message>
@@ -434,6 +434,11 @@ on the console</source>
         <location filename="run.py" line="170"/>
         <source>Waiting %1 seconds...</source>
         <translation>Esperando %1 segundos...</translation>
+    </message>
+    <message>
+        <location filename="mtvcgui.ui" line="1051"/>
+        <source>Cancel</source>
+        <translation>Cancelar</translation>
     </message>
 </context>
 </TS>

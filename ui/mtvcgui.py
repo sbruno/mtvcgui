@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'mtvcgui.ui'
 #
-# Created: Tue Dec 16 03:07:05 2008
+# Created: Tue Dec 16 23:02:01 2008
 #      by: PyQt4 UI code generator 4.4.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -260,9 +260,14 @@ class Ui_MainWindow(object):
         self.recording_date = QtGui.QDateTimeEdit(self.tab_4)
         self.recording_date.setGeometry(QtCore.QRect(15, 200, 194, 26))
         self.recording_date.setObjectName("recording_date")
-        self.pushButton = QtGui.QPushButton(self.tab_4)
-        self.pushButton.setGeometry(QtCore.QRect(225, 200, 186, 25))
-        self.pushButton.setObjectName("pushButton")
+        self.scheduleButton = QtGui.QPushButton(self.tab_4)
+        self.scheduleButton.setGeometry(QtCore.QRect(225, 200, 186, 25))
+        self.scheduleButton.setObjectName("scheduleButton")
+        self.cancelScheduleButton = QtGui.QPushButton(self.tab_4)
+        self.cancelScheduleButton.setEnabled(False)
+        self.cancelScheduleButton.setGeometry(QtCore.QRect(440, 200, 186, 25))
+        self.cancelScheduleButton.setCheckable(False)
+        self.cancelScheduleButton.setObjectName("cancelScheduleButton")
         self.tabWidget.addTab(self.tab_4, "")
         self.append_suffix = QtGui.QCheckBox(self.centralwidget)
         self.append_suffix.setGeometry(QtCore.QRect(10, 385, 666, 23))
@@ -309,7 +314,8 @@ class Ui_MainWindow(object):
         QtCore.QObject.connect(self.number_rb, QtCore.SIGNAL("clicked()"), self.channel.show)
         QtCore.QObject.connect(self.freq_rb, QtCore.SIGNAL("clicked()"), self.channel.hide)
         QtCore.QObject.connect(self.freq_rb, QtCore.SIGNAL("clicked()"), self.frequency.show)
-        QtCore.QObject.connect(self.pushButton, QtCore.SIGNAL("clicked()"), MainWindow.scheduleRecording)
+        QtCore.QObject.connect(self.scheduleButton, QtCore.SIGNAL("clicked()"), MainWindow.scheduleRecording)
+        QtCore.QObject.connect(self.cancelScheduleButton, QtCore.SIGNAL("clicked()"), MainWindow.cancelSchedule)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -401,7 +407,8 @@ class Ui_MainWindow(object):
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_3), QtGui.QApplication.translate("MainWindow", "Extra Mencoder Parameters", None, QtGui.QApplication.UnicodeUTF8))
         self.label_26.setText(QtGui.QApplication.translate("MainWindow", "Run this command before capturing:", None, QtGui.QApplication.UnicodeUTF8))
         self.label_27.setText(QtGui.QApplication.translate("MainWindow", "Run this command after capturing:", None, QtGui.QApplication.UnicodeUTF8))
-        self.pushButton.setText(QtGui.QApplication.translate("MainWindow", "Schedule Recording", None, QtGui.QApplication.UnicodeUTF8))
+        self.scheduleButton.setText(QtGui.QApplication.translate("MainWindow", "Schedule Recording", None, QtGui.QApplication.UnicodeUTF8))
+        self.cancelScheduleButton.setText(QtGui.QApplication.translate("MainWindow", "Cancel", None, QtGui.QApplication.UnicodeUTF8))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_4), QtGui.QApplication.translate("MainWindow", "Advanced", None, QtGui.QApplication.UnicodeUTF8))
         self.append_suffix.setText(QtGui.QApplication.translate("MainWindow", "Append a number suffix if file exists", None, QtGui.QApplication.UnicodeUTF8))
         self.status_label.setText(QtGui.QApplication.translate("MainWindow", "Stopped", None, QtGui.QApplication.UnicodeUTF8))

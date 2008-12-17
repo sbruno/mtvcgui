@@ -1022,7 +1022,7 @@ on the console</string>
        </rect>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton" >
+     <widget class="QPushButton" name="scheduleButton" >
       <property name="geometry" >
        <rect>
         <x>225</x>
@@ -1033,6 +1033,25 @@ on the console</string>
       </property>
       <property name="text" >
        <string>Schedule Recording</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="cancelScheduleButton" >
+      <property name="enabled" >
+       <bool>false</bool>
+      </property>
+      <property name="geometry" >
+       <rect>
+        <x>440</x>
+        <y>200</y>
+        <width>186</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text" >
+       <string>Cancel</string>
+      </property>
+      <property name="checkable" >
+       <bool>false</bool>
       </property>
      </widget>
     </widget>
@@ -1304,7 +1323,7 @@ on the console</string>
    </hints>
   </connection>
   <connection>
-   <sender>pushButton</sender>
+   <sender>scheduleButton</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
    <slot>scheduleRecording()</slot>
@@ -1319,6 +1338,22 @@ on the console</string>
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>cancelScheduleButton</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>cancelSchedule()</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>541</x>
+     <y>273</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>346</x>
+     <y>261</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>runMencoder()</slot>
@@ -1329,5 +1364,6 @@ on the console</string>
   <slot>showAvailableAudioCodecs()</slot>
   <slot>showAvailableVideoCodecs()</slot>
   <slot>scheduleRecording()</slot>
+  <slot>cancelSchedule()</slot>
  </slots>
 </ui>
