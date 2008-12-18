@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS><TS version="1.1" language="es">
-<defaultcodec></defaultcodec>
 <context>
     <name>AboutDialog</name>
     <message>
@@ -19,7 +18,7 @@
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:600;&quot;&gt;mtvcgui* v0.12&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:600;&quot;&gt;mtvcgui* v0.2&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:14pt; font-weight:600;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:400; font-style:italic;&quot;&gt;mencoder TV capture GUI&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt; font-style:italic;&quot;&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt; font-style:italic;&quot;&gt;&lt;span style=&quot; font-size:10pt; font-style:normal;&quot;&gt;A simple frontend for using mencoder as a TV capture program.&lt;/span&gt;&lt;/p&gt;
@@ -68,11 +67,6 @@ p, li { white-space: pre-wrap; }
         <location filename="mtvcgui.ui" line="26"/>
         <source>Run</source>
         <translation>Ejecutar</translation>
-    </message>
-    <message>
-        <location filename="mtvcgui.ui" line="39"/>
-        <source>./mencoder_tv_capture.avi</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="mtvcgui.ui" line="52"/>
@@ -426,19 +420,24 @@ on the console</source>
         <translation>Detenido</translation>
     </message>
     <message>
-        <location filename="run.py" line="629"/>
-        <source>Recording... %1 seconds</source>
-        <translation>Capturando... %1 segundos</translation>
-    </message>
-    <message>
-        <location filename="run.py" line="170"/>
-        <source>Waiting %1 seconds...</source>
-        <translation>Esperando %1 segundos...</translation>
-    </message>
-    <message>
         <location filename="mtvcgui.ui" line="1051"/>
         <source>Cancel</source>
         <translation>Cancelar</translation>
+    </message>
+    <message>
+        <location filename="run.py" line="578"/>
+        <source>Recording... %1</source>
+        <translation>Capturando... %1</translation>
+    </message>
+    <message>
+        <location filename="run.py" line="111"/>
+        <source>Waiting %1</source>
+        <translation>Esperando %1</translation>
+    </message>
+    <message>
+        <location filename="mtvcgui.ui" line="39"/>
+        <source>./capture_{channel}_{%Y%m%d_%H%M%S}.avi</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

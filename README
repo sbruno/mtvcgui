@@ -1,0 +1,11 @@
+mtvcgui v0.2
+A graphical user interface for mencoder as a TV capture program.
+
+Author: Santiago Bruno
+License: GPL v3
+Web pages: http://www.santiagobruno.com.ar/programas.html
+           http://code.google.com/p/mtvcgui/
+
+Thanks to:
+ * Tibor Bamhor: Testing, comments and ideas.
+ * Gauthier Tellier: Mplayer icon at http://www.gnome-look.org/content/show.php?content=46528

@@ -36,7 +36,7 @@
      </rect>
     </property>
     <property name="text" >
-     <string>./mencoder_tv_capture.avi</string>
+     <string>./capture_{channel}_{%Y%m%d_%H%M%S}.avi</string>
     </property>
    </widget>
    <widget class="QLabel" name="label" >

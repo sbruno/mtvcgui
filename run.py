@@ -1,14 +1,29 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# Author: Santiago Bruno
-# License: GPL v3
-# Web pages: http://www.santiagobruno.com.ar/programas.html
-#            http://code.google.com/p/mtvcgui/
+
+"""
+    mtvcgui
+    Copyright (C) 2008  Santiago Bruno
+    Web pages: http://www.santiagobruno.com.ar/programas.html
+               http://code.google.com/p/mtvcgui/
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+"""
+
 
 #python imports
-import commands
 import ConfigParser
-import locale
 import os
 import re
 import sys
@@ -24,90 +39,10 @@ from ui.file_exists import Ui_FileExistsDialog
 from ui.info import Ui_InfoDialog
 from ui.mtvcgui import Ui_MainWindow
 
-
-def findTranslation(prefix='', tr_dir='i18n'):
-    """Function to find a translation file in a directory and install it to an app
-    """
-    #try with country specific locale (e.g.: es_AR)
-    lang = locale.getdefaultlocale()[0]
-    if lang:
-        tr_path = os.path.join(tr_dir, prefix + lang + '.qm')
-
-        if not os.path.exists(tr_path):
-            #try with generic locale (e.g.: es)
-            lang = lang.split('_')[0]
-            tr_path = os.path.join(tr_dir, prefix + lang + '.qm')
-            if not os.path.exists(tr_path):
-                #don't translate
-                tr_path = ''
-    else:
-        tr_path = ''
-
-    return tr_path
+#other imports
+from utils import findTranslation, getCodecs, make_filename, secs_to_str
 
 
-def getCodecs(cmd):
-    output = commands.getoutput(cmd)
-    lines = output.split('\n')
-    text = ''
-    skip = True
-    for line in lines:
-        if not skip:
-            text += '\n' + line
-        if 'Available codecs:' in line:
-            text += line
-            skip = False
-    if not text:
-        text = output
-    return text
-
-
-def make_filename(filename, channel_text, append_suffix=True):
-
-    def repl_func(match, now):
-        year   = now[0]
-        month  = now[1]
-        day    = now[2]
-        hour   = now[3]
-        minute = now[4]
-        second = now[5]
-
-        text = match.group()
-
-        text = text.replace('%Y', str(year))
-        text = text.replace('%y', str(year)[2:])
-        text = text.replace('%m', "%.2d" % month)
-        text = text.replace('%d', "%.2d" % day)
-        text = text.replace('%H', "%.2d" % hour)
-        text = text.replace('%M', "%.2d" % minute)
-        text = text.replace('%S', "%.2d" % second)
-
-        return text[1:-1]
-
-    new_filename = filename.replace('{channel}', channel_text)
-    now    = time.localtime()
-    new_filename = re.sub('{[^}]*?}', lambda x: repl_func(x, now), new_filename)
-
-    if append_suffix:
-        suffix = 1
-        appended_filename = new_filename
-        while os.path.exists(appended_filename):
-            dot_splitted = new_filename.split('.')
-
-            if len(dot_splitted) > 1:
-                name = dot_splitted[:-1]
-                extension = [dot_splitted[-1]]
-            else:
-                name = dot_splitted
-                extension = []
-
-            name[-1] = name[-1] + '_' + str(suffix)
-
-            appended_filename = '.'.join(name + extension)
-            suffix += 1
-        new_filename = appended_filename
-
-    return new_filename
 
 class InfoDialog(QtGui.QDialog, Ui_InfoDialog):
     def __init__(self, parent=None):
@@ -145,6 +80,12 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         QtCore.QObject.connect(self.schedule_timer, QtCore.SIGNAL("timeout()"), self.check_schedule)
 
         self.setupUi(self)
+        
+        # I add the icon here because with QT Designer I get a different path
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("./ui/icons/mplayer_32x32.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.setWindowIcon(icon)
+
         now = time.localtime()
         self.recording_date.setDate(QtCore.QDate.currentDate())
         self.recording_date.setTime(QtCore.QTime(now[3], now[4], 0))
@@ -153,7 +94,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
     def update_status(self):
         if self.mplayer_instance.poll() != 0:
             self.time_running += 1
-            self.status_label.setText(self.tr('Recording... %1 seconds').arg(str(self.time_running)))
+            self.status_label.setText(self.tr('Recording... %1').arg(secs_to_str(self.time_running)))
         else:
             self.record_stop_cleanup()
 
@@ -167,7 +108,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
             self.runButton.setEnabled(False)
             self.runMencoder(accepted=True)
         else:
-            self.status_label.setText(self.tr('Waiting %1 seconds...').arg(str(seconds_remaining)))
+            self.status_label.setText(self.tr('Waiting %1').arg(secs_to_str(seconds_remaining)))
 
     def record_stop_cleanup(self):
         self.status_label.setText(self.tr('Stopped'))
@@ -175,7 +116,8 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         self.time_running = 0
         post_command = str(self.post_command.text())
         if post_command:
-            call(post_command)
+            cmds = [c for c in re.split("\s+", post_command) if c]
+            call(cmds)
         self.stopButton.setEnabled(False)
         self.runButton.setEnabled(True)
         self.cancelScheduleButton.setEnabled(False)
@@ -626,13 +568,14 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
 
             pre_command = str(self.pre_command.text())
             if pre_command:
-                call(pre_command)
+                cmds = [c for c in re.split("\s+", pre_command) if c]
+                call(cmds)
 
             self.mplayer_instance = Popen(self.generateCommand())
             self.pid = self.mplayer_instance.pid
 
             if self.pid:
-                self.status_label.setText(self.tr('Recording... %1 seconds').arg(str(self.time_running)))
+                self.status_label.setText(self.tr('Recording... %1').arg(secs_to_str(self.time_running)))
                 self.checker_timer.start(1000)
                 self.scheduleButton.setEnabled(False)
                 self.cancelScheduleButton.setEnabled(False)
