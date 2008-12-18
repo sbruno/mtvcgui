@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'mtvcgui.ui'
 #
-# Created: Thu Dec 18 01:03:57 2008
+# Created: Thu Dec 18 20:46:51 2008
 #      by: PyQt4 UI code generator 4.4.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -294,7 +294,10 @@ class Ui_MainWindow(object):
         self.actionSave_configuration.setObjectName("actionSave_configuration")
         self.actionAbout_mtvcgui = QtGui.QAction(MainWindow)
         self.actionAbout_mtvcgui.setObjectName("actionAbout_mtvcgui")
+        self.actionReload_configuration = QtGui.QAction(MainWindow)
+        self.actionReload_configuration.setObjectName("actionReload_configuration")
         self.menuPrueba.addAction(self.actionSave_configuration)
+        self.menuPrueba.addAction(self.actionReload_configuration)
         self.menuPrueba.addAction(self.actionSalir)
         self.menuHelp.addAction(self.actionAbout_mtvcgui)
         self.menubar.addAction(self.menuPrueba.menuAction())
@@ -316,6 +319,7 @@ class Ui_MainWindow(object):
         QtCore.QObject.connect(self.freq_rb, QtCore.SIGNAL("clicked()"), self.frequency.show)
         QtCore.QObject.connect(self.scheduleButton, QtCore.SIGNAL("clicked()"), MainWindow.scheduleRecording)
         QtCore.QObject.connect(self.cancelScheduleButton, QtCore.SIGNAL("clicked()"), MainWindow.cancelSchedule)
+        QtCore.QObject.connect(self.actionReload_configuration, QtCore.SIGNAL("activated()"), MainWindow.setParametersFromConfig)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -417,4 +421,5 @@ class Ui_MainWindow(object):
         self.actionSalir.setText(QtGui.QApplication.translate("MainWindow", "Exit", None, QtGui.QApplication.UnicodeUTF8))
         self.actionSave_configuration.setText(QtGui.QApplication.translate("MainWindow", "Save configuration", None, QtGui.QApplication.UnicodeUTF8))
         self.actionAbout_mtvcgui.setText(QtGui.QApplication.translate("MainWindow", "About mtvcgui", None, QtGui.QApplication.UnicodeUTF8))
+        self.actionReload_configuration.setText(QtGui.QApplication.translate("MainWindow", "Restore saved configuration", None, QtGui.QApplication.UnicodeUTF8))
 

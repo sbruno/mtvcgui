@@ -1100,6 +1100,7 @@ on the console</string>
      <string>Menu</string>
     </property>
     <addaction name="actionSave_configuration" />
+    <addaction name="actionReload_configuration" />
     <addaction name="actionSalir" />
    </widget>
    <widget class="QMenu" name="menuHelp" >
@@ -1125,6 +1126,11 @@ on the console</string>
   <action name="actionAbout_mtvcgui" >
    <property name="text" >
     <string>About mtvcgui</string>
+   </property>
+  </action>
+  <action name="actionReload_configuration" >
+   <property name="text" >
+    <string>Restore saved configuration</string>
    </property>
   </action>
  </widget>
@@ -1354,6 +1360,22 @@ on the console</string>
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>actionReload_configuration</sender>
+   <signal>activated()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>setParametersFromConfig()</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>346</x>
+     <y>261</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>runMencoder()</slot>
@@ -1365,5 +1387,6 @@ on the console</string>
   <slot>showAvailableVideoCodecs()</slot>
   <slot>scheduleRecording()</slot>
   <slot>cancelSchedule()</slot>
+  <slot>setParametersFromConfig()</slot>
  </slots>
 </ui>
