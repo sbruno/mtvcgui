@@ -631,6 +631,19 @@
        <double>9999.989999999999782</double>
       </property>
      </widget>
+     <widget class="QPushButton" name="pushButton" >
+      <property name="geometry" >
+       <rect>
+        <x>20</x>
+        <y>260</y>
+        <width>201</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text" >
+       <string>Preview channel with mplayer</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="tab_2" >
      <attribute name="title" >
@@ -1016,7 +1029,7 @@ on the console</string>
       <property name="geometry" >
        <rect>
         <x>15</x>
-        <y>200</y>
+        <y>270</y>
         <width>194</width>
         <height>26</height>
        </rect>
@@ -1026,7 +1039,7 @@ on the console</string>
       <property name="geometry" >
        <rect>
         <x>225</x>
-        <y>200</y>
+        <y>270</y>
         <width>186</width>
         <height>25</height>
        </rect>
@@ -1042,7 +1055,7 @@ on the console</string>
       <property name="geometry" >
        <rect>
         <x>440</x>
-        <y>200</y>
+        <y>270</y>
         <width>186</width>
         <height>25</height>
        </rect>
@@ -1052,6 +1065,19 @@ on the console</string>
       </property>
       <property name="checkable" >
        <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="play_while_recording" >
+      <property name="geometry" >
+       <rect>
+        <x>20</x>
+        <y>145</y>
+        <width>611</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text" >
+       <string>Play recorded file while capture (kind of preview) (May consume too much cpu and ruin your capture!!)</string>
       </property>
      </widget>
     </widget>
@@ -1335,8 +1361,8 @@ on the console</string>
    <slot>scheduleRecording()</slot>
    <hints>
     <hint type="sourcelabel" >
-     <x>335</x>
-     <y>266</y>
+     <x>339</x>
+     <y>331</y>
     </hint>
     <hint type="destinationlabel" >
      <x>90</x>
@@ -1351,8 +1377,8 @@ on the console</string>
    <slot>cancelSchedule()</slot>
    <hints>
     <hint type="sourcelabel" >
-     <x>541</x>
-     <y>273</y>
+     <x>545</x>
+     <y>331</y>
     </hint>
     <hint type="destinationlabel" >
      <x>346</x>
@@ -1376,6 +1402,22 @@ on the console</string>
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>previewWithMplayer()</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>170</x>
+     <y>345</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>350</x>
+     <y>487</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>runMencoder()</slot>
@@ -1388,5 +1430,6 @@ on the console</string>
   <slot>scheduleRecording()</slot>
   <slot>cancelSchedule()</slot>
   <slot>setParametersFromConfig()</slot>
+  <slot>previewWithMplayer()</slot>
  </slots>
 </ui>

@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'mtvcgui.ui'
 #
-# Created: Thu Dec 18 20:46:51 2008
+# Created: Fri Dec 19 02:20:27 2008
 #      by: PyQt4 UI code generator 4.4.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -161,6 +161,9 @@ class Ui_MainWindow(object):
         self.frequency.setDecimals(3)
         self.frequency.setMaximum(9999.99)
         self.frequency.setObjectName("frequency")
+        self.pushButton = QtGui.QPushButton(self.tab)
+        self.pushButton.setGeometry(QtCore.QRect(20, 260, 201, 25))
+        self.pushButton.setObjectName("pushButton")
         self.tabWidget.addTab(self.tab, "")
         self.tab_2 = QtGui.QWidget()
         self.tab_2.setObjectName("tab_2")
@@ -258,16 +261,19 @@ class Ui_MainWindow(object):
         self.post_command.setGeometry(QtCore.QRect(15, 105, 626, 26))
         self.post_command.setObjectName("post_command")
         self.recording_date = QtGui.QDateTimeEdit(self.tab_4)
-        self.recording_date.setGeometry(QtCore.QRect(15, 200, 194, 26))
+        self.recording_date.setGeometry(QtCore.QRect(15, 270, 194, 26))
         self.recording_date.setObjectName("recording_date")
         self.scheduleButton = QtGui.QPushButton(self.tab_4)
-        self.scheduleButton.setGeometry(QtCore.QRect(225, 200, 186, 25))
+        self.scheduleButton.setGeometry(QtCore.QRect(225, 270, 186, 25))
         self.scheduleButton.setObjectName("scheduleButton")
         self.cancelScheduleButton = QtGui.QPushButton(self.tab_4)
         self.cancelScheduleButton.setEnabled(False)
-        self.cancelScheduleButton.setGeometry(QtCore.QRect(440, 200, 186, 25))
+        self.cancelScheduleButton.setGeometry(QtCore.QRect(440, 270, 186, 25))
         self.cancelScheduleButton.setCheckable(False)
         self.cancelScheduleButton.setObjectName("cancelScheduleButton")
+        self.play_while_recording = QtGui.QCheckBox(self.tab_4)
+        self.play_while_recording.setGeometry(QtCore.QRect(20, 145, 611, 23))
+        self.play_while_recording.setObjectName("play_while_recording")
         self.tabWidget.addTab(self.tab_4, "")
         self.append_suffix = QtGui.QCheckBox(self.centralwidget)
         self.append_suffix.setGeometry(QtCore.QRect(10, 385, 666, 23))
@@ -320,6 +326,7 @@ class Ui_MainWindow(object):
         QtCore.QObject.connect(self.scheduleButton, QtCore.SIGNAL("clicked()"), MainWindow.scheduleRecording)
         QtCore.QObject.connect(self.cancelScheduleButton, QtCore.SIGNAL("clicked()"), MainWindow.cancelSchedule)
         QtCore.QObject.connect(self.actionReload_configuration, QtCore.SIGNAL("activated()"), MainWindow.setParametersFromConfig)
+        QtCore.QObject.connect(self.pushButton, QtCore.SIGNAL("clicked()"), MainWindow.previewWithMplayer)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -389,6 +396,7 @@ class Ui_MainWindow(object):
         self.showVideoCodecsButton.setText(QtGui.QApplication.translate("MainWindow", "...", None, QtGui.QApplication.UnicodeUTF8))
         self.number_rb.setText(QtGui.QApplication.translate("MainWindow", "number", None, QtGui.QApplication.UnicodeUTF8))
         self.freq_rb.setText(QtGui.QApplication.translate("MainWindow", "frequency", None, QtGui.QApplication.UnicodeUTF8))
+        self.pushButton.setText(QtGui.QApplication.translate("MainWindow", "Preview channel with mplayer", None, QtGui.QApplication.UnicodeUTF8))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), QtGui.QApplication.translate("MainWindow", "Main Parameters", None, QtGui.QApplication.UnicodeUTF8))
         self.label_10.setText(QtGui.QApplication.translate("MainWindow", "Extra tv parameters (delimited by :)", None, QtGui.QApplication.UnicodeUTF8))
         self.label_13.setText(QtGui.QApplication.translate("MainWindow", "Height", None, QtGui.QApplication.UnicodeUTF8))
@@ -413,6 +421,7 @@ class Ui_MainWindow(object):
         self.label_27.setText(QtGui.QApplication.translate("MainWindow", "Run this command after capturing:", None, QtGui.QApplication.UnicodeUTF8))
         self.scheduleButton.setText(QtGui.QApplication.translate("MainWindow", "Schedule Recording", None, QtGui.QApplication.UnicodeUTF8))
         self.cancelScheduleButton.setText(QtGui.QApplication.translate("MainWindow", "Cancel", None, QtGui.QApplication.UnicodeUTF8))
+        self.play_while_recording.setText(QtGui.QApplication.translate("MainWindow", "Play recorded file while capture (kind of preview) (May consume too much cpu and ruin your capture!!)", None, QtGui.QApplication.UnicodeUTF8))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_4), QtGui.QApplication.translate("MainWindow", "Advanced", None, QtGui.QApplication.UnicodeUTF8))
         self.append_suffix.setText(QtGui.QApplication.translate("MainWindow", "Append a number suffix if file exists", None, QtGui.QApplication.UnicodeUTF8))
         self.status_label.setText(QtGui.QApplication.translate("MainWindow", "Stopped", None, QtGui.QApplication.UnicodeUTF8))

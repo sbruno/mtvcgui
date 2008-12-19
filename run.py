@@ -71,13 +71,24 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
 
     def __init__(self, parent=None):
         QtGui.QWidget.__init__(self, parent)
+
+        self.mplayer_pid = 0
+        self.mencoder_pid = 0
+
+        #timer to update state while recording
         self.time_running = 0
         self.checker_timer = QtCore.QTimer()
         QtCore.QObject.connect(self.checker_timer, QtCore.SIGNAL("timeout()"), self.update_status)
 
+        #timer to check if the time of a sheduled recorded has been reached
         self.time_waiting = 0
         self.schedule_timer = QtCore.QTimer()
         QtCore.QObject.connect(self.schedule_timer, QtCore.SIGNAL("timeout()"), self.check_schedule)
+
+        #timer to check if mencoder has already created the recorded file and preview it
+        self.preview_timer = QtCore.QTimer()
+        QtCore.QObject.connect(self.preview_timer, QtCore.SIGNAL("timeout()"), self.check_preview)
+
 
         self.setupUi(self)
         
@@ -92,11 +103,17 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         self.setParametersFromConfig()
 
     def update_status(self):
-        if self.mplayer_instance.poll() is None:
+        if self.mencoder_instance.poll() is None:
             self.time_running += 1
             self.status_label.setText(self.tr('Recording... %1').arg(secs_to_str(self.time_running)))
         else:
             self.record_stop_cleanup()
+
+    def check_preview(self):
+        if os.path.exists(self.filename):
+            self.mplayer_instance = Popen(['mplayer','-quiet', self.filename])
+            self.mplayer_pid = self.mplayer_instance.pid
+            self.preview_timer.stop()
 
     def check_schedule(self):
         current_time = QtCore.QDateTime.currentDateTime()
@@ -114,6 +131,9 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         self.status_label.setText(self.tr('Stopped'))
         self.checker_timer.stop()
         self.time_running = 0
+        if self.mplayer_pid:
+            call(['kill', str(self.mplayer_pid)])
+            self.mplayer_pid = 0
         post_command = str(self.post_command.text())
         if post_command:
             cmds = [c for c in re.split("\s+", post_command) if c]
@@ -283,6 +303,9 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         if config.has_option('mencoder GUI', 'post_command'):
             self.post_command.setText(config.get('mencoder GUI', 'post_command'))
 
+        if config.has_option('mencoder GUI', 'play_while_recording'):
+            self.play_while_recording.setChecked(config.get('mencoder GUI', 'play_while_recording') == 'True')
+
 
     def getParametersFromGUI(self, config=False):
         channel = str(self.channel.value())
@@ -347,6 +370,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
 
         pre_command = str(self.pre_command.text())
         post_command = str(self.post_command.text())
+        play_while_recording = self.play_while_recording.isChecked()
 
 
         parameters = {}
@@ -385,6 +409,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
 
         parameters['pre_command'] = pre_command
         parameters['post_command'] = post_command
+        parameters['play_while_recording'] = play_while_recording
 
         return parameters
 
@@ -553,11 +578,102 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
             return ['mencoder', 'tv://'] + mencoderparms
 
 
+    def generateMplayerCommand(self):
+        parameters = self.getParametersFromGUI()
+
+        channel_type = parameters.get('channel_type', 'number')
+        channel = parameters.get('channel')
+        frequency = parameters.get('frequency')
+        driver = parameters.get('driver')
+        device = parameters.get('device')
+        norm = parameters.get('norm')
+        input = parameters.get('input')
+        chanlist = parameters.get('chanlist')
+        tvwidth = parameters.get('tvwidth')
+        tvheight = parameters.get('tvheight')
+        extratvparms = parameters.get('extratvparms')
+        audiorate = parameters.get('audiorate')
+        alsa_audio = parameters.get('alsa_audio')
+        adevice = parameters.get('adevice')
+        scaleheight = parameters.get('scaleheight')
+        scalewidth = parameters.get('scalewidth')
+        ofps = parameters.get('ofps')
+        extrafilters = parameters.get('extrafilters')
+
+
+        channel_text = self.getChannel()
+
+        if channel_type == 'frequency':
+            tvparms = 'freq=' + frequency
+        else:
+            tvparms = 'channel=' + channel
+
+        tvparms  += ':driver=' + driver
+        tvparms += ':device=' + device
+
+        if driver == 'v4l2':
+            tvparms += ':normid=' + norm
+        else:
+            tvparms += ':norm=' + norm
+
+        tvparms += ':input=' + input
+        tvparms += ':chanlist=' + chanlist
+
+        if tvwidth and tvheight:
+            tvparms += ':width=' + tvwidth
+            tvparms += ':height=' + tvheight
+
+        if audiorate:
+            tvparms += ':audiorate=' + audiorate
+
+        if alsa_audio:
+            tvparms += ":alsa"
+            if adevice:
+                tvparms += ":adevice=" + adevice
+
+        if extratvparms:
+            tvparms += ':' + extratvparms
+
+        mencoderparms = ['-tv']
+
+        mencoderparms.append(tvparms)
+
+        if ofps:
+            mencoderparms += ['-fps', ofps]
+
+        mencoderparms.append('-quiet')
+
+        if extrafilters or (scalewidth and scaleheight):
+            filters = []
+            if extrafilters:
+                filters.append(extrafilters)
+            if scaleheight:
+                filters.append("scale=%s:%s" % (scalewidth, scaleheight) )
+
+            filters = ','.join(filters)
+
+            mencoderparms += ['-vf', filters]
+
+
+        return ['mplayer', 'tv://'] + mencoderparms
+
+
+    def previewWithMplayer(self):
+        self.mplayer_instance = Popen(self.generateMplayerCommand())
+        self.mplayer_pid = self.mplayer_instance.pid
+
     def runMencoder(self, accepted=False):
+        if self.mplayer_pid:
+            call(['kill', str(self.mplayer_pid)])
+            self.mplayer_pid = 0
+
         self.schedule_timer.stop()
         channel_text = self.getChannel()
         append_suffix = self.append_suffix.isChecked()
+        play_while_recording = self.play_while_recording.isChecked()
         filename = make_filename(str(self.outputfile.text()), channel_text, append_suffix=append_suffix)
+
+        self.filename = filename
 
         if not accepted and os.path.exists(filename):
             dialog = FileExistsDialog(self)
@@ -571,14 +687,16 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
                 cmds = [c for c in re.split("\s+", pre_command) if c]
                 call(cmds)
 
-            self.mplayer_instance = Popen(self.generateCommand())
-            self.pid = self.mplayer_instance.pid
+            self.mencoder_instance = Popen(self.generateCommand())
+            self.mencoder_pid = self.mencoder_instance.pid
 
-            if self.pid:
+            if self.mencoder_pid:
                 self.status_label.setText(self.tr('Recording... %1').arg(secs_to_str(self.time_running)))
                 self.checker_timer.start(1000)
                 self.scheduleButton.setEnabled(False)
                 self.cancelScheduleButton.setEnabled(False)
+                if play_while_recording:
+                    self.preview_timer.start(1000)
             else:
                 self.stopButton.setEnabled(False)
                 self.runButton.setEnabled(True)
@@ -597,7 +715,9 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         dialog.show()
 
     def stopButtonPressed(self):
-        call(['kill', str(self.pid)])
+        if self.mencoder_pid:
+            call(['kill', str(self.mencoder_pid)])
+            self.mencoder_pid = 0
         self.record_stop_cleanup()
 
     def previewCommand(self):
@@ -627,12 +747,15 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         config.set('mencoder GUI', 'lavc_audiobitrate', parameters.get('lavc_audiobitrate'))
         config.set('mencoder GUI', 'lavc_videocodec', parameters.get('lavc_videocodec'))
         config.set('mencoder GUI', 'lavc_videobitrate', parameters.get('lavc_videobitrate'))
+        config.set('mencoder GUI', 'outputfile', parameters.get('outputfile'))
+
         config.set('mencoder GUI', 'tvwidth', parameters.get('tvwidth'))
         config.set('mencoder GUI', 'tvheight', parameters.get('tvheight'))
         config.set('mencoder GUI', 'audiorate', parameters.get('audiorate'))
         config.set('mencoder GUI', 'alsa_audio', parameters.get('alsa_audio'))
         config.set('mencoder GUI', 'adevice', parameters.get('adevice'))
         config.set('mencoder GUI', 'extratvparms', parameters.get('extratvparms'))
+
         config.set('mencoder GUI', 'scalewidth', parameters.get('scaleheight'))
         config.set('mencoder GUI', 'scaleheight', parameters.get('scalewidth'))
         config.set('mencoder GUI', 'ofps', parameters.get('ofps'))
@@ -640,9 +763,10 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         config.set('mencoder GUI', 'quiet', parameters.get('quiet'))
         config.set('mencoder GUI', 'extrafilters', parameters.get('extrafilters'))
         config.set('mencoder GUI', 'extramencoderparms', parameters.get('extramencoderparms'))
+
         config.set('mencoder GUI', 'pre_command', parameters.get('pre_command'))
         config.set('mencoder GUI', 'post_command', parameters.get('post_command'))
-        config.set('mencoder GUI', 'outputfile', parameters.get('outputfile'))
+        config.set('mencoder GUI', 'play_while_recording', parameters.get('play_while_recording'))
 
         try:
             config_file = open('mtvcgui.ini', 'w')
