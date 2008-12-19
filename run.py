@@ -92,7 +92,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         self.setParametersFromConfig()
 
     def update_status(self):
-        if self.mplayer_instance.poll() != 0:
+        if self.mplayer_instance.poll() is None:
             self.time_running += 1
             self.status_label.setText(self.tr('Recording... %1').arg(secs_to_str(self.time_running)))
         else:
