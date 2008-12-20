@@ -168,6 +168,26 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         elif self.freq_rb.isChecked():
             return str(self.frequency.value()).replace(",",".")
 
+    def audioCodecSelected(self,i):
+        LAME = 3
+        LAVC = 4
+        if i == LAME:
+            self.lavc_audio_options_box.hide()
+            self.lame_options_box.show()
+        elif i == LAVC:
+            self.lame_options_box.hide()
+            self.lavc_audio_options_box.show()
+        else:
+            self.lame_options_box.hide()
+            self.lavc_audio_options_box.hide()
+
+    def videoCodecSelected(self,i):
+        LAVC = 2
+        if i == LAVC:
+            self.lavc_video_options_box.show()
+        else:
+            self.lavc_video_options_box.hide()
+
     def setParametersFromConfig(self):
         config = ConfigParser.ConfigParser()
         config.read("mtvcgui.ini")
@@ -176,6 +196,8 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
             self.frequency.hide()
             self.number_rb.setChecked(True)
             self.freq_rb.setChecked(False)
+            self.audiocodec.setCurrentIndex(3) #default to mp3lame
+            self.videocodec.setCurrentIndex(2) #default to lavc
             return None
 
         #main tab
@@ -223,9 +245,13 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
 
         if config.has_option('mencoder GUI', 'audiocodec'):
             self.audiocodec.setCurrentIndex(int(config.get('mencoder GUI', 'audiocodec')))
+        else:
+            self.audiocodec.setCurrentIndex(3) #default to mp3lame
 
         if config.has_option('mencoder GUI', 'videocodec'):
             self.videocodec.setCurrentIndex(int(config.get('mencoder GUI', 'videocodec')))
+        else:
+            self.videocodec.setCurrentIndex(2) #default to lavc
 
         if config.has_option('mencoder GUI', 'append_suffix'):
             self.append_suffix.setChecked(config.get('mencoder GUI', 'append_suffix') == 'True')
@@ -234,13 +260,17 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         #lavc options
 
         if config.has_option('mencoder GUI', 'lavc_audiocodec'):
-            self.lavc_audiocodec.setText(config.get('mencoder GUI', 'lavc_audiocodec'))
+            self.lavc_audiocodec.setCurrentIndex(int(config.get('mencoder GUI', 'lavc_audiocodec')))
 
         if config.has_option('mencoder GUI', 'lavc_audiobitrate'):
             self.lavc_audiobitrate.setText(config.get('mencoder GUI', 'lavc_audiobitrate'))
 
+        if config.has_option('mencoder GUI', 'lame_audiobitrate'):
+            self.lame_audiobitrate.setText(config.get('mencoder GUI', 'lame_audiobitrate'))
+
+
         if config.has_option('mencoder GUI', 'lavc_videocodec'):
-            self.lavc_videocodec.setText(config.get('mencoder GUI', 'lavc_videocodec'))
+            self.lavc_videocodec.setCurrentIndex(int(config.get('mencoder GUI', 'lavc_videocodec')))
 
         if config.has_option('mencoder GUI', 'lavc_videobitrate'):
             self.lavc_videobitrate.setText(config.get('mencoder GUI', 'lavc_videobitrate'))
@@ -345,9 +375,20 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
 
         append_suffix = self.append_suffix.isChecked()
 
-        lavc_audiocodec = str(self.lavc_audiocodec.text())
+        if config:
+            lavc_audiocodec = self.lavc_audiocodec.currentIndex()
+        else:
+            lavc_audiocodec = str(self.lavc_audiocodec.currentText())
+
         lavc_audiobitrate = str(self.lavc_audiobitrate.text())
-        lavc_videocodec = str(self.lavc_videocodec.text())
+        lame_audiobitrate = str(self.lame_audiobitrate.text())
+
+        if config:
+            lavc_videocodec = self.lavc_videocodec.currentIndex()
+        else:
+            lavc_videocodec = str(self.lavc_videocodec.currentText())
+
+
         lavc_videobitrate = str(self.lavc_videobitrate.text())
 
         outputfile = str(self.outputfile.text())
@@ -388,6 +429,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         parameters['append_suffix'] = append_suffix
         parameters['lavc_audiocodec'] = lavc_audiocodec
         parameters['lavc_audiobitrate'] = lavc_audiobitrate
+        parameters['lame_audiobitrate'] = lame_audiobitrate
         parameters['lavc_videocodec'] = lavc_videocodec
         parameters['lavc_videobitrate'] = lavc_videobitrate
         parameters['outputfile'] = outputfile
@@ -432,6 +474,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         append_suffix = parameters.get('append_suffix')
         lavc_audiocodec = parameters.get('lavc_audiocodec')
         lavc_audiobitrate = parameters.get('lavc_audiobitrate')
+        lame_audiobitrate = parameters.get('lame_audiobitrate')
         lavc_videocodec = parameters.get('lavc_videocodec')
         lavc_videobitrate = parameters.get('lavc_videobitrate')
         tvwidth = parameters.get('tvwidth')
@@ -555,6 +598,11 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
             else:
                 mencoderparms += ['-lavcopts', lavcopts]
 
+        if lame_audiobitrate:
+            if preview:
+                mencoderparms.append('-lameopts cbr:br=' + lame_audiobitrate)
+            else:
+                mencoderparms += ['-lameopts', 'cbr:br=' + lame_audiobitrate]
 
 
         if extramencoderparms:
@@ -745,6 +793,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         config.set('mencoder GUI', 'append_suffix', parameters.get('append_suffix'))
         config.set('mencoder GUI', 'lavc_audiocodec', parameters.get('lavc_audiocodec'))
         config.set('mencoder GUI', 'lavc_audiobitrate', parameters.get('lavc_audiobitrate'))
+        config.set('mencoder GUI', 'lame_audiobitrate', parameters.get('lame_audiobitrate'))
         config.set('mencoder GUI', 'lavc_videocodec', parameters.get('lavc_videocodec'))
         config.set('mencoder GUI', 'lavc_videobitrate', parameters.get('lavc_videobitrate'))
         config.set('mencoder GUI', 'outputfile', parameters.get('outputfile'))

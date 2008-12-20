@@ -214,7 +214,7 @@
       <property name="geometry" >
        <rect>
         <x>350</x>
-        <y>30</y>
+        <y>20</y>
         <width>91</width>
         <height>16</height>
        </rect>
@@ -227,7 +227,7 @@
       <property name="geometry" >
        <rect>
         <x>440</x>
-        <y>65</y>
+        <y>45</y>
         <width>201</width>
         <height>26</height>
        </rect>
@@ -370,7 +370,7 @@
       <property name="geometry" >
        <rect>
         <x>350</x>
-        <y>70</y>
+        <y>50</y>
         <width>91</width>
         <height>16</height>
        </rect>
@@ -383,7 +383,7 @@
       <property name="geometry" >
        <rect>
         <x>440</x>
-        <y>25</y>
+        <y>15</y>
         <width>201</width>
         <height>26</height>
        </rect>
@@ -443,35 +443,22 @@
        <string>Input</string>
       </property>
      </widget>
-     <widget class="QGroupBox" name="groupBox" >
+     <widget class="QGroupBox" name="lavc_audio_options_box" >
       <property name="geometry" >
        <rect>
-        <x>320</x>
-        <y>105</y>
+        <x>325</x>
+        <y>80</y>
         <width>341</width>
-        <height>181</height>
+        <height>91</height>
        </rect>
       </property>
       <property name="title" >
-       <string>lavc options</string>
+       <string>lavc audio options</string>
       </property>
-      <widget class="QLineEdit" name="lavc_audiocodec" >
-       <property name="geometry" >
-        <rect>
-         <x>160</x>
-         <y>30</y>
-         <width>113</width>
-         <height>26</height>
-        </rect>
-       </property>
-       <property name="text" >
-        <string>mp3</string>
-       </property>
-      </widget>
       <widget class="QLineEdit" name="lavc_audiobitrate" >
        <property name="geometry" >
         <rect>
-         <x>160</x>
+         <x>175</x>
          <y>60</y>
          <width>113</width>
          <height>26</height>
@@ -484,7 +471,7 @@
       <widget class="QLabel" name="label_19" >
        <property name="geometry" >
         <rect>
-         <x>20</x>
+         <x>35</x>
          <y>40</y>
          <width>136</width>
          <height>16</height>
@@ -497,7 +484,7 @@
       <widget class="QLabel" name="label_20" >
        <property name="geometry" >
         <rect>
-         <x>20</x>
+         <x>35</x>
          <y>70</y>
          <width>136</width>
          <height>16</height>
@@ -507,64 +494,45 @@
         <string>Audio Bitrate</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lavc_videocodec" >
+      <widget class="QComboBox" name="lavc_audiocodec" >
        <property name="geometry" >
         <rect>
-         <x>160</x>
-         <y>90</y>
-         <width>113</width>
+         <x>175</x>
+         <y>30</y>
+         <width>111</width>
          <height>26</height>
         </rect>
        </property>
-       <property name="text" >
-        <string>mpeg4</string>
+       <property name="editable" >
+        <bool>true</bool>
        </property>
-      </widget>
-      <widget class="QLabel" name="label_21" >
-       <property name="geometry" >
-        <rect>
-         <x>20</x>
-         <y>95</y>
-         <width>136</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="text" >
-        <string>Video Codec</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_22" >
-       <property name="geometry" >
-        <rect>
-         <x>20</x>
-         <y>125</y>
-         <width>136</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="text" >
-        <string>Video Bitrate</string>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="lavc_videobitrate" >
-       <property name="geometry" >
-        <rect>
-         <x>160</x>
-         <y>120</y>
-         <width>113</width>
-         <height>26</height>
-        </rect>
-       </property>
-       <property name="text" >
-        <string>3000</string>
-       </property>
+       <item>
+        <property name="text" >
+         <string>mp2</string>
+        </property>
+       </item>
+       <item>
+        <property name="text" >
+         <string>ac3</string>
+        </property>
+       </item>
+       <item>
+        <property name="text" >
+         <string>adpcm_ima_wav</string>
+        </property>
+       </item>
+       <item>
+        <property name="text" >
+         <string>mp3</string>
+        </property>
+       </item>
       </widget>
      </widget>
      <widget class="QToolButton" name="showAudioCodecsButton" >
       <property name="geometry" >
        <rect>
         <x>645</x>
-        <y>25</y>
+        <y>15</y>
         <width>27</width>
         <height>25</height>
        </rect>
@@ -577,7 +545,7 @@
       <property name="geometry" >
        <rect>
         <x>645</x>
-        <y>65</y>
+        <y>45</y>
         <width>27</width>
         <height>25</height>
        </rect>
@@ -643,6 +611,165 @@
       <property name="text" >
        <string>Preview channel with mplayer</string>
       </property>
+     </widget>
+     <widget class="QGroupBox" name="lavc_video_options_box" >
+      <property name="geometry" >
+       <rect>
+        <x>325</x>
+        <y>190</y>
+        <width>341</width>
+        <height>80</height>
+       </rect>
+      </property>
+      <property name="title" >
+       <string>lavc video options</string>
+      </property>
+      <widget class="QLabel" name="label_22" >
+       <property name="geometry" >
+        <rect>
+         <x>35</x>
+         <y>60</y>
+         <width>136</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text" >
+        <string>Video Bitrate</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_21" >
+       <property name="geometry" >
+        <rect>
+         <x>35</x>
+         <y>30</y>
+         <width>136</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text" >
+        <string>Video Codec</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lavc_videobitrate" >
+       <property name="geometry" >
+        <rect>
+         <x>175</x>
+         <y>55</y>
+         <width>151</width>
+         <height>26</height>
+        </rect>
+       </property>
+       <property name="text" >
+        <string>3000</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="lavc_videocodec" >
+       <property name="geometry" >
+        <rect>
+         <x>175</x>
+         <y>25</y>
+         <width>151</width>
+         <height>26</height>
+        </rect>
+       </property>
+       <property name="editable" >
+        <bool>true</bool>
+       </property>
+       <item>
+        <property name="text" >
+         <string>mpeg4</string>
+        </property>
+       </item>
+       <item>
+        <property name="text" >
+         <string>mjpeg</string>
+        </property>
+       </item>
+       <item>
+        <property name="text" >
+         <string>h263</string>
+        </property>
+       </item>
+       <item>
+        <property name="text" >
+         <string>h263p</string>
+        </property>
+       </item>
+       <item>
+        <property name="text" >
+         <string>mspeg4</string>
+        </property>
+       </item>
+       <item>
+        <property name="text" >
+         <string>mspeg4v2</string>
+        </property>
+       </item>
+       <item>
+        <property name="text" >
+         <string>wmv1</string>
+        </property>
+       </item>
+       <item>
+        <property name="text" >
+         <string>wmv2</string>
+        </property>
+       </item>
+       <item>
+        <property name="text" >
+         <string>rv10</string>
+        </property>
+       </item>
+       <item>
+        <property name="text" >
+         <string>mpeg1video</string>
+        </property>
+       </item>
+       <item>
+        <property name="text" >
+         <string>huffyuv</string>
+        </property>
+       </item>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="lame_options_box" >
+      <property name="geometry" >
+       <rect>
+        <x>325</x>
+        <y>80</y>
+        <width>346</width>
+        <height>80</height>
+       </rect>
+      </property>
+      <property name="title" >
+       <string>lame options</string>
+      </property>
+      <widget class="QLabel" name="label_28" >
+       <property name="geometry" >
+        <rect>
+         <x>50</x>
+         <y>30</y>
+         <width>101</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text" >
+        <string>Audio Bitrate</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lame_audiobitrate" >
+       <property name="geometry" >
+        <rect>
+         <x>185</x>
+         <y>25</y>
+         <width>113</width>
+         <height>26</height>
+        </rect>
+       </property>
+       <property name="text" >
+        <string>128</string>
+       </property>
+      </widget>
      </widget>
     </widget>
     <widget class="QWidget" name="tab_2" >
@@ -1281,8 +1408,8 @@ on the console</string>
    <slot>showAvailableVideoCodecs()</slot>
    <hints>
     <hint type="sourcelabel" >
-     <x>667</x>
-     <y>138</y>
+     <x>671</x>
+     <y>130</y>
     </hint>
     <hint type="destinationlabel" >
      <x>346</x>
@@ -1418,6 +1545,38 @@ on the console</string>
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>audiocodec</sender>
+   <signal>currentIndexChanged(int)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>audioCodecSelected(int)</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>488</x>
+     <y>89</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>24</x>
+     <y>486</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>videocodec</sender>
+   <signal>currentIndexChanged(int)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>videoCodecSelected(int)</slot>
+   <hints>
+    <hint type="sourcelabel" >
+     <x>525</x>
+     <y>119</y>
+    </hint>
+    <hint type="destinationlabel" >
+     <x>60</x>
+     <y>491</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>runMencoder()</slot>
@@ -1431,5 +1590,7 @@ on the console</string>
   <slot>cancelSchedule()</slot>
   <slot>setParametersFromConfig()</slot>
   <slot>previewWithMplayer()</slot>
+  <slot>audioCodecSelected(int)</slot>
+  <slot>videoCodecSelected(int)</slot>
  </slots>
 </ui>
