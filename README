@@ -6,6 +6,24 @@ License: GPL v3
 Web pages: http://www.santiagobruno.com.ar/programas.html
            http://code.google.com/p/mtvcgui/
 
+Dependencies:
+    PyQT4
+
+Recommended settings:
+    Audio codec: mp3lame
+    Video codec: lavc with mpeg4
+    TV Filters:
+        pp=hb/vb/dr/al/lb
+        this will do deinterlacing and some other nice stuff
+
+Troubleshooting:
+    Start the program from the console to get error messages and mencoder
+    output. That is type ./run.py from mtvcgui directory.
+    If you get a 'Cannot open demuxer.' error, you can probably solve it by
+    enabling ALSA in the extra tv parameters tab. You need to specify the device
+    to be used. Generally hw.0
+    You can list devices with aplay --list-devices
+
 Thanks to:
  * Tibor Bamhor: Testing, comments and ideas.
  * Gauthier Tellier: Mplayer icon at http://www.gnome-look.org/content/show.php?content=46528
