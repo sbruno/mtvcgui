@@ -3,8 +3,9 @@ A graphical user interface for mencoder as a TV capture program.
 
 Author: Santiago Bruno
 License: GPL v3
-Web pages: http://www.santiagobruno.com.ar/programas.html
+Web pages: http://www.santiagobruno.com.ar/programas.html#mtvcgui
            http://code.google.com/p/mtvcgui/
+           http://github.com/sbruno/mtvcgui/
 
 Dependencies:
     PyQT4
@@ -19,10 +20,16 @@ Recommended settings:
 Troubleshooting:
     Start the program from the console to get error messages and mencoder
     output. That is type ./run.py from mtvcgui directory.
+
     If you get a 'Cannot open demuxer.' error, you can probably solve it by
     enabling ALSA in the extra tv parameters tab. You need to specify the device
     to be used. Generally hw.0
-    You can list devices with aplay --list-devices
+    You can list devices with arecord --list-devices
+
+    Black and white image can be probably misconfiguration of the norm.
+    The program defaults to NTSC (normid=0). You must adjust this value to the
+    norm used in your country. A tooltip with normid values will show up if you
+    point over the normid scroll box.
 
 Thanks to:
  * Tibor Bamhor: Testing, comments and ideas.

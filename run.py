@@ -4,8 +4,9 @@
 """
     mtvcgui
     Copyright (C) 2008  Santiago Bruno
-    Web pages: http://www.santiagobruno.com.ar/programas.html
+    Web pages: http://www.santiagobruno.com.ar/programas.html#mtvcgui
                http://code.google.com/p/mtvcgui/
+               http://github.com/sbruno/mtvcgui/
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
