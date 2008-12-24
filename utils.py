@@ -160,8 +160,6 @@ def saveConfiguration(parameters):
 
 
 def generateCommand(parameters, preview=False):
-    command = "mencoder tv://"
-
     channel_type = parameters.get('channel_type', 'number')
     channel = parameters.get('channel')
     frequency = parameters.get('frequency')
@@ -237,27 +235,15 @@ def generateCommand(parameters, preview=False):
     if audiocodec == 'none':
         mencoderparms.append('-nosound')
     else:
-        if preview:
-            mencoderparms.append('-oac ' + audiocodec)
-        else:
-            mencoderparms += ['-oac', audiocodec]
+        mencoderparms += ['-oac', audiocodec]
 
-    if preview:
-        mencoderparms.append('-ovc ' + videocodec)
-    else:
-        mencoderparms += ['-ovc', videocodec]
+    mencoderparms += ['-ovc', videocodec]
 
     if duration:
-        if preview:
-            mencoderparms.append('-endpos ' + duration)
-        else:
-            mencoderparms += ['-endpos', duration]
+        mencoderparms += ['-endpos', duration]
 
     if ofps:
-        if preview:
-            mencoderparms.append('-ofps ' + ofps)
-        else:
-            mencoderparms += ['-ofps', ofps]
+        mencoderparms += ['-ofps', ofps]
 
     if noskip:
         mencoderparms.append('-noskip')
@@ -275,10 +261,7 @@ def generateCommand(parameters, preview=False):
 
         filters = ','.join(filters)
 
-        if preview:
-            mencoderparms.append('-vf ' + filters)
-        else:
-            mencoderparms += ['-vf', filters]
+        mencoderparms += ['-vf', filters]
 
 
 
@@ -295,37 +278,24 @@ def generateCommand(parameters, preview=False):
 
         lavcopts = ':'.join(lavcopts)
 
-        if preview:
-            mencoderparms.append('-lavcopts ' + lavcopts)
-        else:
-            mencoderparms += ['-lavcopts', lavcopts]
+        mencoderparms += ['-lavcopts', lavcopts]
 
     if lame_audiobitrate:
-        if preview:
-            mencoderparms.append('-lameopts cbr:br=' + lame_audiobitrate)
-        else:
-            mencoderparms += ['-lameopts', 'cbr:br=' + lame_audiobitrate]
+        mencoderparms += ['-lameopts', 'cbr:br=' + lame_audiobitrate]
 
 
     if extramencoderparms:
-        if preview:
-            mencoderparms.append(extramencoderparms)
-        else:
-            for extraparm in extramencoderparms.split(' '):
-                mencoderparms.append(extraparm)
+        for extraparm in extramencoderparms.split(' '):
+            mencoderparms.append(extraparm)
+
+    mencoderparms += ['-o', outputfile]
+
+    command = ['mencoder', 'tv://'] + mencoderparms
 
     if preview:
-        mencoderparms.append('-o ' + outputfile)
+        return " ".join(command)
     else:
-        mencoderparms += ['-o', outputfile]
-
-    for parm in mencoderparms:
-        command += ' ' + parm
-
-    if preview:
         return command
-    else:
-        return ['mencoder', 'tv://'] + mencoderparms
 
 
 def generateMplayerCommand(parameters):
