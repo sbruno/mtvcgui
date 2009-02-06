@@ -192,7 +192,8 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
 
     def setParametersFromConfig(self):
         config = ConfigParser.ConfigParser()
-        config.read("mtvcgui.ini")
+        config_filename = os.path.join(os.path.expanduser("~"), '.mtvcgui', 'mtvcgui.ini')
+        config.read(config_filename)
         if not config.has_section('mencoder GUI'):
             self.channel.show()
             self.frequency.hide()

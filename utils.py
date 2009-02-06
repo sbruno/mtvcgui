@@ -108,7 +108,10 @@ def secs_to_str(seconds):
 def saveConfiguration(parameters):
 
     config = ConfigParser.ConfigParser()
-    config.read("mtvcgui.ini")
+    config_dir = os.path.join(os.path.expanduser("~"), '.mtvcgui')
+    config_filename = os.path.join(config_dir, 'mtvcgui.ini')
+    config.read(config_filename)
+
     if not config.has_section('mencoder GUI'):
         config.add_section('mencoder GUI')
 
@@ -150,13 +153,19 @@ def saveConfiguration(parameters):
     config.set('mencoder GUI', 'post_command', parameters.get('post_command'))
     config.set('mencoder GUI', 'play_while_recording', parameters.get('play_while_recording'))
 
+    if not os.path.exists(config_dir):
+        try:
+            os.mkdir(config_dir)
+        except:
+            print "Error trying to create %s" % (config_dir, )
+
+
     try:
-        config_file = open('mtvcgui.ini', 'w')
+        config_file = open(config_filename, 'w')
         config.write(config_file)
         config_file.close()
     except:
-        #mostrar algun error
-        pass
+        print "Error trying to save configuration to %s" % (config_filename, )
 
 
 def generateCommand(parameters, preview=False):
