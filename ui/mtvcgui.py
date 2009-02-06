@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'mtvcgui.ui'
 #
-# Created: Fri Dec 19 23:33:13 2008
+# Created: Fri Feb  6 05:16:00 2009
 #      by: PyQt4 UI code generator 4.4.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -61,7 +61,8 @@ class Ui_MainWindow(object):
         self.device.setGeometry(QtCore.QRect(90, 125, 121, 26))
         self.device.setObjectName("device")
         self.label_8 = QtGui.QLabel(self.tab)
-        self.label_8.setGeometry(QtCore.QRect(350, 20, 91, 16))
+        self.label_8.setGeometry(QtCore.QRect(320, 20, 111, 16))
+        self.label_8.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.label_8.setObjectName("label_8")
         self.videocodec = QtGui.QComboBox(self.tab)
         self.videocodec.setGeometry(QtCore.QRect(440, 45, 201, 26))
@@ -99,7 +100,8 @@ class Ui_MainWindow(object):
         self.label_3.setGeometry(QtCore.QRect(20, 75, 66, 16))
         self.label_3.setObjectName("label_3")
         self.label_9 = QtGui.QLabel(self.tab)
-        self.label_9.setGeometry(QtCore.QRect(350, 50, 91, 16))
+        self.label_9.setGeometry(QtCore.QRect(320, 50, 111, 16))
+        self.label_9.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.label_9.setObjectName("label_9")
         self.audiocodec = QtGui.QComboBox(self.tab)
         self.audiocodec.setGeometry(QtCore.QRect(440, 15, 201, 26))
@@ -155,7 +157,7 @@ class Ui_MainWindow(object):
         self.frequency.setMaximum(9999.99)
         self.frequency.setObjectName("frequency")
         self.pushButton = QtGui.QPushButton(self.tab)
-        self.pushButton.setGeometry(QtCore.QRect(20, 260, 201, 25))
+        self.pushButton.setGeometry(QtCore.QRect(20, 260, 211, 25))
         self.pushButton.setObjectName("pushButton")
         self.lavc_video_options_box = QtGui.QGroupBox(self.tab)
         self.lavc_video_options_box.setGeometry(QtCore.QRect(325, 190, 341, 80))
@@ -188,7 +190,7 @@ class Ui_MainWindow(object):
         self.lame_options_box.setGeometry(QtCore.QRect(325, 80, 346, 80))
         self.lame_options_box.setObjectName("lame_options_box")
         self.label_28 = QtGui.QLabel(self.lame_options_box)
-        self.label_28.setGeometry(QtCore.QRect(50, 30, 101, 16))
+        self.label_28.setGeometry(QtCore.QRect(35, 30, 116, 16))
         self.label_28.setObjectName("label_28")
         self.lame_audiobitrate = QtGui.QLineEdit(self.lame_options_box)
         self.lame_audiobitrate.setGeometry(QtCore.QRect(185, 25, 113, 26))
@@ -313,7 +315,7 @@ class Ui_MainWindow(object):
         self.status_label.setObjectName("status_label")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtGui.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 694, 24))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 694, 25))
         self.menubar.setObjectName("menubar")
         self.menuPrueba = QtGui.QMenu(self.menubar)
         self.menuPrueba.setObjectName("menuPrueba")
