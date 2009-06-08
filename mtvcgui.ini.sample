@@ -7,7 +7,7 @@ frequency = 0.0
 duration = 
 pre_command = 
 audiocodec = 3
-outputfile = ./capture_{channel}_{%Y%m%d_%H%M%S}.avi
+outputfile = ./capture_{%channel_%Y%m%d_%H%M%S}.avi
 channel = 22
 extrafilters = pp=hb/vb/dr/al/lb
 audiorate = 

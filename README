@@ -10,6 +10,15 @@ Web pages: http://www.santiagobruno.com.ar/programas.html#mtvcgui
 Dependencies:
     PyQT4
 
+Configuration
+It has almost no default values. The chosen configuration from the GUI can be
+saved at any time to the mtvcgui.ini file, which will be stored in the directory
+.mtvcgui in the users home directory.
+A mtvcgui.ini.sample is provided, with the values I used to test it. It shows
+how to add extra parameters for deinterlacing, for example. If you want to user
+it, you need to rename it as mtvcgui.ini, change the norm value to the one
+corresponding to your country and save it in $HOME/.mtvcgui/mtvcgui.ini
+
 Recommended settings:
     Audio codec: mp3lame
     Video codec: lavc with mpeg4
