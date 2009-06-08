@@ -341,123 +341,86 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
 
 
     def getParametersFromGUI(self, config=False):
-        channel = str(self.channel.value())
-        frequency = str(self.frequency.value()).replace(",",".")
-        channel_type = self.number_rb.isChecked() and 'number' or 'frequency'
+
+        parameters = {}
+
+        parameters['channel_type'] = self.number_rb.isChecked() and 'number' or 'frequency'
+        parameters['channel'] = str(self.channel.value())
+        parameters['frequency'] = str(self.frequency.value()).replace(",",".")
 
         if self.duration.time().hour() or self.duration.time().minute() or self.duration.time().second():
-            duration = "%.2d:%.2d:%.2d" % ( self.duration.time().hour(),
+            parameters['duration'] = "%.2d:%.2d:%.2d" % ( self.duration.time().hour(),
                                             self.duration.time().minute(),
                                             self.duration.time().second()
                                           )
         else:
-            duration = ''
+            parameters['duration'] = ''
 
         if config:
-            driver = self.driver.currentIndex()
+            parameters['driver'] = self.driver.currentIndex()
         else:
-            driver = str(self.driver.currentText())
-        device = str(self.device.text())
-        norm = str(self.norm.value())
-        input = str(self.input.value())
+            parameters['driver'] = str(self.driver.currentText())
+
+        parameters['device'] = str(self.device.text())
+        parameters['norm'] = str(self.norm.value())
+        parameters['input'] = str(self.input.value())
 
         if config:
-            chanlist = self.chanlist.currentIndex()
+            parameters['chanlist'] = self.chanlist.currentIndex()
         else:
-            chanlist = str(self.chanlist.currentText())
+            parameters['chanlist'] = str(self.chanlist.currentText())
 
         if config:
-            audiocodec = self.audiocodec.currentIndex()
+            parameters['audiocodec'] = self.audiocodec.currentIndex()
         else:
-            audiocodec = str(self.audiocodec.currentText())
+            parameters['audiocodec'] = str(self.audiocodec.currentText())
 
         if config:
-            videocodec = self.videocodec.currentIndex()
+            parameters['videocodec'] = self.videocodec.currentIndex()
         else:
-            videocodec = str(self.videocodec.currentText())
+            parameters['videocodec'] = str(self.videocodec.currentText())
 
-        append_suffix = self.append_suffix.isChecked()
+        parameters['append_suffix'] = self.append_suffix.isChecked()
 
         if config:
-            lavc_audiocodec = self.lavc_audiocodec.currentIndex()
+            parameters['lavc_audiocodec'] = self.lavc_audiocodec.currentIndex()
         else:
-            lavc_audiocodec = str(self.lavc_audiocodec.currentText())
+            parameters['lavc_audiocodec'] = str(self.lavc_audiocodec.currentText())
 
-        lavc_audiobitrate = str(self.lavc_audiobitrate.text())
-        lame_audiobitrate = str(self.lame_audiobitrate.text())
+        parameters['lavc_audiobitrate'] = str(self.lavc_audiobitrate.text())
+        parameters['lame_audiobitrate'] = str(self.lame_audiobitrate.text())
 
         if config:
-            lavc_videocodec = self.lavc_videocodec.currentIndex()
+            parameters['lavc_videocodec'] = self.lavc_videocodec.currentIndex()
         else:
-            lavc_videocodec = str(self.lavc_videocodec.currentText())
+            parameters['lavc_videocodec'] = str(self.lavc_videocodec.currentText())
 
+        parameters['lavc_videobitrate'] = str(self.lavc_videobitrate.text())
+        parameters['outputfile'] = str(self.outputfile.text())
 
-        lavc_videobitrate = str(self.lavc_videobitrate.text())
+        parameters['tvwidth'] = str(self.tvwidth.text())
+        parameters['tvheight'] = str(self.tvheight.text())
+        parameters['audiorate'] = str(self.audiorate.text())
+        parameters['alsa_audio'] = self.alsa_audio.isChecked()
+        parameters['adevice'] = str(self.adevice.text())
+        parameters['extratvparms'] = str(self.extratvparms.text())
 
-        outputfile = str(self.outputfile.text())
+        parameters['noskip'] = self.noskip.isChecked()
+        parameters['quiet'] = self.quiet.isChecked()
 
-        tvwidth = str(self.tvwidth.text())
-        tvheight = str(self.tvheight.text())
-        audiorate = str(self.audiorate.text())
-        alsa_audio = self.alsa_audio.isChecked()
-        adevice = str(self.adevice.text())
-        extratvparms = str(self.extratvparms.text())
+        parameters['scaleheight'] = str(self.scaleheight.text())
+        parameters['scalewidth'] = str(self.scalewidth.text())
+        parameters['ofps'] = str(self.ofps.text())
+        parameters['extrafilters'] = str(self.extrafilters.text())
+        parameters['extramencoderparms'] = str(self.extramencoderparms.text())
 
-        quiet = self.quiet.isChecked()
-        noskip = self.noskip.isChecked()
+        parameters['pre_command'] = str(self.pre_command.text())
+        parameters['post_command'] = str(self.post_command.text())
+        parameters['play_while_recording'] = self.play_while_recording.isChecked()
 
-        scalewidth = str(self.scalewidth.text())
-        scaleheight = str(self.scaleheight.text())
-        ofps = str(self.ofps.text())
-        extrafilters = str(self.extrafilters.text())
-        extramencoderparms = str(self.extramencoderparms.text())
-
-        pre_command = str(self.pre_command.text())
-        post_command = str(self.post_command.text())
-        play_while_recording = self.play_while_recording.isChecked()
-
-        parameters = {}
-        parameters['channel_type'] = channel_type
-        parameters['channel'] = channel
-        parameters['frequency'] = frequency
-        parameters['duration'] = duration
-        parameters['driver'] = driver
-        parameters['device'] = device
-        parameters['norm'] = norm
-        parameters['input'] = input
-        parameters['chanlist'] = chanlist
-        parameters['audiocodec'] = audiocodec
-        parameters['videocodec'] = videocodec
-        parameters['append_suffix'] = append_suffix
-        parameters['lavc_audiocodec'] = lavc_audiocodec
-        parameters['lavc_audiobitrate'] = lavc_audiobitrate
-        parameters['lame_audiobitrate'] = lame_audiobitrate
-        parameters['lavc_videocodec'] = lavc_videocodec
-        parameters['lavc_videobitrate'] = lavc_videobitrate
-        parameters['outputfile'] = outputfile
-
-        parameters['tvwidth'] = tvwidth
-        parameters['tvheight'] = tvheight
-        parameters['audiorate'] = audiorate
-        parameters['alsa_audio'] = alsa_audio
-        parameters['adevice'] = adevice
-        parameters['extratvparms'] = extratvparms
-
-        parameters['scaleheight'] = scaleheight
-        parameters['scalewidth'] = scalewidth
-        parameters['ofps'] = ofps
-        parameters['noskip'] = noskip
-        parameters['quiet'] = quiet
-        parameters['extrafilters'] = extrafilters
-        parameters['extramencoderparms'] = extramencoderparms
-
-        parameters['pre_command'] = pre_command
-        parameters['post_command'] = post_command
-        parameters['play_while_recording'] = play_while_recording
-
-        if channel_type == 'number':
+        if parameters['channel_type'] == 'number':
             parameters['channel_text'] = str(self.channel.value())
-        elif channel_type == 'frequency':
+        elif parameters['channel_type'] == 'frequency':
             parameters['channel_text'] = str(self.frequency.value()).replace(",",".")
 
         return parameters
