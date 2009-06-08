@@ -1,7 +1,8 @@
-<ui version="4.0" >
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
  <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow" >
-  <property name="geometry" >
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
@@ -9,12 +10,12 @@
     <height>523</height>
    </rect>
   </property>
-  <property name="windowTitle" >
+  <property name="windowTitle">
    <string>mencoder TV Capture GUI</string>
   </property>
-  <widget class="QWidget" name="centralwidget" >
-   <widget class="QPushButton" name="runButton" >
-    <property name="geometry" >
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QPushButton" name="runButton">
+    <property name="geometry">
      <rect>
       <x>190</x>
       <y>450</y>
@@ -22,12 +23,12 @@
       <height>25</height>
      </rect>
     </property>
-    <property name="text" >
+    <property name="text">
      <string>Run</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="outputfile" >
-    <property name="geometry" >
+   <widget class="QLineEdit" name="outputfile">
+    <property name="geometry">
      <rect>
       <x>115</x>
       <y>360</y>
@@ -35,12 +36,12 @@
       <height>26</height>
      </rect>
     </property>
-    <property name="text" >
-     <string>./capture_{channel}_{%Y%m%d_%H%M%S}.avi</string>
+    <property name="text">
+     <string>./capture_{%channel_%Y%m%d_%H%M%S}.avi</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label" >
-    <property name="geometry" >
+   <widget class="QLabel" name="label">
+    <property name="geometry">
      <rect>
       <x>10</x>
       <y>365</y>
@@ -48,12 +49,12 @@
       <height>16</height>
      </rect>
     </property>
-    <property name="text" >
+    <property name="text">
      <string>Output File</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="previewButton" >
-    <property name="geometry" >
+   <widget class="QPushButton" name="previewButton">
+    <property name="geometry">
      <rect>
       <x>535</x>
       <y>415</y>
@@ -61,12 +62,12 @@
       <height>25</height>
      </rect>
     </property>
-    <property name="text" >
+    <property name="text">
      <string>preview command</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="previewcommand" >
-    <property name="geometry" >
+   <widget class="QLineEdit" name="previewcommand">
+    <property name="geometry">
      <rect>
       <x>10</x>
       <y>415</y>
@@ -74,15 +75,15 @@
       <height>26</height>
      </rect>
     </property>
-    <property name="readOnly" >
+    <property name="readOnly">
      <bool>false</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="stopButton" >
-    <property name="enabled" >
+   <widget class="QPushButton" name="stopButton">
+    <property name="enabled">
      <bool>false</bool>
     </property>
-    <property name="geometry" >
+    <property name="geometry">
      <rect>
       <x>380</x>
       <y>450</y>
@@ -90,15 +91,15 @@
       <height>25</height>
      </rect>
     </property>
-    <property name="text" >
+    <property name="text">
      <string>Stop</string>
     </property>
-    <property name="checkable" >
+    <property name="checkable">
      <bool>false</bool>
     </property>
    </widget>
-   <widget class="QTabWidget" name="tabWidget" >
-    <property name="geometry" >
+   <widget class="QTabWidget" name="tabWidget">
+    <property name="geometry">
      <rect>
       <x>5</x>
       <y>10</y>
@@ -106,15 +107,15 @@
       <height>341</height>
      </rect>
     </property>
-    <property name="currentIndex" >
+    <property name="currentIndex">
      <number>0</number>
     </property>
-    <widget class="QWidget" name="tab" >
-     <attribute name="title" >
+    <widget class="QWidget" name="tab">
+     <attribute name="title">
       <string>Main Parameters</string>
      </attribute>
-     <widget class="QLabel" name="label_12" >
-      <property name="geometry" >
+     <widget class="QLabel" name="label_12">
+      <property name="geometry">
        <rect>
         <x>20</x>
         <y>135</y>
@@ -122,12 +123,12 @@
         <height>16</height>
        </rect>
       </property>
-      <property name="text" >
+      <property name="text">
        <string>Device</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_6" >
-      <property name="geometry" >
+     <widget class="QLabel" name="label_6">
+      <property name="geometry">
        <rect>
         <x>20</x>
         <y>160</y>
@@ -135,12 +136,12 @@
         <height>16</height>
        </rect>
       </property>
-      <property name="text" >
+      <property name="text">
        <string>norm[id]</string>
       </property>
      </widget>
-     <widget class="QSpinBox" name="norm" >
-      <property name="geometry" >
+     <widget class="QSpinBox" name="norm">
+      <property name="geometry">
        <rect>
         <x>90</x>
         <y>155</y>
@@ -148,7 +149,7 @@
         <height>26</height>
        </rect>
       </property>
-      <property name="toolTip" >
+      <property name="toolTip">
        <string>0 = NTSC
 1 = NTSC-M
 2 = NTSC-M-JP
@@ -170,12 +171,12 @@
 18 = SECAM-L
 19 = SECAM-Lc</string>
       </property>
-      <property name="value" >
+      <property name="value">
        <number>0</number>
       </property>
      </widget>
-     <widget class="QComboBox" name="driver" >
-      <property name="geometry" >
+     <widget class="QComboBox" name="driver">
+      <property name="geometry">
        <rect>
         <x>90</x>
         <y>95</y>
@@ -183,22 +184,22 @@
         <height>26</height>
        </rect>
       </property>
-      <property name="editable" >
+      <property name="editable">
        <bool>true</bool>
       </property>
       <item>
-       <property name="text" >
+       <property name="text">
         <string>v4l2</string>
        </property>
       </item>
       <item>
-       <property name="text" >
+       <property name="text">
         <string>v4l</string>
        </property>
       </item>
      </widget>
-     <widget class="QLineEdit" name="device" >
-      <property name="geometry" >
+     <widget class="QLineEdit" name="device">
+      <property name="geometry">
        <rect>
         <x>90</x>
         <y>125</y>
@@ -206,12 +207,12 @@
         <height>26</height>
        </rect>
       </property>
-      <property name="text" >
+      <property name="text">
        <string>/dev/video0</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_8" >
-      <property name="geometry" >
+     <widget class="QLabel" name="label_8">
+      <property name="geometry">
        <rect>
         <x>320</x>
         <y>20</y>
@@ -219,15 +220,15 @@
         <height>16</height>
        </rect>
       </property>
-      <property name="text" >
+      <property name="text">
        <string>Audio Codec</string>
       </property>
-      <property name="alignment" >
+      <property name="alignment">
        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
       </property>
      </widget>
-     <widget class="QComboBox" name="videocodec" >
-      <property name="geometry" >
+     <widget class="QComboBox" name="videocodec">
+      <property name="geometry">
        <rect>
         <x>440</x>
         <y>45</y>
@@ -235,37 +236,37 @@
         <height>26</height>
        </rect>
       </property>
-      <property name="editable" >
+      <property name="editable">
        <bool>true</bool>
       </property>
       <item>
-       <property name="text" >
+       <property name="text">
         <string>copy</string>
        </property>
       </item>
       <item>
-       <property name="text" >
+       <property name="text">
         <string>raw</string>
        </property>
       </item>
       <item>
-       <property name="text" >
+       <property name="text">
         <string>lavc</string>
        </property>
       </item>
       <item>
-       <property name="text" >
+       <property name="text">
         <string>libdv</string>
        </property>
       </item>
       <item>
-       <property name="text" >
+       <property name="text">
         <string>xvid</string>
        </property>
       </item>
      </widget>
-     <widget class="QSpinBox" name="input" >
-      <property name="geometry" >
+     <widget class="QSpinBox" name="input">
+      <property name="geometry">
        <rect>
         <x>90</x>
         <y>185</y>
@@ -274,8 +275,8 @@
        </rect>
       </property>
      </widget>
-     <widget class="QLabel" name="label_2" >
-      <property name="geometry" >
+     <widget class="QLabel" name="label_2">
+      <property name="geometry">
        <rect>
         <x>20</x>
         <y>45</y>
@@ -283,12 +284,12 @@
         <height>16</height>
        </rect>
       </property>
-      <property name="text" >
+      <property name="text">
        <string>Channel</string>
       </property>
      </widget>
-     <widget class="QComboBox" name="chanlist" >
-      <property name="geometry" >
+     <widget class="QComboBox" name="chanlist">
+      <property name="geometry">
        <rect>
         <x>90</x>
         <y>215</y>
@@ -296,32 +297,32 @@
         <height>26</height>
        </rect>
       </property>
-      <property name="editable" >
+      <property name="editable">
        <bool>true</bool>
       </property>
       <item>
-       <property name="text" >
+       <property name="text">
         <string>us-cable</string>
        </property>
       </item>
       <item>
-       <property name="text" >
+       <property name="text">
         <string>us-bcast</string>
        </property>
       </item>
       <item>
-       <property name="text" >
+       <property name="text">
         <string>europe-east</string>
        </property>
       </item>
       <item>
-       <property name="text" >
+       <property name="text">
         <string>europe-west</string>
        </property>
       </item>
      </widget>
-     <widget class="QLabel" name="label_7" >
-      <property name="geometry" >
+     <widget class="QLabel" name="label_7">
+      <property name="geometry">
        <rect>
         <x>20</x>
         <y>220</y>
@@ -329,12 +330,12 @@
         <height>16</height>
        </rect>
       </property>
-      <property name="text" >
+      <property name="text">
        <string>chanlist</string>
       </property>
      </widget>
-     <widget class="QSpinBox" name="channel" >
-      <property name="geometry" >
+     <widget class="QSpinBox" name="channel">
+      <property name="geometry">
        <rect>
         <x>90</x>
         <y>35</y>
@@ -343,8 +344,8 @@
        </rect>
       </property>
      </widget>
-     <widget class="QLabel" name="label_4" >
-      <property name="geometry" >
+     <widget class="QLabel" name="label_4">
+      <property name="geometry">
        <rect>
         <x>20</x>
         <y>105</y>
@@ -352,12 +353,12 @@
         <height>16</height>
        </rect>
       </property>
-      <property name="text" >
+      <property name="text">
        <string>Driver</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_3" >
-      <property name="geometry" >
+     <widget class="QLabel" name="label_3">
+      <property name="geometry">
        <rect>
         <x>20</x>
         <y>75</y>
@@ -365,12 +366,12 @@
         <height>16</height>
        </rect>
       </property>
-      <property name="text" >
+      <property name="text">
        <string>Duration</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_9" >
-      <property name="geometry" >
+     <widget class="QLabel" name="label_9">
+      <property name="geometry">
        <rect>
         <x>320</x>
         <y>50</y>
@@ -378,15 +379,15 @@
         <height>16</height>
        </rect>
       </property>
-      <property name="text" >
+      <property name="text">
        <string>Video Codec</string>
       </property>
-      <property name="alignment" >
+      <property name="alignment">
        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
       </property>
      </widget>
-     <widget class="QComboBox" name="audiocodec" >
-      <property name="geometry" >
+     <widget class="QComboBox" name="audiocodec">
+      <property name="geometry">
        <rect>
         <x>440</x>
         <y>15</y>
@@ -394,37 +395,37 @@
         <height>26</height>
        </rect>
       </property>
-      <property name="editable" >
+      <property name="editable">
        <bool>true</bool>
       </property>
       <item>
-       <property name="text" >
+       <property name="text">
         <string>none</string>
        </property>
       </item>
       <item>
-       <property name="text" >
+       <property name="text">
         <string>copy</string>
        </property>
       </item>
       <item>
-       <property name="text" >
+       <property name="text">
         <string>pcm</string>
        </property>
       </item>
       <item>
-       <property name="text" >
+       <property name="text">
         <string>mp3lame</string>
        </property>
       </item>
       <item>
-       <property name="text" >
+       <property name="text">
         <string>lavc</string>
        </property>
       </item>
      </widget>
-     <widget class="QTimeEdit" name="duration" >
-      <property name="geometry" >
+     <widget class="QTimeEdit" name="duration">
+      <property name="geometry">
        <rect>
         <x>90</x>
         <y>65</y>
@@ -432,12 +433,12 @@
         <height>26</height>
        </rect>
       </property>
-      <property name="displayFormat" >
+      <property name="displayFormat">
        <string>HH:mm:ss</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_5" >
-      <property name="geometry" >
+     <widget class="QLabel" name="label_5">
+      <property name="geometry">
        <rect>
         <x>20</x>
         <y>190</y>
@@ -445,12 +446,12 @@
         <height>16</height>
        </rect>
       </property>
-      <property name="text" >
+      <property name="text">
        <string>Input</string>
       </property>
      </widget>
-     <widget class="QGroupBox" name="lavc_audio_options_box" >
-      <property name="geometry" >
+     <widget class="QGroupBox" name="lavc_audio_options_box">
+      <property name="geometry">
        <rect>
         <x>325</x>
         <y>80</y>
@@ -458,11 +459,11 @@
         <height>91</height>
        </rect>
       </property>
-      <property name="title" >
+      <property name="title">
        <string>lavc audio options</string>
       </property>
-      <widget class="QLineEdit" name="lavc_audiobitrate" >
-       <property name="geometry" >
+      <widget class="QLineEdit" name="lavc_audiobitrate">
+       <property name="geometry">
         <rect>
          <x>175</x>
          <y>60</y>
@@ -470,12 +471,12 @@
          <height>26</height>
         </rect>
        </property>
-       <property name="text" >
+       <property name="text">
         <string>128</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_19" >
-       <property name="geometry" >
+      <widget class="QLabel" name="label_19">
+       <property name="geometry">
         <rect>
          <x>35</x>
          <y>40</y>
@@ -483,12 +484,12 @@
          <height>16</height>
         </rect>
        </property>
-       <property name="text" >
+       <property name="text">
         <string>Audio Codec</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_20" >
-       <property name="geometry" >
+      <widget class="QLabel" name="label_20">
+       <property name="geometry">
         <rect>
          <x>35</x>
          <y>70</y>
@@ -496,12 +497,12 @@
          <height>16</height>
         </rect>
        </property>
-       <property name="text" >
+       <property name="text">
         <string>Audio Bitrate</string>
        </property>
       </widget>
-      <widget class="QComboBox" name="lavc_audiocodec" >
-       <property name="geometry" >
+      <widget class="QComboBox" name="lavc_audiocodec">
+       <property name="geometry">
         <rect>
          <x>175</x>
          <y>30</y>
@@ -509,33 +510,33 @@
          <height>26</height>
         </rect>
        </property>
-       <property name="editable" >
+       <property name="editable">
         <bool>true</bool>
        </property>
        <item>
-        <property name="text" >
+        <property name="text">
          <string>mp2</string>
         </property>
        </item>
        <item>
-        <property name="text" >
+        <property name="text">
          <string>ac3</string>
         </property>
        </item>
        <item>
-        <property name="text" >
+        <property name="text">
          <string>adpcm_ima_wav</string>
         </property>
        </item>
        <item>
-        <property name="text" >
+        <property name="text">
          <string>mp3</string>
         </property>
        </item>
       </widget>
      </widget>
-     <widget class="QToolButton" name="showAudioCodecsButton" >
-      <property name="geometry" >
+     <widget class="QToolButton" name="showAudioCodecsButton">
+      <property name="geometry">
        <rect>
         <x>645</x>
         <y>15</y>
@@ -543,12 +544,12 @@
         <height>25</height>
        </rect>
       </property>
-      <property name="text" >
+      <property name="text">
        <string>...</string>
       </property>
      </widget>
-     <widget class="QToolButton" name="showVideoCodecsButton" >
-      <property name="geometry" >
+     <widget class="QToolButton" name="showVideoCodecsButton">
+      <property name="geometry">
        <rect>
         <x>645</x>
         <y>45</y>
@@ -556,12 +557,12 @@
         <height>25</height>
        </rect>
       </property>
-      <property name="text" >
+      <property name="text">
        <string>...</string>
       </property>
      </widget>
-     <widget class="QRadioButton" name="number_rb" >
-      <property name="geometry" >
+     <widget class="QRadioButton" name="number_rb">
+      <property name="geometry">
        <rect>
         <x>205</x>
         <y>15</y>
@@ -569,15 +570,15 @@
         <height>25</height>
        </rect>
       </property>
-      <property name="text" >
+      <property name="text">
        <string>number</string>
       </property>
-      <property name="checked" >
+      <property name="checked">
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QRadioButton" name="freq_rb" >
-      <property name="geometry" >
+     <widget class="QRadioButton" name="freq_rb">
+      <property name="geometry">
        <rect>
         <x>205</x>
         <y>40</y>
@@ -585,12 +586,12 @@
         <height>25</height>
        </rect>
       </property>
-      <property name="text" >
+      <property name="text">
        <string>frequency</string>
       </property>
      </widget>
-     <widget class="QDoubleSpinBox" name="frequency" >
-      <property name="geometry" >
+     <widget class="QDoubleSpinBox" name="frequency">
+      <property name="geometry">
        <rect>
         <x>91</x>
         <y>35</y>
@@ -598,15 +599,15 @@
         <height>26</height>
        </rect>
       </property>
-      <property name="decimals" >
+      <property name="decimals">
        <number>3</number>
       </property>
-      <property name="maximum" >
+      <property name="maximum">
        <double>9999.989999999999782</double>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton" >
-      <property name="geometry" >
+     <widget class="QPushButton" name="pushButton">
+      <property name="geometry">
        <rect>
         <x>20</x>
         <y>260</y>
@@ -614,12 +615,12 @@
         <height>25</height>
        </rect>
       </property>
-      <property name="text" >
+      <property name="text">
        <string>Preview channel with mplayer</string>
       </property>
      </widget>
-     <widget class="QGroupBox" name="lavc_video_options_box" >
-      <property name="geometry" >
+     <widget class="QGroupBox" name="lavc_video_options_box">
+      <property name="geometry">
        <rect>
         <x>325</x>
         <y>190</y>
@@ -627,11 +628,11 @@
         <height>80</height>
        </rect>
       </property>
-      <property name="title" >
+      <property name="title">
        <string>lavc video options</string>
       </property>
-      <widget class="QLabel" name="label_22" >
-       <property name="geometry" >
+      <widget class="QLabel" name="label_22">
+       <property name="geometry">
         <rect>
          <x>35</x>
          <y>60</y>
@@ -639,12 +640,12 @@
          <height>16</height>
         </rect>
        </property>
-       <property name="text" >
+       <property name="text">
         <string>Video Bitrate</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_21" >
-       <property name="geometry" >
+      <widget class="QLabel" name="label_21">
+       <property name="geometry">
         <rect>
          <x>35</x>
          <y>30</y>
@@ -652,12 +653,12 @@
          <height>16</height>
         </rect>
        </property>
-       <property name="text" >
+       <property name="text">
         <string>Video Codec</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lavc_videobitrate" >
-       <property name="geometry" >
+      <widget class="QLineEdit" name="lavc_videobitrate">
+       <property name="geometry">
         <rect>
          <x>175</x>
          <y>55</y>
@@ -665,12 +666,12 @@
          <height>26</height>
         </rect>
        </property>
-       <property name="text" >
+       <property name="text">
         <string>3000</string>
        </property>
       </widget>
-      <widget class="QComboBox" name="lavc_videocodec" >
-       <property name="geometry" >
+      <widget class="QComboBox" name="lavc_videocodec">
+       <property name="geometry">
         <rect>
          <x>175</x>
          <y>25</y>
@@ -678,68 +679,68 @@
          <height>26</height>
         </rect>
        </property>
-       <property name="editable" >
+       <property name="editable">
         <bool>true</bool>
        </property>
        <item>
-        <property name="text" >
+        <property name="text">
          <string>mpeg4</string>
         </property>
        </item>
        <item>
-        <property name="text" >
+        <property name="text">
          <string>mjpeg</string>
         </property>
        </item>
        <item>
-        <property name="text" >
+        <property name="text">
          <string>h263</string>
         </property>
        </item>
        <item>
-        <property name="text" >
+        <property name="text">
          <string>h263p</string>
         </property>
        </item>
        <item>
-        <property name="text" >
+        <property name="text">
          <string>mspeg4</string>
         </property>
        </item>
        <item>
-        <property name="text" >
+        <property name="text">
          <string>mspeg4v2</string>
         </property>
        </item>
        <item>
-        <property name="text" >
+        <property name="text">
          <string>wmv1</string>
         </property>
        </item>
        <item>
-        <property name="text" >
+        <property name="text">
          <string>wmv2</string>
         </property>
        </item>
        <item>
-        <property name="text" >
+        <property name="text">
          <string>rv10</string>
         </property>
        </item>
        <item>
-        <property name="text" >
+        <property name="text">
          <string>mpeg1video</string>
         </property>
        </item>
        <item>
-        <property name="text" >
+        <property name="text">
          <string>huffyuv</string>
         </property>
        </item>
       </widget>
      </widget>
-     <widget class="QGroupBox" name="lame_options_box" >
-      <property name="geometry" >
+     <widget class="QGroupBox" name="lame_options_box">
+      <property name="geometry">
        <rect>
         <x>325</x>
         <y>80</y>
@@ -747,11 +748,11 @@
         <height>80</height>
        </rect>
       </property>
-      <property name="title" >
+      <property name="title">
        <string>lame options</string>
       </property>
-      <widget class="QLabel" name="label_28" >
-       <property name="geometry" >
+      <widget class="QLabel" name="label_28">
+       <property name="geometry">
         <rect>
          <x>35</x>
          <y>30</y>
@@ -759,12 +760,12 @@
          <height>16</height>
         </rect>
        </property>
-       <property name="text" >
+       <property name="text">
         <string>Audio Bitrate</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lame_audiobitrate" >
-       <property name="geometry" >
+      <widget class="QLineEdit" name="lame_audiobitrate">
+       <property name="geometry">
         <rect>
          <x>185</x>
          <y>25</y>
@@ -772,18 +773,18 @@
          <height>26</height>
         </rect>
        </property>
-       <property name="text" >
+       <property name="text">
         <string>128</string>
        </property>
       </widget>
      </widget>
     </widget>
-    <widget class="QWidget" name="tab_2" >
-     <attribute name="title" >
+    <widget class="QWidget" name="tab_2">
+     <attribute name="title">
       <string>Extra TV Parameters</string>
      </attribute>
-     <widget class="QLabel" name="label_10" >
-      <property name="geometry" >
+     <widget class="QLabel" name="label_10">
+      <property name="geometry">
        <rect>
         <x>40</x>
         <y>210</y>
@@ -791,12 +792,12 @@
         <height>16</height>
        </rect>
       </property>
-      <property name="text" >
+      <property name="text">
        <string>Extra tv parameters (delimited by :)</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="extratvparms" >
-      <property name="geometry" >
+     <widget class="QLineEdit" name="extratvparms">
+      <property name="geometry">
        <rect>
         <x>32</x>
         <y>230</y>
@@ -805,8 +806,8 @@
        </rect>
       </property>
      </widget>
-     <widget class="QLineEdit" name="tvwidth" >
-      <property name="geometry" >
+     <widget class="QLineEdit" name="tvwidth">
+      <property name="geometry">
        <rect>
         <x>110</x>
         <y>10</y>
@@ -814,12 +815,12 @@
         <height>26</height>
        </rect>
       </property>
-      <property name="text" >
+      <property name="text">
        <string/>
       </property>
      </widget>
-     <widget class="QLineEdit" name="tvheight" >
-      <property name="geometry" >
+     <widget class="QLineEdit" name="tvheight">
+      <property name="geometry">
        <rect>
         <x>110</x>
         <y>40</y>
@@ -827,12 +828,12 @@
         <height>26</height>
        </rect>
       </property>
-      <property name="text" >
+      <property name="text">
        <string/>
       </property>
      </widget>
-     <widget class="QLabel" name="label_13" >
-      <property name="geometry" >
+     <widget class="QLabel" name="label_13">
+      <property name="geometry">
        <rect>
         <x>10</x>
         <y>45</y>
@@ -840,12 +841,12 @@
         <height>16</height>
        </rect>
       </property>
-      <property name="text" >
+      <property name="text">
        <string>Height</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_14" >
-      <property name="geometry" >
+     <widget class="QLabel" name="label_14">
+      <property name="geometry">
        <rect>
         <x>10</x>
         <y>20</y>
@@ -853,12 +854,12 @@
         <height>16</height>
        </rect>
       </property>
-      <property name="text" >
+      <property name="text">
        <string>Width</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="audiorate" >
-      <property name="geometry" >
+     <widget class="QLineEdit" name="audiorate">
+      <property name="geometry">
        <rect>
         <x>110</x>
         <y>70</y>
@@ -866,12 +867,12 @@
         <height>26</height>
        </rect>
       </property>
-      <property name="text" >
+      <property name="text">
        <string/>
       </property>
      </widget>
-     <widget class="QLabel" name="label_17" >
-      <property name="geometry" >
+     <widget class="QLabel" name="label_17">
+      <property name="geometry">
        <rect>
         <x>10</x>
         <y>75</y>
@@ -879,18 +880,18 @@
         <height>46</height>
        </rect>
       </property>
-      <property name="text" >
+      <property name="text">
        <string>Audio Rate</string>
       </property>
-      <property name="alignment" >
+      <property name="alignment">
        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
       </property>
-      <property name="wordWrap" >
+      <property name="wordWrap">
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QLabel" name="label_24" >
-      <property name="geometry" >
+     <widget class="QLabel" name="label_24">
+      <property name="geometry">
        <rect>
         <x>230</x>
         <y>75</y>
@@ -898,12 +899,12 @@
         <height>16</height>
        </rect>
       </property>
-      <property name="text" >
+      <property name="text">
        <string>Hz</string>
       </property>
      </widget>
-     <widget class="QCheckBox" name="alsa_audio" >
-      <property name="geometry" >
+     <widget class="QCheckBox" name="alsa_audio">
+      <property name="geometry">
        <rect>
         <x>295</x>
         <y>10</y>
@@ -911,12 +912,12 @@
         <height>23</height>
        </rect>
       </property>
-      <property name="text" >
+      <property name="text">
        <string>Capture audio using ALSA</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="adevice" >
-      <property name="geometry" >
+     <widget class="QLineEdit" name="adevice">
+      <property name="geometry">
        <rect>
         <x>295</x>
         <y>40</y>
@@ -924,14 +925,14 @@
         <height>26</height>
        </rect>
       </property>
-      <property name="toolTip" >
+      <property name="toolTip">
        <string>You may find the available devices running the command
 aplay --list-devices
 on the console</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_25" >
-      <property name="geometry" >
+     <widget class="QLabel" name="label_25">
+      <property name="geometry">
        <rect>
         <x>435</x>
         <y>45</y>
@@ -939,17 +940,17 @@ on the console</string>
         <height>16</height>
        </rect>
       </property>
-      <property name="text" >
+      <property name="text">
        <string>ALSA device (e.g. hw.0)</string>
       </property>
      </widget>
     </widget>
-    <widget class="QWidget" name="tab_3" >
-     <attribute name="title" >
+    <widget class="QWidget" name="tab_3">
+     <attribute name="title">
       <string>Extra Mencoder Parameters</string>
      </attribute>
-     <widget class="QLabel" name="label_11" >
-      <property name="geometry" >
+     <widget class="QLabel" name="label_11">
+      <property name="geometry">
        <rect>
         <x>40</x>
         <y>220</y>
@@ -957,12 +958,12 @@ on the console</string>
         <height>16</height>
        </rect>
       </property>
-      <property name="text" >
+      <property name="text">
        <string>Extra mencoder parameters (delimited by spaces)</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="extramencoderparms" >
-      <property name="geometry" >
+     <widget class="QLineEdit" name="extramencoderparms">
+      <property name="geometry">
        <rect>
         <x>32</x>
         <y>240</y>
@@ -970,12 +971,12 @@ on the console</string>
         <height>26</height>
        </rect>
       </property>
-      <property name="text" >
+      <property name="text">
        <string/>
       </property>
      </widget>
-     <widget class="QLabel" name="label_15" >
-      <property name="geometry" >
+     <widget class="QLabel" name="label_15">
+      <property name="geometry">
        <rect>
         <x>20</x>
         <y>15</y>
@@ -983,12 +984,12 @@ on the console</string>
         <height>16</height>
        </rect>
       </property>
-      <property name="text" >
+      <property name="text">
        <string>Width</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_16" >
-      <property name="geometry" >
+     <widget class="QLabel" name="label_16">
+      <property name="geometry">
        <rect>
         <x>20</x>
         <y>45</y>
@@ -996,12 +997,12 @@ on the console</string>
         <height>16</height>
        </rect>
       </property>
-      <property name="text" >
+      <property name="text">
        <string>Height</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="scalewidth" >
-      <property name="geometry" >
+     <widget class="QLineEdit" name="scalewidth">
+      <property name="geometry">
        <rect>
         <x>90</x>
         <y>10</y>
@@ -1009,12 +1010,12 @@ on the console</string>
         <height>26</height>
        </rect>
       </property>
-      <property name="text" >
+      <property name="text">
        <string/>
       </property>
      </widget>
-     <widget class="QLineEdit" name="scaleheight" >
-      <property name="geometry" >
+     <widget class="QLineEdit" name="scaleheight">
+      <property name="geometry">
        <rect>
         <x>90</x>
         <y>40</y>
@@ -1022,12 +1023,12 @@ on the console</string>
         <height>26</height>
        </rect>
       </property>
-      <property name="text" >
+      <property name="text">
        <string/>
       </property>
      </widget>
-     <widget class="QCheckBox" name="noskip" >
-      <property name="geometry" >
+     <widget class="QCheckBox" name="noskip">
+      <property name="geometry">
        <rect>
         <x>420</x>
         <y>20</y>
@@ -1035,12 +1036,12 @@ on the console</string>
         <height>23</height>
        </rect>
       </property>
-      <property name="text" >
+      <property name="text">
        <string>noskip</string>
       </property>
      </widget>
-     <widget class="QCheckBox" name="quiet" >
-      <property name="geometry" >
+     <widget class="QCheckBox" name="quiet">
+      <property name="geometry">
        <rect>
         <x>420</x>
         <y>50</y>
@@ -1048,15 +1049,15 @@ on the console</string>
         <height>23</height>
        </rect>
       </property>
-      <property name="text" >
+      <property name="text">
        <string>quiet</string>
       </property>
-      <property name="checked" >
+      <property name="checked">
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QLineEdit" name="ofps" >
-      <property name="geometry" >
+     <widget class="QLineEdit" name="ofps">
+      <property name="geometry">
        <rect>
         <x>90</x>
         <y>70</y>
@@ -1064,12 +1065,12 @@ on the console</string>
         <height>26</height>
        </rect>
       </property>
-      <property name="text" >
+      <property name="text">
        <string/>
       </property>
      </widget>
-     <widget class="QLabel" name="label_18" >
-      <property name="geometry" >
+     <widget class="QLabel" name="label_18">
+      <property name="geometry">
        <rect>
         <x>20</x>
         <y>75</y>
@@ -1077,12 +1078,12 @@ on the console</string>
         <height>16</height>
        </rect>
       </property>
-      <property name="text" >
+      <property name="text">
        <string>FPS</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="extrafilters" >
-      <property name="geometry" >
+     <widget class="QLineEdit" name="extrafilters">
+      <property name="geometry">
        <rect>
         <x>30</x>
         <y>180</y>
@@ -1090,12 +1091,12 @@ on the console</string>
         <height>26</height>
        </rect>
       </property>
-      <property name="text" >
+      <property name="text">
        <string/>
       </property>
      </widget>
-     <widget class="QLabel" name="label_23" >
-      <property name="geometry" >
+     <widget class="QLabel" name="label_23">
+      <property name="geometry">
        <rect>
         <x>40</x>
         <y>160</y>
@@ -1103,17 +1104,17 @@ on the console</string>
         <height>16</height>
        </rect>
       </property>
-      <property name="text" >
+      <property name="text">
        <string>Extra filters (delimited by ,)</string>
       </property>
      </widget>
     </widget>
-    <widget class="QWidget" name="tab_4" >
-     <attribute name="title" >
+    <widget class="QWidget" name="tab_4">
+     <attribute name="title">
       <string>Advanced</string>
      </attribute>
-     <widget class="QLabel" name="label_26" >
-      <property name="geometry" >
+     <widget class="QLabel" name="label_26">
+      <property name="geometry">
        <rect>
         <x>20</x>
         <y>15</y>
@@ -1121,12 +1122,12 @@ on the console</string>
         <height>16</height>
        </rect>
       </property>
-      <property name="text" >
+      <property name="text">
        <string>Run this command before capturing:</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_27" >
-      <property name="geometry" >
+     <widget class="QLabel" name="label_27">
+      <property name="geometry">
        <rect>
         <x>20</x>
         <y>85</y>
@@ -1134,12 +1135,12 @@ on the console</string>
         <height>16</height>
        </rect>
       </property>
-      <property name="text" >
+      <property name="text">
        <string>Run this command after capturing:</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="pre_command" >
-      <property name="geometry" >
+     <widget class="QLineEdit" name="pre_command">
+      <property name="geometry">
        <rect>
         <x>15</x>
         <y>30</y>
@@ -1148,8 +1149,8 @@ on the console</string>
        </rect>
       </property>
      </widget>
-     <widget class="QLineEdit" name="post_command" >
-      <property name="geometry" >
+     <widget class="QLineEdit" name="post_command">
+      <property name="geometry">
        <rect>
         <x>15</x>
         <y>105</y>
@@ -1158,8 +1159,8 @@ on the console</string>
        </rect>
       </property>
      </widget>
-     <widget class="QDateTimeEdit" name="recording_date" >
-      <property name="geometry" >
+     <widget class="QDateTimeEdit" name="recording_date">
+      <property name="geometry">
        <rect>
         <x>15</x>
         <y>270</y>
@@ -1168,8 +1169,8 @@ on the console</string>
        </rect>
       </property>
      </widget>
-     <widget class="QPushButton" name="scheduleButton" >
-      <property name="geometry" >
+     <widget class="QPushButton" name="scheduleButton">
+      <property name="geometry">
        <rect>
         <x>225</x>
         <y>270</y>
@@ -1177,15 +1178,15 @@ on the console</string>
         <height>25</height>
        </rect>
       </property>
-      <property name="text" >
+      <property name="text">
        <string>Schedule Recording</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="cancelScheduleButton" >
-      <property name="enabled" >
+     <widget class="QPushButton" name="cancelScheduleButton">
+      <property name="enabled">
        <bool>false</bool>
       </property>
-      <property name="geometry" >
+      <property name="geometry">
        <rect>
         <x>440</x>
         <y>270</y>
@@ -1193,15 +1194,15 @@ on the console</string>
         <height>25</height>
        </rect>
       </property>
-      <property name="text" >
+      <property name="text">
        <string>Cancel</string>
       </property>
-      <property name="checkable" >
+      <property name="checkable">
        <bool>false</bool>
       </property>
      </widget>
-     <widget class="QCheckBox" name="play_while_recording" >
-      <property name="geometry" >
+     <widget class="QCheckBox" name="play_while_recording">
+      <property name="geometry">
        <rect>
         <x>20</x>
         <y>145</y>
@@ -1209,14 +1210,14 @@ on the console</string>
         <height>23</height>
        </rect>
       </property>
-      <property name="text" >
+      <property name="text">
        <string>Play recorded file while capture (kind of preview) (May consume too much cpu and ruin your capture!!)</string>
       </property>
      </widget>
     </widget>
    </widget>
-   <widget class="QCheckBox" name="append_suffix" >
-    <property name="geometry" >
+   <widget class="QCheckBox" name="append_suffix">
+    <property name="geometry">
      <rect>
       <x>10</x>
       <y>385</y>
@@ -1224,15 +1225,15 @@ on the console</string>
       <height>23</height>
      </rect>
     </property>
-    <property name="text" >
+    <property name="text">
      <string>Append a number suffix if file exists</string>
     </property>
-    <property name="checked" >
+    <property name="checked">
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QLabel" name="status_label" >
-    <property name="geometry" >
+   <widget class="QLabel" name="status_label">
+    <property name="geometry">
      <rect>
       <x>495</x>
       <y>455</y>
@@ -1240,55 +1241,55 @@ on the console</string>
       <height>16</height>
      </rect>
     </property>
-    <property name="text" >
+    <property name="text">
      <string>Stopped</string>
     </property>
    </widget>
   </widget>
-  <widget class="QMenuBar" name="menubar" >
-   <property name="geometry" >
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
      <width>694</width>
-     <height>25</height>
+     <height>23</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuPrueba" >
-    <property name="title" >
+   <widget class="QMenu" name="menuPrueba">
+    <property name="title">
      <string>Menu</string>
     </property>
-    <addaction name="actionSave_configuration" />
-    <addaction name="actionReload_configuration" />
-    <addaction name="actionSalir" />
+    <addaction name="actionSave_configuration"/>
+    <addaction name="actionReload_configuration"/>
+    <addaction name="actionSalir"/>
    </widget>
-   <widget class="QMenu" name="menuHelp" >
-    <property name="title" >
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
      <string>Help</string>
     </property>
-    <addaction name="actionAbout_mtvcgui" />
+    <addaction name="actionAbout_mtvcgui"/>
    </widget>
-   <addaction name="menuPrueba" />
-   <addaction name="menuHelp" />
+   <addaction name="menuPrueba"/>
+   <addaction name="menuHelp"/>
   </widget>
-  <widget class="QStatusBar" name="statusbar" />
-  <action name="actionSalir" >
-   <property name="text" >
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionSalir">
+   <property name="text">
     <string>Exit</string>
    </property>
   </action>
-  <action name="actionSave_configuration" >
-   <property name="text" >
+  <action name="actionSave_configuration">
+   <property name="text">
     <string>Save configuration</string>
    </property>
   </action>
-  <action name="actionAbout_mtvcgui" >
-   <property name="text" >
+  <action name="actionAbout_mtvcgui">
+   <property name="text">
     <string>About mtvcgui</string>
    </property>
   </action>
-  <action name="actionReload_configuration" >
-   <property name="text" >
+  <action name="actionReload_configuration">
+   <property name="text">
     <string>Restore saved configuration</string>
    </property>
   </action>
@@ -1301,11 +1302,11 @@ on the console</string>
    <receiver>MainWindow</receiver>
    <slot>runMencoder()</slot>
    <hints>
-    <hint type="sourcelabel" >
+    <hint type="sourcelabel">
      <x>190</x>
      <y>498</y>
     </hint>
-    <hint type="destinationlabel" >
+    <hint type="destinationlabel">
      <x>385</x>
      <y>332</y>
     </hint>
@@ -1317,11 +1318,11 @@ on the console</string>
    <receiver>MainWindow</receiver>
    <slot>previewCommand()</slot>
    <hints>
-    <hint type="sourcelabel" >
+    <hint type="sourcelabel">
      <x>570</x>
      <y>458</y>
     </hint>
-    <hint type="destinationlabel" >
+    <hint type="destinationlabel">
      <x>490</x>
      <y>469</y>
     </hint>
@@ -1333,11 +1334,11 @@ on the console</string>
    <receiver>MainWindow</receiver>
    <slot>close()</slot>
    <hints>
-    <hint type="sourcelabel" >
+    <hint type="sourcelabel">
      <x>-1</x>
      <y>-1</y>
     </hint>
-    <hint type="destinationlabel" >
+    <hint type="destinationlabel">
      <x>324</x>
      <y>287</y>
     </hint>
@@ -1349,11 +1350,11 @@ on the console</string>
    <receiver>MainWindow</receiver>
    <slot>stopButtonPressed()</slot>
    <hints>
-    <hint type="sourcelabel" >
+    <hint type="sourcelabel">
      <x>397</x>
      <y>498</y>
     </hint>
-    <hint type="destinationlabel" >
+    <hint type="destinationlabel">
      <x>528</x>
      <y>526</y>
     </hint>
@@ -1365,11 +1366,11 @@ on the console</string>
    <receiver>MainWindow</receiver>
    <slot>saveConfiguration()</slot>
    <hints>
-    <hint type="sourcelabel" >
+    <hint type="sourcelabel">
      <x>-1</x>
      <y>-1</y>
     </hint>
-    <hint type="destinationlabel" >
+    <hint type="destinationlabel">
      <x>324</x>
      <y>287</y>
     </hint>
@@ -1381,11 +1382,11 @@ on the console</string>
    <receiver>MainWindow</receiver>
    <slot>showAboutDialog()</slot>
    <hints>
-    <hint type="sourcelabel" >
+    <hint type="sourcelabel">
      <x>-1</x>
      <y>-1</y>
     </hint>
-    <hint type="destinationlabel" >
+    <hint type="destinationlabel">
      <x>346</x>
      <y>261</y>
     </hint>
@@ -1397,11 +1398,11 @@ on the console</string>
    <receiver>MainWindow</receiver>
    <slot>showAvailableAudioCodecs()</slot>
    <hints>
-    <hint type="sourcelabel" >
+    <hint type="sourcelabel">
      <x>667</x>
      <y>98</y>
     </hint>
-    <hint type="destinationlabel" >
+    <hint type="destinationlabel">
      <x>346</x>
      <y>261</y>
     </hint>
@@ -1413,11 +1414,11 @@ on the console</string>
    <receiver>MainWindow</receiver>
    <slot>showAvailableVideoCodecs()</slot>
    <hints>
-    <hint type="sourcelabel" >
+    <hint type="sourcelabel">
      <x>671</x>
      <y>130</y>
     </hint>
-    <hint type="destinationlabel" >
+    <hint type="destinationlabel">
      <x>346</x>
      <y>261</y>
     </hint>
@@ -1429,11 +1430,11 @@ on the console</string>
    <receiver>frequency</receiver>
    <slot>hide()</slot>
    <hints>
-    <hint type="sourcelabel" >
+    <hint type="sourcelabel">
      <x>261</x>
      <y>88</y>
     </hint>
-    <hint type="destinationlabel" >
+    <hint type="destinationlabel">
      <x>157</x>
      <y>108</y>
     </hint>
@@ -1445,11 +1446,11 @@ on the console</string>
    <receiver>channel</receiver>
    <slot>show()</slot>
    <hints>
-    <hint type="sourcelabel" >
+    <hint type="sourcelabel">
      <x>261</x>
      <y>88</y>
     </hint>
-    <hint type="destinationlabel" >
+    <hint type="destinationlabel">
      <x>127</x>
      <y>108</y>
     </hint>
@@ -1461,11 +1462,11 @@ on the console</string>
    <receiver>channel</receiver>
    <slot>hide()</slot>
    <hints>
-    <hint type="sourcelabel" >
+    <hint type="sourcelabel">
      <x>261</x>
      <y>113</y>
     </hint>
-    <hint type="destinationlabel" >
+    <hint type="destinationlabel">
      <x>127</x>
      <y>108</y>
     </hint>
@@ -1477,11 +1478,11 @@ on the console</string>
    <receiver>frequency</receiver>
    <slot>show()</slot>
    <hints>
-    <hint type="sourcelabel" >
+    <hint type="sourcelabel">
      <x>261</x>
      <y>113</y>
     </hint>
-    <hint type="destinationlabel" >
+    <hint type="destinationlabel">
      <x>157</x>
      <y>108</y>
     </hint>
@@ -1493,11 +1494,11 @@ on the console</string>
    <receiver>MainWindow</receiver>
    <slot>scheduleRecording()</slot>
    <hints>
-    <hint type="sourcelabel" >
+    <hint type="sourcelabel">
      <x>339</x>
      <y>331</y>
     </hint>
-    <hint type="destinationlabel" >
+    <hint type="destinationlabel">
      <x>90</x>
      <y>475</y>
     </hint>
@@ -1509,11 +1510,11 @@ on the console</string>
    <receiver>MainWindow</receiver>
    <slot>cancelSchedule()</slot>
    <hints>
-    <hint type="sourcelabel" >
+    <hint type="sourcelabel">
      <x>545</x>
      <y>331</y>
     </hint>
-    <hint type="destinationlabel" >
+    <hint type="destinationlabel">
      <x>346</x>
      <y>261</y>
     </hint>
@@ -1525,11 +1526,11 @@ on the console</string>
    <receiver>MainWindow</receiver>
    <slot>setParametersFromConfig()</slot>
    <hints>
-    <hint type="sourcelabel" >
+    <hint type="sourcelabel">
      <x>-1</x>
      <y>-1</y>
     </hint>
-    <hint type="destinationlabel" >
+    <hint type="destinationlabel">
      <x>346</x>
      <y>261</y>
     </hint>
@@ -1541,11 +1542,11 @@ on the console</string>
    <receiver>MainWindow</receiver>
    <slot>previewWithMplayer()</slot>
    <hints>
-    <hint type="sourcelabel" >
+    <hint type="sourcelabel">
      <x>170</x>
      <y>345</y>
     </hint>
-    <hint type="destinationlabel" >
+    <hint type="destinationlabel">
      <x>350</x>
      <y>487</y>
     </hint>
@@ -1557,11 +1558,11 @@ on the console</string>
    <receiver>MainWindow</receiver>
    <slot>audioCodecSelected(int)</slot>
    <hints>
-    <hint type="sourcelabel" >
+    <hint type="sourcelabel">
      <x>488</x>
      <y>89</y>
     </hint>
-    <hint type="destinationlabel" >
+    <hint type="destinationlabel">
      <x>24</x>
      <y>486</y>
     </hint>
@@ -1573,11 +1574,11 @@ on the console</string>
    <receiver>MainWindow</receiver>
    <slot>videoCodecSelected(int)</slot>
    <hints>
-    <hint type="sourcelabel" >
+    <hint type="sourcelabel">
      <x>525</x>
      <y>119</y>
     </hint>
-    <hint type="destinationlabel" >
+    <hint type="destinationlabel">
      <x>60</x>
      <y>491</y>
     </hint>

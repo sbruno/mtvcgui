@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'mtvcgui.ui'
 #
-# Created: Fri Feb  6 05:16:00 2009
+# Created: Sun Jun  7 22:02:23 2009
 #      by: PyQt4 UI code generator 4.4.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -315,7 +315,7 @@ class Ui_MainWindow(object):
         self.status_label.setObjectName("status_label")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtGui.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 694, 25))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 694, 23))
         self.menubar.setObjectName("menubar")
         self.menuPrueba = QtGui.QMenu(self.menubar)
         self.menuPrueba.setObjectName("menuPrueba")
@@ -365,7 +365,7 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QtGui.QApplication.translate("MainWindow", "mencoder TV Capture GUI", None, QtGui.QApplication.UnicodeUTF8))
         self.runButton.setText(QtGui.QApplication.translate("MainWindow", "Run", None, QtGui.QApplication.UnicodeUTF8))
-        self.outputfile.setText(QtGui.QApplication.translate("MainWindow", "./capture_{channel}_{%Y%m%d_%H%M%S}.avi", None, QtGui.QApplication.UnicodeUTF8))
+        self.outputfile.setText(QtGui.QApplication.translate("MainWindow", "./capture_{%channel_%Y%m%d_%H%M%S}.avi", None, QtGui.QApplication.UnicodeUTF8))
         self.label.setText(QtGui.QApplication.translate("MainWindow", "Output File", None, QtGui.QApplication.UnicodeUTF8))
         self.previewButton.setText(QtGui.QApplication.translate("MainWindow", "preview command", None, QtGui.QApplication.UnicodeUTF8))
         self.stopButton.setText(QtGui.QApplication.translate("MainWindow", "Stop", None, QtGui.QApplication.UnicodeUTF8))

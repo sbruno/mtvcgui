@@ -68,6 +68,7 @@ def make_filename(filename, channel_text, append_suffix=True):
         text = text.replace('%H', "%.2d" % hour)
         text = text.replace('%M', "%.2d" % minute)
         text = text.replace('%S', "%.2d" % second)
+        text = text.replace('%channel', channel_text)
 
         return text[1:-1]
 
