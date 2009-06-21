@@ -1,0 +1,10 @@
+v0.3 - Jun 21 2009
+* Configuration file is stored in ~/.mtvgui/
+* Added brightness, contrast, hue, and saturation controls.
+* Changes in channel number, norm, or color controls are observed in the
+preview.
+* Other fixes (preventing more than one instance of mplayer for preview, kill
+preview when program exits, and other minors)
+
+v0.2 - Dec 21 2008
+* First published version

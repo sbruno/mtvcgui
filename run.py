@@ -29,7 +29,7 @@ import os
 import re
 import sys
 import time
-from subprocess import Popen, call
+from subprocess import Popen, call, PIPE
 
 #PyQt imports
 from PyQt4 import QtCore, QtGui
@@ -72,7 +72,8 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
     def __init__(self, parent=None):
         QtGui.QWidget.__init__(self, parent)
 
-        self.mplayer_pid = 0
+        self.mplayer_preview_pid = 0
+        self.mplayer_recording_pid = 0
         self.mencoder_pid = 0
 
         #timer to update state while recording
@@ -86,8 +87,13 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         QtCore.QObject.connect(self.schedule_timer, QtCore.SIGNAL("timeout()"), self.check_schedule)
 
         #timer to check if mencoder has already created the recorded file and preview it
-        self.preview_timer = QtCore.QTimer()
-        QtCore.QObject.connect(self.preview_timer, QtCore.SIGNAL("timeout()"), self.check_preview)
+        self.preview_file_timer = QtCore.QTimer()
+        QtCore.QObject.connect(self.preview_file_timer, QtCore.SIGNAL("timeout()"), self.check_preview_file)
+
+        #timer to check if mplayer preview is still alive
+        self.mplayer_preview_timer = QtCore.QTimer()
+        QtCore.QObject.connect(self.mplayer_preview_timer, QtCore.SIGNAL("timeout()"), self.check_mplayer_preview)
+
 
         self.error_dialog = QtGui.QErrorMessage(parent)
 
@@ -110,15 +116,21 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         else:
             self.record_stop_cleanup()
 
-    def check_preview(self):
+    def check_preview_file(self):
         if os.path.exists(self.filename):
             cmd = ['mplayer','-quiet', self.filename]
             try:
                 self.mplayer_instance = Popen(cmd)
-                self.mplayer_pid = self.mplayer_instance.pid
+                self.mplayer_recording_pid = self.mplayer_instance.pid
             except OSError:
                 self.error_dialog.showMessage("excecution of %s failed" % " ".join(cmd))
-            self.preview_timer.stop()
+            self.preview_file_timer.stop()
+
+    def check_mplayer_preview(self):
+        if self.mplayer_instance.poll() is not None:
+            self.mplayer_preview_pid = 0
+            self.mplayer_preview_timer.stop()
+
 
     def check_schedule(self):
         current_time = QtCore.QDateTime.currentDateTime()
@@ -136,9 +148,9 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         self.status_label.setText(self.tr('Stopped'))
         self.checker_timer.stop()
         self.time_running = 0
-        if self.mplayer_pid:
-            call(['kill', str(self.mplayer_pid)])
-            self.mplayer_pid = 0
+        if self.mplayer_recording_pid:
+            call(['kill', str(self.mplayer_recording_pid)])
+            self.mplayer_recording_pid = 0
         post_command = str(self.post_command.text())
         if post_command:
             cmds = [c for c in re.split("\s+", post_command) if c]
@@ -150,6 +162,17 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         self.runButton.setEnabled(True)
         self.cancelScheduleButton.setEnabled(False)
         self.scheduleButton.setEnabled(True)
+
+    def exit_cleanup(self):
+        if self.mplayer_recording_pid:
+            print "killing mplayer rec"
+            call(['kill', str(self.mplayer_recording_pid)])
+        if self.mplayer_preview_pid:
+            print "killing mplayer prev"
+            call(['kill', str(self.mplayer_preview_pid)])
+        if self.mencoder_pid:
+            call(['kill', str(self.mencoder_pid)])
+
 
     def scheduleRecording(self):
         self.stopButton.setEnabled(False)
@@ -304,6 +327,19 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         if config.has_option('mencoder GUI', 'adevice'):
             self.adevice.setText(config.get('mencoder GUI', 'adevice'))
 
+        if config.has_option('mencoder GUI', 'brightness'):
+            self.brightnessSlider.setSliderPosition(int(config.get('mencoder GUI', 'brightness')))
+
+        if config.has_option('mencoder GUI', 'contrast'):
+            self.contrastSlider.setSliderPosition(int(config.get('mencoder GUI', 'contrast')))
+
+        if config.has_option('mencoder GUI', 'hue'):
+            self.hueSlider.setSliderPosition(int(config.get('mencoder GUI', 'hue')))
+
+        if config.has_option('mencoder GUI', 'saturation'):
+            self.saturationSlider.setSliderPosition(int(config.get('mencoder GUI', 'saturation')))
+
+
 
         #mencoder parms tab
 
@@ -405,6 +441,11 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         parameters['adevice'] = str(self.adevice.text())
         parameters['extratvparms'] = str(self.extratvparms.text())
 
+        parameters['brightness'] = str(self.brightnessSlider.sliderPosition())
+        parameters['contrast'] = str(self.contrastSlider.sliderPosition())
+        parameters['hue'] = str(self.hueSlider.sliderPosition())
+        parameters['saturation'] = str(self.saturationSlider.sliderPosition())
+
         parameters['noskip'] = self.noskip.isChecked()
         parameters['quiet'] = self.quiet.isChecked()
 
@@ -428,20 +469,22 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
 
 
     def previewWithMplayer(self):
-        parameters = self.getParametersFromGUI()
-        cmd = utils.generateMplayerCommand(parameters)
-        try:
-            self.mplayer_instance = Popen(cmd)
-            self.mplayer_pid = self.mplayer_instance.pid
-        except OSError:
-            self.error_dialog.showMessage("excecution of %s failed" % " ".join(cmd))
+        if not self.mplayer_preview_pid:
+            parameters = self.getParametersFromGUI()
+            cmd = utils.generateMplayerCommand(parameters)
+            try:
+                self.mplayer_instance = Popen(cmd, stdin=PIPE)
+                self.mplayer_preview_pid = self.mplayer_instance.pid
+                self.mplayer_preview_timer.start(1000)
+            except OSError:
+                self.error_dialog.showMessage("excecution of %s failed" % " ".join(cmd))
 
 
 
     def runMencoder(self, accepted=False):
-        if self.mplayer_pid:
-            call(['kill', str(self.mplayer_pid)])
-            self.mplayer_pid = 0
+        if self.mplayer_preview_pid:
+            call(['kill', str(self.mplayer_preview_pid)])
+            self.mplayer_preview_pid = 0
 
         parameters = self.getParametersFromGUI()
 
@@ -481,7 +524,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
                 self.scheduleButton.setEnabled(False)
                 self.cancelScheduleButton.setEnabled(False)
                 if play_while_recording:
-                    self.preview_timer.start(1000)
+                    self.preview_file_timer.start(1000)
             else:
                 self.stopButton.setEnabled(False)
                 self.runButton.setEnabled(True)
@@ -505,6 +548,77 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
             self.mencoder_pid = 0
         self.record_stop_cleanup()
 
+    def channelChanged(self, channel):
+        if self.mplayer_preview_pid:
+            try:
+                #I should use communicate, but how do I just send a string and
+                #return control to the program?
+                self.mplayer_instance.stdin.write('tv_set_channel %s\n' % str(channel))
+                #self.mplayer_instance.communicate('tv_set_channel %s\n' % str(channel))
+            except:
+                self.error_dialog.showMessage("communication with mplayer failed")
+
+    def frequencyChanged(self, freq):
+        if self.mplayer_preview_pid:
+            try:
+                #I should use communicate, but how do I just send a string and
+                #return control to the program?
+                self.mplayer_instance.stdin.write('tv_set_freq %s\n' % str(freq))
+                #self.mplayer_instance.communicate('tv_set_freq %s\n' % str(channel))
+            except:
+                self.error_dialog.showMessage("communication with mplayer failed")
+
+    def brightnessChanged(self, brightness):
+        if self.mplayer_preview_pid:
+            try:
+                #I should use communicate, but how do I just send a string and
+                #return control to the program?
+                self.mplayer_instance.stdin.write('tv_set_brightness %s\n' % str(brightness))
+                #self.mplayer_instance.communicate('tv_set_brightness %s\n' % str(brightness))
+            except:
+                self.error_dialog.showMessage("communication with mplayer failed")
+
+    def contrastChanged(self, contrast):
+        if self.mplayer_preview_pid:
+            try:
+                #I should use communicate, but how do I just send a string and
+                #return control to the program?
+                self.mplayer_instance.stdin.write('tv_set_contrast %s\n' % str(contrast))
+                #self.mplayer_instance.communicate('tv_set_contrast %s\n' % str(contrast))
+            except:
+                self.error_dialog.showMessage("communication with mplayer failed")
+
+    def hueChanged(self, hue):
+        if self.mplayer_preview_pid:
+            try:
+                #I should use communicate, but how do I just send a string and
+                #return control to the program?
+                self.mplayer_instance.stdin.write('tv_set_hue %s\n' % str(hue))
+                #self.mplayer_instance.communicate('tv_set_hue %s\n' % str(hue))
+            except:
+                self.error_dialog.showMessage("communication with mplayer failed")
+
+    def saturationChanged(self, saturation):
+        if self.mplayer_preview_pid:
+            try:
+                #I should use communicate, but how do I just send a string and
+                #return control to the program?
+                self.mplayer_instance.stdin.write('tv_set_saturation %s\n' % str(saturation))
+                #self.mplayer_instance.communicate('tv_set_saturation %s\n' % str(saturation))
+            except:
+                self.error_dialog.showMessage("communication with mplayer failed")
+
+    def normChanged(self, norm):
+        if self.mplayer_preview_pid:
+            norm = utils.norms_dict.get(norm, 'NTSC')
+            try:
+                #I should use communicate, but how do I just send a string and
+                #return control to the program?
+                self.mplayer_instance.stdin.write('tv_set_norm %s\n' % str(norm))
+                #self.mplayer_instance.communicate('tv_set_norm %s\n' % str(norm))
+            except:
+                self.error_dialog.showMessage("communication with mplayer failed")
+
     def previewCommand(self):
         parameters = self.getParametersFromGUI()
         self.previewcommand.setText(utils.generateCommand(parameters, preview=True))
@@ -512,6 +626,8 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
     def saveConfiguration(self):
         parameters = self.getParametersFromGUI(config=True)
         utils.saveConfiguration(parameters)
+
+
 
 if __name__ == '__main__':
     app = QtGui.QApplication(sys.argv)
@@ -524,4 +640,6 @@ if __name__ == '__main__':
 
     win = MainWindow()
     win.show()
-    sys.exit(app.exec_())
+    status = app.exec_()
+    win.exit_cleanup()
+    sys.exit(status)

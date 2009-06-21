@@ -12,6 +12,28 @@ import re
 import time
 import ConfigParser
 
+norms_dict = {0 : 'NTSC',
+              1 : 'NTSC-M',
+              2 : 'NTSC-M-JP',
+              3 : 'NTSC-M-KR',
+              4 : 'PAL',
+              5 : 'PAL-BG',
+              6 : 'PAL-H',
+              7 : 'PAL-I',
+              8 : 'PAL-DK',
+              9 : 'PAL-M',
+              10 : 'PAL-N',
+              11 : 'PAL-Nc',
+              12 : 'PAL-60',
+              13 : 'SECAM',
+              14 : 'SECAM-B',
+              15 : 'SECAM-G',
+              16 : 'SECAM-H',
+              17 : 'SECAM-DK',
+              18 : 'SECAM-L',
+              19 : 'SECAM-Lc'
+              }
+
 def findTranslation(prefix='', tr_dir='i18n'):
     """Function to find a translation file in a directory and install it to an app
     """
@@ -34,6 +56,9 @@ def findTranslation(prefix='', tr_dir='i18n'):
 
 
 def getCodecs(cmd):
+    """Returns available codecs from mplayer using the given command
+    e.g. mencoder -ovc help
+    """
     output = commands.getoutput(cmd)
     lines = output.split('\n')
     text = ''
@@ -50,7 +75,9 @@ def getCodecs(cmd):
 
 
 def make_filename(filename, channel_text, append_suffix=True):
-
+    """Generates the filename given the filename template and filling the
+    variables with the date (channel or date)
+    """
     def repl_func(match, now):
         year   = now[0]
         month  = now[1]
@@ -98,6 +125,8 @@ def make_filename(filename, channel_text, append_suffix=True):
     return new_filename
 
 def secs_to_str(seconds):
+    """Convert a number of seconds to its string representation in hh:mm:ss
+    """
     secs = seconds % 60
     mins_left = seconds / 60
     mins = mins_left % 60
@@ -107,6 +136,8 @@ def secs_to_str(seconds):
 
 
 def saveConfiguration(parameters):
+    """Saves the current configuration to the .ini file
+    """
 
     config = ConfigParser.ConfigParser()
     config_dir = os.path.join(os.path.expanduser("~"), '.mtvcgui')
@@ -142,6 +173,11 @@ def saveConfiguration(parameters):
     config.set('mencoder GUI', 'adevice', parameters.get('adevice'))
     config.set('mencoder GUI', 'extratvparms', parameters.get('extratvparms'))
 
+    config.set('mencoder GUI', 'brightness', parameters.get('brightness'))
+    config.set('mencoder GUI', 'contrast', parameters.get('contrast'))
+    config.set('mencoder GUI', 'hue', parameters.get('hue'))
+    config.set('mencoder GUI', 'saturation', parameters.get('saturation'))
+
     config.set('mencoder GUI', 'scalewidth', parameters.get('scaleheight'))
     config.set('mencoder GUI', 'scaleheight', parameters.get('scalewidth'))
     config.set('mencoder GUI', 'ofps', parameters.get('ofps'))
@@ -170,6 +206,10 @@ def saveConfiguration(parameters):
 
 
 def generateCommand(parameters, preview=False):
+    """Generates a command for mencoder with current parameters.
+    preview command generates a string to be displayed on screen, instead of
+    a list of parameters for executing subprocess"""
+
     channel_type = parameters.get('channel_type', 'number')
     channel = parameters.get('channel')
     frequency = parameters.get('frequency')
@@ -192,6 +232,10 @@ def generateCommand(parameters, preview=False):
     audiorate = parameters.get('audiorate')
     alsa_audio = parameters.get('alsa_audio')
     adevice = parameters.get('adevice')
+    brightness = parameters.get('brightness')
+    contrast = parameters.get('contrast')
+    hue = parameters.get('hue')
+    saturation = parameters.get('saturation')
     extratvparms = parameters.get('extratvparms')
     scaleheight = parameters.get('scaleheight')
     scalewidth = parameters.get('scalewidth')
@@ -234,6 +278,21 @@ def generateCommand(parameters, preview=False):
         tvparms += ":alsa"
         if adevice:
             tvparms += ":adevice=" + adevice
+
+
+    if brightness:
+        tvparms += ':brightness=' + brightness
+
+    if contrast:
+        tvparms += ':contrast=' + contrast
+
+    if hue:
+        tvparms += ':hue=' + hue
+
+    if saturation:
+        tvparms += ':saturation=' + saturation
+
+
 
     if extratvparms:
         tvparms += ':' + extratvparms
@@ -309,6 +368,8 @@ def generateCommand(parameters, preview=False):
 
 
 def generateMplayerCommand(parameters):
+    """Generates a command for mplayer, for channel preview
+    """
 
     channel_type = parameters.get('channel_type', 'number')
     channel = parameters.get('channel')
@@ -324,6 +385,10 @@ def generateMplayerCommand(parameters):
     audiorate = parameters.get('audiorate')
     alsa_audio = parameters.get('alsa_audio')
     adevice = parameters.get('adevice')
+    brightness = parameters.get('brightness')
+    contrast = parameters.get('contrast')
+    hue = parameters.get('hue')
+    saturation = parameters.get('saturation')
     scaleheight = parameters.get('scaleheight')
     scalewidth = parameters.get('scalewidth')
     ofps = parameters.get('ofps')
@@ -360,6 +425,19 @@ def generateMplayerCommand(parameters):
         if adevice:
             tvparms += ":adevice=" + adevice
 
+    if brightness:
+        tvparms += ':brightness=' + brightness
+
+    if contrast:
+        tvparms += ':contrast=' + contrast
+
+    if hue:
+        tvparms += ':hue=' + hue
+
+    if saturation:
+        tvparms += ':saturation=' + saturation
+
+
     if extratvparms:
         tvparms += ':' + extratvparms
 
@@ -383,5 +461,4 @@ def generateMplayerCommand(parameters):
 
         mencoderparms += ['-vf', filters]
 
-
-    return ['mplayer', 'tv://'] + mencoderparms
+    return ['mplayer', '-slave', 'tv://'] + mencoderparms

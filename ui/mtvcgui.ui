@@ -906,8 +906,8 @@
      <widget class="QCheckBox" name="alsa_audio">
       <property name="geometry">
        <rect>
-        <x>295</x>
-        <y>10</y>
+        <x>10</x>
+        <y>125</y>
         <width>321</width>
         <height>23</height>
        </rect>
@@ -919,8 +919,8 @@
      <widget class="QLineEdit" name="adevice">
       <property name="geometry">
        <rect>
-        <x>295</x>
-        <y>40</y>
+        <x>10</x>
+        <y>155</y>
         <width>131</width>
         <height>26</height>
        </rect>
@@ -934,14 +934,154 @@ on the console</string>
      <widget class="QLabel" name="label_25">
       <property name="geometry">
        <rect>
-        <x>435</x>
-        <y>45</y>
+        <x>150</x>
+        <y>160</y>
         <width>216</width>
         <height>16</height>
        </rect>
       </property>
       <property name="text">
        <string>ALSA device (e.g. hw.0)</string>
+      </property>
+     </widget>
+     <widget class="QSlider" name="brightnessSlider">
+      <property name="geometry">
+       <rect>
+        <x>490</x>
+        <y>15</y>
+        <width>160</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="minimum">
+       <number>-100</number>
+      </property>
+      <property name="maximum">
+       <number>100</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="tickPosition">
+       <enum>QSlider::TicksAbove</enum>
+      </property>
+     </widget>
+     <widget class="QSlider" name="contrastSlider">
+      <property name="geometry">
+       <rect>
+        <x>490</x>
+        <y>45</y>
+        <width>160</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="minimum">
+       <number>-100</number>
+      </property>
+      <property name="maximum">
+       <number>100</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="tickPosition">
+       <enum>QSlider::TicksAbove</enum>
+      </property>
+     </widget>
+     <widget class="QSlider" name="hueSlider">
+      <property name="geometry">
+       <rect>
+        <x>490</x>
+        <y>75</y>
+        <width>160</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="minimum">
+       <number>-100</number>
+      </property>
+      <property name="maximum">
+       <number>100</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="tickPosition">
+       <enum>QSlider::TicksAbove</enum>
+      </property>
+     </widget>
+     <widget class="QSlider" name="saturationSlider">
+      <property name="geometry">
+       <rect>
+        <x>490</x>
+        <y>105</y>
+        <width>160</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="minimum">
+       <number>-100</number>
+      </property>
+      <property name="maximum">
+       <number>100</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="tickPosition">
+       <enum>QSlider::TicksAbove</enum>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_29">
+      <property name="geometry">
+       <rect>
+        <x>385</x>
+        <y>15</y>
+        <width>86</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Brightness</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_30">
+      <property name="geometry">
+       <rect>
+        <x>385</x>
+        <y>45</y>
+        <width>101</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Contrast</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_31">
+      <property name="geometry">
+       <rect>
+        <x>385</x>
+        <y>75</y>
+        <width>101</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Hue</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_32">
+      <property name="geometry">
+       <rect>
+        <x>385</x>
+        <y>105</y>
+        <width>101</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Saturation</string>
       </property>
      </widget>
     </widget>
@@ -1304,7 +1444,7 @@ on the console</string>
    <hints>
     <hint type="sourcelabel">
      <x>190</x>
-     <y>498</y>
+     <y>497</y>
     </hint>
     <hint type="destinationlabel">
      <x>385</x>
@@ -1352,7 +1492,7 @@ on the console</string>
    <hints>
     <hint type="sourcelabel">
      <x>397</x>
-     <y>498</y>
+     <y>497</y>
     </hint>
     <hint type="destinationlabel">
      <x>528</x>
@@ -1415,8 +1555,8 @@ on the console</string>
    <slot>showAvailableVideoCodecs()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>671</x>
-     <y>130</y>
+     <x>675</x>
+     <y>128</y>
     </hint>
     <hint type="destinationlabel">
      <x>346</x>
@@ -1543,8 +1683,8 @@ on the console</string>
    <slot>previewWithMplayer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>170</x>
-     <y>345</y>
+     <x>174</x>
+     <y>343</y>
     </hint>
     <hint type="destinationlabel">
      <x>350</x>
@@ -1584,6 +1724,118 @@ on the console</string>
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>channel</sender>
+   <signal>valueChanged(QString)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>channelChanged(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>127</x>
+     <y>106</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>346</x>
+     <y>261</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>frequency</sender>
+   <signal>valueChanged(QString)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>frequencyChanged(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>157</x>
+     <y>106</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>346</x>
+     <y>261</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>brightnessSlider</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>brightnessChanged(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>578</x>
+     <y>85</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>346</x>
+     <y>261</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>contrastSlider</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>contrastChanged(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>530</x>
+     <y>114</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>131</x>
+     <y>244</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>hueSlider</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>hueChanged(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>535</x>
+     <y>142</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>511</x>
+     <y>192</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>saturationSlider</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>saturationChanged(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>617</x>
+     <y>172</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>520</x>
+     <y>234</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>norm</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>normChanged(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>114</x>
+     <y>229</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>118</x>
+     <y>480</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>runMencoder()</slot>
@@ -1599,5 +1851,12 @@ on the console</string>
   <slot>previewWithMplayer()</slot>
   <slot>audioCodecSelected(int)</slot>
   <slot>videoCodecSelected(int)</slot>
+  <slot>channelChanged(QString)</slot>
+  <slot>frequencyChanged(QString)</slot>
+  <slot>brightnessChanged(int)</slot>
+  <slot>contrastChanged(int)</slot>
+  <slot>hueChanged(int)</slot>
+  <slot>saturationChanged(int)</slot>
+  <slot>normChanged(int)</slot>
  </slots>
 </ui>
