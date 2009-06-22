@@ -9,7 +9,7 @@ pre_command =
 audiocodec = 3
 outputfile = ./capture_{%channel_%Y%m%d_%H%M%S}.avi
 channel = 22
-extrafilters = pp=hb/vb/dr/al/lb
+extrafilters = pp=hb:a/vb:a/dr:a/al:a/lb:a
 audiorate = 
 lavc_videobitrate = 3000
 input = 0

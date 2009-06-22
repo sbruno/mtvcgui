@@ -1,3 +1,8 @@
+v0.31 - Jun 22 2009
+* Recommended mencoder post processing filters are now
+pp=hb:a/vb:a/dr:a/al:a/lb:a for better CPU usage
+* Corrected tvheight and tvwidth switch when saving configuration
+
 v0.3 - Jun 21 2009
 * Configuration file is stored in ~/.mtvgui/
 * Added brightness, contrast, hue, and saturation controls.

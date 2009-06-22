@@ -178,8 +178,8 @@ def saveConfiguration(parameters):
     config.set('mencoder GUI', 'hue', parameters.get('hue'))
     config.set('mencoder GUI', 'saturation', parameters.get('saturation'))
 
-    config.set('mencoder GUI', 'scalewidth', parameters.get('scaleheight'))
-    config.set('mencoder GUI', 'scaleheight', parameters.get('scalewidth'))
+    config.set('mencoder GUI', 'scalewidth', parameters.get('scalewidth'))
+    config.set('mencoder GUI', 'scaleheight', parameters.get('scaleheight'))
     config.set('mencoder GUI', 'ofps', parameters.get('ofps'))
     config.set('mencoder GUI', 'noskip', parameters.get('noskip'))
     config.set('mencoder GUI', 'quiet', parameters.get('quiet'))
