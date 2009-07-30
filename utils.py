@@ -12,7 +12,7 @@ import re
 import time
 import ConfigParser
 
-norms_dict = {0 : 'NTSC',
+NORMS_DICT = {0 : 'NTSC',
               1 : 'NTSC-M',
               2 : 'NTSC-M-JP',
               3 : 'NTSC-M-KR',
@@ -34,8 +34,9 @@ norms_dict = {0 : 'NTSC',
               19 : 'SECAM-Lc'
               }
 
-def findTranslation(prefix='', tr_dir='i18n'):
-    """Function to find a translation file in a directory and install it to an app
+def find_translation(prefix='', tr_dir='i18n'):
+    """Function to find a translation file in a directory
+       and install it to an app
     """
     #try with country specific locale (e.g.: es_AR)
     lang = locale.getdefaultlocale()[0]
@@ -55,7 +56,7 @@ def findTranslation(prefix='', tr_dir='i18n'):
     return tr_path
 
 
-def getCodecs(cmd):
+def get_codecs(cmd):
     """Returns available codecs from mplayer using the given command
     e.g. mencoder -ovc help
     """
@@ -135,7 +136,7 @@ def secs_to_str(seconds):
     return "%.2d:%.2d:%.2d" % (hours, mins, secs)
 
 
-def saveConfiguration(parameters):
+def save_configuration(parameters):
     """Saves the current configuration to the .ini file
     """
 
@@ -147,55 +148,18 @@ def saveConfiguration(parameters):
     if not config.has_section('mencoder GUI'):
         config.add_section('mencoder GUI')
 
-    config.set('mencoder GUI', 'channel_type', parameters.get('channel_type', 'number'))
-    config.set('mencoder GUI', 'channel', parameters.get('channel'))
-    config.set('mencoder GUI', 'frequency', parameters.get('frequency'))
-    config.set('mencoder GUI', 'duration', parameters.get('duration'))
-    config.set('mencoder GUI', 'driver', parameters.get('driver'))
-    config.set('mencoder GUI', 'device', parameters.get('device'))
-    config.set('mencoder GUI', 'norm', parameters.get('norm'))
-    config.set('mencoder GUI', 'input', parameters.get('input'))
-    config.set('mencoder GUI', 'chanlist', parameters.get('chanlist'))
-    config.set('mencoder GUI', 'audiocodec', parameters.get('audiocodec'))
-    config.set('mencoder GUI', 'videocodec', parameters.get('videocodec'))
-    config.set('mencoder GUI', 'append_suffix', parameters.get('append_suffix'))
-    config.set('mencoder GUI', 'lavc_audiocodec', parameters.get('lavc_audiocodec'))
-    config.set('mencoder GUI', 'lavc_audiobitrate', parameters.get('lavc_audiobitrate'))
-    config.set('mencoder GUI', 'lame_audiobitrate', parameters.get('lame_audiobitrate'))
-    config.set('mencoder GUI', 'lavc_videocodec', parameters.get('lavc_videocodec'))
-    config.set('mencoder GUI', 'lavc_videobitrate', parameters.get('lavc_videobitrate'))
-    config.set('mencoder GUI', 'outputfile', parameters.get('outputfile'))
-
-    config.set('mencoder GUI', 'tvwidth', parameters.get('tvwidth'))
-    config.set('mencoder GUI', 'tvheight', parameters.get('tvheight'))
-    config.set('mencoder GUI', 'audiorate', parameters.get('audiorate'))
-    config.set('mencoder GUI', 'alsa_audio', parameters.get('alsa_audio'))
-    config.set('mencoder GUI', 'adevice', parameters.get('adevice'))
-    config.set('mencoder GUI', 'extratvparms', parameters.get('extratvparms'))
-
-    config.set('mencoder GUI', 'brightness', parameters.get('brightness'))
-    config.set('mencoder GUI', 'contrast', parameters.get('contrast'))
-    config.set('mencoder GUI', 'hue', parameters.get('hue'))
-    config.set('mencoder GUI', 'saturation', parameters.get('saturation'))
-
-    config.set('mencoder GUI', 'scalewidth', parameters.get('scalewidth'))
-    config.set('mencoder GUI', 'scaleheight', parameters.get('scaleheight'))
-    config.set('mencoder GUI', 'ofps', parameters.get('ofps'))
-    config.set('mencoder GUI', 'noskip', parameters.get('noskip'))
-    config.set('mencoder GUI', 'quiet', parameters.get('quiet'))
-    config.set('mencoder GUI', 'extrafilters', parameters.get('extrafilters'))
-    config.set('mencoder GUI', 'extramencoderparms', parameters.get('extramencoderparms'))
-
-    config.set('mencoder GUI', 'pre_command', parameters.get('pre_command'))
-    config.set('mencoder GUI', 'post_command', parameters.get('post_command'))
-    config.set('mencoder GUI', 'play_while_recording', parameters.get('play_while_recording'))
+    for parm in parameters.keys():
+        if parm == 'channel_type':
+            config.set('mencoder GUI', 'channel_type',
+                       parameters.get('channel_type', 'number'))
+        else:
+            config.set('mencoder GUI', parm, parameters.get(parm))
 
     if not os.path.exists(config_dir):
         try:
             os.mkdir(config_dir)
         except:
             print "Error trying to create %s" % (config_dir, )
-
 
     try:
         config_file = open(config_filename, 'w')
@@ -205,7 +169,7 @@ def saveConfiguration(parameters):
         print "Error trying to save configuration to %s" % (config_filename, )
 
 
-def generateCommand(parameters, preview=False):
+def generate_command(parameters, preview=False):
     """Generates a command for mencoder with current parameters.
     preview command generates a string to be displayed on screen, instead of
     a list of parameters for executing subprocess"""
@@ -248,7 +212,8 @@ def generateCommand(parameters, preview=False):
 
     channel_text = parameters.get('channel_text')
 
-    outputfile = make_filename(outputfile, channel_text, append_suffix=append_suffix)
+    outputfile = make_filename(outputfile, channel_text,
+                               append_suffix=append_suffix)
 
 
     if channel_type == 'frequency':
@@ -334,7 +299,8 @@ def generateCommand(parameters, preview=False):
 
 
 
-    if lavc_audiocodec or lavc_audiobitrate or lavc_videobitrate or lavc_videocodec:
+    if lavc_audiocodec or lavc_audiobitrate or\
+        lavc_videobitrate or lavc_videocodec:
         lavcopts = []
         if lavc_audiocodec:
             lavcopts.append("acodec=" + lavc_audiocodec)
@@ -367,7 +333,7 @@ def generateCommand(parameters, preview=False):
         return command
 
 
-def generateMplayerCommand(parameters):
+def generate_mplayer_command(parameters):
     """Generates a command for mplayer, for channel preview
     """
 

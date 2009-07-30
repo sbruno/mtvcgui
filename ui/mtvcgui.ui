@@ -1322,7 +1322,7 @@ on the console</string>
        <string>Schedule Recording</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="cancelScheduleButton">
+     <widget class="QPushButton" name="cancel_sheduleButton">
       <property name="enabled">
        <bool>false</bool>
       </property>
@@ -1440,7 +1440,7 @@ on the console</string>
    <sender>runButton</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
-   <slot>runMencoder()</slot>
+   <slot>run_mencoder()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>190</x>
@@ -1456,7 +1456,7 @@ on the console</string>
    <sender>previewButton</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
-   <slot>previewCommand()</slot>
+   <slot>preview_command()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>570</x>
@@ -1488,7 +1488,7 @@ on the console</string>
    <sender>stopButton</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
-   <slot>stopButtonPressed()</slot>
+   <slot>stop_button_pressed()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>397</x>
@@ -1504,7 +1504,7 @@ on the console</string>
    <sender>actionSave_configuration</sender>
    <signal>activated()</signal>
    <receiver>MainWindow</receiver>
-   <slot>saveConfiguration()</slot>
+   <slot>save_configuration()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>-1</x>
@@ -1520,7 +1520,7 @@ on the console</string>
    <sender>actionAbout_mtvcgui</sender>
    <signal>activated()</signal>
    <receiver>MainWindow</receiver>
-   <slot>showAboutDialog()</slot>
+   <slot>show_about_dialog()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>-1</x>
@@ -1536,7 +1536,7 @@ on the console</string>
    <sender>showAudioCodecsButton</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
-   <slot>showAvailableAudioCodecs()</slot>
+   <slot>show_available_audio_codecs()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>667</x>
@@ -1552,7 +1552,7 @@ on the console</string>
    <sender>showVideoCodecsButton</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
-   <slot>showAvailableVideoCodecs()</slot>
+   <slot>show_available_video_codecs()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>675</x>
@@ -1632,7 +1632,7 @@ on the console</string>
    <sender>scheduleButton</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
-   <slot>scheduleRecording()</slot>
+   <slot>shedule_recording()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>339</x>
@@ -1645,10 +1645,10 @@ on the console</string>
    </hints>
   </connection>
   <connection>
-   <sender>cancelScheduleButton</sender>
+   <sender>cancel_sheduleButton</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
-   <slot>cancelSchedule()</slot>
+   <slot>cancel_shedule()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>545</x>
@@ -1664,7 +1664,7 @@ on the console</string>
    <sender>actionReload_configuration</sender>
    <signal>activated()</signal>
    <receiver>MainWindow</receiver>
-   <slot>setParametersFromConfig()</slot>
+   <slot>set_params_from_config()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>-1</x>
@@ -1680,7 +1680,7 @@ on the console</string>
    <sender>pushButton</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
-   <slot>previewWithMplayer()</slot>
+   <slot>preview_with_mplayer()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>174</x>
@@ -1696,7 +1696,7 @@ on the console</string>
    <sender>audiocodec</sender>
    <signal>currentIndexChanged(int)</signal>
    <receiver>MainWindow</receiver>
-   <slot>audioCodecSelected(int)</slot>
+   <slot>audio_codec_selected(int)</slot>
    <hints>
     <hint type="sourcelabel">
      <x>488</x>
@@ -1712,7 +1712,7 @@ on the console</string>
    <sender>videocodec</sender>
    <signal>currentIndexChanged(int)</signal>
    <receiver>MainWindow</receiver>
-   <slot>videoCodecSelected(int)</slot>
+   <slot>video_codec_selected(int)</slot>
    <hints>
     <hint type="sourcelabel">
      <x>525</x>
@@ -1728,7 +1728,7 @@ on the console</string>
    <sender>channel</sender>
    <signal>valueChanged(QString)</signal>
    <receiver>MainWindow</receiver>
-   <slot>channelChanged(QString)</slot>
+   <slot>channel_changed(QString)</slot>
    <hints>
     <hint type="sourcelabel">
      <x>127</x>
@@ -1744,7 +1744,7 @@ on the console</string>
    <sender>frequency</sender>
    <signal>valueChanged(QString)</signal>
    <receiver>MainWindow</receiver>
-   <slot>frequencyChanged(QString)</slot>
+   <slot>frequency_changed(QString)</slot>
    <hints>
     <hint type="sourcelabel">
      <x>157</x>
@@ -1760,7 +1760,7 @@ on the console</string>
    <sender>brightnessSlider</sender>
    <signal>valueChanged(int)</signal>
    <receiver>MainWindow</receiver>
-   <slot>brightnessChanged(int)</slot>
+   <slot>brightness_changed(int)</slot>
    <hints>
     <hint type="sourcelabel">
      <x>578</x>
@@ -1776,7 +1776,7 @@ on the console</string>
    <sender>contrastSlider</sender>
    <signal>valueChanged(int)</signal>
    <receiver>MainWindow</receiver>
-   <slot>contrastChanged(int)</slot>
+   <slot>contrast_changed(int)</slot>
    <hints>
     <hint type="sourcelabel">
      <x>530</x>
@@ -1792,7 +1792,7 @@ on the console</string>
    <sender>hueSlider</sender>
    <signal>valueChanged(int)</signal>
    <receiver>MainWindow</receiver>
-   <slot>hueChanged(int)</slot>
+   <slot>hue_changed(int)</slot>
    <hints>
     <hint type="sourcelabel">
      <x>535</x>
@@ -1808,7 +1808,7 @@ on the console</string>
    <sender>saturationSlider</sender>
    <signal>valueChanged(int)</signal>
    <receiver>MainWindow</receiver>
-   <slot>saturationChanged(int)</slot>
+   <slot>saturation_changed(int)</slot>
    <hints>
     <hint type="sourcelabel">
      <x>617</x>
@@ -1824,7 +1824,7 @@ on the console</string>
    <sender>norm</sender>
    <signal>valueChanged(int)</signal>
    <receiver>MainWindow</receiver>
-   <slot>normChanged(int)</slot>
+   <slot>norm_changed(int)</slot>
    <hints>
     <hint type="sourcelabel">
      <x>114</x>
@@ -1838,25 +1838,25 @@ on the console</string>
   </connection>
  </connections>
  <slots>
-  <slot>runMencoder()</slot>
-  <slot>previewCommand()</slot>
-  <slot>stopButtonPressed()</slot>
-  <slot>saveConfiguration()</slot>
-  <slot>showAboutDialog()</slot>
-  <slot>showAvailableAudioCodecs()</slot>
-  <slot>showAvailableVideoCodecs()</slot>
-  <slot>scheduleRecording()</slot>
-  <slot>cancelSchedule()</slot>
-  <slot>setParametersFromConfig()</slot>
-  <slot>previewWithMplayer()</slot>
-  <slot>audioCodecSelected(int)</slot>
-  <slot>videoCodecSelected(int)</slot>
-  <slot>channelChanged(QString)</slot>
-  <slot>frequencyChanged(QString)</slot>
-  <slot>brightnessChanged(int)</slot>
-  <slot>contrastChanged(int)</slot>
-  <slot>hueChanged(int)</slot>
-  <slot>saturationChanged(int)</slot>
-  <slot>normChanged(int)</slot>
+  <slot>run_mencoder()</slot>
+  <slot>preview_command()</slot>
+  <slot>stop_button_pressed()</slot>
+  <slot>save_configuration()</slot>
+  <slot>show_about_dialog()</slot>
+  <slot>show_available_audio_codecs()</slot>
+  <slot>show_available_video_codecs()</slot>
+  <slot>shedule_recording()</slot>
+  <slot>cancel_shedule()</slot>
+  <slot>set_params_from_config()</slot>
+  <slot>preview_with_mplayer()</slot>
+  <slot>audio_codec_selected(int)</slot>
+  <slot>video_codec_selected(int)</slot>
+  <slot>channel_changed(QString)</slot>
+  <slot>frequency_changed(QString)</slot>
+  <slot>brightness_changed(int)</slot>
+  <slot>contrast_changed(int)</slot>
+  <slot>hue_changed(int)</slot>
+  <slot>saturation_changed(int)</slot>
+  <slot>norm_changed(int)</slot>
  </slots>
 </ui>

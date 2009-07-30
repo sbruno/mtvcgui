@@ -64,7 +64,7 @@ class FileExistsDialog(QtGui.QDialog, Ui_FileExistsDialog):
         self.parent = parent
 
     def accept(self):
-        self.parent.runMencoder(accepted=True)
+        self.parent.run_mencoder(accepted=True)
         self.close()
 
 class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
@@ -79,20 +79,25 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         #timer to update state while recording
         self.time_running = 0
         self.checker_timer = QtCore.QTimer()
-        QtCore.QObject.connect(self.checker_timer, QtCore.SIGNAL("timeout()"), self.update_status)
+        QtCore.QObject.connect(self.checker_timer,
+            QtCore.SIGNAL("timeout()"), self.update_status)
 
         #timer to check if the time of a sheduled recorded has been reached
         self.time_waiting = 0
         self.schedule_timer = QtCore.QTimer()
-        QtCore.QObject.connect(self.schedule_timer, QtCore.SIGNAL("timeout()"), self.check_schedule)
+        QtCore.QObject.connect(self.schedule_timer,
+            QtCore.SIGNAL("timeout()"), self.check_schedule)
 
-        #timer to check if mencoder has already created the recorded file and preview it
+        #timer to check if mencoder has already created the recorded file
+        #and preview it
         self.preview_file_timer = QtCore.QTimer()
-        QtCore.QObject.connect(self.preview_file_timer, QtCore.SIGNAL("timeout()"), self.check_preview_file)
+        QtCore.QObject.connect(self.preview_file_timer,
+            QtCore.SIGNAL("timeout()"), self.check_preview_file)
 
         #timer to check if mplayer preview is still alive
         self.mplayer_preview_timer = QtCore.QTimer()
-        QtCore.QObject.connect(self.mplayer_preview_timer, QtCore.SIGNAL("timeout()"), self.check_mplayer_preview)
+        QtCore.QObject.connect(self.mplayer_preview_timer,
+            QtCore.SIGNAL("timeout()"), self.check_mplayer_preview)
 
 
         self.error_dialog = QtGui.QErrorMessage(parent)
@@ -101,13 +106,14 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         
         # I add the icon here because with QT Designer I get a different path
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("./ui/icons/mplayer_32x32.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("./ui/icons/mplayer_32x32.png"),
+            QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.setWindowIcon(icon)
 
         now = time.localtime()
         self.recording_date.setDate(QtCore.QDate.currentDate())
         self.recording_date.setTime(QtCore.QTime(now[3], now[4], 0))
-        self.setParametersFromConfig()
+        self.set_params_from_config()
 
     def update_status(self):
         if self.mencoder_instance.poll() is None:
@@ -118,7 +124,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
 
     def check_preview_file(self):
         if os.path.exists(self.filename):
-            cmd = ['mplayer','-quiet', self.filename]
+            cmd = ['mplayer', '-quiet', self.filename]
             try:
                 self.mplayer_instance = Popen(cmd)
                 self.mplayer_recording_pid = self.mplayer_instance.pid
@@ -140,7 +146,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
             self.append_suffix.setChecked(True)
             self.stopButton.setEnabled(True)
             self.runButton.setEnabled(False)
-            self.runMencoder(accepted=True)
+            self.run_mencoder(accepted=True)
         else:
             self.status_label.setText(self.tr('Waiting %1').arg(utils.secs_to_str(seconds_remaining)))
 
@@ -160,7 +166,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
                 self.error_dialog.showMessage("excecution of %s failed" % post_command)
         self.stopButton.setEnabled(False)
         self.runButton.setEnabled(True)
-        self.cancelScheduleButton.setEnabled(False)
+        self.cancel_sheduleButton.setEnabled(False)
         self.scheduleButton.setEnabled(True)
 
     def exit_cleanup(self):
@@ -174,26 +180,26 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
             call(['kill', str(self.mencoder_pid)])
 
 
-    def scheduleRecording(self):
+    def shedule_recording(self):
         self.stopButton.setEnabled(False)
         self.runButton.setEnabled(False)
-        self.cancelScheduleButton.setEnabled(True)
+        self.cancel_sheduleButton.setEnabled(True)
         self.scheduleButton.setEnabled(False)
         self.schedule_timer.start(1000)
 
-    def cancelSchedule(self):
+    def cancel_shedule(self):
         self.status_label.setText(self.tr('Stopped'))
         self.schedule_timer.stop()
-        self.cancelScheduleButton.setEnabled(False)
+        self.cancel_sheduleButton.setEnabled(False)
         self.scheduleButton.setEnabled(True)
         self.stopButton.setEnabled(False)
         self.runButton.setEnabled(True)
 
-    def showAboutDialog(self):
+    def show_about_dialog(self):
         dialog = AboutDialog(self)
         dialog.show()
 
-    def audioCodecSelected(self,i):
+    def audio_codec_selected(self, i):
         LAME = 3
         LAVC = 4
         if i == LAME:
@@ -206,14 +212,14 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
             self.lame_options_box.hide()
             self.lavc_audio_options_box.hide()
 
-    def videoCodecSelected(self,i):
+    def video_codec_selected(self, i):
         LAVC = 2
         if i == LAVC:
             self.lavc_video_options_box.show()
         else:
             self.lavc_video_options_box.hide()
 
-    def setParametersFromConfig(self):
+    def set_params_from_config(self):
         config = ConfigParser.ConfigParser()
         config_filename = os.path.join(os.path.expanduser("~"), '.mtvcgui', 'mtvcgui.ini')
         config.read(config_filename)
@@ -249,13 +255,17 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
             self.channel.setValue(int(config.get('mencoder GUI', 'channel')))
 
         if config.has_option('mencoder GUI', 'frequency'):
-            self.frequency.setValue(float(config.get('mencoder GUI', 'frequency')))
+            self.frequency.setValue(float(config.get('mencoder GUI',
+                                                     'frequency')))
 
         if config.has_option('mencoder GUI', 'duration'):
-            self.duration.setTime(QtCore.QTime().fromString(config.get('mencoder GUI', 'duration')))
+            self.duration.setTime(QtCore.QTime().fromString(
+                config.get('mencoder GUI', 'duration'))
+                )
 
         if config.has_option('mencoder GUI', 'driver'):
-            self.driver.setCurrentIndex(int(config.get('mencoder GUI', 'driver')))
+            self.driver.setCurrentIndex(int(config.get('mencoder GUI',
+                                                       'driver')))
 
         if config.has_option('mencoder GUI', 'device'):
             self.device.setText(config.get('mencoder GUI', 'device'))
@@ -267,20 +277,25 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
             self.input.setValue(int(config.get('mencoder GUI', 'input')))
 
         if config.has_option('mencoder GUI', 'chanlist'):
-            self.chanlist.setCurrentIndex(int(config.get('mencoder GUI', 'chanlist')))
+            self.chanlist.setCurrentIndex(int(config.get('mencoder GUI',
+                                                         'chanlist')))
 
         if config.has_option('mencoder GUI', 'audiocodec'):
-            self.audiocodec.setCurrentIndex(int(config.get('mencoder GUI', 'audiocodec')))
+            self.audiocodec.setCurrentIndex(int(config.get('mencoder GUI',
+                                                           'audiocodec')))
         else:
             self.audiocodec.setCurrentIndex(3) #default to mp3lame
 
         if config.has_option('mencoder GUI', 'videocodec'):
-            self.videocodec.setCurrentIndex(int(config.get('mencoder GUI', 'videocodec')))
+            self.videocodec.setCurrentIndex(int(config.get('mencoder GUI',
+                                                           'videocodec')))
         else:
             self.videocodec.setCurrentIndex(2) #default to lavc
 
         if config.has_option('mencoder GUI', 'append_suffix'):
-            self.append_suffix.setChecked(config.get('mencoder GUI', 'append_suffix') == 'True')
+            self.append_suffix.setChecked(
+                config.get('mencoder GUI', 'append_suffix') == 'True'
+                )
 
 
         #lavc options
@@ -362,7 +377,8 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
             self.extrafilters.setText(config.get('mencoder GUI', 'extrafilters'))
 
         if config.has_option('mencoder GUI', 'extramencoderparms'):
-            self.extramencoderparms.setText(config.get('mencoder GUI', 'extramencoderparms'))
+            self.extramencoderparms.setText(config.get('mencoder GUI',
+                                                       'extramencoderparms'))
 
 
         #advanced tab
@@ -373,22 +389,26 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
             self.post_command.setText(config.get('mencoder GUI', 'post_command'))
 
         if config.has_option('mencoder GUI', 'play_while_recording'):
-            self.play_while_recording.setChecked(config.get('mencoder GUI', 'play_while_recording') == 'True')
+            self.play_while_recording.setChecked(config.get('mencoder GUI',
+                'play_while_recording') == 'True')
 
 
-    def getParametersFromGUI(self, config=False):
+    def get_params_from_gui(self, config=False):
 
         parameters = {}
 
-        parameters['channel_type'] = self.number_rb.isChecked() and 'number' or 'frequency'
+        parameters['channel_type'] = self.number_rb.isChecked() and \
+            'number' or 'frequency'
         parameters['channel'] = str(self.channel.value())
         parameters['frequency'] = str(self.frequency.value()).replace(",",".")
 
-        if self.duration.time().hour() or self.duration.time().minute() or self.duration.time().second():
-            parameters['duration'] = "%.2d:%.2d:%.2d" % ( self.duration.time().hour(),
-                                            self.duration.time().minute(),
-                                            self.duration.time().second()
-                                          )
+        if self.duration.time().hour() or self.duration.time().minute() or \
+            self.duration.time().second():
+            parameters['duration'] = "%.2d:%.2d:%.2d" % (
+                                        self.duration.time().hour(),
+                                        self.duration.time().minute(),
+                                        self.duration.time().second()
+                                      )
         else:
             parameters['duration'] = ''
 
@@ -421,7 +441,8 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         if config:
             parameters['lavc_audiocodec'] = self.lavc_audiocodec.currentIndex()
         else:
-            parameters['lavc_audiocodec'] = str(self.lavc_audiocodec.currentText())
+            parameters['lavc_audiocodec'] = \
+                str(self.lavc_audiocodec.currentText())
 
         parameters['lavc_audiobitrate'] = str(self.lavc_audiobitrate.text())
         parameters['lame_audiobitrate'] = str(self.lame_audiobitrate.text())
@@ -429,7 +450,8 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         if config:
             parameters['lavc_videocodec'] = self.lavc_videocodec.currentIndex()
         else:
-            parameters['lavc_videocodec'] = str(self.lavc_videocodec.currentText())
+            parameters['lavc_videocodec'] = \
+                str(self.lavc_videocodec.currentText())
 
         parameters['lavc_videobitrate'] = str(self.lavc_videobitrate.text())
         parameters['outputfile'] = str(self.outputfile.text())
@@ -457,42 +479,47 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
 
         parameters['pre_command'] = str(self.pre_command.text())
         parameters['post_command'] = str(self.post_command.text())
-        parameters['play_while_recording'] = self.play_while_recording.isChecked()
+        parameters['play_while_recording'] = \
+            self.play_while_recording.isChecked()
 
         if parameters['channel_type'] == 'number':
             parameters['channel_text'] = str(self.channel.value())
         elif parameters['channel_type'] == 'frequency':
-            parameters['channel_text'] = str(self.frequency.value()).replace(",",".")
+            parameters['channel_text'] = \
+                str(self.frequency.value()).replace(",",".")
 
         return parameters
 
 
 
-    def previewWithMplayer(self):
+    def preview_with_mplayer(self):
         if not self.mplayer_preview_pid:
-            parameters = self.getParametersFromGUI()
-            cmd = utils.generateMplayerCommand(parameters)
+            parameters = self.get_params_from_gui()
+            cmd = utils.generate_mplayer_command(parameters)
             try:
                 self.mplayer_instance = Popen(cmd, stdin=PIPE)
                 self.mplayer_preview_pid = self.mplayer_instance.pid
                 self.mplayer_preview_timer.start(1000)
             except OSError:
-                self.error_dialog.showMessage("excecution of %s failed" % " ".join(cmd))
+                self.error_dialog.showMessage("excecution of %s failed" %
+                                              (" ".join(cmd),))
 
 
 
-    def runMencoder(self, accepted=False):
+    def run_mencoder(self, accepted=False):
         if self.mplayer_preview_pid:
             call(['kill', str(self.mplayer_preview_pid)])
             self.mplayer_preview_pid = 0
 
-        parameters = self.getParametersFromGUI()
+        parameters = self.get_params_from_gui()
 
         self.schedule_timer.stop()
         channel_text = parameters.get('channel_text')
         append_suffix = self.append_suffix.isChecked()
         play_while_recording = self.play_while_recording.isChecked()
-        filename = utils.make_filename(str(self.outputfile.text()), channel_text, append_suffix=append_suffix)
+        filename = utils.make_filename(str(self.outputfile.text()),
+                                       channel_text,
+                                       append_suffix=append_suffix)
 
         self.filename = filename
 
@@ -509,9 +536,10 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
                 try:
                     call(cmds)
                 except OSError:
-                    self.error_dialog.showMessage("excecution of %s failed" % pre_command)
+                    self.error_dialog.showMessage("excecution of %s failed" %
+                                                  (pre_command,))
 
-            cmd = utils.generateCommand(parameters)
+            cmd = utils.generate_command(parameters)
             try:
                 self.mencoder_instance = Popen(cmd)
                 self.mencoder_pid = self.mencoder_instance.pid
@@ -519,10 +547,12 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
                 self.error_dialog.showMessage("excecution of %s failed" % " ".join(cmd))
 
             if self.mencoder_pid:
-                self.status_label.setText(self.tr('Recording... %1').arg(utils.secs_to_str(self.time_running)))
+                self.status_label.setText(self.tr('Recording... %1').arg(
+                    utils.secs_to_str(self.time_running)
+                    ))
                 self.checker_timer.start(1000)
                 self.scheduleButton.setEnabled(False)
-                self.cancelScheduleButton.setEnabled(False)
+                self.cancel_sheduleButton.setEnabled(False)
                 if play_while_recording:
                     self.preview_file_timer.start(1000)
             else:
@@ -530,109 +560,96 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
                 self.runButton.setEnabled(True)
 
 
-    def showAvailableAudioCodecs(self):
+    def show_available_audio_codecs(self):
         dialog = InfoDialog(self)
-        text = utils.getCodecs('mencoder -oac help')
+        text = utils.get_codecs('mencoder -oac help')
         dialog.plainTextEdit.setPlainText(text)
         dialog.show()
 
-    def showAvailableVideoCodecs(self):
+    def show_available_video_codecs(self):
         dialog = InfoDialog(self)
-        text = utils.getCodecs('mencoder -ovc help')
+        text = utils.get_codecs('mencoder -ovc help')
         dialog.plainTextEdit.setPlainText(text)
         dialog.show()
 
-    def stopButtonPressed(self):
+    def stop_button_pressed(self):
         if self.mencoder_pid:
             call(['kill', str(self.mencoder_pid)])
             self.mencoder_pid = 0
         self.record_stop_cleanup()
 
-    def channelChanged(self, channel):
+    def channel_changed(self, channel):
         if self.mplayer_preview_pid:
             try:
-                #I should use communicate, but how do I just send a string and
-                #return control to the program?
-                self.mplayer_instance.stdin.write('tv_set_channel %s\n' % str(channel))
-                #self.mplayer_instance.communicate('tv_set_channel %s\n' % str(channel))
+                self.mplayer_instance.stdin.write('tv_set_channel %s\n' %
+                                                  (str(channel),))
             except:
                 self.error_dialog.showMessage("communication with mplayer failed")
 
-    def frequencyChanged(self, freq):
+    def frequency_changed(self, freq):
         if self.mplayer_preview_pid:
             try:
-                #I should use communicate, but how do I just send a string and
-                #return control to the program?
-                self.mplayer_instance.stdin.write('tv_set_freq %s\n' % str(freq))
-                #self.mplayer_instance.communicate('tv_set_freq %s\n' % str(channel))
+                self.mplayer_instance.stdin.write('tv_set_freq %s\n' %
+                                                  (str(freq),))
             except:
                 self.error_dialog.showMessage("communication with mplayer failed")
 
-    def brightnessChanged(self, brightness):
+    def brightness_changed(self, brightness):
         if self.mplayer_preview_pid:
             try:
-                #I should use communicate, but how do I just send a string and
-                #return control to the program?
-                self.mplayer_instance.stdin.write('tv_set_brightness %s\n' % str(brightness))
-                #self.mplayer_instance.communicate('tv_set_brightness %s\n' % str(brightness))
+                self.mplayer_instance.stdin.write('tv_set_brightness %s\n' %
+                                                  (str(brightness),))
             except:
                 self.error_dialog.showMessage("communication with mplayer failed")
 
-    def contrastChanged(self, contrast):
+    def contrast_changed(self, contrast):
         if self.mplayer_preview_pid:
             try:
-                #I should use communicate, but how do I just send a string and
-                #return control to the program?
-                self.mplayer_instance.stdin.write('tv_set_contrast %s\n' % str(contrast))
-                #self.mplayer_instance.communicate('tv_set_contrast %s\n' % str(contrast))
+                self.mplayer_instance.stdin.write('tv_set_contrast %s\n' %
+                                                  (str(contrast),))
             except:
                 self.error_dialog.showMessage("communication with mplayer failed")
 
-    def hueChanged(self, hue):
+    def hue_changed(self, hue):
         if self.mplayer_preview_pid:
             try:
-                #I should use communicate, but how do I just send a string and
-                #return control to the program?
-                self.mplayer_instance.stdin.write('tv_set_hue %s\n' % str(hue))
-                #self.mplayer_instance.communicate('tv_set_hue %s\n' % str(hue))
+                self.mplayer_instance.stdin.write('tv_set_hue %s\n' %
+                                                  (str(hue),))
             except:
                 self.error_dialog.showMessage("communication with mplayer failed")
 
-    def saturationChanged(self, saturation):
+    def saturation_changed(self, saturation):
         if self.mplayer_preview_pid:
             try:
-                #I should use communicate, but how do I just send a string and
-                #return control to the program?
-                self.mplayer_instance.stdin.write('tv_set_saturation %s\n' % str(saturation))
-                #self.mplayer_instance.communicate('tv_set_saturation %s\n' % str(saturation))
+                self.mplayer_instance.stdin.write('tv_set_saturation %s\n' %
+                                                  (str(saturation),))
             except:
                 self.error_dialog.showMessage("communication with mplayer failed")
 
-    def normChanged(self, norm):
+    def norm_changed(self, norm):
         if self.mplayer_preview_pid:
-            norm = utils.norms_dict.get(norm, 'NTSC')
+            norm = utils.NORMS_DICT.get(norm, 'NTSC')
             try:
-                #I should use communicate, but how do I just send a string and
-                #return control to the program?
-                self.mplayer_instance.stdin.write('tv_set_norm %s\n' % str(norm))
-                #self.mplayer_instance.communicate('tv_set_norm %s\n' % str(norm))
+                self.mplayer_instance.stdin.write('tv_set_norm %s\n' %
+                                                  (str(norm),))
             except:
                 self.error_dialog.showMessage("communication with mplayer failed")
 
-    def previewCommand(self):
-        parameters = self.getParametersFromGUI()
-        self.previewcommand.setText(utils.generateCommand(parameters, preview=True))
+    def preview_command(self):
+        parameters = self.get_params_from_gui()
+        self.previewcommand.setText(utils.generate_command(parameters,
+                                                           preview=True))
 
-    def saveConfiguration(self):
-        parameters = self.getParametersFromGUI(config=True)
-        utils.saveConfiguration(parameters)
+    def save_configuration(self):
+        parameters = self.get_params_from_gui(config=True)
+        utils.save_configuration(parameters)
 
 
 
 if __name__ == '__main__':
     app = QtGui.QApplication(sys.argv)
 
-    translation = utils.findTranslation()
+    translation = utils.find_translation()
     if translation:
         appTranslator = QtCore.QTranslator()
         appTranslator.load(translation)

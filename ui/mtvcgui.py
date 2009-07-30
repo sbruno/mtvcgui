@@ -2,8 +2,8 @@
 
 # Form implementation generated from reading ui file 'mtvcgui.ui'
 #
-# Created: Sat Jun 20 23:21:35 2009
-#      by: PyQt4 UI code generator 4.5.1
+# Created: Wed Jul 29 23:27:19 2009
+#      by: PyQt4 UI code generator 4.5.2
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -337,11 +337,11 @@ class Ui_MainWindow(object):
         self.scheduleButton = QtGui.QPushButton(self.tab_4)
         self.scheduleButton.setGeometry(QtCore.QRect(225, 270, 186, 25))
         self.scheduleButton.setObjectName("scheduleButton")
-        self.cancelScheduleButton = QtGui.QPushButton(self.tab_4)
-        self.cancelScheduleButton.setEnabled(False)
-        self.cancelScheduleButton.setGeometry(QtCore.QRect(440, 270, 186, 25))
-        self.cancelScheduleButton.setCheckable(False)
-        self.cancelScheduleButton.setObjectName("cancelScheduleButton")
+        self.cancel_sheduleButton = QtGui.QPushButton(self.tab_4)
+        self.cancel_sheduleButton.setEnabled(False)
+        self.cancel_sheduleButton.setGeometry(QtCore.QRect(440, 270, 186, 25))
+        self.cancel_sheduleButton.setCheckable(False)
+        self.cancel_sheduleButton.setObjectName("cancel_sheduleButton")
         self.play_while_recording = QtGui.QCheckBox(self.tab_4)
         self.play_while_recording.setGeometry(QtCore.QRect(20, 145, 611, 23))
         self.play_while_recording.setObjectName("play_while_recording")
@@ -382,31 +382,31 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
         self.tabWidget.setCurrentIndex(0)
-        QtCore.QObject.connect(self.runButton, QtCore.SIGNAL("clicked()"), MainWindow.runMencoder)
-        QtCore.QObject.connect(self.previewButton, QtCore.SIGNAL("clicked()"), MainWindow.previewCommand)
+        QtCore.QObject.connect(self.runButton, QtCore.SIGNAL("clicked()"), MainWindow.run_mencoder)
+        QtCore.QObject.connect(self.previewButton, QtCore.SIGNAL("clicked()"), MainWindow.preview_command)
         QtCore.QObject.connect(self.actionSalir, QtCore.SIGNAL("activated()"), MainWindow.close)
-        QtCore.QObject.connect(self.stopButton, QtCore.SIGNAL("clicked()"), MainWindow.stopButtonPressed)
-        QtCore.QObject.connect(self.actionSave_configuration, QtCore.SIGNAL("activated()"), MainWindow.saveConfiguration)
-        QtCore.QObject.connect(self.actionAbout_mtvcgui, QtCore.SIGNAL("activated()"), MainWindow.showAboutDialog)
-        QtCore.QObject.connect(self.showAudioCodecsButton, QtCore.SIGNAL("clicked()"), MainWindow.showAvailableAudioCodecs)
-        QtCore.QObject.connect(self.showVideoCodecsButton, QtCore.SIGNAL("clicked()"), MainWindow.showAvailableVideoCodecs)
+        QtCore.QObject.connect(self.stopButton, QtCore.SIGNAL("clicked()"), MainWindow.stop_button_pressed)
+        QtCore.QObject.connect(self.actionSave_configuration, QtCore.SIGNAL("activated()"), MainWindow.save_configuration)
+        QtCore.QObject.connect(self.actionAbout_mtvcgui, QtCore.SIGNAL("activated()"), MainWindow.show_about_dialog)
+        QtCore.QObject.connect(self.showAudioCodecsButton, QtCore.SIGNAL("clicked()"), MainWindow.show_available_audio_codecs)
+        QtCore.QObject.connect(self.showVideoCodecsButton, QtCore.SIGNAL("clicked()"), MainWindow.show_available_video_codecs)
         QtCore.QObject.connect(self.number_rb, QtCore.SIGNAL("clicked()"), self.frequency.hide)
         QtCore.QObject.connect(self.number_rb, QtCore.SIGNAL("clicked()"), self.channel.show)
         QtCore.QObject.connect(self.freq_rb, QtCore.SIGNAL("clicked()"), self.channel.hide)
         QtCore.QObject.connect(self.freq_rb, QtCore.SIGNAL("clicked()"), self.frequency.show)
-        QtCore.QObject.connect(self.scheduleButton, QtCore.SIGNAL("clicked()"), MainWindow.scheduleRecording)
-        QtCore.QObject.connect(self.cancelScheduleButton, QtCore.SIGNAL("clicked()"), MainWindow.cancelSchedule)
-        QtCore.QObject.connect(self.actionReload_configuration, QtCore.SIGNAL("activated()"), MainWindow.setParametersFromConfig)
-        QtCore.QObject.connect(self.pushButton, QtCore.SIGNAL("clicked()"), MainWindow.previewWithMplayer)
-        QtCore.QObject.connect(self.audiocodec, QtCore.SIGNAL("currentIndexChanged(int)"), MainWindow.audioCodecSelected)
-        QtCore.QObject.connect(self.videocodec, QtCore.SIGNAL("currentIndexChanged(int)"), MainWindow.videoCodecSelected)
-        QtCore.QObject.connect(self.channel, QtCore.SIGNAL("valueChanged(QString)"), MainWindow.channelChanged)
-        QtCore.QObject.connect(self.frequency, QtCore.SIGNAL("valueChanged(QString)"), MainWindow.frequencyChanged)
-        QtCore.QObject.connect(self.brightnessSlider, QtCore.SIGNAL("valueChanged(int)"), MainWindow.brightnessChanged)
-        QtCore.QObject.connect(self.contrastSlider, QtCore.SIGNAL("valueChanged(int)"), MainWindow.contrastChanged)
-        QtCore.QObject.connect(self.hueSlider, QtCore.SIGNAL("valueChanged(int)"), MainWindow.hueChanged)
-        QtCore.QObject.connect(self.saturationSlider, QtCore.SIGNAL("valueChanged(int)"), MainWindow.saturationChanged)
-        QtCore.QObject.connect(self.norm, QtCore.SIGNAL("valueChanged(int)"), MainWindow.normChanged)
+        QtCore.QObject.connect(self.scheduleButton, QtCore.SIGNAL("clicked()"), MainWindow.shedule_recording)
+        QtCore.QObject.connect(self.cancel_sheduleButton, QtCore.SIGNAL("clicked()"), MainWindow.cancel_shedule)
+        QtCore.QObject.connect(self.actionReload_configuration, QtCore.SIGNAL("activated()"), MainWindow.set_params_from_config)
+        QtCore.QObject.connect(self.pushButton, QtCore.SIGNAL("clicked()"), MainWindow.preview_with_mplayer)
+        QtCore.QObject.connect(self.audiocodec, QtCore.SIGNAL("currentIndexChanged(int)"), MainWindow.audio_codec_selected)
+        QtCore.QObject.connect(self.videocodec, QtCore.SIGNAL("currentIndexChanged(int)"), MainWindow.video_codec_selected)
+        QtCore.QObject.connect(self.channel, QtCore.SIGNAL("valueChanged(QString)"), MainWindow.channel_changed)
+        QtCore.QObject.connect(self.frequency, QtCore.SIGNAL("valueChanged(QString)"), MainWindow.frequency_changed)
+        QtCore.QObject.connect(self.brightnessSlider, QtCore.SIGNAL("valueChanged(int)"), MainWindow.brightness_changed)
+        QtCore.QObject.connect(self.contrastSlider, QtCore.SIGNAL("valueChanged(int)"), MainWindow.contrast_changed)
+        QtCore.QObject.connect(self.hueSlider, QtCore.SIGNAL("valueChanged(int)"), MainWindow.hue_changed)
+        QtCore.QObject.connect(self.saturationSlider, QtCore.SIGNAL("valueChanged(int)"), MainWindow.saturation_changed)
+        QtCore.QObject.connect(self.norm, QtCore.SIGNAL("valueChanged(int)"), MainWindow.norm_changed)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -521,7 +521,7 @@ class Ui_MainWindow(object):
         self.label_26.setText(QtGui.QApplication.translate("MainWindow", "Run this command before capturing:", None, QtGui.QApplication.UnicodeUTF8))
         self.label_27.setText(QtGui.QApplication.translate("MainWindow", "Run this command after capturing:", None, QtGui.QApplication.UnicodeUTF8))
         self.scheduleButton.setText(QtGui.QApplication.translate("MainWindow", "Schedule Recording", None, QtGui.QApplication.UnicodeUTF8))
-        self.cancelScheduleButton.setText(QtGui.QApplication.translate("MainWindow", "Cancel", None, QtGui.QApplication.UnicodeUTF8))
+        self.cancel_sheduleButton.setText(QtGui.QApplication.translate("MainWindow", "Cancel", None, QtGui.QApplication.UnicodeUTF8))
         self.play_while_recording.setText(QtGui.QApplication.translate("MainWindow", "Play recorded file while capture (kind of preview) (May consume too much cpu and ruin your capture!!)", None, QtGui.QApplication.UnicodeUTF8))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_4), QtGui.QApplication.translate("MainWindow", "Advanced", None, QtGui.QApplication.UnicodeUTF8))
         self.append_suffix.setText(QtGui.QApplication.translate("MainWindow", "Append a number suffix if file exists", None, QtGui.QApplication.UnicodeUTF8))
