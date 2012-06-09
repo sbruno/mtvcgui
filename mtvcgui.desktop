@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=mtvcgui
+Comment=Mencoder TV Capture GUI
+GenericName=Mencoder TV Capture GUI
+Exec=mtvcgui
+Icon=mtvcgui
+Terminal=false
+Type=Application
+Categories=Application;AudioVideo
