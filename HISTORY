@@ -1,15 +1,38 @@
-v0.31 - Jun 22 2009
-* Recommended mencoder post processing filters are now
-pp=hb:a/vb:a/dr:a/al:a/lb:a for better CPU usage
-* Corrected tvheight and tvwidth switch when saving configuration
 
-v0.3 - Jun 21 2009
+
+2012-Jun-08 -- mtvcgui v0.40
+* Get supported norms, inputs, audio codecs and video codecs from mplayer output
+
+2009-Jun-22 -- mtvcgui v0.31
+* Corrected tvheight and tvwidth switch when saving configuration.
+
+2009-Jun-20 -- mtvcgui v0.31
 * Configuration file is stored in ~/.mtvgui/
 * Added brightness, contrast, hue, and saturation controls.
 * Changes in channel number, norm, or color controls are observed in the
-preview.
+  preview.
 * Other fixes (preventing more than one instance of mplayer for preview, kill
-preview when program exits, and other minors)
+  preview when program exits, and other minors)
 
-v0.2 - Dec 21 2008
-* First published version
+
+2009-Jun-08 -- mtvcgui v0.21
+* Configuration is now saved in user folder
+
+
+2008-Dec-21 -- mtvcgui v0.2
+* Added error dialog if any command fail to execute.
+* Moved some MainWindow methods to utils.
+* Corrected problem with pre and post commands with arguments
+* Added icon, license and readme
+* Modified format of recording and waiting time from seconds to HH:MM:SS
+
+
+2008-Nov-30 -- mtvcgui v0.12
+* Added internationalization
+* Restructured ui files location
+
+2008-Nov-27 -- mtvcgui v0.11
+* Check if file exists before starting to capture
+
+2008-Nov-25 -- mtvcgui v0.1
+* Initial release

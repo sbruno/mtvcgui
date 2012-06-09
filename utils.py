@@ -12,27 +12,6 @@ import re
 import time
 import ConfigParser
 
-NORMS_DICT = {0 : 'NTSC',
-              1 : 'NTSC-M',
-              2 : 'NTSC-M-JP',
-              3 : 'NTSC-M-KR',
-              4 : 'PAL',
-              5 : 'PAL-BG',
-              6 : 'PAL-H',
-              7 : 'PAL-I',
-              8 : 'PAL-DK',
-              9 : 'PAL-M',
-              10 : 'PAL-N',
-              11 : 'PAL-Nc',
-              12 : 'PAL-60',
-              13 : 'SECAM',
-              14 : 'SECAM-B',
-              15 : 'SECAM-G',
-              16 : 'SECAM-H',
-              17 : 'SECAM-DK',
-              18 : 'SECAM-L',
-              19 : 'SECAM-Lc'
-              }
 
 def find_translation(prefix='', tr_dir='i18n'):
     """Function to find a translation file in a directory
@@ -73,7 +52,63 @@ def get_codecs(cmd):
     if not text:
         text = output
     return text
-
+    
+def get_codecs_list(cmd, add_null=True):
+    """Parses the available codecs from mplayer using the given command
+    e.g. mencoder -ovc help, and returns a list with their names
+    if add_null is true, it returns also 'null' which is a valid value for
+    codec but it is not displayed in the available codecs list
+    """
+    codecs = []
+    output = commands.getoutput(cmd)
+    lines = output.split('\n')
+    codec_re = re.compile("^\s+(\S+)\s+\-\s+.+$")
+    for line in lines:
+        match = codec_re.match(line)
+        if match:
+            codecs.append(match.group(1))
+    if add_null:
+        codecs.append('null')
+    return codecs
+    
+    
+def get_device_information(cmd):
+    """Parses the supported norms and inputs using the given command
+    e.g. mplayer -slave tv:// -tv channel=42:driver=v4l2:device=/dev/video1
+    -vo null -ao null -frames 0 and a dictionary with the results
+    """
+    norms = []
+    inputs = []
+    normsfound = False
+    inputsfound = False
+    print "Getting device information with command " + cmd
+    output = commands.getoutput(cmd)
+    lines = output.split('\n')
+    norms_line_re = re.compile("^\s*supported norms:(.*)$")
+    norms_re = re.compile("\s*(\d+)\s*=\s*([^;]+);")
+    inputs_line_re = re.compile("^\s*inputs:(.*)$")
+    inputs_re = re.compile("\s*(\d+)\s*=\s*([^;]+);")
+    for line in lines:
+        match = norms_line_re.match(line)
+        if match:
+            normsfound = True
+            norms_string = match.group(1)
+            for norm_pair in norms_re.findall(norms_string):
+                norms.append(norm_pair)
+            continue
+        match = inputs_line_re.match(line)
+        if match:
+            inputsfound = True
+            inputs_string = match.group(1)
+            for input_pair in inputs_re.findall(inputs_string):
+                inputs.append(input_pair)
+            continue
+        if normsfound and inputsfound:
+            break
+    print "Norms found " + str(norms)
+    print "Inputs found " + str(inputs)
+    return {'norms': norms, 'inputs': inputs}
+    
 
 def make_filename(filename, channel_text, append_suffix=True):
     """Generates the filename given the filename template and filling the
@@ -333,8 +368,11 @@ def generate_command(parameters, preview=False):
         return command
 
 
-def generate_mplayer_command(parameters):
+def generate_mplayer_command(parameters, extra_params=None, as_string=False):
     """Generates a command for mplayer, for channel preview
+       extra mplayer parameters may be passed as a list in extra_params
+       if as_string is true it will return the command as a string instead
+       of a list of values [command, arg1, arg2, arg3,...]
     """
 
     channel_type = parameters.get('channel_type', 'number')
@@ -414,7 +452,11 @@ def generate_mplayer_command(parameters):
     if ofps:
         mencoderparms += ['-fps', ofps]
 
-    mencoderparms.append('-quiet')
+    if extra_params:
+        for p in extra_params:
+            mencoderparms.append(p)
+    else:
+        mencoderparms.append('-quiet')
 
     if extrafilters or (scalewidth and scaleheight):
         filters = []
@@ -426,5 +468,12 @@ def generate_mplayer_command(parameters):
         filters = ','.join(filters)
 
         mencoderparms += ['-vf', filters]
-
-    return ['mplayer', '-slave', 'tv://'] + mencoderparms
+        
+    cmd = ['mplayer', '-slave', 'tv://'] + mencoderparms
+    
+    if as_string:
+        ret = " ".join(cmd)
+    else:
+        ret = cmd
+        
+    return ret

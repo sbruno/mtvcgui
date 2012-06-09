@@ -43,6 +43,9 @@ from ui.mtvcgui import Ui_MainWindow
 #other imports
 import utils
 
+config = ConfigParser.ConfigParser()
+
+NORMS_DICT = {}
 
 class InfoDialog(QtGui.QDialog, Ui_InfoDialog):
     def __init__(self, parent=None):
@@ -113,7 +116,48 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         now = time.localtime()
         self.recording_date.setDate(QtCore.QDate.currentDate())
         self.recording_date.setTime(QtCore.QTime(now[3], now[4], 0))
+        
+        
+        codecs = utils.get_codecs_list('mencoder -oac help')
+        if codecs:
+            self.audiocodec.clear()
+            for codec in codecs:
+                self.audiocodec.addItem(codec)
+                
+        codecs = utils.get_codecs_list('mencoder -ovc help')
+        if codecs:
+            self.videocodec.clear()
+            for codec in codecs:
+                self.videocodec.addItem(codec)     
+        
         self.set_params_from_config()
+        self.update_device_values()
+        
+        oldconfig = False
+        if config.has_option('mencoder GUI', 'audiocodec'):
+            try:
+                int(config.get('mencoder GUI', 'audiocodec'))
+                oldconfig = True
+            except:
+                pass
+        if config.has_option('mencoder GUI', 'videocodec'):
+            try:
+                int(config.get('mencoder GUI', 'videocodec'))
+                oldconfig = True
+            except:
+                pass
+        
+        if oldconfig:
+            QtGui.QMessageBox.information(self, "mtvcgui upgrade information",
+                                      "You are using a configuration file " \
+        "from an older mtvcgui version.\nCurrent version get supported norms, "\
+        "video codecs and audio codecs from mplayer and store them as strings "\
+        "in the file ~/.mtvgui/mtvcgui.ini instead of integer values as in "\
+        "previous versions.\n\nTo avoid this message to appear again select "\
+        "your desired norm, audio codec and video codec values next and save "\
+        "the configuration.");
+        
+   
 
     def update_status(self):
         if self.mencoder_instance.poll() is None:
@@ -200,12 +244,10 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         dialog.show()
 
     def audio_codec_selected(self, i):
-        LAME = 3
-        LAVC = 4
-        if i == LAME:
+        if self.audiocodec.itemText(i) == 'mp3lame':
             self.lavc_audio_options_box.hide()
             self.lame_options_box.show()
-        elif i == LAVC:
+        elif self.audiocodec.itemText(i) == 'lavc':
             self.lame_options_box.hide()
             self.lavc_audio_options_box.show()
         else:
@@ -213,14 +255,13 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
             self.lavc_audio_options_box.hide()
 
     def video_codec_selected(self, i):
-        LAVC = 2
-        if i == LAVC:
+        if self.videocodec.itemText(i) == 'lavc':
             self.lavc_video_options_box.show()
         else:
             self.lavc_video_options_box.hide()
 
     def set_params_from_config(self):
-        config = ConfigParser.ConfigParser()
+        global config
         config_filename = os.path.join(os.path.expanduser("~"), '.mtvcgui', 'mtvcgui.ini')
         config.read(config_filename)
         if not config.has_section('mencoder GUI'):
@@ -228,8 +269,8 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
             self.frequency.hide()
             self.number_rb.setChecked(True)
             self.freq_rb.setChecked(False)
-            self.audiocodec.setCurrentIndex(3) #default to mp3lame
-            self.videocodec.setCurrentIndex(2) #default to lavc
+            self.audiocodec.setCurrentIndex(0)
+            self.videocodec.setCurrentIndex(0)
             return None
 
         #main tab
@@ -269,28 +310,26 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
 
         if config.has_option('mencoder GUI', 'device'):
             self.device.setText(config.get('mencoder GUI', 'device'))
-
-        if config.has_option('mencoder GUI', 'norm'):
-            self.norm.setValue(int(config.get('mencoder GUI', 'norm')))
+            
+        self.update_norm_index_from_config()
 
         if config.has_option('mencoder GUI', 'input'):
-            self.input.setValue(int(config.get('mencoder GUI', 'input')))
+            self.input.setCurrentIndex(int(config.get('mencoder GUI', 'input')))
 
         if config.has_option('mencoder GUI', 'chanlist'):
             self.chanlist.setCurrentIndex(int(config.get('mencoder GUI',
                                                          'chanlist')))
 
         if config.has_option('mencoder GUI', 'audiocodec'):
-            self.audiocodec.setCurrentIndex(int(config.get('mencoder GUI',
-                                                           'audiocodec')))
-        else:
-            self.audiocodec.setCurrentIndex(3) #default to mp3lame
-
+            index = self.audiocodec.findText(config.get('mencoder GUI',
+                                                        'audiocodec'))
+            self.audiocodec.setCurrentIndex(index)
+            
+            
         if config.has_option('mencoder GUI', 'videocodec'):
-            self.videocodec.setCurrentIndex(int(config.get('mencoder GUI',
-                                                           'videocodec')))
-        else:
-            self.videocodec.setCurrentIndex(2) #default to lavc
+            index = self.videocodec.findText(config.get('mencoder GUI',
+                                                        'videocodec'))
+            self.videocodec.setCurrentIndex(index)
 
         if config.has_option('mencoder GUI', 'append_suffix'):
             self.append_suffix.setChecked(
@@ -393,7 +432,36 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
                 'play_while_recording') == 'True')
 
 
+    def update_norm_index_from_config(self):
+        try:
+            if config.has_option('mencoder GUI', 'norm'):
+                norm_name = None
+                try:
+                    norm_int = int(config.get('mencoder GUI', 'norm'))
+                except:
+                    norm_int = -1
+                    norm_name = config.get('mencoder GUI', 'norm')
+                    if norm_name:
+                        for i in NORMS_DICT:
+                            if NORMS_DICT[i] == norm_name:
+                                norm_int = i
+                                break
+                if norm_int > -1 and not norm_name:
+                    pos = len(NORMS_DICT)
+                    NORMS_DICT[pos] = str(norm_int)
+                    self.norm.addItem(NORMS_DICT[pos])
+                    norm_int = self.norm.count() - 1
+                self.norm.setCurrentIndex(norm_int)
+        except:
+            raise
+
+                
     def get_params_from_gui(self, config=False):
+        """ Returns a dictionary with the values of the application parameters
+            from the gui components. If config is set to true some values
+            will be modified so they can be properly saved in the configuration
+            file.
+        """
 
         parameters = {}
 
@@ -418,23 +486,34 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
             parameters['driver'] = str(self.driver.currentText())
 
         parameters['device'] = str(self.device.text())
-        parameters['norm'] = str(self.norm.value())
-        parameters['input'] = str(self.input.value())
+        
+        if config:
+            norm = self.norm.currentText()
+        else:
+            #The user may have typed the norm number, so we need to check that
+            #if the user selected a norm name, then we use its index
+            try:
+                norm = int(self.norm.currentText())
+            except:
+                norm = self.norm.currentIndex()
+        parameters['norm'] = str(norm)
+        
+        
+        #The user may have typed the norm number, so we need to check that
+        #if the user selected a norm name, then we use its index
+        try:
+            input = int(self.input.currentText())
+        except:
+            input = self.input.currentIndex()
+        parameters['input'] = str(input)
 
         if config:
             parameters['chanlist'] = self.chanlist.currentIndex()
         else:
             parameters['chanlist'] = str(self.chanlist.currentText())
 
-        if config:
-            parameters['audiocodec'] = self.audiocodec.currentIndex()
-        else:
-            parameters['audiocodec'] = str(self.audiocodec.currentText())
-
-        if config:
-            parameters['videocodec'] = self.videocodec.currentIndex()
-        else:
-            parameters['videocodec'] = str(self.videocodec.currentText())
+        parameters['audiocodec'] = str(self.audiocodec.currentText())
+        parameters['videocodec'] = str(self.videocodec.currentText())
 
         parameters['append_suffix'] = self.append_suffix.isChecked()
 
@@ -496,6 +575,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         if not self.mplayer_preview_pid:
             parameters = self.get_params_from_gui()
             cmd = utils.generate_mplayer_command(parameters)
+            print "Excecuting %s" % " ".join(cmd)
             try:
                 self.mplayer_instance = Popen(cmd, stdin=PIPE)
                 self.mplayer_preview_pid = self.mplayer_instance.pid
@@ -562,13 +642,19 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
 
     def show_available_audio_codecs(self):
         dialog = InfoDialog(self)
-        text = utils.get_codecs('mencoder -oac help')
+        text = "If for some reason the dropdown list with the supported codecs is not correct\n" \
+               "the following is the list of supported codecs. You may type any of them in the\n" \
+               "text field\n\n"
+        text += utils.get_codecs('mencoder -oac help')
         dialog.plainTextEdit.setPlainText(text)
         dialog.show()
 
     def show_available_video_codecs(self):
         dialog = InfoDialog(self)
-        text = utils.get_codecs('mencoder -ovc help')
+        text = "If for some reason the dropdown list with the supported codecs is not correct\n" \
+               "the following is the list of supported codecs. You may type any of them in the\n" \
+               "text field\n\n"
+        text += utils.get_codecs('mencoder -ovc help')
         dialog.plainTextEdit.setPlainText(text)
         dialog.show()
 
@@ -628,12 +714,56 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
 
     def norm_changed(self, norm):
         if self.mplayer_preview_pid:
-            norm = utils.NORMS_DICT.get(norm, 'NTSC')
+            norm = NORMS_DICT.get(norm, 'NTSC')
             try:
                 self.mplayer_instance.stdin.write('tv_set_norm %s\n' %
                                                   (str(norm),))
             except:
                 self.error_dialog.showMessage("communication with mplayer failed")
+                
+                
+    def update_device_values(self):
+        global config, NORMS_DICT
+        parameters = self.get_params_from_gui()
+        preview_command = \
+            utils.generate_mplayer_command(parameters,
+                                           extra_params=['-vo', 'null',
+                                                         '-ao', 'null',
+                                                         '-frames', '0'],
+                                           as_string=True)
+        dev_info = utils.get_device_information(preview_command)
+        norms = dev_info['norms']
+        inputs = dev_info['inputs']
+        
+        self.norm.clear()
+        
+        if norms:
+           for norm_id, norm_value in norms:
+                self.norm.addItem(norm_value)
+                NORMS_DICT[int(norm_id)] = norm_value
+                
+        self.update_norm_index_from_config()
+        
+        self.input.clear()
+        
+        if inputs:
+           for input_id, input_value in inputs:
+                self.input.addItem(input_value)
+                
+        if config.has_option('mencoder GUI', 'input'):
+            if inputs:
+                idx = -1
+                try:
+                    idx = int(config.get('mencoder GUI', 'input'))
+                except:
+                    pass
+                if idx > self.input.count():
+                    self.input.addItem(str(idx))
+                    idx = self.input.count() - 1
+                self.input.setCurrentIndex(idx)
+            else:
+                self.input.addItem(config.get('mencoder GUI', 'input'))
+                self.input.setCurrentIndex(0)
 
     def preview_command(self):
         parameters = self.get_params_from_gui()

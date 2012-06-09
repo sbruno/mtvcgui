@@ -137,42 +137,7 @@
        </rect>
       </property>
       <property name="text">
-       <string>norm[id]</string>
-      </property>
-     </widget>
-     <widget class="QSpinBox" name="norm">
-      <property name="geometry">
-       <rect>
-        <x>90</x>
-        <y>155</y>
-        <width>58</width>
-        <height>26</height>
-       </rect>
-      </property>
-      <property name="toolTip">
-       <string>0 = NTSC
-1 = NTSC-M
-2 = NTSC-M-JP
-3 = NTSC-M-KR
-4 = PAL
-5 = PAL-BG
-6 = PAL-H
-7 = PAL-I
-8 = PAL-DK
-9 = PAL-M
-10 = PAL-N
-11 = PAL-Nc
-12 = PAL-60
-13 = SECAM
-14 = SECAM-B
-15 = SECAM-G
-16 = SECAM-H
-17 = SECAM-DK
-18 = SECAM-L
-19 = SECAM-Lc</string>
-      </property>
-      <property name="value">
-       <number>0</number>
+       <string>norm</string>
       </property>
      </widget>
      <widget class="QComboBox" name="driver">
@@ -241,39 +206,9 @@
       </property>
       <item>
        <property name="text">
-        <string>copy</string>
+        <string>null</string>
        </property>
       </item>
-      <item>
-       <property name="text">
-        <string>raw</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>lavc</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>libdv</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>xvid</string>
-       </property>
-      </item>
-     </widget>
-     <widget class="QSpinBox" name="input">
-      <property name="geometry">
-       <rect>
-        <x>90</x>
-        <y>185</y>
-        <width>58</width>
-        <height>26</height>
-       </rect>
-      </property>
      </widget>
      <widget class="QLabel" name="label_2">
       <property name="geometry">
@@ -400,27 +335,7 @@
       </property>
       <item>
        <property name="text">
-        <string>none</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>copy</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>pcm</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>mp3lame</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>lavc</string>
+        <string>null</string>
        </property>
       </item>
      </widget>
@@ -777,6 +692,38 @@
         <string>128</string>
        </property>
       </widget>
+     </widget>
+     <widget class="QComboBox" name="norm">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>155</y>
+        <width>121</width>
+        <height>26</height>
+       </rect>
+      </property>
+      <property name="toolTip">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The tool will try to get the supported norms from mplayer based on current value of &amp;quot;Device&amp;quot;. However if this fails you may still enter any value for the norm, either by the norm name or its integer value norm or normid.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="editable">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="input">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>185</y>
+        <width>121</width>
+        <height>26</height>
+       </rect>
+      </property>
+      <property name="toolTip">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The tool will try to get the supported inputs from mplayer based on current value of &amp;quot;Device&amp;quot;. However if this fails you may still enter its integer value&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="editable">
+       <bool>true</bool>
+      </property>
      </widget>
     </widget>
     <widget class="QWidget" name="tab_2">
@@ -1392,7 +1339,7 @@ on the console</string>
      <x>0</x>
      <y>0</y>
      <width>694</width>
-     <height>23</height>
+     <height>19</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuPrueba">
@@ -1444,7 +1391,7 @@ on the console</string>
    <hints>
     <hint type="sourcelabel">
      <x>190</x>
-     <y>497</y>
+     <y>493</y>
     </hint>
     <hint type="destinationlabel">
      <x>385</x>
@@ -1492,7 +1439,7 @@ on the console</string>
    <hints>
     <hint type="sourcelabel">
      <x>397</x>
-     <y>497</y>
+     <y>493</y>
     </hint>
     <hint type="destinationlabel">
      <x>528</x>
@@ -1539,8 +1486,8 @@ on the console</string>
    <slot>show_available_audio_codecs()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>667</x>
-     <y>98</y>
+     <x>671</x>
+     <y>91</y>
     </hint>
     <hint type="destinationlabel">
      <x>346</x>
@@ -1555,8 +1502,8 @@ on the console</string>
    <slot>show_available_video_codecs()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>675</x>
-     <y>128</y>
+     <x>679</x>
+     <y>121</y>
     </hint>
     <hint type="destinationlabel">
      <x>346</x>
@@ -1683,8 +1630,8 @@ on the console</string>
    <slot>preview_with_mplayer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>174</x>
-     <y>343</y>
+     <x>178</x>
+     <y>336</y>
     </hint>
     <hint type="destinationlabel">
      <x>350</x>
@@ -1821,18 +1768,18 @@ on the console</string>
    </hints>
   </connection>
   <connection>
-   <sender>norm</sender>
-   <signal>valueChanged(int)</signal>
+   <sender>device</sender>
+   <signal>editingFinished()</signal>
    <receiver>MainWindow</receiver>
-   <slot>norm_changed(int)</slot>
+   <slot>update_device_values()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>114</x>
-     <y>229</y>
+     <x>120</x>
+     <y>192</y>
     </hint>
     <hint type="destinationlabel">
-     <x>118</x>
-     <y>480</y>
+     <x>100</x>
+     <y>463</y>
     </hint>
    </hints>
   </connection>
@@ -1858,5 +1805,6 @@ on the console</string>
   <slot>hue_changed(int)</slot>
   <slot>saturation_changed(int)</slot>
   <slot>norm_changed(int)</slot>
+  <slot>update_device_values()</slot>
  </slots>
 </ui>

@@ -1,4 +1,4 @@
-mtvcgui v0.31
+mtvcgui v0.4
 A graphical user interface for mencoder as a TV capture program.
 
 Author: Santiago Bruno
@@ -56,6 +56,13 @@ Troubleshooting:
     parameters, that may be because some parameters only work with mencoder and
     not with mplayer, which is used for the preview. You will have to remove
     the incompatible parameters to perform the preview.
+    
+    Values in norm, codec, etc dropdown lists are wrong/empty: These values
+    are parsed from mplayer/mencoder output. It is very dependent of the format.
+    If it changes in a future version or some string gets internationalized,
+    the parsing will probably fail. Run the program from the command line and
+    try to confirm if this is the case by analyzing the output and submit a bug
+    in that case.
 
 Thanks to:
  * Tibor Bamhor and Carlos Palladino: Testing, comments and ideas.
