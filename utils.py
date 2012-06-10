@@ -13,12 +13,15 @@ import time
 import ConfigParser
 
 
-def find_translation(prefix='', tr_dir='i18n'):
+def find_translation(prefix='', tr_dir='i18n', locale_string=None):
     """Function to find a translation file in a directory
        and install it to an app
     """
-    #try with country specific locale (e.g.: es_AR)
-    lang = locale.getdefaultlocale()[0]
+    if locale_string != None:
+        lang = locale_string
+    else:
+        #try with country specific locale (e.g.: es_AR)
+        lang = locale.getdefaultlocale()[0]
     if lang:
         tr_path = os.path.join(tr_dir, prefix + lang + '.qm')
 

@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'mtvcgui.ui'
 #
-# Created: Fri Jun  8 03:19:17 2012
+# Created: Sun Jun 10 17:20:24 2012
 #      by: PyQt4 UI code generator 4.9.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -365,6 +365,8 @@ class Ui_MainWindow(object):
         self.menubar.setObjectName(_fromUtf8("menubar"))
         self.menuPrueba = QtGui.QMenu(self.menubar)
         self.menuPrueba.setObjectName(_fromUtf8("menuPrueba"))
+        self.menuChange_language = QtGui.QMenu(self.menuPrueba)
+        self.menuChange_language.setObjectName(_fromUtf8("menuChange_language"))
         self.menuHelp = QtGui.QMenu(self.menubar)
         self.menuHelp.setObjectName(_fromUtf8("menuHelp"))
         MainWindow.setMenuBar(self.menubar)
@@ -379,8 +381,18 @@ class Ui_MainWindow(object):
         self.actionAbout_mtvcgui.setObjectName(_fromUtf8("actionAbout_mtvcgui"))
         self.actionReload_configuration = QtGui.QAction(MainWindow)
         self.actionReload_configuration.setObjectName(_fromUtf8("actionReload_configuration"))
+        self.actionEnglish = QtGui.QAction(MainWindow)
+        self.actionEnglish.setObjectName(_fromUtf8("actionEnglish"))
+        self.actionSpanish = QtGui.QAction(MainWindow)
+        self.actionSpanish.setObjectName(_fromUtf8("actionSpanish"))
+        self.actionSpanish_Argentina = QtGui.QAction(MainWindow)
+        self.actionSpanish_Argentina.setObjectName(_fromUtf8("actionSpanish_Argentina"))
+        self.menuChange_language.addAction(self.actionEnglish)
+        self.menuChange_language.addAction(self.actionSpanish)
+        self.menuChange_language.addAction(self.actionSpanish_Argentina)
         self.menuPrueba.addAction(self.actionSave_configuration)
         self.menuPrueba.addAction(self.actionReload_configuration)
+        self.menuPrueba.addAction(self.menuChange_language.menuAction())
         self.menuPrueba.addAction(self.actionSalir)
         self.menuHelp.addAction(self.actionAbout_mtvcgui)
         self.menubar.addAction(self.menuPrueba.menuAction())
@@ -413,6 +425,9 @@ class Ui_MainWindow(object):
         QtCore.QObject.connect(self.hueSlider, QtCore.SIGNAL(_fromUtf8("valueChanged(int)")), MainWindow.hue_changed)
         QtCore.QObject.connect(self.saturationSlider, QtCore.SIGNAL(_fromUtf8("valueChanged(int)")), MainWindow.saturation_changed)
         QtCore.QObject.connect(self.device, QtCore.SIGNAL(_fromUtf8("editingFinished()")), MainWindow.update_device_values)
+        QtCore.QObject.connect(self.actionEnglish, QtCore.SIGNAL(_fromUtf8("activated()")), MainWindow.changeToEnglish)
+        QtCore.QObject.connect(self.actionSpanish, QtCore.SIGNAL(_fromUtf8("activated()")), MainWindow.changeToSpanish)
+        QtCore.QObject.connect(self.actionSpanish_Argentina, QtCore.SIGNAL(_fromUtf8("activated()")), MainWindow.changeToSpanish_Argentina)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -507,9 +522,13 @@ class Ui_MainWindow(object):
         self.append_suffix.setText(QtGui.QApplication.translate("MainWindow", "Append a number suffix if file exists", None, QtGui.QApplication.UnicodeUTF8))
         self.status_label.setText(QtGui.QApplication.translate("MainWindow", "Stopped", None, QtGui.QApplication.UnicodeUTF8))
         self.menuPrueba.setTitle(QtGui.QApplication.translate("MainWindow", "Menu", None, QtGui.QApplication.UnicodeUTF8))
+        self.menuChange_language.setTitle(QtGui.QApplication.translate("MainWindow", "Change language", None, QtGui.QApplication.UnicodeUTF8))
         self.menuHelp.setTitle(QtGui.QApplication.translate("MainWindow", "Help", None, QtGui.QApplication.UnicodeUTF8))
         self.actionSalir.setText(QtGui.QApplication.translate("MainWindow", "Exit", None, QtGui.QApplication.UnicodeUTF8))
         self.actionSave_configuration.setText(QtGui.QApplication.translate("MainWindow", "Save configuration", None, QtGui.QApplication.UnicodeUTF8))
         self.actionAbout_mtvcgui.setText(QtGui.QApplication.translate("MainWindow", "About mtvcgui", None, QtGui.QApplication.UnicodeUTF8))
         self.actionReload_configuration.setText(QtGui.QApplication.translate("MainWindow", "Restore saved configuration", None, QtGui.QApplication.UnicodeUTF8))
+        self.actionEnglish.setText(QtGui.QApplication.translate("MainWindow", "English", None, QtGui.QApplication.UnicodeUTF8))
+        self.actionSpanish.setText(QtGui.QApplication.translate("MainWindow", "Spanish", None, QtGui.QApplication.UnicodeUTF8))
+        self.actionSpanish_Argentina.setText(QtGui.QApplication.translate("MainWindow", "Spanish (Argentina)", None, QtGui.QApplication.UnicodeUTF8))
 

@@ -5,10 +5,9 @@ Author: Santiago Bruno
 License: GPL v3
 Web pages: http://www.santiagobruno.com.ar/programas.html#mtvcgui
            http://code.google.com/p/mtvcgui/
-           http://github.com/sbruno/mtvcgui/
 
 Dependencies:
-    PyQT4
+    PyQT4, mencoder, mplayer
 
 Configuration
 It has almost no default values. The chosen configuration from the GUI can be

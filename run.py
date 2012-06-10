@@ -3,10 +3,9 @@
 
 """
     mtvcgui
-    Copyright (C) 2008  Santiago Bruno
+    Copyright (C) 2008-2012  Santiago Bruno
     Web pages: http://www.santiagobruno.com.ar/programas.html#mtvcgui
                http://code.google.com/p/mtvcgui/
-               http://github.com/sbruno/mtvcgui/
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -47,21 +46,36 @@ config = ConfigParser.ConfigParser()
 
 NORMS_DICT = {}
 
-class InfoDialog(QtGui.QDialog, Ui_InfoDialog):
+class Translatable():
+    def change_language(self, locale_string=None):
+        self.locale_string = locale_string
+        translation = utils.find_translation(locale_string=locale_string)
+        appTranslator = QtCore.QTranslator()
+        appTranslator.load(translation)
+        app.installTranslator(appTranslator)
+        self.retranslateUi(self)
+
+class InfoDialog(QtGui.QDialog, Ui_InfoDialog, Translatable):
     def __init__(self, parent=None):
         QtGui.QWidget.__init__(self, parent)
         self.setupUi(self)
+        if parent:
+            self.change_language(parent.locale_string)
 
 
-class AboutDialog(QtGui.QDialog, Ui_AboutDialog):
+class AboutDialog(QtGui.QDialog, Ui_AboutDialog, Translatable):
     def __init__(self, parent=None):
         QtGui.QWidget.__init__(self, parent)
         self.setupUi(self)
+        if parent:
+            self.change_language(parent.locale_string)
 
-class FileExistsDialog(QtGui.QDialog, Ui_FileExistsDialog):
+class FileExistsDialog(QtGui.QDialog, Ui_FileExistsDialog, Translatable):
     def __init__(self, parent=None):
         QtGui.QWidget.__init__(self, parent)
         self.setupUi(self)
+        if parent:
+            self.change_language(parent.locale_string)
         
         #how should I communicate with the main window?
         self.parent = parent
@@ -70,11 +84,12 @@ class FileExistsDialog(QtGui.QDialog, Ui_FileExistsDialog):
         self.parent.run_mencoder(accepted=True)
         self.close()
 
-class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
+class MainWindow(QtGui.QMainWindow, Ui_MainWindow, Translatable):
 
     def __init__(self, parent=None):
         QtGui.QWidget.__init__(self, parent)
 
+        self.locale_string = None
         self.mplayer_preview_pid = 0
         self.mplayer_recording_pid = 0
         self.mencoder_pid = 0
@@ -148,14 +163,17 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
                 pass
         
         if oldconfig:
-            QtGui.QMessageBox.information(self, "mtvcgui upgrade information",
-                                      "You are using a configuration file " \
-        "from an older mtvcgui version.\nCurrent version get supported norms, "\
-        "video codecs and audio codecs from mplayer and store them as strings "\
-        "in the file ~/.mtvgui/mtvcgui.ini instead of integer values as in "\
-        "previous versions.\n\nTo avoid this message to appear again select "\
-        "your desired norm, audio codec and video codec values next and save "\
-        "the configuration.");
+            QtGui.QMessageBox.information(self,
+                self.tr("mtvcgui upgrade information"),
+                self.tr("You are using a configuration file from an older " \
+        "mtvcgui version.\nCurrent version get supported norms, video codecs "\
+        "and audio codecs from mplayer and store them as strings in the "\
+        "file ~/.mtvgui/mtvcgui.ini instead of integer values as in previous "\
+        "versions.\n\nTo avoid this message to appear again select your "\
+        "desired norm, audio codec and video codec values next and save "\
+        "the configuration."));
+        
+        self.change_language(self.locale_string)
         
    
 
@@ -274,6 +292,10 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
             return None
 
         #main tab
+        if config.has_option('mencoder GUI', 'language'):
+            lang = config.get('mencoder GUI', 'language')
+            self.locale_string = lang if lang else None
+            
         if config.has_option('mencoder GUI', 'channel_type'):
             channel_type = config.get('mencoder GUI', 'channel_type')
             if channel_type == 'frequency':
@@ -452,6 +474,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
                     self.norm.addItem(NORMS_DICT[pos])
                     norm_int = self.norm.count() - 1
                 self.norm.setCurrentIndex(norm_int)
+                self.setFocus()
         except:
             raise
 
@@ -464,6 +487,10 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         """
 
         parameters = {}
+        
+        if self.locale_string is None and config:
+            self.locale_string = ""
+        parameters['language'] = self.locale_string
 
         parameters['channel_type'] = self.number_rb.isChecked() and \
             'number' or 'frequency'
@@ -766,6 +793,10 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
                 self.input.setCurrentIndex(0)
 
     def preview_command(self):
+        appTranslator = QtCore.QTranslator()
+        appTranslator.load("")
+        app.installTranslator(appTranslator)
+        self.retranslateUi(self)
         parameters = self.get_params_from_gui()
         self.previewcommand.setText(utils.generate_command(parameters,
                                                            preview=True))
@@ -774,17 +805,21 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         parameters = self.get_params_from_gui(config=True)
         utils.save_configuration(parameters)
 
+    def changeToEnglish(self):
+        self.locale_string = "en"
+        self.change_language(self.locale_string)
+        
+    def changeToSpanish(self):
+        self.locale_string = "es"
+        self.change_language(self.locale_string)
+        
+    def changeToSpanish_Argentina(self):
+        self.locale_string = "es_AR"
+        self.change_language(self.locale_string)
 
 
 if __name__ == '__main__':
     app = QtGui.QApplication(sys.argv)
-
-    translation = utils.find_translation()
-    if translation:
-        appTranslator = QtCore.QTranslator()
-        appTranslator.load(translation)
-        app.installTranslator(appTranslator)
-
     win = MainWindow()
     win.show()
     status = app.exec_()

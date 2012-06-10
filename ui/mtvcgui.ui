@@ -1346,8 +1346,17 @@ on the console</string>
     <property name="title">
      <string>Menu</string>
     </property>
+    <widget class="QMenu" name="menuChange_language">
+     <property name="title">
+      <string>Change language</string>
+     </property>
+     <addaction name="actionEnglish"/>
+     <addaction name="actionSpanish"/>
+     <addaction name="actionSpanish_Argentina"/>
+    </widget>
     <addaction name="actionSave_configuration"/>
     <addaction name="actionReload_configuration"/>
+    <addaction name="menuChange_language"/>
     <addaction name="actionSalir"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
@@ -1378,6 +1387,21 @@ on the console</string>
   <action name="actionReload_configuration">
    <property name="text">
     <string>Restore saved configuration</string>
+   </property>
+  </action>
+  <action name="actionEnglish">
+   <property name="text">
+    <string>English</string>
+   </property>
+  </action>
+  <action name="actionSpanish">
+   <property name="text">
+    <string>Spanish</string>
+   </property>
+  </action>
+  <action name="actionSpanish_Argentina">
+   <property name="text">
+    <string>Spanish (Argentina)</string>
    </property>
   </action>
  </widget>
@@ -1783,6 +1807,54 @@ on the console</string>
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>actionEnglish</sender>
+   <signal>activated()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>changeToEnglish()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>346</x>
+     <y>261</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionSpanish</sender>
+   <signal>activated()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>changeToSpanish()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>346</x>
+     <y>261</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionSpanish_Argentina</sender>
+   <signal>activated()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>changeToSpanish_Argentina()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>346</x>
+     <y>261</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>run_mencoder()</slot>
@@ -1806,5 +1878,8 @@ on the console</string>
   <slot>saturation_changed(int)</slot>
   <slot>norm_changed(int)</slot>
   <slot>update_device_values()</slot>
+  <slot>changeToEnglish()</slot>
+  <slot>changeToSpanish()</slot>
+  <slot>changeToSpanish_Argentina()</slot>
  </slots>
 </ui>
