@@ -37,7 +37,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>./capture_{%channel_%Y%m%d_%H%M%S}.avi</string>
+     <string notr="true">./capture_{%channel_%Y%m%d_%H%M%S}.avi</string>
     </property>
    </widget>
    <widget class="QLabel" name="label">
@@ -74,6 +74,9 @@
       <width>521</width>
       <height>26</height>
      </rect>
+    </property>
+    <property name="text">
+     <string notr="true"/>
     </property>
     <property name="readOnly">
      <bool>false</bool>
@@ -173,7 +176,7 @@
        </rect>
       </property>
       <property name="text">
-       <string>/dev/video0</string>
+       <string notr="true">/dev/video0</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_8">
@@ -387,7 +390,7 @@
         </rect>
        </property>
        <property name="text">
-        <string>128</string>
+        <string notr="true">128</string>
        </property>
       </widget>
       <widget class="QLabel" name="label_19">
@@ -582,7 +585,7 @@
         </rect>
        </property>
        <property name="text">
-        <string>3000</string>
+        <string notr="true">3000</string>
        </property>
       </widget>
       <widget class="QComboBox" name="lavc_videocodec">
@@ -689,7 +692,7 @@
         </rect>
        </property>
        <property name="text">
-        <string>128</string>
+        <string notr="true">128</string>
        </property>
       </widget>
      </widget>
@@ -763,7 +766,7 @@
        </rect>
       </property>
       <property name="text">
-       <string/>
+       <string notr="true"/>
       </property>
      </widget>
      <widget class="QLineEdit" name="tvheight">
@@ -776,7 +779,7 @@
        </rect>
       </property>
       <property name="text">
-       <string/>
+       <string notr="true"/>
       </property>
      </widget>
      <widget class="QLabel" name="label_13">
@@ -815,7 +818,7 @@
        </rect>
       </property>
       <property name="text">
-       <string/>
+       <string notr="true"/>
       </property>
      </widget>
      <widget class="QLabel" name="label_17">
@@ -1059,7 +1062,7 @@ on the console</string>
        </rect>
       </property>
       <property name="text">
-       <string/>
+       <string notr="true"/>
       </property>
      </widget>
      <widget class="QLabel" name="label_15">
@@ -1098,7 +1101,7 @@ on the console</string>
        </rect>
       </property>
       <property name="text">
-       <string/>
+       <string notr="true"/>
       </property>
      </widget>
      <widget class="QLineEdit" name="scaleheight">
@@ -1111,7 +1114,7 @@ on the console</string>
        </rect>
       </property>
       <property name="text">
-       <string/>
+       <string notr="true"/>
       </property>
      </widget>
      <widget class="QCheckBox" name="noskip">
@@ -1153,7 +1156,7 @@ on the console</string>
        </rect>
       </property>
       <property name="text">
-       <string/>
+       <string notr="true"/>
       </property>
      </widget>
      <widget class="QLabel" name="label_18">
@@ -1179,7 +1182,7 @@ on the console</string>
        </rect>
       </property>
       <property name="text">
-       <string/>
+       <string notr="true"/>
       </property>
      </widget>
      <widget class="QLabel" name="label_23">
@@ -1235,6 +1238,9 @@ on the console</string>
         <height>26</height>
        </rect>
       </property>
+      <property name="text">
+       <string notr="true"/>
+      </property>
      </widget>
      <widget class="QLineEdit" name="post_command">
       <property name="geometry">
@@ -1244,6 +1250,9 @@ on the console</string>
         <width>626</width>
         <height>26</height>
        </rect>
+      </property>
+      <property name="text">
+       <string notr="true"/>
       </property>
      </widget>
      <widget class="QDateTimeEdit" name="recording_date">
@@ -1299,6 +1308,35 @@ on the console</string>
       </property>
       <property name="text">
        <string>Play recorded file while capture (kind of preview) (May consume too much cpu and ruin your capture!!)</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="setenvvars">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>175</y>
+        <width>611</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Set these environment variables:</string>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPlainTextEdit" name="envvars">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>200</y>
+        <width>611</width>
+        <height>66</height>
+       </rect>
+      </property>
+      <property name="plainText">
+       <string notr="true">LD_PRELOAD=/usr/lib/libv4l/v4l2convert.so</string>
       </property>
      </widget>
     </widget>

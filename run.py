@@ -453,6 +453,12 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow, Translatable):
             self.play_while_recording.setChecked(config.get('mencoder GUI',
                 'play_while_recording') == 'True')
 
+        if config.has_option('mencoder GUI', 'setenvvars'):
+            self.setenvvars.setChecked(config.get('mencoder GUI', 'setenvvars') == 'True')
+            
+        if config.has_option('mencoder GUI', 'envvars'):
+            self.envvars.setPlainText(config.get('mencoder GUI', 'envvars'))
+
 
     def update_norm_index_from_config(self):
         try:
@@ -588,6 +594,19 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow, Translatable):
         parameters['play_while_recording'] = \
             self.play_while_recording.isChecked()
 
+        parameters['setenvvars'] = self.setenvvars.isChecked()
+        if config:
+            parameters['envvars'] = str(self.envvars.toPlainText())
+        else:
+            envvars = {}
+            for lines in str(self.envvars.toPlainText()).split('\n'):
+                keyval = lines.split('=', 1)
+                if len(keyval) == 2:
+                    key = keyval[0].strip()
+                    val = keyval[1].strip()
+                    envvars[key] = val
+            parameters['envvars'] = envvars
+        
         if parameters['channel_type'] == 'number':
             parameters['channel_text'] = str(self.channel.value())
         elif parameters['channel_type'] == 'frequency':
@@ -603,8 +622,12 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow, Translatable):
             parameters = self.get_params_from_gui()
             cmd = utils.generate_mplayer_command(parameters)
             print "Excecuting %s" % " ".join(cmd)
+            env = os.environ.copy()
+            if parameters.get('setenvvars'):
+                for key, val in parameters.get('envvars').items():
+                    env[key] = val
             try:
-                self.mplayer_instance = Popen(cmd, stdin=PIPE)
+                self.mplayer_instance = Popen(cmd, stdin=PIPE, env=env)
                 self.mplayer_preview_pid = self.mplayer_instance.pid
                 self.mplayer_preview_timer.start(1000)
             except OSError:
@@ -647,8 +670,12 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow, Translatable):
                                                   (pre_command,))
 
             cmd = utils.generate_command(parameters)
+            env = os.environ.copy()
+            if parameters.get('setenvvars'):
+                for key, val in parameters.get('envvars').items():
+                    env[key] = val
             try:
-                self.mencoder_instance = Popen(cmd)
+                self.mencoder_instance = Popen(cmd, env=env)
                 self.mencoder_pid = self.mencoder_instance.pid
             except OSError:
                 self.error_dialog.showMessage("excecution of %s failed" % " ".join(cmd))

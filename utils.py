@@ -262,10 +262,11 @@ def generate_command(parameters, preview=False):
     tvparms  += ':driver=' + driver
     tvparms += ':device=' + device
 
-    if driver == 'v4l2':
-        tvparms += ':normid=' + norm
-    else:
-        tvparms += ':norm=' + norm
+    if norm and norm != '-1':
+        if driver == 'v4l2':
+            tvparms += ':normid=' + norm
+        else:
+            tvparms += ':norm=' + norm
 
     tvparms += ':input=' + input
     tvparms += ':chanlist=' + chanlist
@@ -412,10 +413,11 @@ def generate_mplayer_command(parameters, extra_params=None, as_string=False):
     tvparms  += ':driver=' + driver
     tvparms += ':device=' + device
 
-    if driver == 'v4l2':
-        tvparms += ':normid=' + norm
-    else:
-        tvparms += ':norm=' + norm
+    if norm and norm != '-1':
+        if driver == 'v4l2':
+            tvparms += ':normid=' + norm
+        else:
+            tvparms += ':norm=' + norm
 
     tvparms += ':input=' + input
     tvparms += ':chanlist=' + chanlist
