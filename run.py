@@ -932,6 +932,10 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow, Translatable):
         self.locale_string = "es_AR"
         self.change_language(self.locale_string)
 
+    def changeToItalian(self):
+        self.locale_string = "it"
+        self.change_language(self.locale_string)
+
 
 if __name__ == '__main__':
     app = QtGui.QApplication(sys.argv)

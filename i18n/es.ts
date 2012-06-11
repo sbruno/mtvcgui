@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.0" language="es">
+<!DOCTYPE TS><TS version="2.0" language="es" sourcelanguage="">
 <context>
     <name>AboutDialog</name>
     <message>
@@ -19,7 +18,7 @@
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:14pt; font-weight:600;&quot;&gt;mtvcgui* v0.3&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:14pt; font-weight:600;&quot;&gt;mtvcgui* v0.31&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:12pt; font-style:italic;&quot;&gt;mencoder TV capture GUI&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;; font-size:12pt; font-style:italic;&quot;&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:10pt;&quot;&gt;A simple frontend for using mencoder as a TV capture program.&lt;/span&gt;&lt;/p&gt;
@@ -80,475 +79,432 @@ p, li { white-space: pre-wrap; }
         <translation>previsualizar comando</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="95"/>
+        <location filename="mtvcgui.ui" line="98"/>
         <source>Stop</source>
         <translation>Detener</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="115"/>
+        <location filename="mtvcgui.ui" line="118"/>
         <source>Main Parameters</source>
         <translation>Parámetros principales</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="127"/>
+        <location filename="mtvcgui.ui" line="130"/>
         <source>Device</source>
         <translation>Dispositivo</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="140"/>
-        <source>norm[id]</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mtvcgui.ui" line="153"/>
-        <source>0 = NTSC
-1 = NTSC-M
-2 = NTSC-M-JP
-3 = NTSC-M-KR
-4 = PAL
-5 = PAL-BG
-6 = PAL-H
-7 = PAL-I
-8 = PAL-DK
-9 = PAL-M
-10 = PAL-N
-11 = PAL-Nc
-12 = PAL-60
-13 = SECAM
-14 = SECAM-B
-15 = SECAM-G
-16 = SECAM-H
-17 = SECAM-DK
-18 = SECAM-L
-19 = SECAM-Lc</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mtvcgui.ui" line="192"/>
-        <source>v4l2</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mtvcgui.ui" line="197"/>
-        <source>v4l</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mtvcgui.ui" line="211"/>
-        <source>/dev/video0</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mtvcgui.ui" line="488"/>
+        <location filename="mtvcgui.ui" line="406"/>
         <source>Audio Codec</source>
         <translation>Códec de audio</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="408"/>
-        <source>copy</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mtvcgui.ui" line="249"/>
-        <source>raw</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mtvcgui.ui" line="423"/>
-        <source>lavc</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mtvcgui.ui" line="259"/>
-        <source>libdv</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mtvcgui.ui" line="264"/>
-        <source>xvid</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mtvcgui.ui" line="288"/>
+        <location filename="mtvcgui.ui" line="226"/>
         <source>Channel</source>
         <translation>Canal</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="305"/>
-        <source>us-cable</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mtvcgui.ui" line="310"/>
-        <source>us-bcast</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mtvcgui.ui" line="315"/>
-        <source>europe-east</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mtvcgui.ui" line="320"/>
-        <source>europe-west</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mtvcgui.ui" line="334"/>
+        <location filename="mtvcgui.ui" line="272"/>
         <source>chanlist</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="357"/>
+        <location filename="mtvcgui.ui" line="295"/>
         <source>Driver</source>
         <translation>Controlador</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="370"/>
+        <location filename="mtvcgui.ui" line="308"/>
         <source>Duration</source>
         <translation>Duración</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="657"/>
+        <location filename="mtvcgui.ui" line="611"/>
         <source>Video Codec</source>
         <translation>Códec de vídeo</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="403"/>
-        <source>none</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mtvcgui.ui" line="413"/>
-        <source>pcm</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mtvcgui.ui" line="418"/>
-        <source>mp3lame</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mtvcgui.ui" line="437"/>
+        <location filename="mtvcgui.ui" line="355"/>
         <source>HH:mm:ss</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="450"/>
+        <location filename="mtvcgui.ui" line="368"/>
         <source>Input</source>
         <translation>Entrada</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="533"/>
-        <source>mp3</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mtvcgui.ui" line="777"/>
-        <source>128</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mtvcgui.ui" line="764"/>
+        <location filename="mtvcgui.ui" line="754"/>
         <source>Audio Bitrate</source>
         <translation>Bitrate del audio</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="687"/>
-        <source>mpeg4</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mtvcgui.ui" line="644"/>
+        <location filename="mtvcgui.ui" line="598"/>
         <source>Video Bitrate</source>
         <translation>Bitrate del vídeo</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="670"/>
-        <source>3000</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mtvcgui.ui" line="784"/>
+        <location filename="mtvcgui.ui" line="1090"/>
         <source>Extra TV Parameters</source>
         <translation>Parámetros extra de TV</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="796"/>
+        <location filename="mtvcgui.ui" line="1102"/>
         <source>Extra tv parameters (delimited by :)</source>
         <translation>Parámetros extra de TV (delimitados por :)</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1141"/>
+        <location filename="mtvcgui.ui" line="1453"/>
         <source>Height</source>
         <translation>Alto</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1128"/>
+        <location filename="mtvcgui.ui" line="1440"/>
         <source>Width</source>
         <translation>Ancho</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="884"/>
+        <location filename="mtvcgui.ui" line="1193"/>
         <source>Audio Rate</source>
         <translation>Frecuencia de audio</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1090"/>
+        <location filename="mtvcgui.ui" line="1402"/>
         <source>Extra Mencoder Parameters</source>
         <translation>Parámetros extra de mencoder</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1102"/>
+        <location filename="mtvcgui.ui" line="1414"/>
         <source>Extra mencoder parameters (delimited by spaces)</source>
         <translation>Parámetros extra de mencoder (delimitados por espacios)</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1180"/>
+        <location filename="mtvcgui.ui" line="1492"/>
         <source>noskip</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1193"/>
+        <location filename="mtvcgui.ui" line="1505"/>
         <source>quiet</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1222"/>
+        <location filename="mtvcgui.ui" line="1534"/>
         <source>FPS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1248"/>
+        <location filename="mtvcgui.ui" line="1560"/>
         <source>Extra filters (delimited by ,)</source>
         <translation>Filtros extra (delimitados por ,)</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1400"/>
+        <location filename="mtvcgui.ui" line="1747"/>
         <source>Menu</source>
         <translation>Menú</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1408"/>
+        <location filename="mtvcgui.ui" line="1765"/>
         <source>Help</source>
         <translation>Ayuda</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1418"/>
+        <location filename="mtvcgui.ui" line="1775"/>
         <source>Exit</source>
         <translation>Salir</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1423"/>
+        <location filename="mtvcgui.ui" line="1780"/>
         <source>Save configuration</source>
         <translation>Guardar configuración</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1428"/>
+        <location filename="mtvcgui.ui" line="1785"/>
         <source>About mtvcgui</source>
         <translation>Acerca de mtvcgui</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="561"/>
+        <location filename="mtvcgui.ui" line="515"/>
         <source>...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="574"/>
+        <location filename="mtvcgui.ui" line="528"/>
         <source>number</source>
         <translation>número</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="590"/>
+        <location filename="mtvcgui.ui" line="544"/>
         <source>frequency</source>
         <translation>frecuencia</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="903"/>
+        <location filename="mtvcgui.ui" line="1212"/>
         <source>Hz</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="916"/>
+        <location filename="mtvcgui.ui" line="1225"/>
         <source>Capture audio using ALSA</source>
         <translation>Capturar audio usando ALSA</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="929"/>
+        <location filename="mtvcgui.ui" line="1238"/>
         <source>You may find the available devices running the command
 aplay --list-devices
 on the console</source>
         <translation>Puede listar los dispositivos disponibles ejecutando el comandoaplay --list-devicesen la consola</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="944"/>
+        <location filename="mtvcgui.ui" line="1256"/>
         <source>ALSA device (e.g. hw.0)</source>
         <translation>Dispositivo ALSA (ej: hw.0)</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1254"/>
+        <location filename="mtvcgui.ui" line="1566"/>
         <source>Advanced</source>
         <translation>Avanzado</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1266"/>
+        <location filename="mtvcgui.ui" line="1578"/>
         <source>Run this command before capturing:</source>
         <translation>Ejecutar este comando antes de capturar:</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1279"/>
+        <location filename="mtvcgui.ui" line="1591"/>
         <source>Run this command after capturing:</source>
         <translation>Ejecutar este comando después de capturar:</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1322"/>
+        <location filename="mtvcgui.ui" line="1640"/>
         <source>Schedule Recording</source>
         <translation>Programar captura</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1369"/>
+        <location filename="mtvcgui.ui" line="1716"/>
         <source>Append a number suffix if file exists</source>
         <translation>Agregar sufijo numérico si el archivo existe</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1385"/>
+        <location filename="mtvcgui.ui" line="1732"/>
         <source>Stopped</source>
         <translation>Detenido</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1338"/>
+        <location filename="mtvcgui.ui" line="1656"/>
         <source>Cancel</source>
         <translation>Cancelar</translation>
     </message>
     <message>
-        <location filename="run.py" line="742"/>
+        <location filename="run.py" line="772"/>
         <source>Recording... %1</source>
-        <translation type="obsolete">Capturando... %1</translation>
+        <translation>Capturando... %1</translation>
     </message>
     <message>
-        <location filename="run.py" line="128"/>
+        <location filename="run.py" line="220"/>
         <source>Waiting %1</source>
-        <translation type="obsolete">Esperando %1</translation>
+        <translation>Esperando %1</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="463"/>
+        <location filename="mtvcgui.ui" line="381"/>
         <source>lavc audio options</source>
         <translation>Opciones de audio lavc</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="518"/>
-        <source>mp2</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mtvcgui.ui" line="523"/>
-        <source>ac3</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mtvcgui.ui" line="528"/>
-        <source>adpcm_ima_wav</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mtvcgui.ui" line="619"/>
+        <location filename="mtvcgui.ui" line="573"/>
         <source>Preview channel with mplayer</source>
         <translation>Previsualizar canal con mplayer</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="632"/>
+        <location filename="mtvcgui.ui" line="586"/>
         <source>lavc video options</source>
         <translation>Opciones de vídeo lavc</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="692"/>
-        <source>mjpeg</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mtvcgui.ui" line="697"/>
-        <source>h263</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mtvcgui.ui" line="702"/>
-        <source>h263p</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mtvcgui.ui" line="707"/>
-        <source>mspeg4</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mtvcgui.ui" line="712"/>
-        <source>mspeg4v2</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mtvcgui.ui" line="717"/>
-        <source>wmv1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mtvcgui.ui" line="722"/>
-        <source>wmv2</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mtvcgui.ui" line="727"/>
-        <source>rv10</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mtvcgui.ui" line="732"/>
-        <source>mpeg1video</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mtvcgui.ui" line="737"/>
-        <source>huffyuv</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mtvcgui.ui" line="752"/>
+        <location filename="mtvcgui.ui" line="742"/>
         <source>lame options</source>
         <translation>Opciones de audio lame</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1354"/>
+        <location filename="mtvcgui.ui" line="1672"/>
         <source>Play recorded file while capture (kind of preview) (May consume too much cpu and ruin your capture!!)</source>
         <translation>Reproducir video capturado mientras se captura (especie de preview) (consume mucho CPU, funciona mal y puede romper todo)</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1433"/>
+        <location filename="mtvcgui.ui" line="1790"/>
         <source>Restore saved configuration</source>
         <translation>Cargar configuración guardada</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="40"/>
-        <source>./capture_{%channel_%Y%m%d_%H%M%S}.avi</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mtvcgui.ui" line="1045"/>
+        <location filename="mtvcgui.ui" line="1357"/>
         <source>Brightness</source>
         <translation>Brillo</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1058"/>
+        <location filename="mtvcgui.ui" line="1370"/>
         <source>Contrast</source>
         <translation>Contraste</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1071"/>
+        <location filename="mtvcgui.ui" line="1383"/>
         <source>Hue</source>
         <translation>Matiz</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1084"/>
+        <location filename="mtvcgui.ui" line="1396"/>
         <source>Saturation</source>
         <translation>Saturación</translation>
+    </message>
+    <message>
+        <location filename="run.py" line="166"/>
+        <source>mtvcgui upgrade information</source>
+        <translation>Información de actualización de mtvcgui</translation>
+    </message>
+    <message>
+        <location filename="run.py" line="166"/>
+        <source>You are using a configuration file from an older mtvcgui version.
+Current version get supported norms, video codecs and audio codecs from mplayer and store them as strings in the file ~/.mtvgui/mtvcgui.ini instead of integer values as in previous versions.
+
+To avoid this message to appear again select your desired norm, audio codec and video codec values next and save the configuration.</source>
+        <translation>Está utilizando un archivo de configuración de una versión antigua de mtvcgui.
+La versión actual obtiene las normas soportadas, los codecs de video y de audio a través de mplayer y los guarda como texto en el fichero ~/.mtvgui/mtvcgui.ini en lugar de hacerlo como núneros como en las versiones anteriores.
+
+Para evitar que este mensaje se muestre nuevamente seleccione a continuación la norma deseada, el códec de audio y de video y guarde la configuración.  </translation>
+    </message>
+    <message>
+        <location filename="run.py" line="188"/>
+        <source>mencoder execution failed. This program produces output to stdout. Start the program from the command line and check console output for possible causes of this failure.</source>
+        <translation>La ejecución de mencoder falló. Este programa muestra información en la salida estándar (stdout). Inicie el programa desde la línea de comandos y observe la información que aparece en la consola para detectar la posible causa de este fallo.</translation>
+    </message>
+    <message>
+        <location filename="mtvcgui.ui" line="143"/>
+        <source>norm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mtvcgui.ui" line="1067"/>
+        <source>Extra options (delimited by :)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mtvcgui.ui" line="807"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The tool will try to get the supported norms from mplayer based on current value of &amp;quot;Device&amp;quot;. However if this fails you may still enter any value for the norm, either by the norm name or its integer value norm or normid.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mtvcgui.ui" line="823"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The tool will try to get the supported inputs from mplayer based on current value of &amp;quot;Device&amp;quot;. However if this fails you may still enter its integer value&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mtvcgui.ui" line="839"/>
+        <source>xvid options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mtvcgui.ui" line="851"/>
+        <source>bitrate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mtvcgui.ui" line="864"/>
+        <source>fixed_quant</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mtvcgui.ui" line="877"/>
+        <source>me_quality</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mtvcgui.ui" line="890"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;bitrate=&amp;lt;value&amp;gt; (CBR or two pass mode)&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Sets the bitrate to be used in kbits/second if &amp;lt;16000 or in bits/second if &amp;gt;16000. If &amp;lt;value&amp;gt; is negative, XviD will use its absolute value as the target size (in kBytes) of the video and compute the associated bitrate automagically (default: 687 kbits/s).&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message encoding="UTF-8">
+        <location filename="mtvcgui.ui" line="906"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;fixed_quant=&amp;lt;1−31&amp;gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Switch to fixed quantizer mode and specify the quantizer to be used.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message encoding="UTF-8">
+        <location filename="mtvcgui.ui" line="922"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;me_quality=&amp;lt;0−6&amp;gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;This option controls the motion estimation subsystem. The higher the value, the more precise the estimation should be (default: 6). The more precise the motion estimation is, the more bits can be saved. Precision is gained at the expense of CPU time so decrease this setting if you need realtime encoding.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message encoding="UTF-8">
+        <location filename="mtvcgui.ui" line="938"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-family:&apos;sans-serif&apos;; font-size:medium; font-weight:600; color:#333333;&quot;&gt;interlacing&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-family:&apos;sans-serif&apos;; font-size:medium; color:#333333;&quot;&gt;Encode the fields of interlaced video material. Turn this option on for interlaced content. &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-family:&apos;sans-serif&apos;; font-size:medium; color:#333333;&quot;&gt;NOTE: Should you rescale the video, you would need an interlace-aware resizer, which you can activate with −vf scale=&amp;lt;width&amp;gt;:&amp;lt;height&amp;gt;:1&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mtvcgui.ui" line="941"/>
+        <source>interlacing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mtvcgui.ui" line="954"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;cartoon&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Activate this if your encoded sequence is an anime/cartoon. It modifies some XviD internal thresholds so XviD takes better decisions on frame types and motion vectors for flat looking cartoons.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mtvcgui.ui" line="957"/>
+        <source>cartoon</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mtvcgui.ui" line="997"/>
+        <source>x264 options</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mtvcgui.ui" line="1009"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-family:&apos;sans-serif&apos;; font-size:medium; font-weight:600; color:#333333;&quot;&gt;bitrate=&amp;lt;value&amp;gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-family:&apos;sans-serif&apos;; font-size:medium; color:#333333;&quot;&gt;Sets the average bitrate to be used in kbits/second (default: off). Since local bitrate may vary, this average may be inaccurate for very short videos (see ratetol). Constant bitrate can be achieved by combining this with vbv_maxrate, at significant reduction in quality.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mtvcgui.ui" line="1025"/>
+        <source>bitrate (CBR)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mtvcgui.ui" line="1038"/>
+        <source>qp_constant</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message encoding="UTF-8">
+        <location filename="mtvcgui.ui" line="1051"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;qp=&amp;lt;0−51&amp;gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;This selects the quantizer to use for P-frames. I- and B-frames are offset from this value by ip_factor and pb_factor, respectively. 20−40 is a useful range (default: 26). Lower values result in better fidelity, but higher bitrates. 0 is lossless. Note that quantization in H.264 works differently from MPEG-1/2/4: H.264’s quantization parameter (QP) is on a logarithmic scale. The mapping is approximately H264QP = 12 + 6*log2(MPEGQP). For example, MPEG at QP=2 is equivalent to H.264 at QP=18.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mtvcgui.ui" line="1685"/>
+        <source>Set these environment variables:</source>
+        <translation>Establecer estas variables de entorno:</translation>
+    </message>
+    <message>
+        <location filename="mtvcgui.ui" line="1751"/>
+        <source>Change language</source>
+        <translation>Cambiar de idioma</translation>
+    </message>
+    <message>
+        <location filename="mtvcgui.ui" line="1795"/>
+        <source>English</source>
+        <translation>Inglés</translation>
+    </message>
+    <message>
+        <location filename="mtvcgui.ui" line="1800"/>
+        <source>Spanish</source>
+        <translation>Español</translation>
+    </message>
+    <message>
+        <location filename="mtvcgui.ui" line="1805"/>
+        <source>Spanish (Argentina)</source>
+        <translation>Español (Argentina)</translation>
+    </message>
+    <message>
+        <location filename="mtvcgui.ui" line="1810"/>
+        <source>Italian</source>
+        <translation>Italiano</translation>
     </message>
 </context>
 </TS>

@@ -157,12 +157,12 @@
       </property>
       <item>
        <property name="text">
-        <string>v4l2</string>
+        <string notr="true">v4l2</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>v4l</string>
+        <string notr="true">v4l</string>
        </property>
       </item>
      </widget>
@@ -209,7 +209,7 @@
       </property>
       <item>
        <property name="text">
-        <string>null</string>
+        <string notr="true">null</string>
        </property>
       </item>
      </widget>
@@ -240,22 +240,22 @@
       </property>
       <item>
        <property name="text">
-        <string>us-cable</string>
+        <string notr="true">us-cable</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>us-bcast</string>
+        <string notr="true">us-bcast</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>europe-east</string>
+        <string notr="true">europe-east</string>
        </property>
       </item>
       <item>
        <property name="text">
-        <string>europe-west</string>
+        <string notr="true">europe-west</string>
        </property>
       </item>
      </widget>
@@ -338,7 +338,7 @@
       </property>
       <item>
        <property name="text">
-        <string>null</string>
+        <string notr="true">null</string>
        </property>
       </item>
      </widget>
@@ -433,32 +433,32 @@
        </property>
        <item>
         <property name="text">
-         <string>mp2</string>
+         <string notr="true">mp2</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>libmp3lame</string>
+         <string notr="true">libmp3lame</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>ac3</string>
+         <string notr="true">ac3</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>flac</string>
+         <string notr="true">flac</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>vorbis</string>
+         <string notr="true">vorbis</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>adpcm_ima_wav</string>
+         <string notr="true">adpcm_ima_wav</string>
         </property>
        </item>
       </widget>
@@ -638,67 +638,67 @@
        </property>
        <item>
         <property name="text">
-         <string>mpeg4</string>
+         <string notr="true">mpeg4</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>mjpeg</string>
+         <string notr="true">mjpeg</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>h263</string>
+         <string notr="true">h263</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>h263p</string>
+         <string notr="true">h263p</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>mspeg4</string>
+         <string notr="true">mspeg4</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>mspeg4v2</string>
+         <string notr="true">mspeg4v2</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>wmv1</string>
+         <string notr="true">wmv1</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>wmv2</string>
+         <string notr="true">wmv2</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>rv10</string>
+         <string notr="true">rv10</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>rv20</string>
+         <string notr="true">rv20</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>mpeg1video</string>
+         <string notr="true">mpeg1video</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>huffyuv</string>
+         <string notr="true">huffyuv</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>flv</string>
+         <string notr="true">flv</string>
         </property>
        </item>
       </widget>
@@ -1753,6 +1753,7 @@ on the console</string>
      <addaction name="actionEnglish"/>
      <addaction name="actionSpanish"/>
      <addaction name="actionSpanish_Argentina"/>
+     <addaction name="actionItalian"/>
     </widget>
     <addaction name="actionSave_configuration"/>
     <addaction name="actionReload_configuration"/>
@@ -1802,6 +1803,11 @@ on the console</string>
   <action name="actionSpanish_Argentina">
    <property name="text">
     <string>Spanish (Argentina)</string>
+   </property>
+  </action>
+  <action name="actionItalian">
+   <property name="text">
+    <string>Italian</string>
    </property>
   </action>
  </widget>
@@ -2255,6 +2261,22 @@ on the console</string>
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>actionItalian</sender>
+   <signal>activated()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>changeToItalian()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>346</x>
+     <y>261</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>run_mencoder()</slot>
@@ -2281,5 +2303,6 @@ on the console</string>
   <slot>changeToEnglish()</slot>
   <slot>changeToSpanish()</slot>
   <slot>changeToSpanish_Argentina()</slot>
+  <slot>changeToItalian()</slot>
  </slots>
 </ui>
