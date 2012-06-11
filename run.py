@@ -441,8 +441,8 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow, Translatable):
         if config.has_option('mencoder GUI', 'x264_bitrate'):
             self.x264_bitrate.setText(config.get('mencoder GUI', 'x264_bitrate'))
             
-        if config.has_option('mencoder GUI', 'x264_qp_constant'):
-            self.x264_qp_constant.setText(config.get('mencoder GUI', 'x264_qp_constant'))
+        if config.has_option('mencoder GUI', 'x264_qp'):
+            self.x264_qp.setText(config.get('mencoder GUI', 'x264_qp'))
             
         if config.has_option('mencoder GUI', 'x264_extra_opts'):
             self.x264_extra_opts.setText(config.get('mencoder GUI', 'x264_extra_opts'))
@@ -651,7 +651,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow, Translatable):
         parameters['xvid_interlacing'] = self.xvid_interlacing.isChecked()
         
         parameters['x264_bitrate'] = str(self.x264_bitrate.text())
-        parameters['x264_qp_constant'] = str(self.x264_qp_constant.text())
+        parameters['x264_qp'] = str(self.x264_qp.text())
         parameters['x264_extra_opts'] = str(self.x264_extra_opts.text())
         
         parameters['outputfile'] = str(self.outputfile.text())

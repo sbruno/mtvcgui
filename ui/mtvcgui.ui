@@ -1035,10 +1035,10 @@
         </rect>
        </property>
        <property name="text">
-        <string>qp_constant</string>
+        <string>qp</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="x264_qp_constant">
+      <widget class="QLineEdit" name="x264_qp">
        <property name="geometry">
         <rect>
          <x>105</x>

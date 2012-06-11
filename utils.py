@@ -239,7 +239,7 @@ def generate_command(parameters, preview=False):
     xvid_cartoon = parameters.get('xvid_cartoon')
     xvid_interlacing = parameters.get('xvid_interlacing')
     x264_bitrate = parameters.get('x264_bitrate')
-    x264_qp_constant = parameters.get('x264_qp_constant')
+    x264_qp = parameters.get('x264_qp')
     x264_extra_opts = parameters.get('x264_extra_opts')
     tvwidth = parameters.get('tvwidth')
     tvheight = parameters.get('tvheight')
@@ -405,8 +405,8 @@ def generate_command(parameters, preview=False):
         x264encopts = []
         if x264_bitrate:
             x264encopts.append("bitrate=" + x264_bitrate)
-        if x264_qp_constant:
-            x264encopts.append("qp_constant=" + x264_qp_constant)
+        if x264_qp:
+            x264encopts.append("qp=" + x264_qp)
         if x264_extra_opts:
             x264encopts.extend(x264_extra_opts.split(":"))
             

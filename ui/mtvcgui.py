@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'mtvcgui.ui'
 #
-# Created: Mon Jun 11 02:26:14 2012
+# Created: Mon Jun 11 02:36:52 2012
 #      by: PyQt4 UI code generator 4.9.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -301,10 +301,10 @@ class Ui_MainWindow(object):
         self.label_38 = QtGui.QLabel(self.x264_options_box)
         self.label_38.setGeometry(QtCore.QRect(10, 45, 81, 16))
         self.label_38.setObjectName(_fromUtf8("label_38"))
-        self.x264_qp_constant = QtGui.QLineEdit(self.x264_options_box)
-        self.x264_qp_constant.setGeometry(QtCore.QRect(105, 45, 113, 21))
-        self.x264_qp_constant.setText(_fromUtf8(""))
-        self.x264_qp_constant.setObjectName(_fromUtf8("x264_qp_constant"))
+        self.x264_qp = QtGui.QLineEdit(self.x264_options_box)
+        self.x264_qp.setGeometry(QtCore.QRect(105, 45, 113, 21))
+        self.x264_qp.setText(_fromUtf8(""))
+        self.x264_qp.setObjectName(_fromUtf8("x264_qp"))
         self.label_39 = QtGui.QLabel(self.x264_options_box)
         self.label_39.setGeometry(QtCore.QRect(10, 70, 166, 16))
         self.label_39.setObjectName(_fromUtf8("label_39"))
@@ -615,8 +615,8 @@ class Ui_MainWindow(object):
         self.x264_options_box.setTitle(QtGui.QApplication.translate("MainWindow", "x264 options", None, QtGui.QApplication.UnicodeUTF8))
         self.x264_bitrate.setToolTip(QtGui.QApplication.translate("MainWindow", "<html><head/><body><p><span style=\" font-family:\'sans-serif\'; font-size:medium; font-weight:600; color:#333333;\">bitrate=&lt;value&gt;</span></p><p><br/></p><p><span style=\" font-family:\'sans-serif\'; font-size:medium; color:#333333;\">Sets the average bitrate to be used in kbits/second (default: off). Since local bitrate may vary, this average may be inaccurate for very short videos (see ratetol). Constant bitrate can be achieved by combining this with vbv_maxrate, at significant reduction in quality.</span></p></body></html>", None, QtGui.QApplication.UnicodeUTF8))
         self.label_37.setText(QtGui.QApplication.translate("MainWindow", "bitrate (CBR)", None, QtGui.QApplication.UnicodeUTF8))
-        self.label_38.setText(QtGui.QApplication.translate("MainWindow", "qp_constant", None, QtGui.QApplication.UnicodeUTF8))
-        self.x264_qp_constant.setToolTip(QtGui.QApplication.translate("MainWindow", "<html><head/><body><p><span style=\" font-weight:600;\">qp=&lt;0−51&gt;</span></p><p><br/></p><p>This selects the quantizer to use for P-frames. I- and B-frames are offset from this value by ip_factor and pb_factor, respectively. 20−40 is a useful range (default: 26). Lower values result in better fidelity, but higher bitrates. 0 is lossless. Note that quantization in H.264 works differently from MPEG-1/2/4: H.264’s quantization parameter (QP) is on a logarithmic scale. The mapping is approximately H264QP = 12 + 6*log2(MPEGQP). For example, MPEG at QP=2 is equivalent to H.264 at QP=18.</p></body></html>", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_38.setText(QtGui.QApplication.translate("MainWindow", "qp", None, QtGui.QApplication.UnicodeUTF8))
+        self.x264_qp.setToolTip(QtGui.QApplication.translate("MainWindow", "<html><head/><body><p><span style=\" font-weight:600;\">qp=&lt;0−51&gt;</span></p><p><br/></p><p>This selects the quantizer to use for P-frames. I- and B-frames are offset from this value by ip_factor and pb_factor, respectively. 20−40 is a useful range (default: 26). Lower values result in better fidelity, but higher bitrates. 0 is lossless. Note that quantization in H.264 works differently from MPEG-1/2/4: H.264’s quantization parameter (QP) is on a logarithmic scale. The mapping is approximately H264QP = 12 + 6*log2(MPEGQP). For example, MPEG at QP=2 is equivalent to H.264 at QP=18.</p></body></html>", None, QtGui.QApplication.UnicodeUTF8))
         self.label_39.setText(QtGui.QApplication.translate("MainWindow", "Extra options (delimited by :)", None, QtGui.QApplication.UnicodeUTF8))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), QtGui.QApplication.translate("MainWindow", "Main Parameters", None, QtGui.QApplication.UnicodeUTF8))
         self.label_10.setText(QtGui.QApplication.translate("MainWindow", "Extra tv parameters (delimited by :)", None, QtGui.QApplication.UnicodeUTF8))

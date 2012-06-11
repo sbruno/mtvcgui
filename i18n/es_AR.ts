@@ -468,11 +468,6 @@ Para evitar que este mensaje se muestre nuevamente seleccione a continuación la
         <source>bitrate (CBR)</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <location filename="mtvcgui.ui" line="1038"/>
-        <source>qp_constant</source>
-        <translation type="unfinished"></translation>
-    </message>
     <message encoding="UTF-8">
         <location filename="mtvcgui.ui" line="1051"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;qp=&amp;lt;0−51&amp;gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;This selects the quantizer to use for P-frames. I- and B-frames are offset from this value by ip_factor and pb_factor, respectively. 20−40 is a useful range (default: 26). Lower values result in better fidelity, but higher bitrates. 0 is lossless. Note that quantization in H.264 works differently from MPEG-1/2/4: H.264’s quantization parameter (QP) is on a logarithmic scale. The mapping is approximately H264QP = 12 + 6*log2(MPEGQP). For example, MPEG at QP=2 is equivalent to H.264 at QP=18.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
@@ -507,6 +502,11 @@ Para evitar que este mensaje se muestre nuevamente seleccione a continuación la
         <location filename="mtvcgui.ui" line="1810"/>
         <source>Italian</source>
         <translation>Italiano</translation>
+    </message>
+    <message>
+        <location filename="mtvcgui.ui" line="1038"/>
+        <source>qp</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>
