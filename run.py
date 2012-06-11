@@ -178,10 +178,17 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow, Translatable):
    
 
     def update_status(self):
-        if self.mencoder_instance.poll() is None:
+        returncode = self.mencoder_instance.poll()
+        if returncode is None:
             self.time_running += 1
             self.status_label.setText(self.tr('Recording... %1').arg(utils.secs_to_str(self.time_running)))
         else:
+            print "process finished with status code %s" % str(returncode)
+            if returncode > 0:
+                self.error_dialog.showMessage(self.tr("mencoder execution " \
+                    "failed. This program produces output to stdout. Start " \
+                    "the program from the command line and check console " \
+                    "output for possible causes of this failure."))
             self.record_stop_cleanup()
 
     def check_preview_file(self):
