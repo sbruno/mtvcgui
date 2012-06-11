@@ -224,11 +224,23 @@ def generate_command(parameters, preview=False):
     audiocodec = parameters.get('audiocodec')
     videocodec = parameters.get('videocodec')
     append_suffix = parameters.get('append_suffix')
+    lame_audiobitrate = parameters.get('lame_audiobitrate')
+    lame_extra_opts = parameters.get('lame_extra_opts')
     lavc_audiocodec = parameters.get('lavc_audiocodec')
     lavc_audiobitrate = parameters.get('lavc_audiobitrate')
-    lame_audiobitrate = parameters.get('lame_audiobitrate')
+    lavc_audio_extra_opts = parameters.get('lavc_audio_extra_opts')
     lavc_videocodec = parameters.get('lavc_videocodec')
     lavc_videobitrate = parameters.get('lavc_videobitrate')
+    lavc_video_extra_opts = parameters.get('lavc_video_extra_opts')
+    xvid_bitrate = parameters.get('xvid_bitrate')
+    xvid_extra_opts = parameters.get('xvid_extra_opts')
+    xvid_fixed_quant = parameters.get('xvid_fixed_quant')
+    xvid_me_quality = parameters.get('xvid_me_quality')
+    xvid_cartoon = parameters.get('xvid_cartoon')
+    xvid_interlacing = parameters.get('xvid_interlacing')
+    x264_bitrate = parameters.get('x264_bitrate')
+    x264_qp_constant = parameters.get('x264_qp_constant')
+    x264_extra_opts = parameters.get('x264_extra_opts')
     tvwidth = parameters.get('tvwidth')
     tvheight = parameters.get('tvheight')
     audiorate = parameters.get('audiorate')
@@ -337,26 +349,70 @@ def generate_command(parameters, preview=False):
         mencoderparms += ['-vf', filters]
 
 
-
-    if lavc_audiocodec or lavc_audiobitrate or\
-        lavc_videobitrate or lavc_videocodec:
-        lavcopts = []
+    lavcopts = []
+    if audiocodec == 'lavc' and (lavc_audiocodec or lavc_audiobitrate):
         if lavc_audiocodec:
             lavcopts.append("acodec=" + lavc_audiocodec)
         if lavc_audiobitrate:
             lavcopts.append("abitrate=" + lavc_audiobitrate)
+        if lavc_audio_extra_opts:
+            lavcopts.append(lavc_audio_extra_opts)
+            
+    if videocodec == 'lavc' and (lavc_videobitrate or lavc_videocodec):
         if lavc_videocodec:
             lavcopts.append("vcodec=" + lavc_videocodec)
         if lavc_videobitrate:
-            lavcopts.append("vbitrate=" + lavc_videobitrate)
-
+            lavcopts.append("vbitrate=" + lavc_videobitrate)            
+        if lavc_video_extra_opts:
+            lavcopts.append(lavc_video_extra_opts)
+        
+    if lavcopts:
         lavcopts = ':'.join(lavcopts)
-
+        
         mencoderparms += ['-lavcopts', lavcopts]
 
+    lameopts = []
+    
     if lame_audiobitrate:
-        mencoderparms += ['-lameopts', 'cbr:br=' + lame_audiobitrate]
+        lameopts.append('cbr:br=' + lame_audiobitrate)
+    if lame_extra_opts:
+        lameopts.append(lame_extra_opts)
+        
+    if 'lame' in audiocodec and lameopts:
+        mencoderparms += ['-lameopts'] + [":".join(lameopts)]
 
+
+    if videocodec == 'xvid':
+        xvidencopts = []
+        if xvid_bitrate:
+            xvidencopts.append("bitrate=" + xvid_bitrate)
+        if xvid_fixed_quant:
+            xvidencopts.append("fixed_quant=" + xvid_fixed_quant)
+        if xvid_me_quality:
+            xvidencopts.append("me_quality=" + xvid_me_quality)
+        if xvid_cartoon:
+            xvidencopts.append("cartoon")
+        if xvid_interlacing:
+            xvidencopts.append("interlacing")
+        if xvid_extra_opts:
+            xvidencopts.extend(xvid_extra_opts.split(":"))
+        
+        if xvidencopts:
+            xvidencopts = ':'.join(xvidencopts)
+            mencoderparms += ['-xvidencopts', xvidencopts]
+
+    if videocodec == 'x264':
+        x264encopts = []
+        if x264_bitrate:
+            x264encopts.append("bitrate=" + x264_bitrate)
+        if x264_qp_constant:
+            x264encopts.append("qp_constant=" + x264_qp_constant)
+        if x264_extra_opts:
+            x264encopts.extend(x264_extra_opts.split(":"))
+            
+        if x264encopts:
+            x264encopts = ':'.join(x264encopts)
+            mencoderparms += ['-x264encopts', x264encopts]
 
     if extramencoderparms:
         for extraparm in extramencoderparms.split(' '):

@@ -274,8 +274,20 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow, Translatable):
 
     def video_codec_selected(self, i):
         if self.videocodec.itemText(i) == 'lavc':
+            self.x264_options_box.hide()
+            self.xvid_options_box.hide()
             self.lavc_video_options_box.show()
+        elif self.videocodec.itemText(i) == 'xvid':
+            self.x264_options_box.hide()
+            self.xvid_options_box.show()
+            self.lavc_video_options_box.hide()
+        elif self.videocodec.itemText(i) == 'x264':
+            self.x264_options_box.show()
+            self.xvid_options_box.hide()
+            self.lavc_video_options_box.hide()
         else:
+            self.x264_options_box.hide()
+            self.xvid_options_box.hide()
             self.lavc_video_options_box.hide()
 
     def set_params_from_config(self):
@@ -359,7 +371,16 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow, Translatable):
                 )
 
 
-        #lavc options
+        #lame options
+        
+        if config.has_option('mencoder GUI', 'lame_audiobitrate'):
+            self.lame_audiobitrate.setText(config.get('mencoder GUI', 'lame_audiobitrate'))
+            
+        if config.has_option('mencoder GUI', 'lame_extra_opts'):
+            self.lame_extra_opts.setText(config.get('mencoder GUI', 'lame_extra_opts'))
+                
+                
+        #lavc audio options
 
         if config.has_option('mencoder GUI', 'lavc_audiocodec'):
             self.lavc_audiocodec.setCurrentIndex(int(config.get('mencoder GUI', 'lavc_audiocodec')))
@@ -367,22 +388,63 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow, Translatable):
         if config.has_option('mencoder GUI', 'lavc_audiobitrate'):
             self.lavc_audiobitrate.setText(config.get('mencoder GUI', 'lavc_audiobitrate'))
 
-        if config.has_option('mencoder GUI', 'lame_audiobitrate'):
-            self.lame_audiobitrate.setText(config.get('mencoder GUI', 'lame_audiobitrate'))
+        if config.has_option('mencoder GUI', 'lavc_audio_extra_opts'):
+            self.lavc_audio_extra_opts.setText(config.get('mencoder GUI', 'lavc_audio_extra_opts'))
 
-
+            
+        #lavc video options
+        
         if config.has_option('mencoder GUI', 'lavc_videocodec'):
             self.lavc_videocodec.setCurrentIndex(int(config.get('mencoder GUI', 'lavc_videocodec')))
 
         if config.has_option('mencoder GUI', 'lavc_videobitrate'):
             self.lavc_videobitrate.setText(config.get('mencoder GUI', 'lavc_videobitrate'))
+            
+        if config.has_option('mencoder GUI', 'lavc_video_extra_opts'):
+            self.lavc_video_extra_opts.setText(config.get('mencoder GUI', 'lavc_video_extra_opts'))
 
+            
+        #xvid options
 
+        if config.has_option('mencoder GUI', 'xvid_bitrate'):
+            self.xvid_bitrate.setText(config.get('mencoder GUI', 'xvid_bitrate'))
+            
+        if config.has_option('mencoder GUI', 'xvid_extra_opts'):
+            self.xvid_extra_opts.setText(config.get('mencoder GUI', 'xvid_extra_opts'))
+            
+        if config.has_option('mencoder GUI', 'xvid_fixed_quant'):
+            self.xvid_fixed_quant.setText(config.get('mencoder GUI', 'xvid_fixed_quant'))
+
+        if config.has_option('mencoder GUI', 'xvid_me_quality'):
+            self.xvid_me_quality.setText(config.get('mencoder GUI', 'xvid_me_quality'))
+            
+        if config.has_option('mencoder GUI', 'xvid_cartoon'):
+            self.xvid_cartoon.setChecked(
+                config.get('mencoder GUI', 'xvid_cartoon') == 'True'
+                )
+                
+        if config.has_option('mencoder GUI', 'xvid_interlacing'):
+            self.xvid_interlacing.setChecked(
+                config.get('mencoder GUI', 'xvid_interlacing') == 'True'
+                )
+                
+                
+        #x264 options
+
+        if config.has_option('mencoder GUI', 'x264_bitrate'):
+            self.x264_bitrate.setText(config.get('mencoder GUI', 'x264_bitrate'))
+            
+        if config.has_option('mencoder GUI', 'x264_qp_constant'):
+            self.x264_qp_constant.setText(config.get('mencoder GUI', 'x264_qp_constant'))
+            
+        if config.has_option('mencoder GUI', 'x264_extra_opts'):
+            self.x264_extra_opts.setText(config.get('mencoder GUI', 'x264_extra_opts'))
+                
         if config.has_option('mencoder GUI', 'outputfile'):
             self.outputfile.setText(config.get('mencoder GUI', 'outputfile'))
-
-
-
+            
+            
+            
         #tv parms tab
 
         if config.has_option('mencoder GUI', 'tvwidth'):
@@ -550,14 +612,19 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow, Translatable):
 
         parameters['append_suffix'] = self.append_suffix.isChecked()
 
+        parameters['lame_audiobitrate'] = str(self.lame_audiobitrate.text())
+        parameters['lame_extra_opts'] = str(self.lame_extra_opts.text())
+
         if config:
             parameters['lavc_audiocodec'] = self.lavc_audiocodec.currentIndex()
         else:
             parameters['lavc_audiocodec'] = \
                 str(self.lavc_audiocodec.currentText())
 
+            
         parameters['lavc_audiobitrate'] = str(self.lavc_audiobitrate.text())
-        parameters['lame_audiobitrate'] = str(self.lame_audiobitrate.text())
+        parameters['lavc_audio_extra_opts'] = \
+            str(self.lavc_audio_extra_opts.text())
 
         if config:
             parameters['lavc_videocodec'] = self.lavc_videocodec.currentIndex()
@@ -566,6 +633,20 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow, Translatable):
                 str(self.lavc_videocodec.currentText())
 
         parameters['lavc_videobitrate'] = str(self.lavc_videobitrate.text())
+        parameters['lavc_video_extra_opts'] = \
+            str(self.lavc_video_extra_opts.text())        
+        
+        parameters['xvid_bitrate'] = str(self.xvid_bitrate.text())
+        parameters['xvid_extra_opts'] = str(self.xvid_extra_opts.text())
+        parameters['xvid_fixed_quant'] = str(self.xvid_fixed_quant.text())
+        parameters['xvid_me_quality'] = str(self.xvid_me_quality.text())
+        parameters['xvid_cartoon'] = self.xvid_cartoon.isChecked()
+        parameters['xvid_interlacing'] = self.xvid_interlacing.isChecked()
+        
+        parameters['x264_bitrate'] = str(self.x264_bitrate.text())
+        parameters['x264_qp_constant'] = str(self.x264_qp_constant.text())
+        parameters['x264_extra_opts'] = str(self.x264_extra_opts.text())
+        
         parameters['outputfile'] = str(self.outputfile.text())
 
         parameters['tvwidth'] = str(self.tvwidth.text())

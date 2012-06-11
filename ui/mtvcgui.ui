@@ -374,7 +374,7 @@
         <x>325</x>
         <y>80</y>
         <width>341</width>
-        <height>91</height>
+        <height>106</height>
        </rect>
       </property>
       <property name="title">
@@ -383,10 +383,10 @@
       <widget class="QLineEdit" name="lavc_audiobitrate">
        <property name="geometry">
         <rect>
-         <x>175</x>
-         <y>60</y>
+         <x>205</x>
+         <y>50</y>
          <width>113</width>
-         <height>26</height>
+         <height>21</height>
         </rect>
        </property>
        <property name="text">
@@ -396,8 +396,8 @@
       <widget class="QLabel" name="label_19">
        <property name="geometry">
         <rect>
-         <x>35</x>
-         <y>40</y>
+         <x>10</x>
+         <y>30</y>
          <width>136</width>
          <height>16</height>
         </rect>
@@ -409,8 +409,8 @@
       <widget class="QLabel" name="label_20">
        <property name="geometry">
         <rect>
-         <x>35</x>
-         <y>70</y>
+         <x>10</x>
+         <y>55</y>
          <width>136</width>
          <height>16</height>
         </rect>
@@ -422,10 +422,10 @@
       <widget class="QComboBox" name="lavc_audiocodec">
        <property name="geometry">
         <rect>
-         <x>175</x>
-         <y>30</y>
+         <x>205</x>
+         <y>25</y>
          <width>111</width>
-         <height>26</height>
+         <height>21</height>
         </rect>
        </property>
        <property name="editable">
@@ -438,7 +438,22 @@
        </item>
        <item>
         <property name="text">
+         <string>libmp3lame</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
          <string>ac3</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>flac</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>vorbis</string>
         </property>
        </item>
        <item>
@@ -446,11 +461,32 @@
          <string>adpcm_ima_wav</string>
         </property>
        </item>
-       <item>
-        <property name="text">
-         <string>mp3</string>
-        </property>
-       </item>
+      </widget>
+      <widget class="QLineEdit" name="lavc_audio_extra_opts">
+       <property name="geometry">
+        <rect>
+         <x>205</x>
+         <y>75</y>
+         <width>113</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string notr="true"/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_40">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>80</y>
+         <width>176</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Extra options (delimited by :)</string>
+       </property>
       </widget>
      </widget>
      <widget class="QToolButton" name="showAudioCodecsButton">
@@ -543,7 +579,7 @@
         <x>325</x>
         <y>190</y>
         <width>341</width>
-        <height>80</height>
+        <height>121</height>
        </rect>
       </property>
       <property name="title">
@@ -552,7 +588,7 @@
       <widget class="QLabel" name="label_22">
        <property name="geometry">
         <rect>
-         <x>35</x>
+         <x>15</x>
          <y>60</y>
          <width>136</width>
          <height>16</height>
@@ -565,7 +601,7 @@
       <widget class="QLabel" name="label_21">
        <property name="geometry">
         <rect>
-         <x>35</x>
+         <x>15</x>
          <y>30</y>
          <width>136</width>
          <height>16</height>
@@ -578,9 +614,9 @@
       <widget class="QLineEdit" name="lavc_videobitrate">
        <property name="geometry">
         <rect>
-         <x>175</x>
+         <x>195</x>
          <y>55</y>
-         <width>151</width>
+         <width>131</width>
          <height>26</height>
         </rect>
        </property>
@@ -591,9 +627,9 @@
       <widget class="QComboBox" name="lavc_videocodec">
        <property name="geometry">
         <rect>
-         <x>175</x>
+         <x>195</x>
          <y>25</y>
-         <width>151</width>
+         <width>131</width>
          <height>26</height>
         </rect>
        </property>
@@ -647,6 +683,11 @@
        </item>
        <item>
         <property name="text">
+         <string>rv20</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
          <string>mpeg1video</string>
         </property>
        </item>
@@ -655,6 +696,37 @@
          <string>huffyuv</string>
         </property>
        </item>
+       <item>
+        <property name="text">
+         <string>flv</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QLabel" name="label_41">
+       <property name="geometry">
+        <rect>
+         <x>15</x>
+         <y>90</y>
+         <width>181</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Extra options (delimited by :)</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lavc_video_extra_opts">
+       <property name="geometry">
+        <rect>
+         <x>195</x>
+         <y>85</y>
+         <width>126</width>
+         <height>26</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string notr="true"/>
+       </property>
       </widget>
      </widget>
      <widget class="QGroupBox" name="lame_options_box">
@@ -672,7 +744,7 @@
       <widget class="QLabel" name="label_28">
        <property name="geometry">
         <rect>
-         <x>35</x>
+         <x>10</x>
          <y>30</y>
          <width>116</width>
          <height>16</height>
@@ -685,14 +757,40 @@
       <widget class="QLineEdit" name="lame_audiobitrate">
        <property name="geometry">
         <rect>
-         <x>185</x>
+         <x>190</x>
          <y>25</y>
          <width>113</width>
-         <height>26</height>
+         <height>21</height>
         </rect>
        </property>
        <property name="text">
         <string notr="true">128</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="extra_lame_opts_label">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>55</y>
+         <width>176</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Extra options (delimited by :)</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lame_extra_opts">
+       <property name="geometry">
+        <rect>
+         <x>190</x>
+         <y>50</y>
+         <width>113</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string notr="true"/>
        </property>
       </widget>
      </widget>
@@ -728,6 +826,264 @@
        <bool>true</bool>
       </property>
      </widget>
+     <widget class="QGroupBox" name="xvid_options_box">
+      <property name="geometry">
+       <rect>
+        <x>325</x>
+        <y>190</y>
+        <width>341</width>
+        <height>121</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>xvid options</string>
+      </property>
+      <widget class="QLabel" name="label_33">
+       <property name="geometry">
+        <rect>
+         <x>5</x>
+         <y>25</y>
+         <width>56</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>bitrate</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_34">
+       <property name="geometry">
+        <rect>
+         <x>5</x>
+         <y>50</y>
+         <width>71</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>fixed_quant</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_35">
+       <property name="geometry">
+        <rect>
+         <x>5</x>
+         <y>75</y>
+         <width>76</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>me_quality</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="xvid_bitrate">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>20</y>
+         <width>113</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;bitrate=&amp;lt;value&amp;gt; (CBR or two pass mode)&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Sets the bitrate to be used in kbits/second if &amp;lt;16000 or in bits/second if &amp;gt;16000. If &amp;lt;value&amp;gt; is negative, XviD will use its absolute value as the target size (in kBytes) of the video and compute the associated bitrate automagically (default: 687 kbits/s).&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="text">
+        <string notr="true"/>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="xvid_fixed_quant">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>45</y>
+         <width>113</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;fixed_quant=&amp;lt;1−31&amp;gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Switch to fixed quantizer mode and specify the quantizer to be used.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="text">
+        <string notr="true"/>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="xvid_me_quality">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>70</y>
+         <width>113</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;me_quality=&amp;lt;0−6&amp;gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;This option controls the motion estimation subsystem. The higher the value, the more precise the estimation should be (default: 6). The more precise the motion estimation is, the more bits can be saved. Precision is gained at the expense of CPU time so decrease this setting if you need realtime encoding.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="text">
+        <string notr="true"/>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="xvid_interlacing">
+       <property name="geometry">
+        <rect>
+         <x>215</x>
+         <y>40</y>
+         <width>96</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-family:'sans-serif'; font-size:medium; font-weight:600; color:#333333;&quot;&gt;interlacing&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-family:'sans-serif'; font-size:medium; color:#333333;&quot;&gt;Encode the fields of interlaced video material. Turn this option on for interlaced content. &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-family:'sans-serif'; font-size:medium; color:#333333;&quot;&gt;NOTE: Should you rescale the video, you would need an interlace-aware resizer, which you can activate with −vf scale=&amp;lt;width&amp;gt;:&amp;lt;height&amp;gt;:1&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="text">
+        <string>interlacing</string>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="xvid_cartoon">
+       <property name="geometry">
+        <rect>
+         <x>215</x>
+         <y>60</y>
+         <width>80</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;cartoon&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Activate this if your encoded sequence is an anime/cartoon. It modifies some XviD internal thresholds so XviD takes better decisions on frame types and motion vectors for flat looking cartoons.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="text">
+        <string>cartoon</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_36">
+       <property name="geometry">
+        <rect>
+         <x>5</x>
+         <y>100</y>
+         <width>171</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Extra options (delimited by :)</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="xvid_extra_opts">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>95</y>
+         <width>141</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string notr="true"/>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="x264_options_box">
+      <property name="geometry">
+       <rect>
+        <x>325</x>
+        <y>190</y>
+        <width>341</width>
+        <height>96</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>x264 options</string>
+      </property>
+      <widget class="QLineEdit" name="x264_bitrate">
+       <property name="geometry">
+        <rect>
+         <x>105</x>
+         <y>20</y>
+         <width>113</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-family:'sans-serif'; font-size:medium; font-weight:600; color:#333333;&quot;&gt;bitrate=&amp;lt;value&amp;gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-family:'sans-serif'; font-size:medium; color:#333333;&quot;&gt;Sets the average bitrate to be used in kbits/second (default: off). Since local bitrate may vary, this average may be inaccurate for very short videos (see ratetol). Constant bitrate can be achieved by combining this with vbv_maxrate, at significant reduction in quality.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="text">
+        <string notr="true"/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_37">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>25</y>
+         <width>81</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>bitrate (CBR)</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_38">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>45</y>
+         <width>81</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>qp_constant</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="x264_qp_constant">
+       <property name="geometry">
+        <rect>
+         <x>105</x>
+         <y>45</y>
+         <width>113</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;qp=&amp;lt;0−51&amp;gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;This selects the quantizer to use for P-frames. I- and B-frames are offset from this value by ip_factor and pb_factor, respectively. 20−40 is a useful range (default: 26). Lower values result in better fidelity, but higher bitrates. 0 is lossless. Note that quantization in H.264 works differently from MPEG-1/2/4: H.264’s quantization parameter (QP) is on a logarithmic scale. The mapping is approximately H264QP = 12 + 6*log2(MPEGQP). For example, MPEG at QP=2 is equivalent to H.264 at QP=18.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="text">
+        <string notr="true"/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_39">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>70</y>
+         <width>166</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Extra options (delimited by :)</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="x264_extra_opts">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>65</y>
+         <width>141</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string/>
+       </property>
+       <property name="text">
+        <string notr="true"/>
+       </property>
+      </widget>
+     </widget>
     </widget>
     <widget class="QWidget" name="tab_2">
      <attribute name="title">
@@ -754,6 +1110,9 @@
         <width>541</width>
         <height>26</height>
        </rect>
+      </property>
+      <property name="text">
+       <string notr="true"/>
       </property>
      </widget>
      <widget class="QLineEdit" name="tvwidth">
@@ -879,6 +1238,9 @@
        <string>You may find the available devices running the command
 aplay --list-devices
 on the console</string>
+      </property>
+      <property name="text">
+       <string notr="true"/>
       </property>
      </widget>
      <widget class="QLabel" name="label_25">
