@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'mtvcgui.ui'
 #
-# Created: Mon Jun 11 21:07:21 2012
+# Created: Mon Jun 11 22:50:03 2012
 #      by: PyQt4 UI code generator 4.9.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -31,10 +31,10 @@ class Ui_MainWindow(object):
         self.label.setGeometry(QtCore.QRect(10, 365, 101, 16))
         self.label.setObjectName(_fromUtf8("label"))
         self.previewButton = QtGui.QPushButton(self.centralwidget)
-        self.previewButton.setGeometry(QtCore.QRect(525, 415, 161, 25))
+        self.previewButton.setGeometry(QtCore.QRect(520, 415, 166, 25))
         self.previewButton.setObjectName(_fromUtf8("previewButton"))
         self.previewcommand = QtGui.QLineEdit(self.centralwidget)
-        self.previewcommand.setGeometry(QtCore.QRect(10, 415, 511, 26))
+        self.previewcommand.setGeometry(QtCore.QRect(5, 415, 511, 26))
         self.previewcommand.setText(_fromUtf8(""))
         self.previewcommand.setReadOnly(False)
         self.previewcommand.setObjectName(_fromUtf8("previewcommand"))
@@ -473,7 +473,7 @@ class Ui_MainWindow(object):
         self.cancel_sheduleButton.setCheckable(False)
         self.cancel_sheduleButton.setObjectName(_fromUtf8("cancel_sheduleButton"))
         self.play_while_recording = QtGui.QCheckBox(self.tab_4)
-        self.play_while_recording.setGeometry(QtCore.QRect(20, 145, 611, 23))
+        self.play_while_recording.setGeometry(QtCore.QRect(20, 130, 611, 46))
         self.play_while_recording.setObjectName(_fromUtf8("play_while_recording"))
         self.setenvvars = QtGui.QCheckBox(self.tab_4)
         self.setenvvars.setGeometry(QtCore.QRect(20, 175, 611, 21))
@@ -646,7 +646,8 @@ class Ui_MainWindow(object):
         self.label_27.setText(QtGui.QApplication.translate("MainWindow", "Run this command after capturing:", None, QtGui.QApplication.UnicodeUTF8))
         self.scheduleButton.setText(QtGui.QApplication.translate("MainWindow", "Schedule Recording", None, QtGui.QApplication.UnicodeUTF8))
         self.cancel_sheduleButton.setText(QtGui.QApplication.translate("MainWindow", "Cancel", None, QtGui.QApplication.UnicodeUTF8))
-        self.play_while_recording.setText(QtGui.QApplication.translate("MainWindow", "Play recorded file while capture (kind of preview) (May consume too much cpu and ruin your capture!!)", None, QtGui.QApplication.UnicodeUTF8))
+        self.play_while_recording.setToolTip(QtGui.QApplication.translate("MainWindow", "<html><head/><body><p>It is absolutely not recommended to use this! It may consume too much CPU and ruin your capture!! It makes use of the \'tail\' command, so it must be available.</p></body></html>", None, QtGui.QApplication.UnicodeUTF8))
+        self.play_while_recording.setText(QtGui.QApplication.translate("MainWindow", "Play recorded file while capture (kind of preview) (NOT RECOMMENDED)", None, QtGui.QApplication.UnicodeUTF8))
         self.setenvvars.setText(QtGui.QApplication.translate("MainWindow", "Set these environment variables:", None, QtGui.QApplication.UnicodeUTF8))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_4), QtGui.QApplication.translate("MainWindow", "Advanced", None, QtGui.QApplication.UnicodeUTF8))
         self.append_suffix.setText(QtGui.QApplication.translate("MainWindow", "Append a number suffix if file exists", None, QtGui.QApplication.UnicodeUTF8))

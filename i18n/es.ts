@@ -189,27 +189,27 @@ p, li { white-space: pre-wrap; }
         <translation>Filtros extra (delimitados por ,)</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1776"/>
+        <location filename="mtvcgui.ui" line="1779"/>
         <source>Menu</source>
         <translation>Menú</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1794"/>
+        <location filename="mtvcgui.ui" line="1797"/>
         <source>Help</source>
         <translation>Ayuda</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1804"/>
+        <location filename="mtvcgui.ui" line="1807"/>
         <source>Exit</source>
         <translation>Salir</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1809"/>
+        <location filename="mtvcgui.ui" line="1812"/>
         <source>Save configuration</source>
         <translation>Guardar configuración</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1814"/>
+        <location filename="mtvcgui.ui" line="1817"/>
         <source>About mtvcgui</source>
         <translation>Acerca de mtvcgui</translation>
     </message>
@@ -271,12 +271,12 @@ on the console</source>
         <translation>Programar captura</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1745"/>
+        <location filename="mtvcgui.ui" line="1748"/>
         <source>Append a number suffix if file exists</source>
         <translation>Agregar sufijo numérico si el archivo existe</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1761"/>
+        <location filename="mtvcgui.ui" line="1764"/>
         <source>Stopped</source>
         <translation>Detenido</translation>
     </message>
@@ -286,12 +286,12 @@ on the console</source>
         <translation>Cancelar</translation>
     </message>
     <message>
-        <location filename="run.py" line="772"/>
+        <location filename="run.py" line="782"/>
         <source>Recording... %1</source>
         <translation>Capturando... %1</translation>
     </message>
     <message>
-        <location filename="run.py" line="220"/>
+        <location filename="run.py" line="224"/>
         <source>Waiting %1</source>
         <translation>Esperando %1</translation>
     </message>
@@ -316,12 +316,7 @@ on the console</source>
         <translation>Opciones de audio lame</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1701"/>
-        <source>Play recorded file while capture (kind of preview) (May consume too much cpu and ruin your capture!!)</source>
-        <translation>Reproducir video capturado mientras se captura (especie de preview) (consume mucho CPU, funciona mal y puede romper todo)</translation>
-    </message>
-    <message>
-        <location filename="mtvcgui.ui" line="1819"/>
+        <location filename="mtvcgui.ui" line="1822"/>
         <source>Restore saved configuration</source>
         <translation>Cargar configuración guardada</translation>
     </message>
@@ -346,12 +341,12 @@ on the console</source>
         <translation>Saturación</translation>
     </message>
     <message>
-        <location filename="run.py" line="166"/>
+        <location filename="run.py" line="167"/>
         <source>mtvcgui upgrade information</source>
         <translation>Información de actualización de mtvcgui</translation>
     </message>
     <message>
-        <location filename="run.py" line="166"/>
+        <location filename="run.py" line="167"/>
         <source>You are using a configuration file from an older mtvcgui version.
 Current version get supported norms, video codecs and audio codecs from mplayer and store them as strings in the file ~/.mtvgui/mtvcgui.ini instead of integer values as in previous versions.
 
@@ -362,7 +357,7 @@ La versión actual obtiene las normas soportadas, los codecs de video y de audio
 Para evitar que este mensaje se muestre nuevamente seleccione a continuación la norma deseada, el códec de audio y de video y guarde la configuración.  </translation>
     </message>
     <message>
-        <location filename="run.py" line="188"/>
+        <location filename="run.py" line="189"/>
         <source>mencoder execution failed. This program produces output to stdout. Start the program from the command line and check console output for possible causes of this failure.</source>
         <translation>La ejecución de mencoder falló. Este programa muestra información en la salida estándar (stdout). Inicie el programa desde la línea de comandos y observe la información que aparece en la consola para detectar la posible causa de este fallo.</translation>
     </message>
@@ -443,32 +438,32 @@ Si &amp;lt;valor&amp;gt; es negativo, XviD usará el valor absoluto como tamaño
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1714"/>
+        <location filename="mtvcgui.ui" line="1717"/>
         <source>Set these environment variables:</source>
         <translation>Establecer estas variables de entorno:</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1780"/>
+        <location filename="mtvcgui.ui" line="1783"/>
         <source>Change language</source>
         <translation>Cambiar de idioma</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1824"/>
+        <location filename="mtvcgui.ui" line="1827"/>
         <source>English</source>
         <translation>Inglés</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1829"/>
+        <location filename="mtvcgui.ui" line="1832"/>
         <source>Spanish</source>
         <translation>Español</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1834"/>
+        <location filename="mtvcgui.ui" line="1837"/>
         <source>Spanish (Argentina)</source>
         <translation>Español (Argentina)</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1839"/>
+        <location filename="mtvcgui.ui" line="1842"/>
         <source>Italian</source>
         <translation>Italiano</translation>
     </message>
@@ -507,6 +502,16 @@ Si &amp;lt;valor&amp;gt; es negativo, XviD usará el valor absoluto como tamaño
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;qp=&amp;lt;0−51&amp;gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;This selects the quantizer to use for P-frames. I- and B-frames are offset from this value by ip_factor and pb_factor, respectively. 20−40 is a useful range (default: 26). Lower values result in better fidelity, but higher bitrates. 0 is lossless. Note that quantization in H.264 works differently from MPEG-1/2/4: H.264’s quantization parameter (QP) is on a logarithmic scale. The mapping is approximately H264QP = 12 + 6*log2(MPEGQP). For example, MPEG at QP=2 is equivalent to H.264 at QP=18.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;qp=&amp;lt;0−51&amp;gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Elige el cuantizador a usar. Valores menores resultan en mejor fidelidad, pero altas tasas de bits. Note que la cuantización en H.264 funciona distinto que en mpeg[124]. Los QP de H.264 están en escala logarítmica. Como ejemplo, la diferencia de tasa de bits entre QP=20 y QP=40 es de un factor 10. Los cuantizadores útiles en H.264 tienen a ser muy grandes comparados con mpeg[124]. 20-40 es un rango útil (por defecto:26). 
 NOTA: Esta opción toma efecto incluso aunque especifique codificación cbr. En tal caso, el primer marco codificado usará el factor de cuantización que especifique, pero en marcos posteriores, el control de tasa decide qué cuantizador usar.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="mtvcgui.ui" line="1701"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;It is absolutely not recommended to use this! It may consume too much CPU and ruin your capture!! It makes use of the &apos;tail&apos; command, so it must be available.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Está absolutamente no recomendado usar esto! Puede utlilizar demasiado CPU y arruinar la captura!! Utiliza el comando &apos;tail&apos; por lo cual debe estar disponible.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="mtvcgui.ui" line="1704"/>
+        <source>Play recorded file while capture (kind of preview) (NOT RECOMMENDED)</source>
+        <translation>Reproducir video capturado mientras se captura (especie de preview)  (NO RECOMENDADO)</translation>
     </message>
 </context>
 </TS>

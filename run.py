@@ -93,6 +93,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow, Translatable):
         self.mplayer_preview_pid = 0
         self.mplayer_recording_pid = 0
         self.mencoder_pid = 0
+        self.tail_pid = 0
 
         #timer to update state while recording
         self.time_running = 0
@@ -191,15 +192,18 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow, Translatable):
                     "output for possible causes of this failure."))
             self.record_stop_cleanup()
 
-    def check_preview_file(self):
-        if os.path.exists(self.filename):
-            cmd = ['mplayer', '-quiet', self.filename]
+    def check_preview_file(self):        
+        #check that file exists and has some data
+        if os.path.exists(self.filename) and os.path.getsize(self.filename) > 50000:
             try:
-                self.mplayer_instance = Popen(cmd)
+                self.tail_instance = Popen(["tail", "-f", "-c", "+0", self.filename], stdout=PIPE)
+                self.mplayer_instance = Popen(["mplayer", "-quiet", "-"], stdin=self.tail_instance.stdout)
                 self.mplayer_recording_pid = self.mplayer_instance.pid
+                self.tail_pid = self.tail_instance.pid
             except OSError:
                 self.error_dialog.showMessage("excecution of %s failed" % " ".join(cmd))
             self.preview_file_timer.stop()
+
 
     def check_mplayer_preview(self):
         if self.mplayer_instance.poll() is not None:
@@ -224,8 +228,12 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow, Translatable):
         self.checker_timer.stop()
         self.time_running = 0
         if self.mplayer_recording_pid:
+            if self.tail_pid:
+                call(['kill', str(self.tail_pid)])
+                self.tail_pid = 0
             call(['kill', str(self.mplayer_recording_pid)])
             self.mplayer_recording_pid = 0
+            
         post_command = str(self.post_command.text())
         if post_command:
             cmds = [c for c in re.split("\s+", post_command) if c]
@@ -242,6 +250,8 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow, Translatable):
         if self.mplayer_recording_pid:
             print "killing mplayer rec"
             call(['kill', str(self.mplayer_recording_pid)])
+            if self.tail_pid:
+                call(['kill', str(self.tail_pid)])
         if self.mplayer_preview_pid:
             print "killing mplayer prev"
             call(['kill', str(self.mplayer_preview_pid)])
@@ -776,7 +786,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow, Translatable):
                 self.scheduleButton.setEnabled(False)
                 self.cancel_sheduleButton.setEnabled(False)
                 if play_while_recording:
-                    self.preview_file_timer.start(1000)
+                    self.preview_file_timer.start(2000)
             else:
                 self.stopButton.setEnabled(False)
                 self.runButton.setEnabled(True)

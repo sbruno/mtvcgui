@@ -59,12 +59,12 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="run.py" line="166"/>
+        <location filename="run.py" line="167"/>
         <source>mtvcgui upgrade information</source>
         <translation>Informazioni di aggiornamento di mtvcgui</translation>
     </message>
     <message>
-        <location filename="run.py" line="166"/>
+        <location filename="run.py" line="167"/>
         <source>You are using a configuration file from an older mtvcgui version.
 Current version get supported norms, video codecs and audio codecs from mplayer and store them as strings in the file ~/.mtvgui/mtvcgui.ini instead of integer values as in previous versions.
 
@@ -74,22 +74,22 @@ To avoid this message to appear again select your desired norm, audio codec and 
 Per evitare che questo messaggio sia visualizzato ancora selezioni la impostazioni desiderate di codec audio e video e salvi la configurazione.</translation>
     </message>
     <message>
-        <location filename="run.py" line="772"/>
+        <location filename="run.py" line="782"/>
         <source>Recording... %1</source>
         <translation>Registrando... %1</translation>
     </message>
     <message>
-        <location filename="run.py" line="188"/>
+        <location filename="run.py" line="189"/>
         <source>mencoder execution failed. This program produces output to stdout. Start the program from the command line and check console output for possible causes of this failure.</source>
         <translation>Esecuzione fallita di mencoder. Il programma produce un output di stdout. Avviare il programma da riga di comando per verificare le possibili cause di questo fallimento sull&apos;output in console. </translation>
     </message>
     <message>
-        <location filename="run.py" line="220"/>
+        <location filename="run.py" line="224"/>
         <source>Waiting %1</source>
         <translation>Attesa %1</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1761"/>
+        <location filename="mtvcgui.ui" line="1764"/>
         <source>Stopped</source>
         <translation>Fermato</translation>
     </message>
@@ -401,72 +401,67 @@ on the console</source>
         <translation>Annulla</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1701"/>
-        <source>Play recorded file while capture (kind of preview) (May consume too much cpu and ruin your capture!!)</source>
-        <translation>Riproduce il file registrato mentre cattura (una specie di anteprima) (Usa molta cpu e potrebbe rovinare l&apos;acquisizione!)</translation>
-    </message>
-    <message>
-        <location filename="mtvcgui.ui" line="1714"/>
+        <location filename="mtvcgui.ui" line="1717"/>
         <source>Set these environment variables:</source>
         <translation>Impostare queste variabili d&apos;ambiente:</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1745"/>
+        <location filename="mtvcgui.ui" line="1748"/>
         <source>Append a number suffix if file exists</source>
         <translation>Aggiungi un suffisso se il file esiste</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1776"/>
+        <location filename="mtvcgui.ui" line="1779"/>
         <source>Menu</source>
         <translation>Menù</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1780"/>
+        <location filename="mtvcgui.ui" line="1783"/>
         <source>Change language</source>
         <translation>Cambia lingua</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1794"/>
+        <location filename="mtvcgui.ui" line="1797"/>
         <source>Help</source>
         <translation>Guida</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1804"/>
+        <location filename="mtvcgui.ui" line="1807"/>
         <source>Exit</source>
         <translation>Esci</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1809"/>
+        <location filename="mtvcgui.ui" line="1812"/>
         <source>Save configuration</source>
         <translation>Salva configurazione</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1814"/>
+        <location filename="mtvcgui.ui" line="1817"/>
         <source>About mtvcgui</source>
         <translation>Su mtvcgui</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1819"/>
+        <location filename="mtvcgui.ui" line="1822"/>
         <source>Restore saved configuration</source>
         <translation>Ripristina configurazione salvata</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1824"/>
+        <location filename="mtvcgui.ui" line="1827"/>
         <source>English</source>
         <translation>Inglese</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1829"/>
+        <location filename="mtvcgui.ui" line="1832"/>
         <source>Spanish</source>
         <translation>Spagnolo</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1834"/>
+        <location filename="mtvcgui.ui" line="1837"/>
         <source>Spanish (Argentina)</source>
         <translation>Spagnolo (Argentina) </translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1839"/>
+        <location filename="mtvcgui.ui" line="1842"/>
         <source>Italian</source>
         <translation>Italiano</translation>
     </message>
@@ -504,6 +499,16 @@ on the console</source>
         <location filename="mtvcgui.ui" line="1051"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;qp=&amp;lt;0−51&amp;gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;This selects the quantizer to use for P-frames. I- and B-frames are offset from this value by ip_factor and pb_factor, respectively. 20−40 is a useful range (default: 26). Lower values result in better fidelity, but higher bitrates. 0 is lossless. Note that quantization in H.264 works differently from MPEG-1/2/4: H.264’s quantization parameter (QP) is on a logarithmic scale. The mapping is approximately H264QP = 12 + 6*log2(MPEGQP). For example, MPEG at QP=2 is equivalent to H.264 at QP=18.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;qp=&amp;lt;0−51&amp;gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Questo seleziona il quantizzatore da usare. I fotogrammi I e B sono spostati di questo valore rispettivamente da ip_factor e pb_factor. Una gamma utilizzabile è 20−40 (default: 26). Valori più bassi generano una miglior fedeltà ma bitrate più alti. 0 significa senza perdita. Nota che la quantizzazione in H.264 funziona diversamente che in MPEG-1/2/4: il valore del parametro di quantizzazione (QP) di H.264 è in scala logaritmica. La mappatura è approssimativamente H264QP = 12 + 6*log2(MPEGQP). Per esempio MPEG a QP=2 è equivalente ad H.264 con QP=18.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="mtvcgui.ui" line="1701"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;It is absolutely not recommended to use this! It may consume too much CPU and ruin your capture!! It makes use of the &apos;tail&apos; command, so it must be available.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Non è consigliato di usare questo! Usa molta CPU e potrebbe rovinare l&apos;acquisizione! Utilizza il comando &apos;tail&apos; perciò deve essere disponibile..&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="mtvcgui.ui" line="1704"/>
+        <source>Play recorded file while capture (kind of preview) (NOT RECOMMENDED)</source>
+        <translation>Riproduce il file registrato mentre cattura (una specie di anteprima) (NON È RACCOMANDATO)</translation>
     </message>
 </context>
 </TS>

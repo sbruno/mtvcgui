@@ -56,9 +56,9 @@
    <widget class="QPushButton" name="previewButton">
     <property name="geometry">
      <rect>
-      <x>525</x>
+      <x>520</x>
       <y>415</y>
-      <width>161</width>
+      <width>166</width>
       <height>25</height>
      </rect>
     </property>
@@ -69,7 +69,7 @@
    <widget class="QLineEdit" name="previewcommand">
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>5</x>
       <y>415</y>
       <width>511</width>
       <height>26</height>
@@ -1692,13 +1692,16 @@ on the console</string>
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>145</y>
+        <y>130</y>
         <width>611</width>
-        <height>23</height>
+        <height>46</height>
        </rect>
       </property>
+      <property name="toolTip">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;It is absolutely not recommended to use this! It may consume too much CPU and ruin your capture!! It makes use of the 'tail' command, so it must be available.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
       <property name="text">
-       <string>Play recorded file while capture (kind of preview) (May consume too much cpu and ruin your capture!!)</string>
+       <string>Play recorded file while capture (kind of preview) (NOT RECOMMENDED)</string>
       </property>
      </widget>
      <widget class="QCheckBox" name="setenvvars">
