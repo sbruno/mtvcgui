@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'mtvcgui.ui'
 #
-# Created: Wed Jun 13 03:03:51 2012
+# Created: Wed Jun 13 03:08:02 2012
 #      by: PyQt4 UI code generator 4.9.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -412,10 +412,10 @@ class Ui_MainWindow(object):
         self.tab_3 = QtGui.QWidget()
         self.tab_3.setObjectName(_fromUtf8("tab_3"))
         self.label_11 = QtGui.QLabel(self.tab_3)
-        self.label_11.setGeometry(QtCore.QRect(40, 220, 451, 16))
+        self.label_11.setGeometry(QtCore.QRect(20, 220, 451, 16))
         self.label_11.setObjectName(_fromUtf8("label_11"))
         self.extramencoderparms = QtGui.QLineEdit(self.tab_3)
-        self.extramencoderparms.setGeometry(QtCore.QRect(32, 240, 541, 26))
+        self.extramencoderparms.setGeometry(QtCore.QRect(20, 240, 540, 26))
         self.extramencoderparms.setText(_fromUtf8(""))
         self.extramencoderparms.setObjectName(_fromUtf8("extramencoderparms"))
         self.label_15 = QtGui.QLabel(self.tab_3)
@@ -447,11 +447,11 @@ class Ui_MainWindow(object):
         self.label_18.setGeometry(QtCore.QRect(20, 75, 61, 16))
         self.label_18.setObjectName(_fromUtf8("label_18"))
         self.extrafilters = QtGui.QLineEdit(self.tab_3)
-        self.extrafilters.setGeometry(QtCore.QRect(30, 180, 541, 26))
+        self.extrafilters.setGeometry(QtCore.QRect(20, 180, 540, 26))
         self.extrafilters.setText(_fromUtf8(""))
         self.extrafilters.setObjectName(_fromUtf8("extrafilters"))
         self.label_23 = QtGui.QLabel(self.tab_3)
-        self.label_23.setGeometry(QtCore.QRect(40, 160, 456, 16))
+        self.label_23.setGeometry(QtCore.QRect(20, 160, 456, 16))
         self.label_23.setObjectName(_fromUtf8("label_23"))
         self.tabWidget.addTab(self.tab_3, _fromUtf8(""))
         self.tab_4 = QtGui.QWidget()
@@ -474,7 +474,7 @@ class Ui_MainWindow(object):
         self.recording_date.setGeometry(QtCore.QRect(15, 270, 194, 26))
         self.recording_date.setObjectName(_fromUtf8("recording_date"))
         self.scheduleButton = QtGui.QPushButton(self.tab_4)
-        self.scheduleButton.setGeometry(QtCore.QRect(225, 270, 186, 25))
+        self.scheduleButton.setGeometry(QtCore.QRect(230, 270, 186, 25))
         self.scheduleButton.setObjectName(_fromUtf8("scheduleButton"))
         self.cancel_sheduleButton = QtGui.QPushButton(self.tab_4)
         self.cancel_sheduleButton.setEnabled(False)
@@ -482,14 +482,14 @@ class Ui_MainWindow(object):
         self.cancel_sheduleButton.setCheckable(False)
         self.cancel_sheduleButton.setObjectName(_fromUtf8("cancel_sheduleButton"))
         self.play_while_recording = QtGui.QCheckBox(self.tab_4)
-        self.play_while_recording.setGeometry(QtCore.QRect(20, 130, 636, 46))
+        self.play_while_recording.setGeometry(QtCore.QRect(15, 130, 636, 46))
         self.play_while_recording.setObjectName(_fromUtf8("play_while_recording"))
         self.setenvvars = QtGui.QCheckBox(self.tab_4)
-        self.setenvvars.setGeometry(QtCore.QRect(20, 175, 611, 21))
+        self.setenvvars.setGeometry(QtCore.QRect(15, 175, 611, 21))
         self.setenvvars.setChecked(True)
         self.setenvvars.setObjectName(_fromUtf8("setenvvars"))
         self.envvars = QtGui.QPlainTextEdit(self.tab_4)
-        self.envvars.setGeometry(QtCore.QRect(20, 200, 611, 66))
+        self.envvars.setGeometry(QtCore.QRect(15, 200, 626, 66))
         self.envvars.setPlainText(_fromUtf8("LD_PRELOAD=/usr/lib/libv4l/v4l2convert.so"))
         self.envvars.setObjectName(_fromUtf8("envvars"))
         self.tabWidget.addTab(self.tab_4, _fromUtf8(""))

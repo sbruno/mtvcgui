@@ -1462,7 +1462,7 @@ on the console</string>
      <widget class="QLabel" name="label_11">
       <property name="geometry">
        <rect>
-        <x>40</x>
+        <x>20</x>
         <y>220</y>
         <width>451</width>
         <height>16</height>
@@ -1475,9 +1475,9 @@ on the console</string>
      <widget class="QLineEdit" name="extramencoderparms">
       <property name="geometry">
        <rect>
-        <x>32</x>
+        <x>20</x>
         <y>240</y>
-        <width>541</width>
+        <width>540</width>
         <height>26</height>
        </rect>
       </property>
@@ -1595,9 +1595,9 @@ on the console</string>
      <widget class="QLineEdit" name="extrafilters">
       <property name="geometry">
        <rect>
-        <x>30</x>
+        <x>20</x>
         <y>180</y>
-        <width>541</width>
+        <width>540</width>
         <height>26</height>
        </rect>
       </property>
@@ -1608,7 +1608,7 @@ on the console</string>
      <widget class="QLabel" name="label_23">
       <property name="geometry">
        <rect>
-        <x>40</x>
+        <x>20</x>
         <y>160</y>
         <width>456</width>
         <height>16</height>
@@ -1688,7 +1688,7 @@ on the console</string>
      <widget class="QPushButton" name="scheduleButton">
       <property name="geometry">
        <rect>
-        <x>225</x>
+        <x>230</x>
         <y>270</y>
         <width>186</width>
         <height>25</height>
@@ -1720,7 +1720,7 @@ on the console</string>
      <widget class="QCheckBox" name="play_while_recording">
       <property name="geometry">
        <rect>
-        <x>20</x>
+        <x>15</x>
         <y>130</y>
         <width>636</width>
         <height>46</height>
@@ -1736,7 +1736,7 @@ on the console</string>
      <widget class="QCheckBox" name="setenvvars">
       <property name="geometry">
        <rect>
-        <x>20</x>
+        <x>15</x>
         <y>175</y>
         <width>611</width>
         <height>21</height>
@@ -1752,9 +1752,9 @@ on the console</string>
      <widget class="QPlainTextEdit" name="envvars">
       <property name="geometry">
        <rect>
-        <x>20</x>
+        <x>15</x>
         <y>200</y>
-        <width>611</width>
+        <width>626</width>
         <height>66</height>
        </rect>
       </property>
