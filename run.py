@@ -49,10 +49,13 @@ NORMS_DICT = {}
 class Translatable():
     def change_language(self, locale_string=None):
         self.locale_string = locale_string
+        if self.translator:
+            app.removeTranslator(self.translator)
         translation = utils.find_translation(locale_string=locale_string)
         appTranslator = QtCore.QTranslator()
         appTranslator.load(translation)
         app.installTranslator(appTranslator)
+        self.translator = appTranslator
         self.retranslateUi(self)
 
 class InfoDialog(QtGui.QDialog, Ui_InfoDialog, Translatable):
@@ -90,6 +93,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow, Translatable):
         QtGui.QWidget.__init__(self, parent)
 
         self.locale_string = None
+        self.translator = None
         self.mplayer_preview_pid = 0
         self.mplayer_recording_pid = 0
         self.mencoder_pid = 0
@@ -145,7 +149,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow, Translatable):
             self.videocodec.clear()
             for codec in codecs:
                 self.videocodec.addItem(codec)     
-        
+
         self.set_params_from_config()
         self.update_device_values()
         
@@ -162,6 +166,8 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow, Translatable):
                 oldconfig = True
             except:
                 pass
+
+        self.change_language(self.locale_string)
         
         if oldconfig:
             QtGui.QMessageBox.information(self,
@@ -174,7 +180,6 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow, Translatable):
         "desired norm, audio codec and video codec values next and save "\
         "the configuration."));
         
-        self.change_language(self.locale_string)
         
    
 
@@ -423,6 +428,11 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow, Translatable):
             
         #xvid options
 
+        if config.has_option('mencoder GUI', 'xvid_cbr'):
+            self.xvid_cbr.setChecked(
+                config.get('mencoder GUI', 'xvid_cbr') == 'True'
+                )
+                
         if config.has_option('mencoder GUI', 'xvid_bitrate'):
             self.xvid_bitrate.setText(config.get('mencoder GUI', 'xvid_bitrate'))
             
@@ -445,9 +455,15 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow, Translatable):
                 config.get('mencoder GUI', 'xvid_interlacing') == 'True'
                 )
                 
+        self.set_xvid_cbr(self.xvid_cbr.isChecked())
                 
         #x264 options
 
+        if config.has_option('mencoder GUI', 'x264_cbr'):
+            self.x264_cbr.setChecked(
+                config.get('mencoder GUI', 'x264_cbr') == 'True'
+                )
+        
         if config.has_option('mencoder GUI', 'x264_bitrate'):
             self.x264_bitrate.setText(config.get('mencoder GUI', 'x264_bitrate'))
             
@@ -460,6 +476,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow, Translatable):
         if config.has_option('mencoder GUI', 'outputfile'):
             self.outputfile.setText(config.get('mencoder GUI', 'outputfile'))
             
+        self.set_x264_cbr(self.x264_cbr.isChecked())
             
             
         #tv parms tab
@@ -653,6 +670,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow, Translatable):
         parameters['lavc_video_extra_opts'] = \
             str(self.lavc_video_extra_opts.text())        
         
+        parameters['xvid_cbr'] = self.xvid_cbr.isChecked()
         parameters['xvid_bitrate'] = str(self.xvid_bitrate.text())
         parameters['xvid_extra_opts'] = str(self.xvid_extra_opts.text())
         parameters['xvid_fixed_quant'] = str(self.xvid_fixed_quant.text())
@@ -660,6 +678,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow, Translatable):
         parameters['xvid_cartoon'] = self.xvid_cartoon.isChecked()
         parameters['xvid_interlacing'] = self.xvid_interlacing.isChecked()
         
+        parameters['x264_cbr'] = self.x264_cbr.isChecked()
         parameters['x264_bitrate'] = str(self.x264_bitrate.text())
         parameters['x264_qp'] = str(self.x264_qp.text())
         parameters['x264_extra_opts'] = str(self.x264_extra_opts.text())
@@ -930,6 +949,30 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow, Translatable):
         parameters = self.get_params_from_gui(config=True)
         utils.save_configuration(parameters)
 
+    def set_xvid_cbr(self, is_cbr):
+        if is_cbr:
+            self.xvid_bitrate.show()
+            self.xvid_bitrate_label.show()
+            self.xvid_fixed_quant.hide()
+            self.xvid_fixed_quant_label.hide()
+        else:
+            self.xvid_bitrate.hide()
+            self.xvid_bitrate_label.hide()
+            self.xvid_fixed_quant.show()
+            self.xvid_fixed_quant_label.show()
+            
+    def set_x264_cbr(self, is_cbr):
+        if is_cbr:
+            self.x264_bitrate.show()
+            self.x264_bitrate_label.show()
+            self.x264_qp.hide()
+            self.x264_qp_label.hide()
+        else:
+            self.x264_bitrate.hide()
+            self.x264_bitrate_label.hide()
+            self.x264_qp.show()
+            self.x264_qp_label.show()
+        
     def changeToEnglish(self):
         self.locale_string = "en"
         self.change_language(self.locale_string)

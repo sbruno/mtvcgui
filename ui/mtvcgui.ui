@@ -371,9 +371,9 @@
      <widget class="QGroupBox" name="lavc_audio_options_box">
       <property name="geometry">
        <rect>
-        <x>325</x>
+        <x>310</x>
         <y>80</y>
-        <width>341</width>
+        <width>361</width>
         <height>106</height>
        </rect>
       </property>
@@ -576,9 +576,9 @@
      <widget class="QGroupBox" name="lavc_video_options_box">
       <property name="geometry">
        <rect>
-        <x>325</x>
-        <y>190</y>
-        <width>341</width>
+        <x>310</x>
+        <y>195</y>
+        <width>361</width>
         <height>121</height>
        </rect>
       </property>
@@ -614,7 +614,7 @@
       <widget class="QLineEdit" name="lavc_videobitrate">
        <property name="geometry">
         <rect>
-         <x>195</x>
+         <x>220</x>
          <y>55</y>
          <width>131</width>
          <height>26</height>
@@ -627,7 +627,7 @@
       <widget class="QComboBox" name="lavc_videocodec">
        <property name="geometry">
         <rect>
-         <x>195</x>
+         <x>220</x>
          <y>25</y>
          <width>131</width>
          <height>26</height>
@@ -707,7 +707,7 @@
         <rect>
          <x>15</x>
          <y>90</y>
-         <width>181</width>
+         <width>201</width>
          <height>16</height>
         </rect>
        </property>
@@ -718,7 +718,7 @@
       <widget class="QLineEdit" name="lavc_video_extra_opts">
        <property name="geometry">
         <rect>
-         <x>195</x>
+         <x>220</x>
          <y>85</y>
          <width>126</width>
          <height>26</height>
@@ -732,9 +732,9 @@
      <widget class="QGroupBox" name="lame_options_box">
       <property name="geometry">
        <rect>
-        <x>325</x>
+        <x>310</x>
         <y>80</y>
-        <width>346</width>
+        <width>361</width>
         <height>80</height>
        </rect>
       </property>
@@ -826,19 +826,132 @@
        <bool>true</bool>
       </property>
      </widget>
+     <widget class="QGroupBox" name="x264_options_box">
+      <property name="geometry">
+       <rect>
+        <x>310</x>
+        <y>195</y>
+        <width>361</width>
+        <height>96</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>x264 options</string>
+      </property>
+      <widget class="QLineEdit" name="x264_bitrate">
+       <property name="geometry">
+        <rect>
+         <x>105</x>
+         <y>25</y>
+         <width>113</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;bitrate=&amp;lt;value&amp;gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Sets the average bitrate to be used in kbits/second (default: off). Since local bitrate may vary, this average may be inaccurate for very short videos (see ratetol). Constant bitrate can be achieved by combining this with vbv_maxrate, at significant reduction in quality.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="text">
+        <string notr="true"/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="x264_bitrate_label">
+       <property name="geometry">
+        <rect>
+         <x>15</x>
+         <y>30</y>
+         <width>81</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>bitrate</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="x264_qp_label">
+       <property name="geometry">
+        <rect>
+         <x>15</x>
+         <y>30</y>
+         <width>81</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>qp</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="x264_qp">
+       <property name="geometry">
+        <rect>
+         <x>105</x>
+         <y>25</y>
+         <width>113</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;qp=&amp;lt;0−51&amp;gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;This selects the quantizer to use for P-frames. I- and B-frames are offset from this value by ip_factor and pb_factor, respectively. 20−40 is a useful range (default: 26). Lower values result in better fidelity, but higher bitrates. 0 is lossless. Note that quantization in H.264 works differently from MPEG-1/2/4: H.264’s quantization parameter (QP) is on a logarithmic scale. The mapping is approximately H264QP = 12 + 6*log2(MPEGQP). For example, MPEG at QP=2 is equivalent to H.264 at QP=18.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="text">
+        <string notr="true"/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_39">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>60</y>
+         <width>201</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Extra options (delimited by :)</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="x264_extra_opts">
+       <property name="geometry">
+        <rect>
+         <x>215</x>
+         <y>55</y>
+         <width>141</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string/>
+       </property>
+       <property name="text">
+        <string notr="true"/>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="x264_cbr">
+       <property name="geometry">
+        <rect>
+         <x>230</x>
+         <y>25</y>
+         <width>80</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>CBR</string>
+       </property>
+      </widget>
+     </widget>
      <widget class="QGroupBox" name="xvid_options_box">
       <property name="geometry">
        <rect>
-        <x>325</x>
-        <y>190</y>
-        <width>341</width>
+        <x>310</x>
+        <y>195</y>
+        <width>361</width>
         <height>121</height>
        </rect>
       </property>
       <property name="title">
        <string>xvid options</string>
       </property>
-      <widget class="QLabel" name="label_33">
+      <widget class="QLabel" name="xvid_bitrate_label">
        <property name="geometry">
         <rect>
          <x>5</x>
@@ -851,11 +964,11 @@
         <string>bitrate</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_34">
+      <widget class="QLabel" name="xvid_fixed_quant_label">
        <property name="geometry">
         <rect>
          <x>5</x>
-         <y>50</y>
+         <y>25</y>
          <width>71</width>
          <height>16</height>
         </rect>
@@ -868,7 +981,7 @@
        <property name="geometry">
         <rect>
          <x>5</x>
-         <y>75</y>
+         <y>55</y>
          <width>76</width>
          <height>16</height>
         </rect>
@@ -897,7 +1010,7 @@
        <property name="geometry">
         <rect>
          <x>80</x>
-         <y>45</y>
+         <y>20</y>
          <width>113</width>
          <height>21</height>
         </rect>
@@ -913,7 +1026,7 @@
        <property name="geometry">
         <rect>
          <x>80</x>
-         <y>70</y>
+         <y>50</y>
          <width>113</width>
          <height>21</height>
         </rect>
@@ -928,8 +1041,8 @@
       <widget class="QCheckBox" name="xvid_interlacing">
        <property name="geometry">
         <rect>
-         <x>205</x>
-         <y>40</y>
+         <x>210</x>
+         <y>45</y>
          <width>126</width>
          <height>21</height>
         </rect>
@@ -944,8 +1057,8 @@
       <widget class="QCheckBox" name="xvid_cartoon">
        <property name="geometry">
         <rect>
-         <x>205</x>
-         <y>60</y>
+         <x>210</x>
+         <y>70</y>
          <width>126</width>
          <height>21</height>
         </rect>
@@ -962,7 +1075,7 @@
         <rect>
          <x>5</x>
          <y>100</y>
-         <width>181</width>
+         <width>206</width>
          <height>16</height>
         </rect>
        </property>
@@ -973,9 +1086,9 @@
       <widget class="QLineEdit" name="xvid_extra_opts">
        <property name="geometry">
         <rect>
-         <x>185</x>
+         <x>210</x>
          <y>95</y>
-         <width>141</width>
+         <width>146</width>
          <height>21</height>
         </rect>
        </property>
@@ -983,104 +1096,17 @@
         <string notr="true"/>
        </property>
       </widget>
-     </widget>
-     <widget class="QGroupBox" name="x264_options_box">
-      <property name="geometry">
-       <rect>
-        <x>325</x>
-        <y>190</y>
-        <width>341</width>
-        <height>96</height>
-       </rect>
-      </property>
-      <property name="title">
-       <string>x264 options</string>
-      </property>
-      <widget class="QLineEdit" name="x264_bitrate">
+      <widget class="QCheckBox" name="xvid_cbr">
        <property name="geometry">
         <rect>
-         <x>105</x>
+         <x>210</x>
          <y>20</y>
-         <width>113</width>
+         <width>80</width>
          <height>21</height>
         </rect>
        </property>
-       <property name="toolTip">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;bitrate=&amp;lt;value&amp;gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Sets the average bitrate to be used in kbits/second (default: off). Since local bitrate may vary, this average may be inaccurate for very short videos (see ratetol). Constant bitrate can be achieved by combining this with vbv_maxrate, at significant reduction in quality.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-       </property>
        <property name="text">
-        <string notr="true"/>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_37">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>25</y>
-         <width>81</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>bitrate (CBR)</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_38">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>45</y>
-         <width>81</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>qp</string>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="x264_qp">
-       <property name="geometry">
-        <rect>
-         <x>105</x>
-         <y>45</y>
-         <width>113</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="toolTip">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;qp=&amp;lt;0−51&amp;gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;This selects the quantizer to use for P-frames. I- and B-frames are offset from this value by ip_factor and pb_factor, respectively. 20−40 is a useful range (default: 26). Lower values result in better fidelity, but higher bitrates. 0 is lossless. Note that quantization in H.264 works differently from MPEG-1/2/4: H.264’s quantization parameter (QP) is on a logarithmic scale. The mapping is approximately H264QP = 12 + 6*log2(MPEGQP). For example, MPEG at QP=2 is equivalent to H.264 at QP=18.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-       </property>
-       <property name="text">
-        <string notr="true"/>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_39">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>70</y>
-         <width>176</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Extra options (delimited by :)</string>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="x264_extra_opts">
-       <property name="geometry">
-        <rect>
-         <x>190</x>
-         <y>65</y>
-         <width>141</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="toolTip">
-        <string/>
-       </property>
-       <property name="text">
-        <string notr="true"/>
+        <string>CBR</string>
        </property>
       </widget>
      </widget>
@@ -1764,6 +1790,15 @@ on the console</string>
      <string>Stopped</string>
     </property>
    </widget>
+   <zorder>tabWidget</zorder>
+   <zorder>runButton</zorder>
+   <zorder>outputfile</zorder>
+   <zorder>label</zorder>
+   <zorder>previewButton</zorder>
+   <zorder>previewcommand</zorder>
+   <zorder>stopButton</zorder>
+   <zorder>append_suffix</zorder>
+   <zorder>status_label</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -2309,6 +2344,38 @@ on the console</string>
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>xvid_cbr</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>set_xvid_cbr(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>286</x>
+     <y>256</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>316</x>
+     <y>497</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>x264_cbr</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>set_x264_cbr(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>559</x>
+     <y>279</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>567</x>
+     <y>497</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>run_mencoder()</slot>
@@ -2336,5 +2403,7 @@ on the console</string>
   <slot>changeToSpanish()</slot>
   <slot>changeToSpanish_Argentina()</slot>
   <slot>changeToItalian()</slot>
+  <slot>set_xvid_cbr(bool)</slot>
+  <slot>set_x264_cbr(bool)</slot>
  </slots>
 </ui>

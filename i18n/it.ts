@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS><TS version="2.0" language="it" sourcelanguage="en">
+<!DOCTYPE TS>
+<TS version="2.0" language="it" sourcelanguage="en">
 <context>
     <name>AboutDialog</name>
     <message>
@@ -32,7 +33,24 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://code.google.com/p/mtvcgui/&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:10pt; text-decoration: underline; color:#0000ff;&quot;&gt;http://code.google.com/p/mtvcgui/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;; font-size:10pt;&quot;&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:10pt;&quot;&gt;* This program doesn&apos;t deserve a creative name. Other more interesting projects may then find their name already taken by this one! Besides, mtvcgui had no hits in google, and I want to be unique :D&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:14pt; font-weight:600;&quot;&gt;mtvcgui* v0.31&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:12pt; font-style:italic;&quot;&gt;mencoder TV capture GUI&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;; font-size:12pt; font-style:italic;&quot;&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:10pt;&quot;&gt;Una semplice interfaccia grafica per usare mencoder per acquisire da tv.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:10pt;&quot;&gt;Scritto da Santiago Bruno usando python PyQt4 e Qtdesigner.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;; font-size:10pt;&quot;&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:10pt;&quot;&gt;Sotto Licenza  GPL v3:&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://www.gnu.org/licenses/gpl-3.0.html&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:10pt; text-decoration: underline; color:#0000ff;&quot;&gt;http://www.gnu.org/licenses/gpl-3.0.html&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;; font-size:10pt;&quot;&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:10pt;&quot;&gt;Altre-informazioni su:&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://www.santiagobruno.com.ar/programas.html&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:10pt; text-decoration: underline; color:#0000ff;&quot;&gt;http://www.santiagobruno.com.ar/programas.html&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://code.google.com/p/mtvcgui/&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:10pt; text-decoration: underline; color:#0000ff;&quot;&gt;http://code.google.com/p/mtvcgui/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;; font-size:10pt;&quot;&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:10pt;&quot;&gt;* This program doesn&apos;t deserve a creative name. Other more interesting projects may then find their name already taken by this one! Besides, mtvcgui had no hits in google, and I want to be unique :D&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
 </context>
 <context>
@@ -71,7 +89,7 @@ Current version get supported norms, video codecs and audio codecs from mplayer 
 To avoid this message to appear again select your desired norm, audio codec and video codec values next and save the configuration.</source>
         <translation>Si sta utilizzando un file di configurazione di una versione precedente di mtvcgui.La versione corrente ottiene le informazioni sulle impostazioni dei codec video e audio da mplayer e sono salvate come stringhe nel file ~ / .mtvgui / mtvcgui.ini invece di valori interi, come nelle versioni precedenti
 .
-Per evitare che questo messaggio sia visualizzato ancora selezioni la impostazioni desiderate di codec audio e video e salvi la configurazione.</translation>
+Per evitare che questo messaggio sia visualizzato ancora seleziona le impostazioni desiderate di codec audio e video e salva la configurazione.</translation>
     </message>
     <message>
         <location filename="run.py" line="782"/>
@@ -81,7 +99,7 @@ Per evitare che questo messaggio sia visualizzato ancora selezioni la impostazio
     <message>
         <location filename="run.py" line="189"/>
         <source>mencoder execution failed. This program produces output to stdout. Start the program from the command line and check console output for possible causes of this failure.</source>
-        <translation>Esecuzione fallita di mencoder. Il programma produce un output di stdout. Avviare il programma da riga di comando per verificare le possibili cause di questo fallimento sull&apos;output in console. </translation>
+        <translation>Esecuzione fallita di mencoder. Il programma produce un output di stdout. Avviare il programma da riga di comando per verificare le possibili cause di questo problema sull&apos;output in console. </translation>
     </message>
     <message>
         <location filename="run.py" line="224"/>
@@ -161,12 +179,12 @@ Per evitare che questo messaggio sia visualizzato ancora selezioni la impostazio
     <message>
         <location filename="mtvcgui.ui" line="381"/>
         <source>lavc audio options</source>
-        <translation type="unfinished"></translation>
+        <translation>Opzioni audio per lavc</translation>
     </message>
     <message>
         <location filename="mtvcgui.ui" line="754"/>
         <source>Audio Bitrate</source>
-        <translation type="unfinished"></translation>
+        <translation>Bitrate Audio</translation>
     </message>
     <message>
         <location filename="mtvcgui.ui" line="1067"/>
@@ -196,27 +214,27 @@ Per evitare che questo messaggio sia visualizzato ancora selezioni la impostazio
     <message>
         <location filename="mtvcgui.ui" line="586"/>
         <source>lavc video options</source>
-        <translation type="unfinished"></translation>
+        <translation>Opzioni video per lavc</translation>
     </message>
     <message>
         <location filename="mtvcgui.ui" line="598"/>
         <source>Video Bitrate</source>
-        <translation type="unfinished"></translation>
+        <translation>Bitrate-Video</translation>
     </message>
     <message>
         <location filename="mtvcgui.ui" line="742"/>
         <source>lame options</source>
-        <translation>opzioni lame</translation>
+        <translation>Opzioni lame</translation>
     </message>
     <message>
         <location filename="mtvcgui.ui" line="807"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The tool will try to get the supported norms from mplayer based on current value of &amp;quot;Device&amp;quot;. However if this fails you may still enter any value for the norm, either by the norm name or its integer value norm or normid.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Il tool cercherà di ottenere il sistema di trasmissione supportati da mplayer basandosi sui valori correnti del campo &amp;quot;Dispositivo&amp;quot;- Se dovesse fallire si può provare ad inserire un&apos;altro numero intero&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="mtvcgui.ui" line="823"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The tool will try to get the supported inputs from mplayer based on current value of &amp;quot;Device&amp;quot;. However if this fails you may still enter its integer value&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Il tool cercherà di ottenere gli ingressi supportati da mplayer basandosi sui valori correnti del campo &amp;quot;Dispositivo&amp;quot;- Se dovesse fallire si può provare ad inserire un&apos;altro numero intero&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="mtvcgui.ui" line="839"/>
@@ -243,12 +261,12 @@ Per evitare che questo messaggio sia visualizzato ancora selezioni la impostazio
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;bitrate=&amp;lt;value&amp;gt; (CBR or two pass mode)&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Sets the bitrate to be used in kbits/second if &amp;lt;16000 or in bits/second if &amp;gt;16000. If &amp;lt;value&amp;gt; is negative, XviD will use its absolute value as the target size (in kBytes) of the video and compute the associated bitrate automagically (default: 687 kbits/s).&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;bitrate=&amp;lt;valore&amp;gt; &lt;/span&gt;&lt;/p&gt;&lt;p&gt;Regola il bitrate da usare in kbits/secondo se &amp;lt;16000 oppure in bits/secondo se &amp;gt;16000. Se &amp;lt;valore&amp;gt; è negativo, XviD userà il valore assoluto come dimensione finale (in kbyte) del video e calcolerà automaticamente il valore del bitrate associato (default: 687 kbit/s).&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
-    <message encoding="UTF-8">
+    <message utf8="true">
         <location filename="mtvcgui.ui" line="906"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;fixed_quant=&amp;lt;1−31&amp;gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Switch to fixed quantizer mode and specify the quantizer to be used.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;fixed_quant=&amp;lt;1−31&amp;gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Passa alla modalità a quantizzazione fissa e specifica il fattore di quantizzazione da usare.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
-    <message encoding="UTF-8">
+    <message utf8="true">
         <location filename="mtvcgui.ui" line="922"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;me_quality=&amp;lt;0−6&amp;gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;This option controls the motion estimation subsystem. The higher the value, the more precise the estimation should be (default: 6). The more precise the motion estimation is, the more bits can be saved. Precision is gained at the expense of CPU time so decrease this setting if you need realtime encoding.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;me_quality=&amp;lt;0−6&amp;gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Questa opzione controlla il sottosistema di stima del movimento. Più è alto il valore più dovrebbe essere precisa la stima (default: 6). Più è precisa la stima del movimento, più bit possono essere risparmiati. La precisione viene aumentata a spese del tempo di CPU perciò cala questo valore se hai bisogno di una codifica in tempo reale.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
@@ -261,7 +279,7 @@ Per evitare che questo messaggio sia visualizzato ancora selezioni la impostazio
     <message>
         <location filename="mtvcgui.ui" line="954"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;cartoon&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Activate this if your encoded sequence is an anime/cartoon. It modifies some XviD internal thresholds so XviD takes better decisions on frame types and motion vectors for flat looking cartoons.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;cartoon&lt;/span&gt;&lt;/p&gt;&lt;p&gt;ttiva questa opzione se la sequenza da codificare è un anime/ cartone animato. Vengono modificate alcune soglie interne di XviD in modo da prendere decisioni migliori sui tipi di fotogramma e sui vettori di movimento per immagini che appaiono piatte come i cartoni animati.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;cartoon&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Attiva questa opzione se la sequenza da codificare è un anime/ cartone animato. Saranno modificate alcune soglie interne di XviD in modo da prendere decisioni migliori sui tipi di fotogramma e sui vettori di movimento per immagini che appaiono piatte come i cartoni animati.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="mtvcgui.ui" line="957"/>
@@ -485,17 +503,17 @@ on the console</source>
         <source>Channels list</source>
         <translation>Lista canali</translation>
     </message>
-    <message encoding="UTF-8">
+    <message utf8="true">
         <location filename="mtvcgui.ui" line="938"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;interlacing&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Encode the fields of interlaced video material. Turn this option on for interlaced content. &lt;/p&gt;&lt;p&gt;NOTE: Should you rescale the video, you would need an interlace-aware resizer, which you can activate with −vf scale=&amp;lt;width&amp;gt;:&amp;lt;height&amp;gt;:1&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Interlacciamento&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Codifica i campi del materiale video interlacciato. Attiva questa opzione per contenuti interlacciati &lt;/p&gt;&lt;p&gt; NOTA: Se devi anche ridimensionare il video hai bisogno di un filtro che faccia tutto assieme,potresti provare con−vf scale=&amp;lt;width&amp;gt;:&amp;lt;height&amp;gt;:1 scale=&amp;lt;width&amp;gt;:&amp;lt;height&amp;gt;:1&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="mtvcgui.ui" line="1009"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;bitrate=&amp;lt;value&amp;gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Sets the average bitrate to be used in kbits/second (default: off). Since local bitrate may vary, this average may be inaccurate for very short videos (see ratetol). Constant bitrate can be achieved by combining this with vbv_maxrate, at significant reduction in quality.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;bitrate=&amp;lt;valor&amp;gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Seleziona il bitrate medio da usare in kbit/secondo (default: disabilitato). Visto che il bitrate locale può variare, questa media può non essere accurata per video molto corti (vedi ratetol). Un bitrate costante può essere ottenuto combinando questa opzione con vbv_maxrate ottenendo però una significativa riduzione della qualità.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
-    <message encoding="UTF-8">
+    <message utf8="true">
         <location filename="mtvcgui.ui" line="1051"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;qp=&amp;lt;0−51&amp;gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;This selects the quantizer to use for P-frames. I- and B-frames are offset from this value by ip_factor and pb_factor, respectively. 20−40 is a useful range (default: 26). Lower values result in better fidelity, but higher bitrates. 0 is lossless. Note that quantization in H.264 works differently from MPEG-1/2/4: H.264’s quantization parameter (QP) is on a logarithmic scale. The mapping is approximately H264QP = 12 + 6*log2(MPEGQP). For example, MPEG at QP=2 is equivalent to H.264 at QP=18.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;qp=&amp;lt;0−51&amp;gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Questo seleziona il quantizzatore da usare. I fotogrammi I e B sono spostati di questo valore rispettivamente da ip_factor e pb_factor. Una gamma utilizzabile è 20−40 (default: 26). Valori più bassi generano una miglior fedeltà ma bitrate più alti. 0 significa senza perdita. Nota che la quantizzazione in H.264 funziona diversamente che in MPEG-1/2/4: il valore del parametro di quantizzazione (QP) di H.264 è in scala logaritmica. La mappatura è approssimativamente H264QP = 12 + 6*log2(MPEGQP). Per esempio MPEG a QP=2 è equivalente ad H.264 con QP=18.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
@@ -503,12 +521,12 @@ on the console</source>
     <message>
         <location filename="mtvcgui.ui" line="1701"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;It is absolutely not recommended to use this! It may consume too much CPU and ruin your capture!! It makes use of the &apos;tail&apos; command, so it must be available.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Non è consigliato di usare questo! Usa molta CPU e potrebbe rovinare l&apos;acquisizione! Utilizza il comando &apos;tail&apos; perciò deve essere disponibile..&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Non è consigliato usare questo comando! Usa molta CPU e potrebbe rovinare l&apos;acquisizione con pc poco potenti! &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="mtvcgui.ui" line="1704"/>
         <source>Play recorded file while capture (kind of preview) (NOT RECOMMENDED)</source>
-        <translation>Riproduce il file registrato mentre cattura (una specie di anteprima) (NON È RACCOMANDATO)</translation>
+        <translation>Riproduce il file registrato mentre cattura (tipo anteprima) (NON RACCOMANDATO)</translation>
     </message>
 </context>
 </TS>

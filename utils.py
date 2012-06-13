@@ -232,12 +232,14 @@ def generate_command(parameters, preview=False):
     lavc_videocodec = parameters.get('lavc_videocodec')
     lavc_videobitrate = parameters.get('lavc_videobitrate')
     lavc_video_extra_opts = parameters.get('lavc_video_extra_opts')
+    xvid_cbr = parameters.get('xvid_cbr')
     xvid_bitrate = parameters.get('xvid_bitrate')
     xvid_extra_opts = parameters.get('xvid_extra_opts')
     xvid_fixed_quant = parameters.get('xvid_fixed_quant')
     xvid_me_quality = parameters.get('xvid_me_quality')
     xvid_cartoon = parameters.get('xvid_cartoon')
     xvid_interlacing = parameters.get('xvid_interlacing')
+    x264_cbr = parameters.get('x264_cbr')
     x264_bitrate = parameters.get('x264_bitrate')
     x264_qp = parameters.get('x264_qp')
     x264_extra_opts = parameters.get('x264_extra_opts')
@@ -384,9 +386,9 @@ def generate_command(parameters, preview=False):
 
     if videocodec == 'xvid':
         xvidencopts = []
-        if xvid_bitrate:
+        if xvid_cbr and xvid_bitrate:
             xvidencopts.append("bitrate=" + xvid_bitrate)
-        if xvid_fixed_quant:
+        if not xvid_cbr and xvid_fixed_quant:
             xvidencopts.append("fixed_quant=" + xvid_fixed_quant)
         if xvid_me_quality:
             xvidencopts.append("me_quality=" + xvid_me_quality)
@@ -403,9 +405,9 @@ def generate_command(parameters, preview=False):
 
     if videocodec == 'x264':
         x264encopts = []
-        if x264_bitrate:
+        if x264_cbr and x264_bitrate:
             x264encopts.append("bitrate=" + x264_bitrate)
-        if x264_qp:
+        if not x264_cbr and x264_qp:
             x264encopts.append("qp=" + x264_qp)
         if x264_extra_opts:
             x264encopts.extend(x264_extra_opts.split(":"))
