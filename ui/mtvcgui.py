@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'mtvcgui.ui'
 #
-# Created: Wed Jun 13 02:37:37 2012
+# Created: Wed Jun 13 03:03:51 2012
 #      by: PyQt4 UI code generator 4.9.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -24,11 +24,11 @@ class Ui_MainWindow(object):
         self.runButton.setGeometry(QtCore.QRect(190, 450, 95, 25))
         self.runButton.setObjectName(_fromUtf8("runButton"))
         self.outputfile = QtGui.QLineEdit(self.centralwidget)
-        self.outputfile.setGeometry(QtCore.QRect(115, 360, 571, 26))
+        self.outputfile.setGeometry(QtCore.QRect(125, 360, 561, 26))
         self.outputfile.setText(_fromUtf8("./capture_{%channel_%Y%m%d_%H%M%S}.avi"))
         self.outputfile.setObjectName(_fromUtf8("outputfile"))
         self.label = QtGui.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(10, 365, 101, 16))
+        self.label.setGeometry(QtCore.QRect(10, 365, 111, 16))
         self.label.setObjectName(_fromUtf8("label"))
         self.previewButton = QtGui.QPushButton(self.centralwidget)
         self.previewButton.setGeometry(QtCore.QRect(505, 415, 186, 26))
@@ -326,10 +326,10 @@ class Ui_MainWindow(object):
         self.tab_2 = QtGui.QWidget()
         self.tab_2.setObjectName(_fromUtf8("tab_2"))
         self.label_10 = QtGui.QLabel(self.tab_2)
-        self.label_10.setGeometry(QtCore.QRect(40, 210, 521, 16))
+        self.label_10.setGeometry(QtCore.QRect(15, 210, 521, 16))
         self.label_10.setObjectName(_fromUtf8("label_10"))
         self.extratvparms = QtGui.QLineEdit(self.tab_2)
-        self.extratvparms.setGeometry(QtCore.QRect(32, 230, 541, 26))
+        self.extratvparms.setGeometry(QtCore.QRect(10, 230, 636, 26))
         self.extratvparms.setText(_fromUtf8(""))
         self.extratvparms.setObjectName(_fromUtf8("extratvparms"))
         self.tvwidth = QtGui.QLineEdit(self.tab_2)
