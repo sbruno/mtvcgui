@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'mtvcgui.ui'
 #
-# Created: Wed Jun 13 02:06:14 2012
+# Created: Wed Jun 13 02:37:37 2012
 #      by: PyQt4 UI code generator 4.9.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -31,10 +31,10 @@ class Ui_MainWindow(object):
         self.label.setGeometry(QtCore.QRect(10, 365, 101, 16))
         self.label.setObjectName(_fromUtf8("label"))
         self.previewButton = QtGui.QPushButton(self.centralwidget)
-        self.previewButton.setGeometry(QtCore.QRect(510, 415, 181, 26))
+        self.previewButton.setGeometry(QtCore.QRect(505, 415, 186, 26))
         self.previewButton.setObjectName(_fromUtf8("previewButton"))
         self.previewcommand = QtGui.QLineEdit(self.centralwidget)
-        self.previewcommand.setGeometry(QtCore.QRect(0, 415, 511, 26))
+        self.previewcommand.setGeometry(QtCore.QRect(0, 415, 506, 26))
         self.previewcommand.setText(_fromUtf8(""))
         self.previewcommand.setReadOnly(False)
         self.previewcommand.setObjectName(_fromUtf8("previewcommand"))
@@ -177,7 +177,7 @@ class Ui_MainWindow(object):
         self.frequency.setMaximum(9999.99)
         self.frequency.setObjectName(_fromUtf8("frequency"))
         self.pushButton = QtGui.QPushButton(self.tab)
-        self.pushButton.setGeometry(QtCore.QRect(20, 260, 211, 25))
+        self.pushButton.setGeometry(QtCore.QRect(10, 260, 221, 25))
         self.pushButton.setObjectName(_fromUtf8("pushButton"))
         self.lavc_video_options_box = QtGui.QGroupBox(self.tab)
         self.lavc_video_options_box.setGeometry(QtCore.QRect(310, 195, 361, 121))
@@ -482,7 +482,7 @@ class Ui_MainWindow(object):
         self.cancel_sheduleButton.setCheckable(False)
         self.cancel_sheduleButton.setObjectName(_fromUtf8("cancel_sheduleButton"))
         self.play_while_recording = QtGui.QCheckBox(self.tab_4)
-        self.play_while_recording.setGeometry(QtCore.QRect(20, 130, 611, 46))
+        self.play_while_recording.setGeometry(QtCore.QRect(20, 130, 636, 46))
         self.play_while_recording.setObjectName(_fromUtf8("play_while_recording"))
         self.setenvvars = QtGui.QCheckBox(self.tab_4)
         self.setenvvars.setGeometry(QtCore.QRect(20, 175, 611, 21))

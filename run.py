@@ -46,39 +46,27 @@ config = ConfigParser.ConfigParser()
 
 NORMS_DICT = {}
 
-class Translatable():
-    def change_language(self, locale_string=None):
-        self.locale_string = locale_string
-        if self.translator:
-            app.removeTranslator(self.translator)
-        translation = utils.find_translation(locale_string=locale_string)
-        appTranslator = QtCore.QTranslator()
-        appTranslator.load(translation)
-        app.installTranslator(appTranslator)
-        self.translator = appTranslator
-        self.retranslateUi(self)
-
-class InfoDialog(QtGui.QDialog, Ui_InfoDialog, Translatable):
+class InfoDialog(QtGui.QDialog, Ui_InfoDialog):
     def __init__(self, parent=None):
         QtGui.QWidget.__init__(self, parent)
         self.setupUi(self)
-        if parent:
-            self.change_language(parent.locale_string)
+        if parent and parent.translator:
+            self.retranslateUi(self)
 
 
-class AboutDialog(QtGui.QDialog, Ui_AboutDialog, Translatable):
+class AboutDialog(QtGui.QDialog, Ui_AboutDialog):
     def __init__(self, parent=None):
         QtGui.QWidget.__init__(self, parent)
         self.setupUi(self)
-        if parent:
-            self.change_language(parent.locale_string)
+        if parent and parent.translator:
+            self.retranslateUi(self)
 
-class FileExistsDialog(QtGui.QDialog, Ui_FileExistsDialog, Translatable):
+class FileExistsDialog(QtGui.QDialog, Ui_FileExistsDialog):
     def __init__(self, parent=None):
         QtGui.QWidget.__init__(self, parent)
         self.setupUi(self)
-        if parent:
-            self.change_language(parent.locale_string)
+        if parent and parent.translator:
+            self.retranslateUi(self)
         
         #how should I communicate with the main window?
         self.parent = parent
@@ -87,13 +75,13 @@ class FileExistsDialog(QtGui.QDialog, Ui_FileExistsDialog, Translatable):
         self.parent.run_mencoder(accepted=True)
         self.close()
 
-class MainWindow(QtGui.QMainWindow, Ui_MainWindow, Translatable):
+class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
 
     def __init__(self, parent=None):
         QtGui.QWidget.__init__(self, parent)
-
-        self.locale_string = None
+        
         self.translator = None
+        self.locale_string = None
         self.mplayer_preview_pid = 0
         self.mplayer_recording_pid = 0
         self.mencoder_pid = 0
@@ -972,6 +960,17 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow, Translatable):
             self.x264_bitrate_label.hide()
             self.x264_qp.show()
             self.x264_qp_label.show()
+        
+    def change_language(self, locale_string=None):
+        self.locale_string = locale_string
+        if self.translator:
+            app.removeTranslator(self.translator)
+        translation = utils.find_translation(locale_string=locale_string)
+        appTranslator = QtCore.QTranslator()
+        appTranslator.load(translation)
+        app.installTranslator(appTranslator)
+        self.translator = appTranslator
+        self.retranslateUi(self)
         
     def changeToEnglish(self):
         self.locale_string = "en"
