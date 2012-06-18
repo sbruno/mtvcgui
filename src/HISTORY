@@ -1,7 +1,8 @@
-
-
-2012-Jun-08 -- mtvcgui v0.40
+2012-Jun-17 -- mtvcgui v1.0
 * Get supported norms, inputs, audio codecs and video codecs from mplayer output
+* Added italian translations
+* Added more codecs and more configuration for them
+* Other minor improvements in implementation
 
 2009-Jun-22 -- mtvcgui v0.31
 * Corrected tvheight and tvwidth switch when saving configuration.
