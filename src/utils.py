@@ -24,7 +24,10 @@ def find_translation(prefix='', tr_dir='i18n', locale_string=None):
         lang = locale.getdefaultlocale()[0]
     if lang:
         tr_path = os.path.join(tr_dir, prefix + lang + '.qm')
-
+        try:
+            tr_path = os.path.join(os.path.dirname(__file__), tr_path)
+        except:
+            print "Error getting directory for translations"
         if not os.path.exists(tr_path):
             #try with generic locale (e.g.: es)
             lang = lang.split('_')[0]
