@@ -18,7 +18,7 @@
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:600;&quot;&gt;mtvcgui* v1.0&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:600;&quot;&gt;mtvcgui* v1.0.1&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-style:italic;&quot;&gt;mencoder TV capture GUI&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt; font-style:italic;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;A simple frontend for using mencoder as a TV capture program.&lt;/span&gt;&lt;/p&gt;
@@ -36,7 +36,7 @@ p, li { white-space: pre-wrap; }
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;DejaVu Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:14pt; font-weight:600;&quot;&gt;mtvcgui* v1.0&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:14pt; font-weight:600;&quot;&gt;mtvcgui* v1.0.1&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:12pt; font-style:italic;&quot;&gt;mencoder TV capture GUI&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;; font-size:12pt; font-style:italic;&quot;&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Sans Serif&apos;; font-size:10pt;&quot;&gt;Una simple interfaz gráfica para capturar TV con mencoder.&lt;/span&gt;&lt;/p&gt;
@@ -298,12 +298,12 @@ on the console</source>
         <translation>Cancelar</translation>
     </message>
     <message>
-        <location filename="run.py" line="789"/>
+        <location filename="run.py" line="811"/>
         <source>Recording... %1</source>
         <translation>Capturando... %1</translation>
     </message>
     <message>
-        <location filename="run.py" line="217"/>
+        <location filename="run.py" line="218"/>
         <source>Waiting %1</source>
         <translation>Esperando %1</translation>
     </message>
@@ -353,12 +353,12 @@ on the console</source>
         <translation>Saturación</translation>
     </message>
     <message>
-        <location filename="run.py" line="161"/>
+        <location filename="run.py" line="162"/>
         <source>mtvcgui upgrade information</source>
         <translation>Información de actualización de mtvcgui</translation>
     </message>
     <message>
-        <location filename="run.py" line="161"/>
+        <location filename="run.py" line="162"/>
         <source>You are using a configuration file from an older mtvcgui version.
 Current version get supported norms, video codecs and audio codecs from mplayer and store them as strings in the file ~/.mtvgui/mtvcgui.ini instead of integer values as in previous versions.
 
@@ -369,7 +369,7 @@ La versión actual obtiene las normas soportadas, los codecs de video y de audio
 Para evitar que este mensaje se muestre nuevamente seleccione a continuación la norma deseada, el códec de audio y de video y guarde la configuración.  </translation>
     </message>
     <message>
-        <location filename="run.py" line="182"/>
+        <location filename="run.py" line="183"/>
         <source>mencoder execution failed. This program produces output to stdout. Start the program from the command line and check console output for possible causes of this failure.</source>
         <translation>La ejecución de mencoder falló. Este programa muestra información en la salida estándar (stdout). Inicie el programa desde la línea de comandos y observe la información que aparece en la consola para detectar la posible causa de este fallo.</translation>
     </message>

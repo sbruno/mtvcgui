@@ -45,6 +45,7 @@ import utils
 config = ConfigParser.ConfigParser()
 
 NORMS_DICT = {}
+INPUTS_DICT = {}
 
 class InfoDialog(QtGui.QDialog, Ui_InfoDialog):
     def __init__(self, parent=None):
@@ -356,9 +357,8 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
             self.device.setText(config.get('mencoder GUI', 'device'))
             
         self.update_norm_index_from_config()
-
-        if config.has_option('mencoder GUI', 'input'):
-            self.input.setCurrentIndex(int(config.get('mencoder GUI', 'input')))
+        
+        self.update_input_index_from_config()
 
         if config.has_option('mencoder GUI', 'chanlist'):
             self.chanlist.setCurrentIndex(int(config.get('mencoder GUI',
@@ -559,15 +559,36 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
                                 norm_int = i
                                 break
                 if norm_int > -1 and not norm_name:
-                    pos = len(NORMS_DICT)
-                    NORMS_DICT[pos] = str(norm_int)
-                    self.norm.addItem(NORMS_DICT[pos])
-                    norm_int = self.norm.count() - 1
-                self.norm.setCurrentIndex(norm_int)
+                    norm_name = str(norm_int)
+                    self.norm.addItem(norm_name)
+                index = self.norm.findText(norm_name)
+                self.norm.setCurrentIndex(index)
                 self.setFocus()
         except:
             raise
 
+    def update_input_index_from_config(self):
+        try:
+            if config.has_option('mencoder GUI', 'input'):
+                input_name = None
+                try:
+                    input_int = int(config.get('mencoder GUI', 'input'))
+                except:
+                    input_int = -1
+                    input_name = config.get('mencoder GUI', 'input')
+                    if input_name:
+                        for i in INPUTS_DICT:
+                            if INPUTS_DICT[i] == input_name:
+                                input_int = i
+                                break
+                if input_int > -1 and not input_name:
+                    input_name = str(input_int)
+                    self.input.addItem(input_name)
+                index = self.input.findText(input_name)
+                self.input.setCurrentIndex(index)
+                self.setFocus()
+        except:
+            raise
                 
     def get_params_from_gui(self, config=False):
         """ Returns a dictionary with the values of the application parameters
@@ -604,25 +625,26 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
 
         parameters['device'] = str(self.device.text())
         
-        if config:
-            norm = self.norm.currentText()
-        else:
-            #The user may have typed the norm number, so we need to check that
-            #if the user selected a norm name, then we use its index
-            try:
-                norm = int(self.norm.currentText())
-            except:
-                norm = self.norm.currentIndex()
+        norm = self.norm.currentText()
         parameters['norm'] = str(norm)
         
+        norm_int = parameters['norm']
+        for key, val in NORMS_DICT.items():
+            if val == parameters['norm']:
+                norm_int = str(key)
+                break
+        parameters['norm_int'] = norm_int
         
-        #The user may have typed the norm number, so we need to check that
-        #if the user selected a norm name, then we use its index
-        try:
-            input = int(self.input.currentText())
-        except:
-            input = self.input.currentIndex()
+        
+        input = self.input.currentText()
         parameters['input'] = str(input)
+        
+        input_int = parameters['input']
+        for key, val in INPUTS_DICT.items():
+            if val == parameters['input']:
+                input_int = str(key)
+                break
+        parameters['input_int'] = input_int
 
         if config:
             parameters['chanlist'] = self.chanlist.currentIndex()
@@ -882,7 +904,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
                 
                 
     def update_device_values(self):
-        global config, NORMS_DICT
+        global config, NORMS_DICT, INPUTS_DICT
         parameters = self.get_params_from_gui()
         preview_command = \
             utils.generate_mplayer_command(parameters,
@@ -908,21 +930,9 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         if inputs:
            for input_id, input_value in inputs:
                 self.input.addItem(input_value)
+                INPUTS_DICT[int(input_id)] = input_value
                 
-        if config.has_option('mencoder GUI', 'input'):
-            if inputs:
-                idx = -1
-                try:
-                    idx = int(config.get('mencoder GUI', 'input'))
-                except:
-                    pass
-                if idx > self.input.count():
-                    self.input.addItem(str(idx))
-                    idx = self.input.count() - 1
-                self.input.setCurrentIndex(idx)
-            else:
-                self.input.addItem(config.get('mencoder GUI', 'input'))
-                self.input.setCurrentIndex(0)
+        self.update_input_index_from_config()
 
     def preview_command(self):
         appTranslator = QtCore.QTranslator()

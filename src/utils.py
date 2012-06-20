@@ -222,7 +222,9 @@ def generate_command(parameters, preview=False):
     driver = parameters.get('driver')
     device = parameters.get('device')
     norm = parameters.get('norm')
+    norm_int = parameters.get('norm_int') or '0'
     input = parameters.get('input')
+    input_int = parameters.get('input_int') or '0'
     chanlist = parameters.get('chanlist')
     audiocodec = parameters.get('audiocodec')
     videocodec = parameters.get('videocodec')
@@ -281,11 +283,11 @@ def generate_command(parameters, preview=False):
 
     if norm and norm != '-1':
         if driver == 'v4l2':
-            tvparms += ':normid=' + norm
+            tvparms += ':normid=' + norm_int
         else:
-            tvparms += ':norm=' + norm
+            tvparms += ':norm=' + norm_int
 
-    tvparms += ':input=' + input
+    tvparms += ':input=' + input_int
     tvparms += ':chanlist=' + chanlist
 
     if tvwidth and tvheight:
@@ -446,7 +448,9 @@ def generate_mplayer_command(parameters, extra_params=None, as_string=False):
     driver = parameters.get('driver')
     device = parameters.get('device')
     norm = parameters.get('norm')
+    norm_int = parameters.get('norm_int') or '0'
     input = parameters.get('input')
+    input_int = parameters.get('input_int') or '0'
     chanlist = parameters.get('chanlist')
     tvwidth = parameters.get('tvwidth')
     tvheight = parameters.get('tvheight')
@@ -476,11 +480,11 @@ def generate_mplayer_command(parameters, extra_params=None, as_string=False):
 
     if norm and norm != '-1':
         if driver == 'v4l2':
-            tvparms += ':normid=' + norm
+            tvparms += ':normid=' + norm_int
         else:
-            tvparms += ':norm=' + norm
+            tvparms += ':norm=' + norm_int
 
-    tvparms += ':input=' + input
+    tvparms += ':input=' + input_int
     tvparms += ':chanlist=' + chanlist
 
     if tvwidth and tvheight:
