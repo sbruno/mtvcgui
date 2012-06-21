@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS><TS version="2.0" language="it" sourcelanguage="en">
+<!DOCTYPE TS>
+<TS version="2.0" language="it" sourcelanguage="en">
 <context>
     <name>AboutDialog</name>
     <message>
@@ -98,7 +99,7 @@ Per evitare che questo messaggio sia visualizzato ancora seleziona le impostazio
     <message>
         <location filename="run.py" line="183"/>
         <source>mencoder execution failed. This program produces output to stdout. Start the program from the command line and check console output for possible causes of this failure.</source>
-        <translation>Esecuzione fallita di mencoder. Il programma produce un output di stdout. Avviare il programma da riga di comando per verificare le possibili cause di questo problema sull&apos;output in console. </translation>
+        <translation>Esecuzione fallita di mencoder. Avviando il programma da riga di comando è possibile verificare le cause di questo problema sull&amp;apos;output in console.</translation>
     </message>
     <message>
         <location filename="run.py" line="218"/>
@@ -223,12 +224,12 @@ Per evitare che questo messaggio sia visualizzato ancora seleziona le impostazio
     <message>
         <location filename="mtvcgui.ui" line="810"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The tool will try to get the supported norms from mplayer based on current value of &amp;quot;Device&amp;quot;. However if this fails you may still enter any value for the norm, either by the norm name or its integer value norm or normid.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Il tool cercherà di ottenere il sistema di trasmissione supportati da mplayer basandosi sui valori correnti del campo &amp;quot;Dispositivo&amp;quot;- Se dovesse fallire si può provare ad inserire un&apos;altro numero intero&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Il tool consulta mplayer per caricare la lista dei sistemi di trasmissione supportati dalla periferica-selezionata nel campo &amp;quot;Dispositivo&amp;quot;. Se non dovesse funzionare si può provare ad inserire un altro numero.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="mtvcgui.ui" line="826"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The tool will try to get the supported inputs from mplayer based on current value of &amp;quot;Device&amp;quot;. However if this fails you may still enter its integer value&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Il tool cercherà di ottenere gli ingressi supportati da mplayer basandosi sui valori correnti del campo &amp;quot;Dispositivo&amp;quot;- Se dovesse fallire si può provare ad inserire un&apos;altro numero intero&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Il tool consulta mplayer per riconoscere gli ingressi supportati dall&amp;apos;hardware selezionato nel campo &amp;quot;Dispositivo&amp;quot;. Se non dovesse funzionare si può provare ad inserire un altro valore.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="mtvcgui.ui" line="955"/>
@@ -255,15 +256,15 @@ Per evitare che questo messaggio sia visualizzato ancora seleziona le impostazio
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;bitrate=&amp;lt;value&amp;gt; (CBR or two pass mode)&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Sets the bitrate to be used in kbits/second if &amp;lt;16000 or in bits/second if &amp;gt;16000. If &amp;lt;value&amp;gt; is negative, XviD will use its absolute value as the target size (in kBytes) of the video and compute the associated bitrate automagically (default: 687 kbits/s).&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;bitrate=&amp;lt;valore&amp;gt; &lt;/span&gt;&lt;/p&gt;&lt;p&gt;Regola il bitrate da usare in kbits/secondo se &amp;lt;16000 oppure in bits/secondo se &amp;gt;16000. Se &amp;lt;valore&amp;gt; è negativo, XviD userà il valore assoluto come dimensione finale (in kbyte) del video e calcolerà automaticamente il valore del bitrate associato (default: 687 kbit/s).&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
-    <message encoding="UTF-8">
+    <message utf8="true">
         <location filename="mtvcgui.ui" line="1022"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;fixed_quant=&amp;lt;1−31&amp;gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Switch to fixed quantizer mode and specify the quantizer to be used.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;fixed_quant=&amp;lt;1−31&amp;gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Passa alla modalità a quantizzazione fissa e specifica il fattore di quantizzazione da usare.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;fixed_quant=&amp;lt;1−31&amp;gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Modalità a quantizzazione costante. Applica un quantitizzatore costante di qualità al frame, indipendentemente dalla complessita dello stesso. Valori più bassi generano una migliore qualità ma il file avrà dimensioni maggiori. Il valore 2 garantisce &amp;quot;qualità trasparente&amp;quot;.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
-    <message encoding="UTF-8">
+    <message utf8="true">
         <location filename="mtvcgui.ui" line="1038"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;me_quality=&amp;lt;0−6&amp;gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;This option controls the motion estimation subsystem. The higher the value, the more precise the estimation should be (default: 6). The more precise the motion estimation is, the more bits can be saved. Precision is gained at the expense of CPU time so decrease this setting if you need realtime encoding.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;me_quality=&amp;lt;0−6&amp;gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Questa opzione controlla il sottosistema di stima del movimento. Più è alto il valore più dovrebbe essere precisa la stima (default: 6). Più è precisa la stima del movimento, più bit possono essere risparmiati. La precisione viene aumentata a spese del tempo di CPU perciò cala questo valore se hai bisogno di una codifica in tempo reale.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;me_quality=&amp;lt;0−6&amp;gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Questa opzione controlla il sottosistema di stima del movimento. Più è alto il valore più dovrebbe essere precisa la stima (default: 6). Più è precisa la stima del movimento, più bit sono risparmiati. La precisione però aumenta a spese dell&amp;apos;uso del processore, perciò è preferibile abassare questo valore se codifichi in tempo reale.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="mtvcgui.ui" line="1057"/>
@@ -273,7 +274,7 @@ Per evitare che questo messaggio sia visualizzato ancora seleziona le impostazio
     <message>
         <location filename="mtvcgui.ui" line="1070"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;cartoon&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Activate this if your encoded sequence is an anime/cartoon. It modifies some XviD internal thresholds so XviD takes better decisions on frame types and motion vectors for flat looking cartoons.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;cartoon&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Attiva questa opzione se la sequenza da codificare è un anime/ cartone animato. Saranno modificate alcune soglie interne di XviD in modo da prendere decisioni migliori sui tipi di fotogramma e sui vettori di movimento per immagini che appaiono piatte come i cartoni animati.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;cartoon&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Attiva questa opzione se la sequenza da codificare è un anime (cartone animato). Saranno modificati alcuni parametri di codifica di XviD per ottenere risultati migliori sui fotogrammi e sui vettori di movimento per immagini che appaiono &amp;quot;piatte&amp;quot; come nei cartoni animati.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="mtvcgui.ui" line="1073"/>
@@ -485,27 +486,27 @@ on the console</source>
     <message>
         <location filename="mtvcgui.ui" line="143"/>
         <source>Norm</source>
-        <translation>Regola</translation>
+        <translation>Norm</translation>
     </message>
     <message>
         <location filename="mtvcgui.ui" line="272"/>
         <source>Channels list</source>
         <translation>Lista canali</translation>
     </message>
-    <message encoding="UTF-8">
+    <message utf8="true">
         <location filename="mtvcgui.ui" line="1054"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;interlacing&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Encode the fields of interlaced video material. Turn this option on for interlaced content. &lt;/p&gt;&lt;p&gt;NOTE: Should you rescale the video, you would need an interlace-aware resizer, which you can activate with −vf scale=&amp;lt;width&amp;gt;:&amp;lt;height&amp;gt;:1&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Interlacciamento&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Codifica i campi del materiale video interlacciato. Attiva questa opzione per contenuti interlacciati &lt;/p&gt;&lt;p&gt; NOTA: Se devi anche ridimensionare il video hai bisogno di un filtro che faccia tutto assieme,potresti provare con−vf scale=&amp;lt;width&amp;gt;:&amp;lt;height&amp;gt;:1 scale=&amp;lt;width&amp;gt;:&amp;lt;height&amp;gt;:1&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Interlacciamento&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Deinterlaccia i campi dei video interlacciati. Attiva questa opzione solo per contenuti interlacciati &lt;/p&gt;&lt;p&gt;NOTA: Se devi anche ridimensionare il video hai bisogno di un filtro che faccia tutto assieme. Potresti provare con −vf scale=&amp;lt;width&amp;gt;:&amp;lt;height&amp;gt;:1&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="mtvcgui.ui" line="854"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;bitrate=&amp;lt;value&amp;gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Sets the average bitrate to be used in kbits/second (default: off). Since local bitrate may vary, this average may be inaccurate for very short videos (see ratetol). Constant bitrate can be achieved by combining this with vbv_maxrate, at significant reduction in quality.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;bitrate=&amp;lt;valor&amp;gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Seleziona il bitrate medio da usare in kbit/secondo (default: disabilitato). Visto che il bitrate locale può variare, questa media può non essere accurata per video molto corti (vedi ratetol). Un bitrate costante può essere ottenuto combinando questa opzione con vbv_maxrate ottenendo però una significativa riduzione della qualità.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;bitrate=&amp;lt;valore&amp;gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Seleziona il bitrate medio da usare in kbit/secondo (default: disabilitato). Visto che il bitrate per ogni frame può variare, questa media potrebbe non essere accurata per video molto brevi. Un bitrate costante può essere ottenuto combinando questa opzione con vbv_maxrate ottenendo però una significativa riduzione della qualità.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
-    <message encoding="UTF-8">
+    <message utf8="true">
         <location filename="mtvcgui.ui" line="896"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;qp=&amp;lt;0−51&amp;gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;This selects the quantizer to use for P-frames. I- and B-frames are offset from this value by ip_factor and pb_factor, respectively. 20−40 is a useful range (default: 26). Lower values result in better fidelity, but higher bitrates. 0 is lossless. Note that quantization in H.264 works differently from MPEG-1/2/4: H.264’s quantization parameter (QP) is on a logarithmic scale. The mapping is approximately H264QP = 12 + 6*log2(MPEGQP). For example, MPEG at QP=2 is equivalent to H.264 at QP=18.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;qp=&amp;lt;0−51&amp;gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Questo seleziona il quantizzatore da usare. I fotogrammi I e B sono spostati di questo valore rispettivamente da ip_factor e pb_factor. Una gamma utilizzabile è 20−40 (default: 26). Valori più bassi generano una miglior fedeltà ma bitrate più alti. 0 significa senza perdita. Nota che la quantizzazione in H.264 funziona diversamente che in MPEG-1/2/4: il valore del parametro di quantizzazione (QP) di H.264 è in scala logaritmica. La mappatura è approssimativamente H264QP = 12 + 6*log2(MPEGQP). Per esempio MPEG a QP=2 è equivalente ad H.264 con QP=18.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Quantizzatore costante della qualità&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Valori possibili &amp;lt;0−51&amp;gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;I valori medi solitamente utilizzati sono nell&amp;apos;intervallo 20−40. Valori più bassi generano una migliore qualità ma bitrate più alti. 0 imposta una codifica senza perdita di qualità (LOSSLESS). La quantizzazione in H.264 funziona diversamente che in MPEG-1/2/4: il valore del parametro di quantizzazione (QP) di H.264 è in scala logaritmica. La mappatura è approssimativamente H264QP = 12 + 6*log2(MPEGQP). Per esempio MPEG a QP=2 è equivalente ad H.264 con QP=18 (qualità trasparente).&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="mtvcgui.ui" line="1730"/>
