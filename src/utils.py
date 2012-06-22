@@ -247,6 +247,7 @@ def generate_command(parameters, preview=False):
     x264_cbr = parameters.get('x264_cbr')
     x264_bitrate = parameters.get('x264_bitrate')
     x264_qp = parameters.get('x264_qp')
+    x264_crf = parameters.get('x264_crf')
     x264_extra_opts = parameters.get('x264_extra_opts')
     tvwidth = parameters.get('tvwidth')
     tvheight = parameters.get('tvheight')
@@ -414,6 +415,8 @@ def generate_command(parameters, preview=False):
             x264encopts.append("bitrate=" + x264_bitrate)
         if not x264_cbr and x264_qp:
             x264encopts.append("qp=" + x264_qp)
+        if not x264_cbr and x264_crf:
+            x264encopts.append("crf=" + x264_crf)
         if x264_extra_opts:
             x264encopts.extend(x264_extra_opts.split(":"))
             

@@ -458,6 +458,9 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         if config.has_option('mencoder GUI', 'x264_qp'):
             self.x264_qp.setText(config.get('mencoder GUI', 'x264_qp'))
             
+        if config.has_option('mencoder GUI', 'x264_crf'):
+            self.x264_crf.setText(config.get('mencoder GUI', 'x264_crf'))
+            
         if config.has_option('mencoder GUI', 'x264_extra_opts'):
             self.x264_extra_opts.setText(config.get('mencoder GUI', 'x264_extra_opts'))
                 
@@ -691,6 +694,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         parameters['x264_cbr'] = self.x264_cbr.isChecked()
         parameters['x264_bitrate'] = str(self.x264_bitrate.text())
         parameters['x264_qp'] = str(self.x264_qp.text())
+        parameters['x264_crf'] = str(self.x264_crf.text())
         parameters['x264_extra_opts'] = str(self.x264_extra_opts.text())
         
         parameters['outputfile'] = str(self.outputfile.text())
@@ -963,11 +967,15 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         if is_cbr:
             self.x264_bitrate.show()
             self.x264_bitrate_label.show()
+            self.x264_crf.hide()
+            self.x264_crf_label.hide()
             self.x264_qp.hide()
             self.x264_qp_label.hide()
         else:
             self.x264_bitrate.hide()
             self.x264_bitrate_label.hide()
+            self.x264_crf.show()
+            self.x264_crf_label.show()
             self.x264_qp.show()
             self.x264_qp_label.show()
         

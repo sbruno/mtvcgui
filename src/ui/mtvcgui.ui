@@ -377,7 +377,7 @@
         <x>310</x>
         <y>80</y>
         <width>361</width>
-        <height>106</height>
+        <height>111</height>
        </rect>
       </property>
       <property name="title">
@@ -386,10 +386,10 @@
       <widget class="QLineEdit" name="lavc_audiobitrate">
        <property name="geometry">
         <rect>
-         <x>205</x>
-         <y>50</y>
+         <x>235</x>
+         <y>55</y>
          <width>113</width>
-         <height>21</height>
+         <height>26</height>
         </rect>
        </property>
        <property name="text">
@@ -401,7 +401,7 @@
         <rect>
          <x>10</x>
          <y>30</y>
-         <width>136</width>
+         <width>216</width>
          <height>16</height>
         </rect>
        </property>
@@ -413,8 +413,8 @@
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>55</y>
-         <width>136</width>
+         <y>60</y>
+         <width>216</width>
          <height>16</height>
         </rect>
        </property>
@@ -425,10 +425,10 @@
       <widget class="QComboBox" name="lavc_audiocodec">
        <property name="geometry">
         <rect>
-         <x>205</x>
+         <x>235</x>
          <y>25</y>
          <width>111</width>
-         <height>21</height>
+         <height>26</height>
         </rect>
        </property>
        <property name="editable">
@@ -468,10 +468,10 @@
       <widget class="QLineEdit" name="lavc_audio_extra_opts">
        <property name="geometry">
         <rect>
-         <x>205</x>
-         <y>75</y>
+         <x>235</x>
+         <y>85</y>
          <width>113</width>
-         <height>21</height>
+         <height>26</height>
         </rect>
        </property>
        <property name="text">
@@ -482,8 +482,8 @@
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>80</y>
-         <width>176</width>
+         <y>90</y>
+         <width>216</width>
          <height>16</height>
         </rect>
        </property>
@@ -738,7 +738,7 @@
         <x>310</x>
         <y>80</y>
         <width>361</width>
-        <height>80</height>
+        <height>101</height>
        </rect>
       </property>
       <property name="title">
@@ -749,7 +749,7 @@
         <rect>
          <x>10</x>
          <y>30</y>
-         <width>116</width>
+         <width>206</width>
          <height>16</height>
         </rect>
        </property>
@@ -760,10 +760,10 @@
       <widget class="QLineEdit" name="lame_audiobitrate">
        <property name="geometry">
         <rect>
-         <x>190</x>
+         <x>230</x>
          <y>25</y>
          <width>113</width>
-         <height>21</height>
+         <height>26</height>
         </rect>
        </property>
        <property name="text">
@@ -774,8 +774,8 @@
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>55</y>
-         <width>176</width>
+         <y>65</y>
+         <width>216</width>
          <height>16</height>
         </rect>
        </property>
@@ -786,10 +786,10 @@
       <widget class="QLineEdit" name="lame_extra_opts">
        <property name="geometry">
         <rect>
-         <x>190</x>
-         <y>50</y>
+         <x>230</x>
+         <y>60</y>
          <width>113</width>
-         <height>21</height>
+         <height>26</height>
         </rect>
        </property>
        <property name="text">
@@ -860,7 +860,7 @@
       <widget class="QLabel" name="x264_bitrate_label">
        <property name="geometry">
         <rect>
-         <x>15</x>
+         <x>10</x>
          <y>30</y>
          <width>81</width>
          <height>16</height>
@@ -873,7 +873,7 @@
       <widget class="QLabel" name="x264_qp_label">
        <property name="geometry">
         <rect>
-         <x>15</x>
+         <x>10</x>
          <y>30</y>
          <width>81</width>
          <height>16</height>
@@ -903,7 +903,7 @@
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>60</y>
+         <y>75</y>
          <width>201</width>
          <height>16</height>
         </rect>
@@ -916,7 +916,7 @@
        <property name="geometry">
         <rect>
          <x>215</x>
-         <y>55</y>
+         <y>70</y>
          <width>141</width>
          <height>21</height>
         </rect>
@@ -941,6 +941,29 @@
         <string>CBR</string>
        </property>
       </widget>
+      <widget class="QLineEdit" name="x264_crf">
+       <property name="geometry">
+        <rect>
+         <x>105</x>
+         <y>50</y>
+         <width>111</width>
+         <height>21</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="x264_crf_label">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>55</y>
+         <width>52</width>
+         <height>13</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>crf</string>
+       </property>
+      </widget>
      </widget>
      <widget class="QGroupBox" name="xvid_options_box">
       <property name="geometry">
@@ -959,7 +982,7 @@
         <rect>
          <x>5</x>
          <y>25</y>
-         <width>56</width>
+         <width>91</width>
          <height>16</height>
         </rect>
        </property>
@@ -972,7 +995,7 @@
         <rect>
          <x>5</x>
          <y>25</y>
-         <width>71</width>
+         <width>91</width>
          <height>16</height>
         </rect>
        </property>
@@ -985,7 +1008,7 @@
         <rect>
          <x>5</x>
          <y>55</y>
-         <width>76</width>
+         <width>91</width>
          <height>16</height>
         </rect>
        </property>
@@ -996,9 +1019,9 @@
       <widget class="QLineEdit" name="xvid_bitrate">
        <property name="geometry">
         <rect>
-         <x>80</x>
+         <x>97</x>
          <y>20</y>
-         <width>113</width>
+         <width>96</width>
          <height>21</height>
         </rect>
        </property>
@@ -1012,9 +1035,9 @@
       <widget class="QLineEdit" name="xvid_fixed_quant">
        <property name="geometry">
         <rect>
-         <x>80</x>
+         <x>97</x>
          <y>20</y>
-         <width>113</width>
+         <width>96</width>
          <height>21</height>
         </rect>
        </property>
@@ -1028,9 +1051,9 @@
       <widget class="QLineEdit" name="xvid_me_quality">
        <property name="geometry">
         <rect>
-         <x>80</x>
+         <x>97</x>
          <y>50</y>
-         <width>113</width>
+         <width>96</width>
          <height>21</height>
         </rect>
        </property>
@@ -1046,7 +1069,7 @@
         <rect>
          <x>210</x>
          <y>45</y>
-         <width>126</width>
+         <width>141</width>
          <height>21</height>
         </rect>
        </property>
@@ -1062,7 +1085,7 @@
         <rect>
          <x>210</x>
          <y>70</y>
-         <width>126</width>
+         <width>141</width>
          <height>21</height>
         </rect>
        </property>
@@ -1104,7 +1127,7 @@
         <rect>
          <x>210</x>
          <y>20</y>
-         <width>80</width>
+         <width>136</width>
          <height>21</height>
         </rect>
        </property>
@@ -1114,7 +1137,6 @@
       </widget>
      </widget>
      <zorder>xvid_options_box</zorder>
-     <zorder>x264_options_box</zorder>
      <zorder>label_12</zorder>
      <zorder>label_6</zorder>
      <zorder>driver</zorder>
@@ -1142,6 +1164,7 @@
      <zorder>lame_options_box</zorder>
      <zorder>norm</zorder>
      <zorder>input</zorder>
+     <zorder>x264_options_box</zorder>
     </widget>
     <widget class="QWidget" name="tab_2">
      <attribute name="title">
