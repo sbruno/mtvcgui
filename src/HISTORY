@@ -1,3 +1,7 @@
+2012-Jun-21 -- mtvcgui v1.0.2
+* Updated italian translation
+* Added crf textfield for x264
+
 2012-Jun-20 -- mtvcgui v1.0.1
 * Fixing problem getting inputs if there are numbers not assigned to norms such
   as in Easycap Model 001: 0 = CVBS; 5 = S-video
