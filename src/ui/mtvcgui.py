@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'mtvcgui.ui'
 #
-# Created: Thu Jun 21 21:24:45 2012
+# Created: Thu Jun 21 22:24:43 2012
 #      by: PyQt4 UI code generator 4.9.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -319,10 +319,10 @@ class Ui_MainWindow(object):
         self.xvid_cartoon.setGeometry(QtCore.QRect(210, 70, 141, 21))
         self.xvid_cartoon.setObjectName(_fromUtf8("xvid_cartoon"))
         self.label_36 = QtGui.QLabel(self.xvid_options_box)
-        self.label_36.setGeometry(QtCore.QRect(5, 100, 206, 16))
+        self.label_36.setGeometry(QtCore.QRect(5, 95, 206, 16))
         self.label_36.setObjectName(_fromUtf8("label_36"))
         self.xvid_extra_opts = QtGui.QLineEdit(self.xvid_options_box)
-        self.xvid_extra_opts.setGeometry(QtCore.QRect(210, 95, 146, 21))
+        self.xvid_extra_opts.setGeometry(QtCore.QRect(210, 90, 146, 21))
         self.xvid_extra_opts.setText(_fromUtf8(""))
         self.xvid_extra_opts.setObjectName(_fromUtf8("xvid_extra_opts"))
         self.xvid_cbr = QtGui.QCheckBox(self.xvid_options_box)
