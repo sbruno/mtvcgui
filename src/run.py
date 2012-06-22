@@ -312,6 +312,8 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
             self.freq_rb.setChecked(False)
             self.audiocodec.setCurrentIndex(0)
             self.videocodec.setCurrentIndex(0)
+            self.set_xvid_cbr(False)
+            self.set_x264_cbr(False)
             return None
 
         #main tab
