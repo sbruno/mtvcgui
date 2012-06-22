@@ -1,5 +1,5 @@
 Name:		mtvcgui
-Version:	1.0.1
+Version:	FIELD_FOR_VERSION
 Release:	1%{?dist}
 Summary:	A simple GUI for recording TV with mencoder
 
