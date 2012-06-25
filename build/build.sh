@@ -7,7 +7,8 @@ fi
 
 mkdir ~/archlinux
 rm -rf ~/archlinux/${1}
-cp -r archlinux/${1} ~/archlinux
+mkdir ~/archlinux/${1}
+cp archlinux/PKGBUILD ~/archlinux/${1}
 
 rm -rf ~/rpmbuild
 cp -r rpmbuild ~
@@ -22,5 +23,7 @@ cd ~/rpmbuild/RPMS/noarch
 sudo alien -d mtvcgui-${1}*
 
 cd ~/archlinux/${1}
+sed -i "s/FIELD_FOR_VERSION/${1}/g" PKGBUILD 
+sed -i "s/md5sums=()/$(echo $(makepkg -g))/g" PKGBUILD
 makepkg -d --source
  
