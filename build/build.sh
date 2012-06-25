@@ -5,6 +5,10 @@ if [ -z ${1} ]; then
     exit 1;
 fi
 
+mkdir ~/archlinux
+rm -rf ~/archlinux/${1}
+cp -r archlinux/${1} ~/archlinux
+
 rm -rf ~/rpmbuild
 cp -r rpmbuild ~
 sed -i "s/FIELD_FOR_VERSION/${1}/g" ~/rpmbuild/SPECS/mtvcgui.spec
@@ -16,6 +20,7 @@ cd ~/rpmbuild/SPECS
 rpmbuild -bb --target noarch mtvcgui.spec
 cd ~/rpmbuild/RPMS/noarch
 sudo alien -d mtvcgui-${1}*
-cd ~/rpmbuild/archlinux/${1}
+
+cd ~/archlinux/${1}
 makepkg -d --source
  
