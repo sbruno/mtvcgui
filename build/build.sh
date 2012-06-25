@@ -16,5 +16,6 @@ cd ~/rpmbuild/SPECS
 rpmbuild -bb --target noarch mtvcgui.spec
 cd ~/rpmbuild/RPMS/noarch
 sudo alien -d mtvcgui-${1}*
-
+cd ~/rpmbuild/archlinux/${1}
+makepkg -d --source
  
