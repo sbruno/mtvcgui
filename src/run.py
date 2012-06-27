@@ -485,6 +485,9 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
 
         if config.has_option('mencoder GUI', 'extratvparms'):
             self.extratvparms.setText(config.get('mencoder GUI', 'extratvparms'))
+            
+        if config.has_option('mencoder GUI', 'extramplayerparms'):
+            self.extramplayerparms.setText(config.get('mencoder GUI', 'extramplayerparms'))
 
         if config.has_option('mencoder GUI', 'alsa_audio'):
             self.alsa_audio.setChecked(config.get('mencoder GUI', 'alsa_audio') == 'True')
@@ -707,6 +710,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         parameters['alsa_audio'] = self.alsa_audio.isChecked()
         parameters['adevice'] = str(self.adevice.text())
         parameters['extratvparms'] = str(self.extratvparms.text())
+        parameters['extramplayerparms'] = str(self.extramplayerparms.text())
 
         parameters['brightness'] = str(self.brightnessSlider.sliderPosition())
         parameters['contrast'] = str(self.contrastSlider.sliderPosition())

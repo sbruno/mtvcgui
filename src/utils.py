@@ -458,6 +458,7 @@ def generate_mplayer_command(parameters, extra_params=None, as_string=False):
     tvwidth = parameters.get('tvwidth')
     tvheight = parameters.get('tvheight')
     extratvparms = parameters.get('extratvparms')
+    extramplayerparms = parameters.get('extramplayerparms')
     audiorate = parameters.get('audiorate')
     alsa_audio = parameters.get('alsa_audio')
     adevice = parameters.get('adevice')
@@ -539,9 +540,13 @@ def generate_mplayer_command(parameters, extra_params=None, as_string=False):
             filters.append("scale=%s:%s" % (scalewidth, scaleheight) )
 
         filters = ','.join(filters)
-
-        mencoderparms += ['-vf', filters]
         
+        mencoderparms += ['-vf', filters]
+    
+    if extramplayerparms:
+        for param in extramplayerparms.split():
+            mencoderparms.append(param)
+    
     cmd = ['mplayer', '-slave', 'tv://'] + mencoderparms
     
     if as_string:

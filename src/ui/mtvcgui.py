@@ -2,8 +2,8 @@
 
 # Form implementation generated from reading ui file 'mtvcgui.ui'
 #
-# Created: Thu Jun 21 22:24:43 2012
-#      by: PyQt4 UI code generator 4.9.1
+# Created: Tue Jun 26 22:21:52 2012
+#      by: PyQt4 UI code generator 4.9.2
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -332,10 +332,10 @@ class Ui_MainWindow(object):
         self.tab_2 = QtGui.QWidget()
         self.tab_2.setObjectName(_fromUtf8("tab_2"))
         self.label_10 = QtGui.QLabel(self.tab_2)
-        self.label_10.setGeometry(QtCore.QRect(15, 210, 521, 16))
+        self.label_10.setGeometry(QtCore.QRect(15, 205, 521, 16))
         self.label_10.setObjectName(_fromUtf8("label_10"))
         self.extratvparms = QtGui.QLineEdit(self.tab_2)
-        self.extratvparms.setGeometry(QtCore.QRect(10, 230, 636, 26))
+        self.extratvparms.setGeometry(QtCore.QRect(10, 225, 636, 26))
         self.extratvparms.setText(_fromUtf8(""))
         self.extratvparms.setObjectName(_fromUtf8("extratvparms"))
         self.tvwidth = QtGui.QLineEdit(self.tab_2)
@@ -414,6 +414,12 @@ class Ui_MainWindow(object):
         self.label_32 = QtGui.QLabel(self.tab_2)
         self.label_32.setGeometry(QtCore.QRect(385, 105, 101, 16))
         self.label_32.setObjectName(_fromUtf8("label_32"))
+        self.extramplayerparms = QtGui.QLineEdit(self.tab_2)
+        self.extramplayerparms.setGeometry(QtCore.QRect(10, 280, 631, 26))
+        self.extramplayerparms.setObjectName(_fromUtf8("extramplayerparms"))
+        self.label_33 = QtGui.QLabel(self.tab_2)
+        self.label_33.setGeometry(QtCore.QRect(15, 260, 646, 16))
+        self.label_33.setObjectName(_fromUtf8("label_33"))
         self.tabWidget.addTab(self.tab_2, _fromUtf8(""))
         self.tab_3 = QtGui.QWidget()
         self.tab_3.setObjectName(_fromUtf8("tab_3"))
@@ -651,6 +657,7 @@ class Ui_MainWindow(object):
         self.label_30.setText(QtGui.QApplication.translate("MainWindow", "Contrast", None, QtGui.QApplication.UnicodeUTF8))
         self.label_31.setText(QtGui.QApplication.translate("MainWindow", "Hue", None, QtGui.QApplication.UnicodeUTF8))
         self.label_32.setText(QtGui.QApplication.translate("MainWindow", "Saturation", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_33.setText(QtGui.QApplication.translate("MainWindow", "Extra mplayer parameters (delimited by spaces. Used in preview command)", None, QtGui.QApplication.UnicodeUTF8))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), QtGui.QApplication.translate("MainWindow", "Extra TV Parameters", None, QtGui.QApplication.UnicodeUTF8))
         self.label_11.setText(QtGui.QApplication.translate("MainWindow", "Extra mencoder parameters (delimited by spaces)", None, QtGui.QApplication.UnicodeUTF8))
         self.label_15.setText(QtGui.QApplication.translate("MainWindow", "Width", None, QtGui.QApplication.UnicodeUTF8))
