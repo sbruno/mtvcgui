@@ -6,25 +6,9 @@ pkgdesc="Mencoder TV Capture GUI"
 arch=('any')
 url="http://code.google.com/p/mtvcgui"
 license=('GPL2')
-groups=()
 depends=('mplayer' 'mencoder' 'python2-pyqt')
-makedepends=()
-optdepends=()
-provides=()
-conflicts=()
-replaces=()
-backup=()
-options=()
-install=
-changelog=
 source=(http://mtvcgui.googlecode.com/files/$pkgname-$pkgver.tgz) 
-noextract=()
 md5sums=()
-
-build() {
-  cd "$srcdir/$pkgname-$pkgver"
-  patch -Np0 -i ../../change-shebang.diff || return 1
-}
 
 package() {
   cd "$srcdir/$pkgname-$pkgver"
@@ -35,11 +19,10 @@ package() {
   mkdir -p $LIBDIR
   mkdir -p $BINDIR
   mkdir -p $ICODIR
-  mkdir -p $DESTDIR/usr/share/pixmaps
+  mkdir -p $DESTDIR/usr/share/{applications,pixmaps}
   cp ui/icons/128x128/mtvcgui.png $DESTDIR/usr/share/pixmaps
   mkdir -p $ICODIR/scalable/apps
   cp ui/icons/mtvcgui.svg $ICODIR/scalable/apps
-  mkdir -p $DESTDIR/usr/share/applications
   cp mtvcgui.desktop $DESTDIR/usr/share/applications
   mkdir -p $ICODIR/16x16/apps
   cp ui/icons/16x16/mtvcgui.png $ICODIR/16x16/apps

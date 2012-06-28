@@ -1686,7 +1686,7 @@ on the console</string>
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>85</y>
+        <y>80</y>
         <width>616</width>
         <height>16</height>
        </rect>
@@ -1712,7 +1712,7 @@ on the console</string>
       <property name="geometry">
        <rect>
         <x>15</x>
-        <y>105</y>
+        <y>95</y>
         <width>626</width>
         <height>26</height>
        </rect>
@@ -1725,7 +1725,7 @@ on the console</string>
       <property name="geometry">
        <rect>
         <x>15</x>
-        <y>270</y>
+        <y>260</y>
         <width>194</width>
         <height>26</height>
        </rect>
@@ -1735,7 +1735,7 @@ on the console</string>
       <property name="geometry">
        <rect>
         <x>230</x>
-        <y>270</y>
+        <y>260</y>
         <width>186</width>
         <height>25</height>
        </rect>
@@ -1751,7 +1751,7 @@ on the console</string>
       <property name="geometry">
        <rect>
         <x>440</x>
-        <y>270</y>
+        <y>260</y>
         <width>186</width>
         <height>25</height>
        </rect>
@@ -1767,7 +1767,7 @@ on the console</string>
       <property name="geometry">
        <rect>
         <x>15</x>
-        <y>130</y>
+        <y>120</y>
         <width>636</width>
         <height>46</height>
        </rect>
@@ -1783,7 +1783,7 @@ on the console</string>
       <property name="geometry">
        <rect>
         <x>15</x>
-        <y>175</y>
+        <y>160</y>
         <width>611</width>
         <height>21</height>
        </rect>
@@ -1799,13 +1799,26 @@ on the console</string>
       <property name="geometry">
        <rect>
         <x>15</x>
-        <y>200</y>
+        <y>185</y>
         <width>626</width>
         <height>66</height>
        </rect>
       </property>
       <property name="plainText">
        <string notr="true">LD_PRELOAD=/usr/lib/libv4l/v4l2convert.so</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_34">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>290</y>
+        <width>646</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>To limit the recording length specify a duration in the first tab</string>
       </property>
      </widget>
     </widget>
