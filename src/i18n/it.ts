@@ -429,47 +429,47 @@ on the console</source>
         <translation>Cambia lingua</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1894"/>
+        <location filename="mtvcgui.ui" line="1895"/>
         <source>Help</source>
         <translation>Guida</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1904"/>
+        <location filename="mtvcgui.ui" line="1905"/>
         <source>Exit</source>
         <translation>Esci</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1909"/>
+        <location filename="mtvcgui.ui" line="1910"/>
         <source>Save configuration</source>
         <translation>Salva configurazione</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1914"/>
+        <location filename="mtvcgui.ui" line="1915"/>
         <source>About mtvcgui</source>
         <translation>Su mtvcgui</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1919"/>
+        <location filename="mtvcgui.ui" line="1920"/>
         <source>Restore saved configuration</source>
         <translation>Ripristina configurazione salvata</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1924"/>
+        <location filename="mtvcgui.ui" line="1925"/>
         <source>English</source>
         <translation>Inglese</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1929"/>
+        <location filename="mtvcgui.ui" line="1930"/>
         <source>Spanish</source>
         <translation>Spagnolo</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1934"/>
+        <location filename="mtvcgui.ui" line="1935"/>
         <source>Spanish (Argentina)</source>
         <translation>Spagnolo (Argentina) </translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1939"/>
+        <location filename="mtvcgui.ui" line="1940"/>
         <source>Italian</source>
         <translation>Italiano</translation>
     </message>
@@ -537,6 +537,11 @@ on the console</source>
         <location filename="mtvcgui.ui" line="1821"/>
         <source>To limit the recording length specify a duration in the first tab</source>
         <translation>Per limitare la durata della cattura, specificare una durata nel primo tab</translation>
+    </message>
+    <message>
+        <location filename="mtvcgui.ui" line="1945"/>
+        <source>German</source>
+        <translation>Tedesco</translation>
     </message>
 </context>
 </TS>

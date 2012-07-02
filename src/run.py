@@ -1011,6 +1011,10 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
     def changeToItalian(self):
         self.locale_string = "it"
         self.change_language(self.locale_string)
+        
+    def changeToGerman(self):
+        self.locale_string = "de"
+        self.change_language(self.locale_string)
 
 
 if __name__ == '__main__':

@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'mtvcgui.ui'
 #
-# Created: Thu Jun 28 19:27:01 2012
+# Created: Mon Jul  2 19:59:41 2012
 #      by: PyQt4 UI code generator 4.9.2
 #
 # WARNING! All changes made in this file will be lost!
@@ -545,10 +545,13 @@ class Ui_MainWindow(object):
         self.actionSpanish_Argentina.setObjectName(_fromUtf8("actionSpanish_Argentina"))
         self.actionItalian = QtGui.QAction(MainWindow)
         self.actionItalian.setObjectName(_fromUtf8("actionItalian"))
+        self.actionGerman = QtGui.QAction(MainWindow)
+        self.actionGerman.setObjectName(_fromUtf8("actionGerman"))
         self.menuChange_language.addAction(self.actionEnglish)
+        self.menuChange_language.addAction(self.actionGerman)
+        self.menuChange_language.addAction(self.actionItalian)
         self.menuChange_language.addAction(self.actionSpanish)
         self.menuChange_language.addAction(self.actionSpanish_Argentina)
-        self.menuChange_language.addAction(self.actionItalian)
         self.menuPrueba.addAction(self.actionSave_configuration)
         self.menuPrueba.addAction(self.actionReload_configuration)
         self.menuPrueba.addAction(self.menuChange_language.menuAction())
@@ -590,6 +593,7 @@ class Ui_MainWindow(object):
         QtCore.QObject.connect(self.actionItalian, QtCore.SIGNAL(_fromUtf8("activated()")), MainWindow.changeToItalian)
         QtCore.QObject.connect(self.xvid_cbr, QtCore.SIGNAL(_fromUtf8("clicked(bool)")), MainWindow.set_xvid_cbr)
         QtCore.QObject.connect(self.x264_cbr, QtCore.SIGNAL(_fromUtf8("clicked(bool)")), MainWindow.set_x264_cbr)
+        QtCore.QObject.connect(self.actionGerman, QtCore.SIGNAL(_fromUtf8("activated()")), MainWindow.changeToGerman)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -692,4 +696,5 @@ class Ui_MainWindow(object):
         self.actionSpanish.setText(QtGui.QApplication.translate("MainWindow", "Spanish", None, QtGui.QApplication.UnicodeUTF8))
         self.actionSpanish_Argentina.setText(QtGui.QApplication.translate("MainWindow", "Spanish (Argentina)", None, QtGui.QApplication.UnicodeUTF8))
         self.actionItalian.setText(QtGui.QApplication.translate("MainWindow", "Italian", None, QtGui.QApplication.UnicodeUTF8))
+        self.actionGerman.setText(QtGui.QApplication.translate("MainWindow", "German", None, QtGui.QApplication.UnicodeUTF8))
 

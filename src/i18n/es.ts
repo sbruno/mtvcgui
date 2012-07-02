@@ -212,22 +212,22 @@ p, li { white-space: pre-wrap; }
         <translation>Menú</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1894"/>
+        <location filename="mtvcgui.ui" line="1895"/>
         <source>Help</source>
         <translation>Ayuda</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1904"/>
+        <location filename="mtvcgui.ui" line="1905"/>
         <source>Exit</source>
         <translation>Salir</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1909"/>
+        <location filename="mtvcgui.ui" line="1910"/>
         <source>Save configuration</source>
         <translation>Guardar configuración</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1914"/>
+        <location filename="mtvcgui.ui" line="1915"/>
         <source>About mtvcgui</source>
         <translation>Acerca de mtvcgui</translation>
     </message>
@@ -329,7 +329,7 @@ on the console</source>
         <translation>Opciones de audio lame</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1919"/>
+        <location filename="mtvcgui.ui" line="1920"/>
         <source>Restore saved configuration</source>
         <translation>Cargar configuración guardada</translation>
     </message>
@@ -456,22 +456,22 @@ Si &amp;lt;valor&amp;gt; es negativo, XviD usará el valor absoluto como tamaño
         <translation>Cambiar de idioma</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1924"/>
+        <location filename="mtvcgui.ui" line="1925"/>
         <source>English</source>
         <translation>Inglés</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1929"/>
+        <location filename="mtvcgui.ui" line="1930"/>
         <source>Spanish</source>
         <translation>Español</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1934"/>
+        <location filename="mtvcgui.ui" line="1935"/>
         <source>Spanish (Argentina)</source>
         <translation>Español (Argentina)</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1939"/>
+        <location filename="mtvcgui.ui" line="1940"/>
         <source>Italian</source>
         <translation>Italiano</translation>
     </message>
@@ -540,6 +540,11 @@ NOTA: Esta opción toma efecto incluso aunque especifique codificación cbr. En 
         <location filename="mtvcgui.ui" line="1821"/>
         <source>To limit the recording length specify a duration in the first tab</source>
         <translation>Para limitar la duración de la grabación, especificar una duración en la primer pestaña</translation>
+    </message>
+    <message>
+        <location filename="mtvcgui.ui" line="1945"/>
+        <source>German</source>
+        <translation>Alemán</translation>
     </message>
 </context>
 </TS>

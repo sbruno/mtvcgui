@@ -1880,9 +1880,10 @@ on the console</string>
       <string>Change language</string>
      </property>
      <addaction name="actionEnglish"/>
+     <addaction name="actionGerman"/>
+     <addaction name="actionItalian"/>
      <addaction name="actionSpanish"/>
      <addaction name="actionSpanish_Argentina"/>
-     <addaction name="actionItalian"/>
     </widget>
     <addaction name="actionSave_configuration"/>
     <addaction name="actionReload_configuration"/>
@@ -1937,6 +1938,11 @@ on the console</string>
   <action name="actionItalian">
    <property name="text">
     <string>Italian</string>
+   </property>
+  </action>
+  <action name="actionGerman">
+   <property name="text">
+    <string>German</string>
    </property>
   </action>
  </widget>
@@ -2413,8 +2419,8 @@ on the console</string>
    <slot>set_xvid_cbr(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>286</x>
-     <y>256</y>
+     <x>529</x>
+     <y>287</y>
     </hint>
     <hint type="destinationlabel">
      <x>316</x>
@@ -2435,6 +2441,22 @@ on the console</string>
     <hint type="destinationlabel">
      <x>567</x>
      <y>497</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionGerman</sender>
+   <signal>activated()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>changeToGerman()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>346</x>
+     <y>261</y>
     </hint>
    </hints>
   </connection>
@@ -2467,5 +2489,6 @@ on the console</string>
   <slot>changeToItalian()</slot>
   <slot>set_xvid_cbr(bool)</slot>
   <slot>set_x264_cbr(bool)</slot>
+  <slot>changeToGerman()</slot>
  </slots>
 </ui>
