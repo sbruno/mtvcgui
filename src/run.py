@@ -271,6 +271,18 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
     def show_about_dialog(self):
         dialog = AboutDialog(self)
         dialog.show()
+        
+    def show_save_config_dialog(self):
+        filename = QtGui.QFileDialog.getSaveFileName(self, self.tr("Select the configuration file to save"), "", self.tr("mtvcgui configuration Files (*.ini)"))
+        if filename:
+            config_filename = str(filename)
+            self.save_configuration(config_filename)
+        
+    def show_load_config_dialog(self):
+        filename = QtGui.QFileDialog.getOpenFileName(self, self.tr("Select the configuration file to load"), "", self.tr("mtvcgui configuration Files (*.ini)"))
+        if filename:
+            config_filename = str(filename)
+            self.set_params_from_config(config_filename)
 
     def audio_codec_selected(self, i):
         if self.audiocodec.itemText(i) == 'mp3lame':
@@ -301,9 +313,10 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
             self.xvid_options_box.hide()
             self.lavc_video_options_box.hide()
 
-    def set_params_from_config(self):
+    def set_params_from_config(self, config_filename=None):
         global config
-        config_filename = os.path.join(os.path.expanduser("~"), '.mtvcgui', 'mtvcgui.ini')
+        if not config_filename:
+            config_filename = os.path.join(os.path.expanduser("~"), '.mtvcgui', 'mtvcgui.ini')
         config.read(config_filename)
         if not config.has_section('mencoder GUI'):
             self.channel.show()
@@ -953,9 +966,9 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         self.previewcommand.setText(utils.generate_command(parameters,
                                                            preview=True))
 
-    def save_configuration(self):
+    def save_configuration(self, config_filename=None):
         parameters = self.get_params_from_gui(config=True)
-        utils.save_configuration(parameters)
+        utils.save_configuration(parameters, config_filename=config_filename)
 
     def set_xvid_cbr(self, is_cbr):
         if is_cbr:

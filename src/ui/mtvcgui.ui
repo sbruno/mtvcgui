@@ -1885,8 +1885,22 @@ on the console</string>
      <addaction name="actionSpanish"/>
      <addaction name="actionSpanish_Argentina"/>
     </widget>
-    <addaction name="actionSave_configuration"/>
-    <addaction name="actionReload_configuration"/>
+    <widget class="QMenu" name="menuSave_configuration">
+     <property name="title">
+      <string>Save configuration</string>
+     </property>
+     <addaction name="actionDefault"/>
+     <addaction name="actionOther"/>
+    </widget>
+    <widget class="QMenu" name="menuRestore_saved_configuration">
+     <property name="title">
+      <string>Restore saved configuration</string>
+     </property>
+     <addaction name="actionDefault_2"/>
+     <addaction name="actionOther_2"/>
+    </widget>
+    <addaction name="menuSave_configuration"/>
+    <addaction name="menuRestore_saved_configuration"/>
     <addaction name="menuChange_language"/>
     <addaction name="actionSalir"/>
    </widget>
@@ -1905,19 +1919,9 @@ on the console</string>
     <string>Exit</string>
    </property>
   </action>
-  <action name="actionSave_configuration">
-   <property name="text">
-    <string>Save configuration</string>
-   </property>
-  </action>
   <action name="actionAbout_mtvcgui">
    <property name="text">
     <string>About mtvcgui</string>
-   </property>
-  </action>
-  <action name="actionReload_configuration">
-   <property name="text">
-    <string>Restore saved configuration</string>
    </property>
   </action>
   <action name="actionEnglish">
@@ -1943,6 +1947,26 @@ on the console</string>
   <action name="actionGerman">
    <property name="text">
     <string>German</string>
+   </property>
+  </action>
+  <action name="actionDefault">
+   <property name="text">
+    <string>Default</string>
+   </property>
+  </action>
+  <action name="actionOther">
+   <property name="text">
+    <string>Other</string>
+   </property>
+  </action>
+  <action name="actionDefault_2">
+   <property name="text">
+    <string>Default</string>
+   </property>
+  </action>
+  <action name="actionOther_2">
+   <property name="text">
+    <string>Other</string>
    </property>
   </action>
  </widget>
@@ -2009,22 +2033,6 @@ on the console</string>
     <hint type="destinationlabel">
      <x>528</x>
      <y>526</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>actionSave_configuration</sender>
-   <signal>activated()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>save_configuration()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>-1</x>
-     <y>-1</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>324</x>
-     <y>287</y>
     </hint>
    </hints>
   </connection>
@@ -2165,22 +2173,6 @@ on the console</string>
     <hint type="sourcelabel">
      <x>545</x>
      <y>331</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>346</x>
-     <y>261</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>actionReload_configuration</sender>
-   <signal>activated()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>set_params_from_config()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>-1</x>
-     <y>-1</y>
     </hint>
     <hint type="destinationlabel">
      <x>346</x>
@@ -2460,6 +2452,70 @@ on the console</string>
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>actionOther</sender>
+   <signal>activated()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>show_save_config_dialog()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>346</x>
+     <y>261</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>346</x>
+     <y>261</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionOther_2</sender>
+   <signal>activated()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>show_load_config_dialog()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>346</x>
+     <y>261</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionDefault</sender>
+   <signal>activated()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>save_configuration()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>346</x>
+     <y>261</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionDefault_2</sender>
+   <signal>activated()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>set_params_from_config()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>346</x>
+     <y>261</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>run_mencoder()</slot>
@@ -2490,5 +2546,7 @@ on the console</string>
   <slot>set_xvid_cbr(bool)</slot>
   <slot>set_x264_cbr(bool)</slot>
   <slot>changeToGerman()</slot>
+  <slot>show_save_config_dialog()</slot>
+  <slot>show_load_config_dialog()</slot>
  </slots>
 </ui>

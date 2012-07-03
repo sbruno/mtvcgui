@@ -177,13 +177,24 @@ def secs_to_str(seconds):
     return "%.2d:%.2d:%.2d" % (hours, mins, secs)
 
 
-def save_configuration(parameters):
+def save_configuration(parameters, config_filename=None):
     """Saves the current configuration to the .ini file
     """
 
     config = ConfigParser.ConfigParser()
-    config_dir = os.path.join(os.path.expanduser("~"), '.mtvcgui')
-    config_filename = os.path.join(config_dir, 'mtvcgui.ini')
+    if not config_filename:
+        config_dir = os.path.join(os.path.expanduser("~"), '.mtvcgui')
+        config_filename = os.path.join(config_dir, 'mtvcgui.ini')
+    else:
+        config_dir = os.path.dirname(config_filename)
+        
+        
+    if not os.path.exists(config_dir):
+        try:
+            os.mkdir(config_dir)
+        except:
+            print "Error trying to create %s" % (config_dir, )
+        
     config.read(config_filename)
 
     if not config.has_section('mencoder GUI'):
@@ -196,11 +207,7 @@ def save_configuration(parameters):
         else:
             config.set('mencoder GUI', parm, parameters.get(parm))
 
-    if not os.path.exists(config_dir):
-        try:
-            os.mkdir(config_dir)
-        except:
-            print "Error trying to create %s" % (config_dir, )
+
 
     try:
         config_file = open(config_filename, 'w')

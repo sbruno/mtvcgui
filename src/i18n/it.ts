@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS><TS version="2.0" language="it" sourcelanguage="en">
+<!DOCTYPE TS>
+<TS version="2.0" language="it" sourcelanguage="en">
 <context>
     <name>AboutDialog</name>
     <message>
@@ -101,7 +102,7 @@ To avoid this message to appear again select your desired norm, audio codec and 
 Per evitare che questo messaggio sia visualizzato ancora seleziona le impostazioni desiderate di codec audio e video e salva la configurazione.</translation>
     </message>
     <message>
-        <location filename="run.py" line="821"/>
+        <location filename="run.py" line="834"/>
         <source>Recording... %1</source>
         <translation>Registrando... %1</translation>
     </message>
@@ -265,12 +266,12 @@ Per evitare che questo messaggio sia visualizzato ancora seleziona le impostazio
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;bitrate=&amp;lt;value&amp;gt; (CBR or two pass mode)&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Sets the bitrate to be used in kbits/second if &amp;lt;16000 or in bits/second if &amp;gt;16000. If &amp;lt;value&amp;gt; is negative, XviD will use its absolute value as the target size (in kBytes) of the video and compute the associated bitrate automagically (default: 687 kbits/s).&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;bitrate=&amp;lt;valore&amp;gt; &lt;/span&gt;&lt;/p&gt;&lt;p&gt;Regola il bitrate da usare in kbits/secondo se &amp;lt;16000 oppure in bits/secondo se &amp;gt;16000. Se &amp;lt;valore&amp;gt; è negativo, XviD userà il valore assoluto come dimensione finale (in kbyte) del video e calcolerà automaticamente il valore del bitrate associato (default: 687 kbit/s).&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
-    <message encoding="UTF-8">
+    <message utf8="true">
         <location filename="mtvcgui.ui" line="1045"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;fixed_quant=&amp;lt;1−31&amp;gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Switch to fixed quantizer mode and specify the quantizer to be used.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;fixed_quant=&amp;lt;1−31&amp;gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Modalità a quantizzazione costante. Applica un quantitizzatore costante di qualità al frame, indipendentemente dalla complessita dello stesso. Valori più bassi generano una migliore qualità ma il file avrà dimensioni maggiori. Il valore 2 garantisce &amp;quot;qualità trasparente&amp;quot;.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
-    <message encoding="UTF-8">
+    <message utf8="true">
         <location filename="mtvcgui.ui" line="1061"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;me_quality=&amp;lt;0−6&amp;gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;This option controls the motion estimation subsystem. The higher the value, the more precise the estimation should be (default: 6). The more precise the motion estimation is, the more bits can be saved. Precision is gained at the expense of CPU time so decrease this setting if you need realtime encoding.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;me_quality=&amp;lt;0−6&amp;gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Questa opzione controlla il sottosistema di stima del movimento. Più è alto il valore più dovrebbe essere precisa la stima (default: 6). Più è precisa la stima del movimento, più bit sono risparmiati. La precisione però aumenta a spese dell&amp;apos;uso del processore, perciò è preferibile abassare questo valore se codifichi in tempo reale.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
@@ -438,47 +439,47 @@ on the console</source>
         <translation>Cambia lingua</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1895"/>
+        <location filename="mtvcgui.ui" line="1909"/>
         <source>Help</source>
         <translation>Guida</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1905"/>
+        <location filename="mtvcgui.ui" line="1919"/>
         <source>Exit</source>
         <translation>Esci</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1910"/>
+        <location filename="mtvcgui.ui" line="1890"/>
         <source>Save configuration</source>
         <translation>Salva configurazione</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1915"/>
+        <location filename="mtvcgui.ui" line="1924"/>
         <source>About mtvcgui</source>
         <translation>Su mtvcgui</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1920"/>
+        <location filename="mtvcgui.ui" line="1897"/>
         <source>Restore saved configuration</source>
         <translation>Ripristina configurazione salvata</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1925"/>
+        <location filename="mtvcgui.ui" line="1929"/>
         <source>English</source>
         <translation>Inglese</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1930"/>
+        <location filename="mtvcgui.ui" line="1934"/>
         <source>Spanish</source>
         <translation>Spagnolo</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1935"/>
+        <location filename="mtvcgui.ui" line="1939"/>
         <source>Spanish (Argentina)</source>
         <translation>Spagnolo (Argentina) </translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1940"/>
+        <location filename="mtvcgui.ui" line="1944"/>
         <source>Italian</source>
         <translation>Italiano</translation>
     </message>
@@ -502,7 +503,7 @@ on the console</source>
         <source>Channels list</source>
         <translation>Lista canali</translation>
     </message>
-    <message encoding="UTF-8">
+    <message utf8="true">
         <location filename="mtvcgui.ui" line="1077"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;interlacing&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Encode the fields of interlaced video material. Turn this option on for interlaced content. &lt;/p&gt;&lt;p&gt;NOTE: Should you rescale the video, you would need an interlace-aware resizer, which you can activate with −vf scale=&amp;lt;width&amp;gt;:&amp;lt;height&amp;gt;:1&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Interlacciamento&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Deinterlaccia i campi dei video interlacciati. Attiva questa opzione solo per contenuti interlacciati &lt;/p&gt;&lt;p&gt;NOTA: Se devi anche ridimensionare il video hai bisogno di un filtro che faccia tutto assieme. Potresti provare con −vf scale=&amp;lt;width&amp;gt;:&amp;lt;height&amp;gt;:1&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
@@ -512,7 +513,7 @@ on the console</source>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;bitrate=&amp;lt;value&amp;gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Sets the average bitrate to be used in kbits/second (default: off). Since local bitrate may vary, this average may be inaccurate for very short videos (see ratetol). Constant bitrate can be achieved by combining this with vbv_maxrate, at significant reduction in quality.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;bitrate=&amp;lt;valore&amp;gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Seleziona il bitrate medio da usare in kbit/secondo (default: disabilitato). Visto che il bitrate per ogni frame può variare, questa media potrebbe non essere accurata per video molto brevi. Un bitrate costante può essere ottenuto combinando questa opzione con vbv_maxrate ottenendo però una significativa riduzione della qualità.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
-    <message encoding="UTF-8">
+    <message utf8="true">
         <location filename="mtvcgui.ui" line="896"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;qp=&amp;lt;0−51&amp;gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;This selects the quantizer to use for P-frames. I- and B-frames are offset from this value by ip_factor and pb_factor, respectively. 20−40 is a useful range (default: 26). Lower values result in better fidelity, but higher bitrates. 0 is lossless. Note that quantization in H.264 works differently from MPEG-1/2/4: H.264’s quantization parameter (QP) is on a logarithmic scale. The mapping is approximately H264QP = 12 + 6*log2(MPEGQP). For example, MPEG at QP=2 is equivalent to H.264 at QP=18.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Quantizzatore costante della qualità&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Valori possibili &amp;lt;0−51&amp;gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;I valori medi solitamente utilizzati sono nell&amp;apos;intervallo 20−40. Valori più bassi generano una migliore qualità ma bitrate più alti. 0 imposta una codifica senza perdita di qualità (LOSSLESS). La quantizzazione in H.264 funziona diversamente che in MPEG-1/2/4: il valore del parametro di quantizzazione (QP) di H.264 è in scala logaritmica. La mappatura è approssimativamente H264QP = 12 + 6*log2(MPEGQP). Per esempio MPEG a QP=2 è equivalente ad H.264 con QP=18 (qualità trasparente).&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
@@ -548,9 +549,34 @@ on the console</source>
         <translation>Per limitare la durata della cattura, specificare una durata nel primo tab</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1945"/>
+        <location filename="mtvcgui.ui" line="1949"/>
         <source>German</source>
         <translation>Tedesco</translation>
+    </message>
+    <message>
+        <location filename="run.py" line="276"/>
+        <source>Select the configuration file to save</source>
+        <translation>Selezionare il file di configurazione per salvare</translation>
+    </message>
+    <message>
+        <location filename="run.py" line="282"/>
+        <source>mtvcgui configuration Files (*.ini)</source>
+        <translation>File di configurazione di mtvcgui (*.ini)</translation>
+    </message>
+    <message>
+        <location filename="mtvcgui.ui" line="1964"/>
+        <source>Default</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mtvcgui.ui" line="1969"/>
+        <source>Other</source>
+        <translation>Altro</translation>
+    </message>
+    <message>
+        <location filename="run.py" line="282"/>
+        <source>Select the configuration file to load</source>
+        <translation>Selezionare il file di configurazione da caricare</translation>
     </message>
 </context>
 </TS>
