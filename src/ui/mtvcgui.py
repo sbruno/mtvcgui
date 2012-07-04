@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'mtvcgui.ui'
 #
-# Created: Mon Jul  2 22:11:09 2012
+# Created: Tue Jul  3 21:03:18 2012
 #      by: PyQt4 UI code generator 4.9.2
 #
 # WARNING! All changes made in this file will be lost!
@@ -649,6 +649,7 @@ class Ui_MainWindow(object):
         self.x264_qp.setToolTip(QtGui.QApplication.translate("MainWindow", "<html><head/><body><p><span style=\" font-weight:600;\">qp=&lt;0−51&gt;</span></p><p>This selects the quantizer to use for P-frames. I- and B-frames are offset from this value by ip_factor and pb_factor, respectively. 20−40 is a useful range (default: 26). Lower values result in better fidelity, but higher bitrates. 0 is lossless. Note that quantization in H.264 works differently from MPEG-1/2/4: H.264’s quantization parameter (QP) is on a logarithmic scale. The mapping is approximately H264QP = 12 + 6*log2(MPEGQP). For example, MPEG at QP=2 is equivalent to H.264 at QP=18.</p></body></html>", None, QtGui.QApplication.UnicodeUTF8))
         self.label_39.setText(QtGui.QApplication.translate("MainWindow", "Extra options (delimited by :)", None, QtGui.QApplication.UnicodeUTF8))
         self.x264_cbr.setText(QtGui.QApplication.translate("MainWindow", "CBR", None, QtGui.QApplication.UnicodeUTF8))
+        self.x264_crf.setToolTip(QtGui.QApplication.translate("MainWindow", "<html><head/><body><p><span style=\" font-weight:600;\">crf Default: 23.0</span></p><p>The final ratecontrol method: Constant Ratefactor. While qp targets a certain quantizer, and bitrate targets a certain filesize, crf targets a certain \'quality\'. The idea is for crf n to give the same perceptual quality as qp n, just in a smaller space. The arbitrary unit of measure for crf values is the &quot;ratefactor&quot;. CRF achieves this by reducing the quality of \'less important\' frames. In this context, \'less important\' means frames in complex or high-motion scenes, where quality is either more expensive (in terms of bits) or less visible, will have their quantizer increased. The bits saved in frames like these are redistributed to frames where they will be more effective. CRF will take less time than a 2pass bitrate encode, because the \'first pass\' from a 2pass encode was skipped. On the other hand, it\'s impossible to predict the bitrate a CRF encode will come out to. It\'s up to you to decide which rate-control mode is better for your circumstances. This option is mutually exclusive with qp and bitrate.</p></body></html>", None, QtGui.QApplication.UnicodeUTF8))
         self.x264_crf_label.setText(QtGui.QApplication.translate("MainWindow", "crf", None, QtGui.QApplication.UnicodeUTF8))
         self.xvid_options_box.setTitle(QtGui.QApplication.translate("MainWindow", "xvid options", None, QtGui.QApplication.UnicodeUTF8))
         self.xvid_bitrate_label.setText(QtGui.QApplication.translate("MainWindow", "bitrate", None, QtGui.QApplication.UnicodeUTF8))

@@ -162,82 +162,82 @@ p, li { white-space: pre-wrap; }
         <translation>Bitrate del vídeo</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1171"/>
+        <location filename="mtvcgui.ui" line="1174"/>
         <source>Extra TV Parameters</source>
         <translation>Parámetros extra de TV</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1183"/>
+        <location filename="mtvcgui.ui" line="1186"/>
         <source>Extra tv parameters (delimited by :)</source>
         <translation>Parámetros extra de TV (delimitados por :)</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1557"/>
+        <location filename="mtvcgui.ui" line="1560"/>
         <source>Height</source>
         <translation>Alto</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1544"/>
+        <location filename="mtvcgui.ui" line="1547"/>
         <source>Width</source>
         <translation>Ancho</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1274"/>
+        <location filename="mtvcgui.ui" line="1277"/>
         <source>Audio Rate</source>
         <translation>Frecuencia de audio</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1506"/>
+        <location filename="mtvcgui.ui" line="1509"/>
         <source>Extra Mencoder Parameters</source>
         <translation>Parámetros extra de mencoder</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1518"/>
+        <location filename="mtvcgui.ui" line="1521"/>
         <source>Extra mencoder parameters (delimited by spaces)</source>
         <translation>Parámetros extra de mencoder (delimitados por espacios)</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1596"/>
+        <location filename="mtvcgui.ui" line="1599"/>
         <source>noskip</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1609"/>
+        <location filename="mtvcgui.ui" line="1612"/>
         <source>quiet</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1638"/>
+        <location filename="mtvcgui.ui" line="1641"/>
         <source>FPS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1664"/>
+        <location filename="mtvcgui.ui" line="1667"/>
         <source>Extra filters (delimited by ,)</source>
         <translation>Filtros extra (delimitados por ,)</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1876"/>
+        <location filename="mtvcgui.ui" line="1879"/>
         <source>Menu</source>
         <translation>Menú</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1909"/>
+        <location filename="mtvcgui.ui" line="1912"/>
         <source>Help</source>
         <translation>Ayuda</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1919"/>
+        <location filename="mtvcgui.ui" line="1922"/>
         <source>Exit</source>
         <translation>Salir</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1890"/>
+        <location filename="mtvcgui.ui" line="1893"/>
         <source>Save configuration</source>
         <translation>Guardar configuración</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1924"/>
+        <location filename="mtvcgui.ui" line="1927"/>
         <source>About mtvcgui</source>
         <translation>Acerca de mtvcgui</translation>
     </message>
@@ -252,59 +252,59 @@ p, li { white-space: pre-wrap; }
         <translation>frecuencia</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1293"/>
+        <location filename="mtvcgui.ui" line="1296"/>
         <source>Hz</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1306"/>
+        <location filename="mtvcgui.ui" line="1309"/>
         <source>Capture audio using ALSA</source>
         <translation>Capturar audio usando ALSA</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1319"/>
+        <location filename="mtvcgui.ui" line="1322"/>
         <source>You may find the available devices running the command
 aplay --list-devices
 on the console</source>
         <translation>Puede listar los dispositivos disponibles ejecutando el comandoaplay --list-devicesen la consola</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1337"/>
+        <location filename="mtvcgui.ui" line="1340"/>
         <source>ALSA device (e.g. hw.0)</source>
         <translation>Dispositivo ALSA (ej: hw.0)</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1670"/>
+        <location filename="mtvcgui.ui" line="1673"/>
         <source>Advanced</source>
         <translation>Avanzado</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1682"/>
+        <location filename="mtvcgui.ui" line="1685"/>
         <source>Run this command before capturing:</source>
         <translation>Ejecutar este comando antes de capturar:</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1695"/>
+        <location filename="mtvcgui.ui" line="1698"/>
         <source>Run this command after capturing:</source>
         <translation>Ejecutar este comando después de capturar:</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1744"/>
+        <location filename="mtvcgui.ui" line="1747"/>
         <source>Schedule Recording</source>
         <translation>Programar captura</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1836"/>
+        <location filename="mtvcgui.ui" line="1839"/>
         <source>Append a number suffix if file exists</source>
         <translation>Agregar sufijo numérico si el archivo existe</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1852"/>
+        <location filename="mtvcgui.ui" line="1855"/>
         <source>Stopped</source>
         <translation>Detenido</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1760"/>
+        <location filename="mtvcgui.ui" line="1763"/>
         <source>Cancel</source>
         <translation>Cancelar</translation>
     </message>
@@ -339,27 +339,27 @@ on the console</source>
         <translation>Opciones de audio lame</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1897"/>
+        <location filename="mtvcgui.ui" line="1900"/>
         <source>Restore saved configuration</source>
         <translation>Cargar configuración guardada</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1438"/>
+        <location filename="mtvcgui.ui" line="1441"/>
         <source>Brightness</source>
         <translation>Brillo</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1451"/>
+        <location filename="mtvcgui.ui" line="1454"/>
         <source>Contrast</source>
         <translation>Contraste</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1464"/>
+        <location filename="mtvcgui.ui" line="1467"/>
         <source>Hue</source>
         <translation>Matiz</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1477"/>
+        <location filename="mtvcgui.ui" line="1480"/>
         <source>Saturation</source>
         <translation>Saturación</translation>
     </message>
@@ -385,7 +385,7 @@ Para evitar que este mensaje se muestre nuevamente seleccione a continuación la
         <translation>La ejecución de mencoder falló. Este programa muestra información en la salida estándar (stdout). Inicie el programa desde la línea de comandos y observe la información que aparece en la consola para detectar la posible causa de este fallo.</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1109"/>
+        <location filename="mtvcgui.ui" line="1112"/>
         <source>Extra options (delimited by :)</source>
         <translation>Opciones extra (separar con :)</translation>
     </message>
@@ -400,53 +400,53 @@ Para evitar que este mensaje se muestre nuevamente seleccione a continuación la
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;La herramienta intentar&amp;aacute; obtener las entradas soportadas con mplayer bas&amp;aacute;ndose en el valor actual de &amp;quot;Dispositivo&amp;quot;. De todas formas, si esto fallara es posible ingresar cualquier valor num&amp;eacute;rico.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="978"/>
+        <location filename="mtvcgui.ui" line="981"/>
         <source>xvid options</source>
         <translation>Opciones de xvid</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="990"/>
+        <location filename="mtvcgui.ui" line="993"/>
         <source>bitrate</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1003"/>
+        <location filename="mtvcgui.ui" line="1006"/>
         <source>fixed_quant</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1016"/>
+        <location filename="mtvcgui.ui" line="1019"/>
         <source>me_quality</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1029"/>
+        <location filename="mtvcgui.ui" line="1032"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;bitrate=&amp;lt;value&amp;gt; (CBR or two pass mode)&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Sets the bitrate to be used in kbits/second if &amp;lt;16000 or in bits/second if &amp;gt;16000. If &amp;lt;value&amp;gt; is negative, XviD will use its absolute value as the target size (in kBytes) of the video and compute the associated bitrate automagically (default: 687 kbits/s).&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;bitrate=&amp;lt;valor&amp;gt; &lt;/span&gt;&lt;/p&gt;&lt;p&gt;Establece la tasa de bits a ser usada en kbits/segundo si &amp;lt;16000 o en bits/ segundo si &amp;gt;16000 
 Si &amp;lt;valor&amp;gt; es negativo, XviD usará el valor absoluto como tamaño (en kbytes) del video y calculará la tasa de bits asociada automágicamente. (modo CBR o 2pasadas, por defecto: 687 kbits/s)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message utf8="true">
-        <location filename="mtvcgui.ui" line="1045"/>
+        <location filename="mtvcgui.ui" line="1048"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;fixed_quant=&amp;lt;1−31&amp;gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Switch to fixed quantizer mode and specify the quantizer to be used.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;fixed_quant=&amp;lt;1−31&amp;gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Cambia al modo de cuantizador fijo y especifica el cuantizador a usar.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message utf8="true">
-        <location filename="mtvcgui.ui" line="1061"/>
+        <location filename="mtvcgui.ui" line="1064"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;me_quality=&amp;lt;0−6&amp;gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;This option controls the motion estimation subsystem. The higher the value, the more precise the estimation should be (default: 6). The more precise the motion estimation is, the more bits can be saved. Precision is gained at the expense of CPU time so decrease this setting if you need realtime encoding.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;me_quality=&amp;lt;0−6&amp;gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Esta opción controla el subsistema de estimación de movimiento. Cuanto más alto sea el valor, más precisa puede ser la estimación. Cuanto más precisa es la estimación, más bits se pueden ahorrar. La precisión se gana a expensas de tiempo de CPU para que decremente este valor si necesita codificación en tiempo real. (por defecto: 6).&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1080"/>
+        <location filename="mtvcgui.ui" line="1083"/>
         <source>interlacing</source>
         <translation>entrelazado</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1093"/>
+        <location filename="mtvcgui.ui" line="1096"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;cartoon&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Activate this if your encoded sequence is an anime/cartoon. It modifies some XviD internal thresholds so XviD takes better decisions on frame types and motion vectors for flat looking cartoons.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;cartoon&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Activelo si su secuencia de codificación es de dibujos animados. Modifica algunos umbrales internos de XviD para que XviD tome mejores decisiones en los tipos de marcos de imagen y vectores de movimiento para dibujos que tipo plano.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1096"/>
+        <location filename="mtvcgui.ui" line="1099"/>
         <source>cartoon</source>
         <translation>dibujo animado</translation>
     </message>
@@ -456,32 +456,32 @@ Si &amp;lt;valor&amp;gt; es negativo, XviD usará el valor absoluto como tamaño
         <translation>Opciones de x264</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1792"/>
+        <location filename="mtvcgui.ui" line="1795"/>
         <source>Set these environment variables:</source>
         <translation>Establecer estas variables de entorno:</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1880"/>
+        <location filename="mtvcgui.ui" line="1883"/>
         <source>Change language</source>
         <translation>Cambiar de idioma</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1929"/>
+        <location filename="mtvcgui.ui" line="1932"/>
         <source>English</source>
         <translation>Inglés</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1934"/>
+        <location filename="mtvcgui.ui" line="1937"/>
         <source>Spanish</source>
         <translation>Español</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1939"/>
+        <location filename="mtvcgui.ui" line="1942"/>
         <source>Spanish (Argentina)</source>
         <translation>Español (Argentina)</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1944"/>
+        <location filename="mtvcgui.ui" line="1947"/>
         <source>Italian</source>
         <translation>Italiano</translation>
     </message>
@@ -506,7 +506,7 @@ Si &amp;lt;valor&amp;gt; es negativo, XviD usará el valor absoluto como tamaño
         <translation>Lista canales</translation>
     </message>
     <message utf8="true">
-        <location filename="mtvcgui.ui" line="1077"/>
+        <location filename="mtvcgui.ui" line="1080"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;interlacing&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Encode the fields of interlaced video material. Turn this option on for interlaced content. &lt;/p&gt;&lt;p&gt;NOTE: Should you rescale the video, you would need an interlace-aware resizer, which you can activate with −vf scale=&amp;lt;width&amp;gt;:&amp;lt;height&amp;gt;:1&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;interlacing&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Codifica los campos de material de video entrelazado. Active esta opción para contenido entrelazado. Nota: Esta opción no desentrelaza video, lo codifica basado en campos.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
@@ -522,37 +522,37 @@ Si &amp;lt;valor&amp;gt; es negativo, XviD usará el valor absoluto como tamaño
 NOTA: Esta opción toma efecto incluso aunque especifique codificación cbr. En tal caso, el primer marco codificado usará el factor de cuantización que especifique, pero en marcos posteriores, el control de tasa decide qué cuantizador usar.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1776"/>
+        <location filename="mtvcgui.ui" line="1779"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;It is absolutely not recommended to use this! It may consume too much CPU and ruin your capture!! It makes use of the &apos;tail&apos; command, so it must be available.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Está absolutamente no recomendado usar esto! Puede utlilizar demasiado CPU y arruinar la captura!! Utiliza el comando &apos;tail&apos; por lo cual debe estar disponible.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1779"/>
+        <location filename="mtvcgui.ui" line="1782"/>
         <source>Play recorded file while capture (kind of preview) (NOT RECOMMENDED)</source>
         <translation>Reproducir video capturado mientras se captura (especie de preview)  (NO RECOMENDADO)</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1135"/>
+        <location filename="mtvcgui.ui" line="1138"/>
         <source>CBR</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="964"/>
+        <location filename="mtvcgui.ui" line="967"/>
         <source>crf</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1500"/>
+        <location filename="mtvcgui.ui" line="1503"/>
         <source>Extra mplayer parameters (delimited by spaces. Used in preview command)</source>
         <translation>Parametros extra de mplayer (separados por espacios. Usados para previsualización)</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1821"/>
+        <location filename="mtvcgui.ui" line="1824"/>
         <source>To limit the recording length specify a duration in the first tab</source>
         <translation>Para limitar la duración de la grabación, especificar una duración en la primer pestaña</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1949"/>
+        <location filename="mtvcgui.ui" line="1952"/>
         <source>German</source>
         <translation>Alemán</translation>
     </message>
@@ -567,12 +567,12 @@ NOTA: Esta opción toma efecto incluso aunque especifique codificación cbr. En 
         <translation>Ficheros de configuración de mtvcgui (*.ini)</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1964"/>
+        <location filename="mtvcgui.ui" line="1967"/>
         <source>Default</source>
         <translation>Por defecto</translation>
     </message>
     <message>
-        <location filename="mtvcgui.ui" line="1969"/>
+        <location filename="mtvcgui.ui" line="1972"/>
         <source>Other</source>
         <translation>Otro</translation>
     </message>
@@ -580,6 +580,11 @@ NOTA: Esta opción toma efecto incluso aunque especifique codificación cbr. En 
         <location filename="run.py" line="282"/>
         <source>Select the configuration file to load</source>
         <translation>Seleccione un fichero de configuración para cargar</translation>
+    </message>
+    <message>
+        <location filename="mtvcgui.ui" line="954"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;crf Default: 23.0&lt;/span&gt;&lt;/p&gt;&lt;p&gt;The final ratecontrol method: Constant Ratefactor. While qp targets a certain quantizer, and bitrate targets a certain filesize, crf targets a certain &apos;quality&apos;. The idea is for crf n to give the same perceptual quality as qp n, just in a smaller space. The arbitrary unit of measure for crf values is the &amp;quot;ratefactor&amp;quot;. CRF achieves this by reducing the quality of &apos;less important&apos; frames. In this context, &apos;less important&apos; means frames in complex or high-motion scenes, where quality is either more expensive (in terms of bits) or less visible, will have their quantizer increased. The bits saved in frames like these are redistributed to frames where they will be more effective. CRF will take less time than a 2pass bitrate encode, because the &apos;first pass&apos; from a 2pass encode was skipped. On the other hand, it&apos;s impossible to predict the bitrate a CRF encode will come out to. It&apos;s up to you to decide which rate-control mode is better for your circumstances. This option is mutually exclusive with qp and bitrate.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

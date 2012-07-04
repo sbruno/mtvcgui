@@ -950,6 +950,9 @@
          <height>21</height>
         </rect>
        </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;crf Default: 23.0&lt;/span&gt;&lt;/p&gt;&lt;p&gt;The final ratecontrol method: Constant Ratefactor. While qp targets a certain quantizer, and bitrate targets a certain filesize, crf targets a certain 'quality'. The idea is for crf n to give the same perceptual quality as qp n, just in a smaller space. The arbitrary unit of measure for crf values is the &amp;quot;ratefactor&amp;quot;. CRF achieves this by reducing the quality of 'less important' frames. In this context, 'less important' means frames in complex or high-motion scenes, where quality is either more expensive (in terms of bits) or less visible, will have their quantizer increased. The bits saved in frames like these are redistributed to frames where they will be more effective. CRF will take less time than a 2pass bitrate encode, because the 'first pass' from a 2pass encode was skipped. On the other hand, it's impossible to predict the bitrate a CRF encode will come out to. It's up to you to decide which rate-control mode is better for your circumstances. This option is mutually exclusive with qp and bitrate.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
       </widget>
       <widget class="QLabel" name="x264_crf_label">
        <property name="geometry">
@@ -2459,8 +2462,8 @@ on the console</string>
    <slot>show_save_config_dialog()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>346</x>
-     <y>261</y>
+     <x>-1</x>
+     <y>-1</y>
     </hint>
     <hint type="destinationlabel">
      <x>346</x>
