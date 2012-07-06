@@ -253,6 +253,7 @@ def generate_command(parameters, preview=False):
     xvid_interlacing = parameters.get('xvid_interlacing')
     x264_cbr = parameters.get('x264_cbr')
     x264_bitrate = parameters.get('x264_bitrate')
+    x264_dropdown_value = parameters.get('x264_dropdown_value')
     x264_qp = parameters.get('x264_qp')
     x264_crf = parameters.get('x264_crf')
     x264_extra_opts = parameters.get('x264_extra_opts')
@@ -420,9 +421,9 @@ def generate_command(parameters, preview=False):
         x264encopts = []
         if x264_cbr and x264_bitrate:
             x264encopts.append("bitrate=" + x264_bitrate)
-        if not x264_cbr and x264_qp:
+        if not x264_cbr and x264_qp and x264_dropdown_value == 'qp':
             x264encopts.append("qp=" + x264_qp)
-        if not x264_cbr and x264_crf:
+        if not x264_cbr and x264_crf and x264_dropdown_value == 'crf':
             x264encopts.append("crf=" + x264_crf)
         if x264_extra_opts:
             x264encopts.extend(x264_extra_opts.split(":"))

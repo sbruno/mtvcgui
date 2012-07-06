@@ -870,19 +870,6 @@
         <string>bitrate</string>
        </property>
       </widget>
-      <widget class="QLabel" name="x264_qp_label">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>30</y>
-         <width>81</width>
-         <height>16</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>qp</string>
-       </property>
-      </widget>
       <widget class="QLineEdit" name="x264_qp">
        <property name="geometry">
         <rect>
@@ -903,7 +890,7 @@
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>75</y>
+         <y>70</y>
          <width>201</width>
          <height>16</height>
         </rect>
@@ -916,7 +903,7 @@
        <property name="geometry">
         <rect>
          <x>215</x>
-         <y>70</y>
+         <y>65</y>
          <width>141</width>
          <height>21</height>
         </rect>
@@ -945,7 +932,7 @@
        <property name="geometry">
         <rect>
          <x>105</x>
-         <y>50</y>
+         <y>25</y>
          <width>111</width>
          <height>21</height>
         </rect>
@@ -954,18 +941,25 @@
         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;crf Default: 23.0&lt;/span&gt;&lt;/p&gt;&lt;p&gt;The final ratecontrol method: Constant Ratefactor. While qp targets a certain quantizer, and bitrate targets a certain filesize, crf targets a certain 'quality'. The idea is for crf n to give the same perceptual quality as qp n, just in a smaller space. The arbitrary unit of measure for crf values is the &amp;quot;ratefactor&amp;quot;. CRF achieves this by reducing the quality of 'less important' frames. In this context, 'less important' means frames in complex or high-motion scenes, where quality is either more expensive (in terms of bits) or less visible, will have their quantizer increased. The bits saved in frames like these are redistributed to frames where they will be more effective. CRF will take less time than a 2pass bitrate encode, because the 'first pass' from a 2pass encode was skipped. On the other hand, it's impossible to predict the bitrate a CRF encode will come out to. It's up to you to decide which rate-control mode is better for your circumstances. This option is mutually exclusive with qp and bitrate.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
       </widget>
-      <widget class="QLabel" name="x264_crf_label">
+      <widget class="QComboBox" name="x264_dropdown">
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>55</y>
-         <width>52</width>
-         <height>13</height>
+         <y>25</y>
+         <width>78</width>
+         <height>22</height>
         </rect>
        </property>
-       <property name="text">
-        <string>crf</string>
-       </property>
+       <item>
+        <property name="text">
+         <string>crf</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>qp</string>
+        </property>
+       </item>
       </widget>
      </widget>
      <widget class="QGroupBox" name="xvid_options_box">
@@ -2430,8 +2424,8 @@ on the console</string>
    <slot>set_x264_cbr(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>559</x>
-     <y>279</y>
+     <x>473</x>
+     <y>292</y>
     </hint>
     <hint type="destinationlabel">
      <x>567</x>
@@ -2519,6 +2513,22 @@ on the console</string>
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>x264_dropdown</sender>
+   <signal>currentIndexChanged(QString)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>update_crf_qp(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>260</x>
+     <y>289</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>144</x>
+     <y>465</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>run_mencoder()</slot>
@@ -2551,5 +2561,6 @@ on the console</string>
   <slot>changeToGerman()</slot>
   <slot>show_save_config_dialog()</slot>
   <slot>show_load_config_dialog()</slot>
+  <slot>update_crf_qp(QString)</slot>
  </slots>
 </ui>

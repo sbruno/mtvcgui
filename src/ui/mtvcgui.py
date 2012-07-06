@@ -2,8 +2,8 @@
 
 # Form implementation generated from reading ui file 'mtvcgui.ui'
 #
-# Created: Tue Jul  3 21:03:18 2012
-#      by: PyQt4 UI code generator 4.9.2
+# Created: Thu Jul  5 23:38:41 2012
+#      by: PyQt4 UI code generator 4.9.4
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -264,18 +264,15 @@ class Ui_MainWindow(object):
         self.x264_bitrate_label = QtGui.QLabel(self.x264_options_box)
         self.x264_bitrate_label.setGeometry(QtCore.QRect(10, 30, 81, 16))
         self.x264_bitrate_label.setObjectName(_fromUtf8("x264_bitrate_label"))
-        self.x264_qp_label = QtGui.QLabel(self.x264_options_box)
-        self.x264_qp_label.setGeometry(QtCore.QRect(10, 30, 81, 16))
-        self.x264_qp_label.setObjectName(_fromUtf8("x264_qp_label"))
         self.x264_qp = QtGui.QLineEdit(self.x264_options_box)
         self.x264_qp.setGeometry(QtCore.QRect(105, 25, 113, 21))
         self.x264_qp.setText(_fromUtf8(""))
         self.x264_qp.setObjectName(_fromUtf8("x264_qp"))
         self.label_39 = QtGui.QLabel(self.x264_options_box)
-        self.label_39.setGeometry(QtCore.QRect(10, 75, 201, 16))
+        self.label_39.setGeometry(QtCore.QRect(10, 70, 201, 16))
         self.label_39.setObjectName(_fromUtf8("label_39"))
         self.x264_extra_opts = QtGui.QLineEdit(self.x264_options_box)
-        self.x264_extra_opts.setGeometry(QtCore.QRect(215, 70, 141, 21))
+        self.x264_extra_opts.setGeometry(QtCore.QRect(215, 65, 141, 21))
         self.x264_extra_opts.setToolTip(_fromUtf8(""))
         self.x264_extra_opts.setText(_fromUtf8(""))
         self.x264_extra_opts.setObjectName(_fromUtf8("x264_extra_opts"))
@@ -283,11 +280,13 @@ class Ui_MainWindow(object):
         self.x264_cbr.setGeometry(QtCore.QRect(230, 25, 80, 21))
         self.x264_cbr.setObjectName(_fromUtf8("x264_cbr"))
         self.x264_crf = QtGui.QLineEdit(self.x264_options_box)
-        self.x264_crf.setGeometry(QtCore.QRect(105, 50, 111, 21))
+        self.x264_crf.setGeometry(QtCore.QRect(105, 25, 111, 21))
         self.x264_crf.setObjectName(_fromUtf8("x264_crf"))
-        self.x264_crf_label = QtGui.QLabel(self.x264_options_box)
-        self.x264_crf_label.setGeometry(QtCore.QRect(10, 55, 52, 13))
-        self.x264_crf_label.setObjectName(_fromUtf8("x264_crf_label"))
+        self.x264_dropdown = QtGui.QComboBox(self.x264_options_box)
+        self.x264_dropdown.setGeometry(QtCore.QRect(10, 25, 78, 22))
+        self.x264_dropdown.setObjectName(_fromUtf8("x264_dropdown"))
+        self.x264_dropdown.addItem(_fromUtf8(""))
+        self.x264_dropdown.addItem(_fromUtf8(""))
         self.xvid_options_box = QtGui.QGroupBox(self.tab)
         self.xvid_options_box.setGeometry(QtCore.QRect(310, 195, 361, 121))
         self.xvid_options_box.setObjectName(_fromUtf8("xvid_options_box"))
@@ -608,6 +607,7 @@ class Ui_MainWindow(object):
         QtCore.QObject.connect(self.actionOther_2, QtCore.SIGNAL(_fromUtf8("activated()")), MainWindow.show_load_config_dialog)
         QtCore.QObject.connect(self.actionDefault, QtCore.SIGNAL(_fromUtf8("activated()")), MainWindow.save_configuration)
         QtCore.QObject.connect(self.actionDefault_2, QtCore.SIGNAL(_fromUtf8("activated()")), MainWindow.set_params_from_config)
+        QtCore.QObject.connect(self.x264_dropdown, QtCore.SIGNAL(_fromUtf8("currentIndexChanged(QString)")), MainWindow.update_crf_qp)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -645,12 +645,12 @@ class Ui_MainWindow(object):
         self.x264_options_box.setTitle(QtGui.QApplication.translate("MainWindow", "x264 options", None, QtGui.QApplication.UnicodeUTF8))
         self.x264_bitrate.setToolTip(QtGui.QApplication.translate("MainWindow", "<html><head/><body><p><span style=\" font-weight:600;\">bitrate=&lt;value&gt;</span></p><p>Sets the average bitrate to be used in kbits/second (default: off). Since local bitrate may vary, this average may be inaccurate for very short videos (see ratetol). Constant bitrate can be achieved by combining this with vbv_maxrate, at significant reduction in quality.</p></body></html>", None, QtGui.QApplication.UnicodeUTF8))
         self.x264_bitrate_label.setText(QtGui.QApplication.translate("MainWindow", "bitrate", None, QtGui.QApplication.UnicodeUTF8))
-        self.x264_qp_label.setText(QtGui.QApplication.translate("MainWindow", "qp", None, QtGui.QApplication.UnicodeUTF8))
         self.x264_qp.setToolTip(QtGui.QApplication.translate("MainWindow", "<html><head/><body><p><span style=\" font-weight:600;\">qp=&lt;0−51&gt;</span></p><p>This selects the quantizer to use for P-frames. I- and B-frames are offset from this value by ip_factor and pb_factor, respectively. 20−40 is a useful range (default: 26). Lower values result in better fidelity, but higher bitrates. 0 is lossless. Note that quantization in H.264 works differently from MPEG-1/2/4: H.264’s quantization parameter (QP) is on a logarithmic scale. The mapping is approximately H264QP = 12 + 6*log2(MPEGQP). For example, MPEG at QP=2 is equivalent to H.264 at QP=18.</p></body></html>", None, QtGui.QApplication.UnicodeUTF8))
         self.label_39.setText(QtGui.QApplication.translate("MainWindow", "Extra options (delimited by :)", None, QtGui.QApplication.UnicodeUTF8))
         self.x264_cbr.setText(QtGui.QApplication.translate("MainWindow", "CBR", None, QtGui.QApplication.UnicodeUTF8))
         self.x264_crf.setToolTip(QtGui.QApplication.translate("MainWindow", "<html><head/><body><p><span style=\" font-weight:600;\">crf Default: 23.0</span></p><p>The final ratecontrol method: Constant Ratefactor. While qp targets a certain quantizer, and bitrate targets a certain filesize, crf targets a certain \'quality\'. The idea is for crf n to give the same perceptual quality as qp n, just in a smaller space. The arbitrary unit of measure for crf values is the &quot;ratefactor&quot;. CRF achieves this by reducing the quality of \'less important\' frames. In this context, \'less important\' means frames in complex or high-motion scenes, where quality is either more expensive (in terms of bits) or less visible, will have their quantizer increased. The bits saved in frames like these are redistributed to frames where they will be more effective. CRF will take less time than a 2pass bitrate encode, because the \'first pass\' from a 2pass encode was skipped. On the other hand, it\'s impossible to predict the bitrate a CRF encode will come out to. It\'s up to you to decide which rate-control mode is better for your circumstances. This option is mutually exclusive with qp and bitrate.</p></body></html>", None, QtGui.QApplication.UnicodeUTF8))
-        self.x264_crf_label.setText(QtGui.QApplication.translate("MainWindow", "crf", None, QtGui.QApplication.UnicodeUTF8))
+        self.x264_dropdown.setItemText(0, QtGui.QApplication.translate("MainWindow", "crf", None, QtGui.QApplication.UnicodeUTF8))
+        self.x264_dropdown.setItemText(1, QtGui.QApplication.translate("MainWindow", "qp", None, QtGui.QApplication.UnicodeUTF8))
         self.xvid_options_box.setTitle(QtGui.QApplication.translate("MainWindow", "xvid options", None, QtGui.QApplication.UnicodeUTF8))
         self.xvid_bitrate_label.setText(QtGui.QApplication.translate("MainWindow", "bitrate", None, QtGui.QApplication.UnicodeUTF8))
         self.xvid_fixed_quant_label.setText(QtGui.QApplication.translate("MainWindow", "fixed_quant", None, QtGui.QApplication.UnicodeUTF8))

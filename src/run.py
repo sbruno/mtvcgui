@@ -461,6 +461,14 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         self.set_xvid_cbr(self.xvid_cbr.isChecked())
                 
         #x264 options
+        
+        x264_dropdown_value = 'crf'
+        if config.has_option('mencoder GUI', 'x264_dropdown_value'):
+            x264_dropdown_value = config.get('mencoder GUI', 'x264_dropdown_value')
+            index = self.x264_dropdown.findText(x264_dropdown_value)
+            self.x264_dropdown.setCurrentIndex(index)
+        
+        self.update_crf_qp(x264_dropdown_value)
 
         if config.has_option('mencoder GUI', 'x264_cbr'):
             self.x264_cbr.setChecked(
@@ -711,6 +719,7 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         
         parameters['x264_cbr'] = self.x264_cbr.isChecked()
         parameters['x264_bitrate'] = str(self.x264_bitrate.text())
+        parameters['x264_dropdown_value'] = str(self.x264_dropdown.currentText())
         parameters['x264_qp'] = str(self.x264_qp.text())
         parameters['x264_crf'] = str(self.x264_crf.text())
         parameters['x264_extra_opts'] = str(self.x264_extra_opts.text())
@@ -986,17 +995,25 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         if is_cbr:
             self.x264_bitrate.show()
             self.x264_bitrate_label.show()
+            self.x264_dropdown.hide()
             self.x264_crf.hide()
-            self.x264_crf_label.hide()
             self.x264_qp.hide()
-            self.x264_qp_label.hide()
         else:
             self.x264_bitrate.hide()
             self.x264_bitrate_label.hide()
+            self.x264_dropdown.show()
+            value = str(self.x264_dropdown.currentText())
+            self.update_crf_qp(value)
+
+            
+    def update_crf_qp(self, value):
+        if value == 'crf':
             self.x264_crf.show()
-            self.x264_crf_label.show()
+            self.x264_qp.hide()
+        else:
+            self.x264_crf.hide()
             self.x264_qp.show()
-            self.x264_qp_label.show()
+
         
     def change_language(self, locale_string=None):
         self.locale_string = locale_string
