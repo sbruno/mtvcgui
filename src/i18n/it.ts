@@ -45,10 +45,10 @@ p, li { white-space: pre-wrap; }
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:600;&quot;&gt;mtvcgui v1.1&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-style:italic;&quot;&gt;mencoder TV capture GUI&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt; font-style:italic;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Una semplice interfaccia grafica per usare mencoder per acquisire da tv.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Semplice interfaccia grafica per usare mencoder per acquisire da tv.&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Scritto da Santiago Bruno usando python PyQt4 e Qtdesigner.&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Sotto Licenza  GPL v3:&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Licenza  GPL v3:&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://www.gnu.org/licenses/gpl-3.0.html&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;http://www.gnu.org/licenses/gpl-3.0.html&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Traduzione italiana:&lt;/span&gt;&lt;/p&gt;
@@ -57,7 +57,7 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Traduzione tedesca:&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Andreas Schalk (&lt;/span&gt;&lt;a href=&quot;http://easycap.blogspot.com&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;easycap.blogspot.com&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;)&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Altre-informazioni su:&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Altre informazioni su:&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://www.santiagobruno.com.ar/programas.html&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;http://www.santiagobruno.com.ar/programas.html&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://code.google.com/p/mtvcgui/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0057ae;&quot;&gt;http://code.google.com/p/mtvcgui/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
@@ -97,9 +97,9 @@ p, li { white-space: pre-wrap; }
 Current version get supported norms, video codecs and audio codecs from mplayer and store them as strings in the file ~/.mtvgui/mtvcgui.ini instead of integer values as in previous versions.
 
 To avoid this message to appear again select your desired norm, audio codec and video codec values next and save the configuration.</source>
-        <translation>Si sta utilizzando un file di configurazione di una versione precedente di mtvcgui.La versione corrente ottiene le informazioni sulle impostazioni dei codec video e audio da mplayer e sono salvate come stringhe nel file ~ / .mtvgui / mtvcgui.ini invece di valori interi, come nelle versioni precedenti
-.
-Per evitare che questo messaggio sia visualizzato ancora seleziona le impostazioni desiderate di codec audio e video e salva la configurazione.</translation>
+        <translation>Si sta utilizzando un file di configurazione di una versione precedente di mtvcgui. La versione corrente ottiene le informazioni sulle impostazioni dei codec audio e video da mplayer e sono salvate come stringhe nel file ~ / .mtvgui / mtvcgui.ini invece di valori interi come nelle versioni precedenti.
+
+Per evitare che questo messaggio sia visualizzato ancora seleziona le impostazioni desiderate per i codec audio e video e salva la configurazione.</translation>
     </message>
     <message>
         <location filename="run.py" line="834"/>
@@ -234,7 +234,7 @@ Per evitare che questo messaggio sia visualizzato ancora seleziona le impostazio
     <message>
         <location filename="mtvcgui.ui" line="810"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The tool will try to get the supported norms from mplayer based on current value of &amp;quot;Device&amp;quot;. However if this fails you may still enter any value for the norm, either by the norm name or its integer value norm or normid.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Il tool consulta mplayer per caricare la lista dei sistemi di trasmissione supportati dalla periferica-selezionata nel campo &amp;quot;Dispositivo&amp;quot;. Se non dovesse funzionare si può provare ad inserire un altro numero.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Il tool consulta mplayer per caricare la lista dei sistemi di trasmissione supportati dalla periferica selezionata nel campo &amp;quot;Dispositivo&amp;quot;. Se non dovesse funzionare si può provare ad inserire un altro numero.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="mtvcgui.ui" line="826"/>
@@ -264,7 +264,7 @@ Per evitare che questo messaggio sia visualizzato ancora seleziona le impostazio
     <message>
         <location filename="mtvcgui.ui" line="1032"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;bitrate=&amp;lt;value&amp;gt; (CBR or two pass mode)&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Sets the bitrate to be used in kbits/second if &amp;lt;16000 or in bits/second if &amp;gt;16000. If &amp;lt;value&amp;gt; is negative, XviD will use its absolute value as the target size (in kBytes) of the video and compute the associated bitrate automagically (default: 687 kbits/s).&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;bitrate=&amp;lt;valore&amp;gt; &lt;/span&gt;&lt;/p&gt;&lt;p&gt;Regola il bitrate da usare in kbits/secondo se &amp;lt;16000 oppure in bits/secondo se &amp;gt;16000. Se &amp;lt;valore&amp;gt; è negativo, XviD userà il valore assoluto come dimensione finale (in kbyte) del video e calcolerà automaticamente il valore del bitrate associato (default: 687 kbit/s).&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;bitrate=&amp;lt;valore&amp;gt; &lt;/span&gt;&lt;/p&gt;&lt;p&gt;Regola il bitrate da usare in kbits/secondo se si inserisce un valore &amp;lt;16000 oppure in bits/secondo se &amp;gt;16000. Se &amp;lt;valore&amp;gt; è negativo, XviD userà il valore assoluto come dimensione finale (in kbyte) del video e calcolerà automaticamente il valore del bitrate associato (default: 687 kbit/s).&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message utf8="true">
         <location filename="mtvcgui.ui" line="1048"/>
@@ -274,7 +274,7 @@ Per evitare che questo messaggio sia visualizzato ancora seleziona le impostazio
     <message utf8="true">
         <location filename="mtvcgui.ui" line="1064"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;me_quality=&amp;lt;0−6&amp;gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;This option controls the motion estimation subsystem. The higher the value, the more precise the estimation should be (default: 6). The more precise the motion estimation is, the more bits can be saved. Precision is gained at the expense of CPU time so decrease this setting if you need realtime encoding.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;me_quality=&amp;lt;0−6&amp;gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Questa opzione controlla il sottosistema di stima del movimento. Più è alto il valore più dovrebbe essere precisa la stima (default: 6). Più è precisa la stima del movimento, più bit sono risparmiati. La precisione però aumenta a spese dell&amp;apos;uso del processore, perciò è preferibile abassare questo valore se codifichi in tempo reale.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;me_quality=&amp;lt;0−6&amp;gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Questa opzione controlla il sottosistema di stima del movimento. Più è alto il valore più dovrebbe essere precisa la stima (default: 6). Più è precisa la stima del movimento, più bit sono risparmiati. La precisione però aumenta a spese dell&amp;apos;uso del processore, perciò è preferibile abassare questo valore quando si codifica in tempo reale.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="mtvcgui.ui" line="1083"/>
@@ -411,7 +411,7 @@ on the console</source>
     <message>
         <location filename="mtvcgui.ui" line="1747"/>
         <source>Schedule Recording</source>
-        <translation>Programma di registrazione</translation>
+        <translation>Programma la registrazione</translation>
     </message>
     <message>
         <location filename="mtvcgui.ui" line="1763"/>
@@ -456,12 +456,12 @@ on the console</source>
     <message>
         <location filename="mtvcgui.ui" line="1927"/>
         <source>About mtvcgui</source>
-        <translation>Su mtvcgui</translation>
+        <translation>Informazioni su mtvcgui</translation>
     </message>
     <message>
         <location filename="mtvcgui.ui" line="1900"/>
         <source>Restore saved configuration</source>
-        <translation>Ripristina configurazione salvata</translation>
+        <translation>Carica file di configurazione</translation>
     </message>
     <message>
         <location filename="mtvcgui.ui" line="1932"/>
@@ -476,7 +476,7 @@ on the console</source>
     <message>
         <location filename="mtvcgui.ui" line="1942"/>
         <source>Spanish (Argentina)</source>
-        <translation>Spagnolo (Argentina) </translation>
+        <translation>Spagnolo (Argentina)</translation>
     </message>
     <message>
         <location filename="mtvcgui.ui" line="1947"/>
@@ -546,7 +546,7 @@ on the console</source>
     <message>
         <location filename="mtvcgui.ui" line="1824"/>
         <source>To limit the recording length specify a duration in the first tab</source>
-        <translation>Per limitare la durata della cattura, specificare una durata nel primo tab</translation>
+        <translation>Per limitare il tempo di cattura specificare una durata nel primo tab</translation>
     </message>
     <message>
         <location filename="mtvcgui.ui" line="1952"/>
@@ -556,7 +556,7 @@ on the console</source>
     <message>
         <location filename="run.py" line="276"/>
         <source>Select the configuration file to save</source>
-        <translation>Seleziona la configurazione da salvare</translation>
+        <translation>Salva la configurazione come:</translation>
     </message>
     <message>
         <location filename="run.py" line="282"/>
@@ -571,7 +571,7 @@ on the console</source>
     <message>
         <location filename="mtvcgui.ui" line="1972"/>
         <source>Other</source>
-        <translation>Altro</translation>
+        <translation>Altri</translation>
     </message>
     <message>
         <location filename="run.py" line="282"/>
@@ -581,7 +581,7 @@ on the console</source>
     <message>
         <location filename="mtvcgui.ui" line="954"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;crf Default: 23.0&lt;/span&gt;&lt;/p&gt;&lt;p&gt;The final ratecontrol method: Constant Ratefactor. While qp targets a certain quantizer, and bitrate targets a certain filesize, crf targets a certain &apos;quality&apos;. The idea is for crf n to give the same perceptual quality as qp n, just in a smaller space. The arbitrary unit of measure for crf values is the &amp;quot;ratefactor&amp;quot;. CRF achieves this by reducing the quality of &apos;less important&apos; frames. In this context, &apos;less important&apos; means frames in complex or high-motion scenes, where quality is either more expensive (in terms of bits) or less visible, will have their quantizer increased. The bits saved in frames like these are redistributed to frames where they will be more effective. CRF will take less time than a 2pass bitrate encode, because the &apos;first pass&apos; from a 2pass encode was skipped. On the other hand, it&apos;s impossible to predict the bitrate a CRF encode will come out to. It&apos;s up to you to decide which rate-control mode is better for your circumstances. This option is mutually exclusive with qp and bitrate.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Constant Rate Factor. Default: 23.0&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Attiva la modalità a qualità constante, e ne imposta il livello. La scala è simile a QP. Questa modalità permette al codec di usare un QP diverso per ogni fotogramma basandosi sulla complessità del fotogramma stesso.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Constant Rate Factor. Default: 23.0&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Attiva la modalità a qualità constante, e ne imposta il livello. La scala è simile a QP (0-51). Per la codifica senza perdita di qualità (LOSSLESS) impostare 0. Il valore 18 rappresenta una codifica a qualità trasparente. La modalità CRF permette al codec di usare un QP diverso per ogni fotogramma basandosi sulla complessità del fotogramma stesso ed ottenere quindi un risultato migliore in termini di qualità e spazio occupato. In definitiva questa scelta rappresenta la massima qualità ottenibile nel minor spazio possibilie.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
 </context>
 </TS>
