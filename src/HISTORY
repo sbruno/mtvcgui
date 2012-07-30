@@ -1,7 +1,8 @@
-2012-Jun-21 -- mtvcgui v1.1
+2012-Jul-30 -- mtvcgui v1.1
 * Added german translation
 * Added extra mplayer parameters field in second tab
 * Added possibility to save and load alternative ini files
+* Other minor fixes
 
 2012-Jun-21 -- mtvcgui v1.0.2
 * Updated italian translation
