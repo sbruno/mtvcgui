@@ -1,4 +1,4 @@
-mtvcgui v1.0.2
+mtvcgui v1.1
 A graphical user interface for mencoder as a TV capture program.
 
 Author: Santiago Bruno
@@ -11,8 +11,10 @@ Dependencies:
 
 Configuration
 It has almost no default values. The chosen configuration from the GUI can be
-saved at any time to the mtvcgui.ini file, which will be stored in the directory
-.mtvcgui in the users home directory.
+saved at any time to the default file which is mtvcgui.ini, which will be
+stored in the directory .mtvcgui in the users home directory. This configuration
+will be loaded every time the application is started. The configuration may
+also be saved to an alternative file.
 A mtvcgui.ini.sample is provided, with the values I used to test it. It shows
 how to add extra parameters for deinterlacing, for example. If you want to use
 it, you need to rename it as mtvcgui.ini, change the norm value to the one
@@ -47,9 +49,8 @@ Troubleshooting:
     You can list devices with arecord --list-devices
 
     Black and white image can be probably misconfiguration of the norm.
-    The program defaults to NTSC (normid=0). You must adjust this value to the
-    norm used in your country. A tooltip with normid values will show up if you
-    point over the normid scroll box.
+    You must adjust this value to the norm used in your country for TV, or
+    whichever norm your device uses.
     
     Preview doesn't work: If you get an error related with parsing the filters
     parameters, that may be because some parameters only work with mencoder and
