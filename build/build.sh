@@ -16,6 +16,7 @@ sed -i "s/FIELD_FOR_VERSION/${1}/g" ~/rpmbuild/SPECS/mtvcgui.spec
 cd ~/rpmbuild/SOURCES
 svn export /mnt/data/santiago/svn/mtvcgui/src mtvcgui-${1}
 tar zcvf mtvcgui-${1}.tgz mtvcgui-${1}
+cp mtvcgui-${1}.tgz ~/archlinux/${1}
 rm -rf mtvcgui-${1}
 cd ~/rpmbuild/SPECS
 rpmbuild -bb --target noarch mtvcgui.spec
