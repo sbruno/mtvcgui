@@ -1013,8 +1013,40 @@ class MainWindow(QtGui.QMainWindow, Ui_MainWindow):
         else:
             self.x264_crf.hide()
             self.x264_qp.show()
-
+    
+    def browseOutFile(self):
+        filename = QtGui.QFileDialog.getOpenFileName()
+        if filename:
+            self.outputfile.setText(filename)
+    
+    def addOutputFileSuffix(self, suffix):
+        filepath = self.outputfile.text()
+        if filepath:
+            filepath = str(filepath)
+        if filepath:
+            filename = os.path.basename(filepath)
+            directory = filepath[:-len(filename)]
+            
+            if "_{" in filename:
+                if not suffix in filename:
+                    filename = filename.replace("_{", "_{%s_" % suffix)
+            else:
+                filename_parts = filename.split('.')
+                index_to_change = -1
+                if len(filename_parts) > 1:
+                    index_to_change = -2
+                
+                filename_parts[index_to_change] = filename_parts[index_to_change] + "_{%s}" % suffix
+                filename = '.'.join(filename_parts)
+            
+        self.outputfile.setText(directory+filename)
         
+    def addChannelSuffix(self):
+        self.addOutputFileSuffix("%channel")
+    
+    def addDateSuffix(self):
+        self.addOutputFileSuffix("%Y%m%d_%H%M%S")
+    
     def change_language(self, locale_string=None):
         self.locale_string = locale_string
         if self.translator:

@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'mtvcgui.ui'
 #
-# Created: Thu Jul  5 23:38:41 2012
+# Created: Tue Sep  4 20:29:27 2012
 #      by: PyQt4 UI code generator 4.9.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -24,7 +24,7 @@ class Ui_MainWindow(object):
         self.runButton.setGeometry(QtCore.QRect(190, 450, 95, 25))
         self.runButton.setObjectName(_fromUtf8("runButton"))
         self.outputfile = QtGui.QLineEdit(self.centralwidget)
-        self.outputfile.setGeometry(QtCore.QRect(125, 360, 561, 26))
+        self.outputfile.setGeometry(QtCore.QRect(125, 360, 461, 26))
         self.outputfile.setText(_fromUtf8("./capture_{%channel_%Y%m%d_%H%M%S}.avi"))
         self.outputfile.setObjectName(_fromUtf8("outputfile"))
         self.label = QtGui.QLabel(self.centralwidget)
@@ -514,6 +514,15 @@ class Ui_MainWindow(object):
         self.status_label = QtGui.QLabel(self.centralwidget)
         self.status_label.setGeometry(QtCore.QRect(495, 455, 186, 16))
         self.status_label.setObjectName(_fromUtf8("status_label"))
+        self.outBrowseBtn = QtGui.QPushButton(self.centralwidget)
+        self.outBrowseBtn.setGeometry(QtCore.QRect(585, 361, 101, 26))
+        self.outBrowseBtn.setObjectName(_fromUtf8("outBrowseBtn"))
+        self.addDateSuffixBtn = QtGui.QPushButton(self.centralwidget)
+        self.addDateSuffixBtn.setGeometry(QtCore.QRect(305, 390, 190, 22))
+        self.addDateSuffixBtn.setObjectName(_fromUtf8("addDateSuffixBtn"))
+        self.addDateSuffixBtn_2 = QtGui.QPushButton(self.centralwidget)
+        self.addDateSuffixBtn_2.setGeometry(QtCore.QRect(500, 390, 190, 22))
+        self.addDateSuffixBtn_2.setObjectName(_fromUtf8("addDateSuffixBtn_2"))
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtGui.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 694, 19))
@@ -608,6 +617,9 @@ class Ui_MainWindow(object):
         QtCore.QObject.connect(self.actionDefault, QtCore.SIGNAL(_fromUtf8("activated()")), MainWindow.save_configuration)
         QtCore.QObject.connect(self.actionDefault_2, QtCore.SIGNAL(_fromUtf8("activated()")), MainWindow.set_params_from_config)
         QtCore.QObject.connect(self.x264_dropdown, QtCore.SIGNAL(_fromUtf8("currentIndexChanged(QString)")), MainWindow.update_crf_qp)
+        QtCore.QObject.connect(self.outBrowseBtn, QtCore.SIGNAL(_fromUtf8("clicked()")), MainWindow.browseOutFile)
+        QtCore.QObject.connect(self.addDateSuffixBtn, QtCore.SIGNAL(_fromUtf8("clicked()")), MainWindow.addDateSuffix)
+        QtCore.QObject.connect(self.addDateSuffixBtn_2, QtCore.SIGNAL(_fromUtf8("clicked()")), MainWindow.addChannelSuffix)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -700,6 +712,9 @@ class Ui_MainWindow(object):
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_4), QtGui.QApplication.translate("MainWindow", "Advanced", None, QtGui.QApplication.UnicodeUTF8))
         self.append_suffix.setText(QtGui.QApplication.translate("MainWindow", "Append a number suffix if file exists", None, QtGui.QApplication.UnicodeUTF8))
         self.status_label.setText(QtGui.QApplication.translate("MainWindow", "Stopped", None, QtGui.QApplication.UnicodeUTF8))
+        self.outBrowseBtn.setText(QtGui.QApplication.translate("MainWindow", "Browse", None, QtGui.QApplication.UnicodeUTF8))
+        self.addDateSuffixBtn.setText(QtGui.QApplication.translate("MainWindow", "Add date suffix", None, QtGui.QApplication.UnicodeUTF8))
+        self.addDateSuffixBtn_2.setText(QtGui.QApplication.translate("MainWindow", "Add channel suffix", None, QtGui.QApplication.UnicodeUTF8))
         self.menuPrueba.setTitle(QtGui.QApplication.translate("MainWindow", "Menu", None, QtGui.QApplication.UnicodeUTF8))
         self.menuChange_language.setTitle(QtGui.QApplication.translate("MainWindow", "Change language", None, QtGui.QApplication.UnicodeUTF8))
         self.menuSave_configuration.setTitle(QtGui.QApplication.translate("MainWindow", "Save configuration", None, QtGui.QApplication.UnicodeUTF8))

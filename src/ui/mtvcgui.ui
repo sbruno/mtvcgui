@@ -32,7 +32,7 @@
      <rect>
       <x>125</x>
       <y>360</y>
-      <width>561</width>
+      <width>461</width>
       <height>26</height>
      </rect>
     </property>
@@ -1849,6 +1849,45 @@ on the console</string>
      <string>Stopped</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="outBrowseBtn">
+    <property name="geometry">
+     <rect>
+      <x>585</x>
+      <y>361</y>
+      <width>101</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Browse</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="addDateSuffixBtn">
+    <property name="geometry">
+     <rect>
+      <x>305</x>
+      <y>390</y>
+      <width>190</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Add date suffix</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="addDateSuffixBtn_2">
+    <property name="geometry">
+     <rect>
+      <x>500</x>
+      <y>390</y>
+      <width>190</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Add channel suffix</string>
+    </property>
+   </widget>
    <zorder>tabWidget</zorder>
    <zorder>runButton</zorder>
    <zorder>outputfile</zorder>
@@ -1858,6 +1897,9 @@ on the console</string>
    <zorder>stopButton</zorder>
    <zorder>append_suffix</zorder>
    <zorder>status_label</zorder>
+   <zorder>outBrowseBtn</zorder>
+   <zorder>addDateSuffixBtn</zorder>
+   <zorder>addDateSuffixBtn_2</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -2424,7 +2466,7 @@ on the console</string>
    <slot>set_x264_cbr(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>473</x>
+     <x>549</x>
      <y>292</y>
     </hint>
     <hint type="destinationlabel">
@@ -2520,12 +2562,60 @@ on the console</string>
    <slot>update_crf_qp(QString)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>260</x>
-     <y>289</y>
+     <x>329</x>
+     <y>293</y>
     </hint>
     <hint type="destinationlabel">
      <x>144</x>
      <y>465</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>outBrowseBtn</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>browseOutFile()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>629</x>
+     <y>395</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>463</x>
+     <y>429</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>addDateSuffixBtn</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>addDateSuffix()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>356</x>
+     <y>419</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>144</x>
+     <y>497</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>addDateSuffixBtn_2</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>addChannelSuffix()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>516</x>
+     <y>419</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>264</x>
+     <y>428</y>
     </hint>
    </hints>
   </connection>
@@ -2562,5 +2652,8 @@ on the console</string>
   <slot>show_save_config_dialog()</slot>
   <slot>show_load_config_dialog()</slot>
   <slot>update_crf_qp(QString)</slot>
+  <slot>browseOutFile()</slot>
+  <slot>addDateSuffix()</slot>
+  <slot>addChannelSuffix()</slot>
  </slots>
 </ui>
