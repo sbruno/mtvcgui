@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>694</width>
-    <height>523</height>
+    <height>521</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,7 +18,7 @@
     <property name="geometry">
      <rect>
       <x>190</x>
-      <y>450</y>
+      <y>470</y>
       <width>95</width>
       <height>25</height>
      </rect>
@@ -57,7 +57,7 @@
     <property name="geometry">
      <rect>
       <x>505</x>
-      <y>415</y>
+      <y>435</y>
       <width>186</width>
       <height>26</height>
      </rect>
@@ -70,7 +70,7 @@
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>415</y>
+      <y>435</y>
       <width>506</width>
       <height>26</height>
      </rect>
@@ -89,7 +89,7 @@
     <property name="geometry">
      <rect>
       <x>380</x>
-      <y>450</y>
+      <y>470</y>
       <width>95</width>
       <height>25</height>
      </rect>
@@ -661,12 +661,12 @@
        </item>
        <item>
         <property name="text">
-         <string notr="true">mspeg4</string>
+         <string notr="true">msmpeg4</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string notr="true">mspeg4v2</string>
+         <string notr="true">msmpeg4v2</string>
         </property>
        </item>
        <item>
@@ -692,6 +692,11 @@
        <item>
         <property name="text">
          <string notr="true">mpeg1video</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>mpeg2video</string>
         </property>
        </item>
        <item>
@@ -1823,14 +1828,19 @@ on the console</string>
    <widget class="QCheckBox" name="append_suffix">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>385</y>
-      <width>666</width>
-      <height>23</height>
+      <x>5</x>
+      <y>395</y>
+      <width>26</width>
+      <height>26</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <kerning>true</kerning>
+     </font>
+    </property>
     <property name="text">
-     <string>Append a number suffix if file exists</string>
+     <string notr="true"/>
     </property>
     <property name="checked">
      <bool>true</bool>
@@ -1840,7 +1850,7 @@ on the console</string>
     <property name="geometry">
      <rect>
       <x>495</x>
-      <y>455</y>
+      <y>475</y>
       <width>186</width>
       <height>16</height>
      </rect>
@@ -1854,7 +1864,7 @@ on the console</string>
      <rect>
       <x>585</x>
       <y>361</y>
-      <width>101</width>
+      <width>106</width>
       <height>26</height>
      </rect>
     </property>
@@ -1865,11 +1875,14 @@ on the console</string>
    <widget class="QPushButton" name="addDateSuffixBtn">
     <property name="geometry">
      <rect>
-      <x>305</x>
+      <x>255</x>
       <y>390</y>
-      <width>190</width>
-      <height>22</height>
+      <width>216</width>
+      <height>26</height>
      </rect>
+    </property>
+    <property name="toolTip">
+     <string>Add date suffix</string>
     </property>
     <property name="text">
      <string>Add date suffix</string>
@@ -1878,14 +1891,33 @@ on the console</string>
    <widget class="QPushButton" name="addDateSuffixBtn_2">
     <property name="geometry">
      <rect>
-      <x>500</x>
+      <x>474</x>
       <y>390</y>
-      <width>190</width>
-      <height>22</height>
+      <width>216</width>
+      <height>26</height>
      </rect>
+    </property>
+    <property name="toolTip">
+     <string>Add channel suffix</string>
     </property>
     <property name="text">
      <string>Add channel suffix</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_37">
+    <property name="geometry">
+     <rect>
+      <x>35</x>
+      <y>385</y>
+      <width>216</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Append a number suffix if file exists</string>
+    </property>
+    <property name="wordWrap">
+     <bool>true</bool>
     </property>
    </widget>
    <zorder>tabWidget</zorder>
@@ -1900,6 +1932,7 @@ on the console</string>
    <zorder>outBrowseBtn</zorder>
    <zorder>addDateSuffixBtn</zorder>
    <zorder>addDateSuffixBtn_2</zorder>
+   <zorder>label_37</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -1952,7 +1985,6 @@ on the console</string>
    <addaction name="menuPrueba"/>
    <addaction name="menuHelp"/>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
   <action name="actionSalir">
    <property name="text">
     <string>Exit</string>

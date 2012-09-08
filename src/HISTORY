@@ -1,3 +1,7 @@
+2012-Sep-07 -- mtvcgui v1.2
+* Added button to browse for output file
+* Corrected some lavc video codec names
+
 2012-Jul-30 -- mtvcgui v1.1
 * Added german translation
 * Added extra mplayer parameters field in second tab
